@@ -1,0 +1,461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::GConf::Client</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/GConf/Engine.html">Next:<br />Gnome2::GConf::Engine</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/GConf/ChangeSet.html">Previous:<br />Gnome2::GConf::ChangeSet</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::GConf::Client</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#ERROR_HANDLING">ERROR HANDLING</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#_client_add_dir_dir_">$client-&gt;<b>add_dir</b> ($dir, $preload, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#list_client_all_dirs">list = $client-&gt;<b>all_dirs</b>($dir, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#list_client_all_entr">list = $client-&gt;<b>all_entries</b>($dir, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_get_b">boolean = $client-&gt;<b>get_bool</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_set_b">boolean = $client-&gt;<b>set_bool</b> ($key, $val, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#changeset_client_cha">changeset = $client-&gt;<b>change_set_from_current</b> ($check_error=TRUE, $key, ...)</a>
+<li><a class="POD_NAVLINK" href="#_client_clear_cache">$client-&gt;<b>clear_cache</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_client_commi">boolean = $client-&gt;<b>commit_change_set</b> ($cs, $remove_committed, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#_boolean_changeset_c">(boolean, changeset) = $client-&gt;<b>commit_change_set</b> ($cs, $remove_committed, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#value_client_get_def">value = $client-&gt;<b>get_default_from_schema</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#client_Gnome2_GConf_">client = Gnome2::GConf::Client-&gt;<b>get_default</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_client_dir_e">boolean = $client-&gt;<b>dir_exists</b> ($dir, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#entry_client_get_ent">entry = $client-&gt;<b>get_entry</b> ($key, $locale, $use_schema_default, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#list_client_error_er">list = $client-&gt;<b>error</b> ($error)</a>
+<li><a class="POD_NAVLINK" href="#_client_set_error_ha">$client-&gt;<b>set_error_handling</b> ($mode)</a>
+<li><a class="POD_NAVLINK" href="#double_client_get_fl">double = $client-&gt;<b>get_float</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_set_f">boolean = $client-&gt;<b>set_float</b> ($key, $val, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#client_Gnome2_GConf_1">client = Gnome2::GConf::Client-&gt;<b>get_for_engine</b> ($engine)</a>
+<li><a class="POD_NAVLINK" href="#value_client_get_key">value = $client-&gt;<b>get</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#_client_set_key_valu">$client-&gt;<b>set</b> ($key, $value, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#integer_client_get_i">integer = $client-&gt;<b>get_int</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_set_i">boolean = $client-&gt;<b>set_int</b> ($key, $val, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_key_i">boolean = $client-&gt;<b>key_is_writable</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#_client_get_list_key">$client-&gt;<b>get_list</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_set_l">boolean = $client-&gt;<b>set_list</b> ($key, $list_type, $list, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#integer_client_notif">integer = $client-&gt;<b>notify_add</b> ($namespace_section, $func, $data=undef, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#_client_notify_remov">$client-&gt;<b>notify_remove</b> ($cnxn_id)</a>
+<li><a class="POD_NAVLINK" href="#_client_get_pair_key">$client-&gt;<b>get_pair</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_set_p">boolean = $client-&gt;<b>set_pair</b> ($key, $car, $cdr, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#_client_preload_dirn">$client-&gt;<b>preload</b> ($dirname, $type, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_recur">boolean = $client-&gt;<b>recursive_unset</b> ($key, $flags=0, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#_client_remove_dir_d">$client-&gt;<b>remove_dir</b> ($dir, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#changeset_client_rev">changeset = $client-&gt;<b>reverse_change_set</b> ($cs, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#schema_client_get_sc">schema = $client-&gt;<b>get_schema</b> ($key)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_set_s">boolean = $client-&gt;<b>set_schema</b> ($key, $schema, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#string_client_get_st">string = $client-&gt;<b>get_string</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_set_s1">boolean = $client-&gt;<b>set_string</b> ($key, $val, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#_client_suggest_sync">$client-&gt;<b>suggest_sync</b> ($check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#list_client_unreturn">list = $client-&gt;<b>unreturned_error</b> ($error)</a>
+<li><a class="POD_NAVLINK" href="#boolean_client_unset">boolean = $client-&gt;<b>unset</b> ($key, $check_error=TRUE)</a>
+<li><a class="POD_NAVLINK" href="#list_client_value_ch">list = $client-&gt;<b>value_changed</b> ($key, $value)</a>
+<li><a class="POD_NAVLINK" href="#value_client_get_wit">value = $client-&gt;<b>get_without_default</b> ($key, $check_error=TRUE)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gnome2_GConf_Cl">enum Gnome2::GConf::ClientErrorHandlingMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gnome2_GConf_Cl1">enum Gnome2::GConf::ClientPreloadType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gnome2_GConf_U">flags Gnome2::GConf::UnsetFlags</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::GConf::Client
+</p>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+Gnome2::GConf::Client is a commodity class based on <code>GObject</code> used to access
+the default <code>GConfEngine</code> provided by the GConf daemon.  It has a cache,
+finer-grained notification of changes and a default error handling mechanism.
+</p>
+<h2 class="POD_HEAD1"><a name="ERROR_HANDLING">ERROR HANDLING</a></h2>
+<p class="POD_TEXT">
+In C, each fallible function has a <code>GError</code> optional argument: by setting it
+to a valid <code>GError</code> structure, the function will fill it in case of error; by
+passing a NULL value, the function will silently fail.
+</p>
+<p class="POD_TEXT">
+In Perl, each fallible method has a boolean <code>check_error</code> argument; by setting
+this argument to <code>TRUE</code>, the method will croak con failure, otherwise it will
+silently fail.
+</p>
+<p class="POD_TEXT">
+<b>NOTE</b>: To retain backward compatibility, the default behaviour is to check
+each error; that is, the <code>check_error</code> argument silently is set to TRUE.
+</p>
+<p class="POD_TEXT">
+In order to catch an error, you might use eval as a try...catch equivalent:
+</p>
+<pre class="POD_VERBATIM">
+  eval { $s = $client-&gt;get_string($some_key); 1; };
+  if (Glib::Error::matches($@, &#39;Gnome2::GConf::Error&#39;, &#39;bad-key&#39;))
+  {
+    # recover from a bad-key error.
+  }
+</pre>
+<p class="POD_TEXT">
+On failure, if the error is unchecked, the <code>unreturned_error</code> signal will be
+fired by the Gnome2::GConf::Client object; the <code>error</code> signal will <b>always</b>
+be fired, whether the error is checked or not.
+</p>
+<p class="POD_TEXT">
+If you want to let the global error handler function catch just the unchecked
+error, use the <code>Gnome2::GConf::Client::set_error_handling</code> method, and attach
+a callback to the <code>unreturned_error</code> signal:
+</p>
+<pre class="POD_VERBATIM">
+  $client-&gt;set_error_handling(&#39;handle-unreturned&#39;);
+  $client-&gt;signal_connect(unreturned_error =&gt; sub {
+      my ($client, $error) = @_;
+      warn $error; # is a Glib::Error
+    });
+</pre>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gnome2::GConf::Client
+</pre>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="_client_add_dir_dir_">$client-&gt;<b>add_dir</b> ($dir, $preload, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dir_string_"><p>$dir (string)</p></a>
+<li class="POD_ITEM"><a name="_preload_Gnome2_GCon"><p>$preload (Gnome2::GConf::ClientPreloadType)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_client_all_dirs">list = $client-&gt;<b>all_dirs</b>($dir, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dir_string_1"><p>$dir (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean1"><p>$check_error (boolean)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+This method returns an array containing all the directories in a given directory.
+</p>
+<h3 class="POD_HEAD2"><a name="list_client_all_entr">list = $client-&gt;<b>all_entries</b>($dir, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dir_string_2"><p>$dir (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean2"><p>$check_error (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+This method returns an array containing all the entries (as <a class="POD_LINK" href="../../Gnome2/GConf/Entry.html">Gnome2::GConf::Entry</a>) of a given directory.
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_client_get_b">boolean = $client-&gt;<b>get_bool</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean3"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_client_set_b">boolean = $client-&gt;<b>set_bool</b> ($key, $val, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_1"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_val_boolean_"><p>$val (boolean)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean4"><p>$check_error (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns FALSE on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="changeset_client_cha">changeset = $client-&gt;<b>change_set_from_current</b> ($check_error=TRUE, $key, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_check_error_boolean5"><p>$check_error (boolean)</p></a>
+<li class="POD_ITEM"><a name="_list_list_of_keys_t"><p>... (list) list of keys to add to the changeset</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Create a <a class="POD_LINK" href="../../Gnome2/GConf/ChangeSet.html">Gnome2::GConf::ChangeSet</a> from a list of keys inside the GConf
+database.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_client_clear_cache">$client-&gt;<b>clear_cache</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_client_commi">boolean = $client-&gt;<b>commit_change_set</b> ($cs, $remove_committed, $check_error=TRUE)</a></h3>
+<h3 class="POD_HEAD2"><a name="_boolean_changeset_c">(boolean, changeset) = $client-&gt;<b>commit_change_set</b> ($cs, $remove_committed, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cs_changeset_"><p>$cs (changeset)</p></a>
+<li class="POD_ITEM"><a name="_remove_committed_bo"><p>$remove_committed (boolean)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean6"><p>$check_error (boolean)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Commit a given <a class="POD_LINK" href="../../Gnome2/GConf/ChangeSet.html">Gnome2::GConf::ChangeSet</a>.  In scalar context, or if
+<i>$remove_committed</i> is FALSE, return a boolean value; otherwise, return the
+boolean value and the <a class="POD_LINK" href="../../Gnome2/GConf/ChangeSet.html">Gnome2::GConf::ChangeSet</a> <i>$cs</i>, pruned of the
+successfully committed changes.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="value_client_get_def">value = $client-&gt;<b>get_default_from_schema</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_2"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean7"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="client_Gnome2_GConf_">client = Gnome2::GConf::Client-&gt;<b>get_default</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_client_dir_e">boolean = $client-&gt;<b>dir_exists</b> ($dir, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dir_string_3"><p>$dir (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean8"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="entry_client_get_ent">entry = $client-&gt;<b>get_entry</b> ($key, $locale, $use_schema_default, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_3"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_locale_string_"><p>$locale (string)</p></a>
+<li class="POD_ITEM"><a name="_use_schema_default_"><p>$use_schema_default (boolean)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean9"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_client_error_er">list = $client-&gt;<b>error</b> ($error)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_error_scalar_a_Glib"><p>$error (scalar) a <a class="POD_LINK" href="../../Glib/Error.html">Glib::Error</a></p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+You should not use this method.
+This method emits the &quot;error&quot; signal.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_client_set_error_ha">$client-&gt;<b>set_error_handling</b> ($mode)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mode_Gnome2_GConf_C"><p>$mode (Gnome2::GConf::ClientErrorHandlingMode)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_client_get_fl">double = $client-&gt;<b>get_float</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_4"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean10"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_client_set_f">boolean = $client-&gt;<b>set_float</b> ($key, $val, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_5"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_val_double_"><p>$val (double)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean11"><p>$check_error (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns FALSE on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="client_Gnome2_GConf_1">client = Gnome2::GConf::Client-&gt;<b>get_for_engine</b> ($engine)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_engine_engine_"><p>$engine (engine)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="value_client_get_key">value = $client-&gt;<b>get</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_6"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean12"><p>$check_error (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Fetch the <code>GConfValue</code> bound to the give <i>$key</i>.
+</p>
+<h3 class="POD_HEAD2"><a name="_client_set_key_valu">$client-&gt;<b>set</b> ($key, $value, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_7"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_value_value_"><p>$value (value)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean13"><p>$check_error (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Set the <code>GConfValue</code> <i>$val</i> bound to the given <i>$key</i>.
+</p>
+<h3 class="POD_HEAD2"><a name="integer_client_get_i">integer = $client-&gt;<b>get_int</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_8"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean14"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_client_set_i">boolean = $client-&gt;<b>set_int</b> ($key, $val, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_9"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_val_integer_"><p>$val (integer)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean15"><p>$check_error (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns FALSE on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_client_key_i">boolean = $client-&gt;<b>key_is_writable</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_10"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean16"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_client_get_list_key">$client-&gt;<b>get_list</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_11"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean17"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_client_set_l">boolean = $client-&gt;<b>set_list</b> ($key, $list_type, $list, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_12"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_list_type_string_"><p>$list_type (string)</p></a>
+<li class="POD_ITEM"><a name="_list_scalar_"><p>$list (scalar)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean18"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_client_notif">integer = $client-&gt;<b>notify_add</b> ($namespace_section, $func, $data=undef, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_namespace_section_s"><p>$namespace_section (string)</p></a>
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean19"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_client_notify_remov">$client-&gt;<b>notify_remove</b> ($cnxn_id)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cnxn_id_integer_"><p>$cnxn_id (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_client_get_pair_key">$client-&gt;<b>get_pair</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_13"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean20"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_client_set_p">boolean = $client-&gt;<b>set_pair</b> ($key, $car, $cdr, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_14"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_car_value_"><p>$car (value)</p></a>
+<li class="POD_ITEM"><a name="_cdr_value_"><p>$cdr (value)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean21"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_client_preload_dirn">$client-&gt;<b>preload</b> ($dirname, $type, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dirname_string_"><p>$dirname (string)</p></a>
+<li class="POD_ITEM"><a name="_type_Gnome2_GConf_C"><p>$type (Gnome2::GConf::ClientPreloadType)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean22"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_client_recur">boolean = $client-&gt;<b>recursive_unset</b> ($key, $flags=0, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_15"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_flags_Gnome2_GConf_"><p>$flags (Gnome2::GConf::UnsetFlags)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean23"><p>$check_error (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gconf 2.3
+</p>
+<h3 class="POD_HEAD2"><a name="_client_remove_dir_d">$client-&gt;<b>remove_dir</b> ($dir, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dir_string_4"><p>$dir (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean24"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="changeset_client_rev">changeset = $client-&gt;<b>reverse_change_set</b> ($cs, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cs_changeset_1"><p>$cs (changeset)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean25"><p>$check_error (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Reverse the given <a class="POD_LINK" href="../../Gnome2/GConf/ChangeSet.html">Gnome2::GConf::ChangeSet</a>.
+</p>
+<h3 class="POD_HEAD2"><a name="schema_client_get_sc">schema = $client-&gt;<b>get_schema</b> ($key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_16"><p>$key (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_client_set_s">boolean = $client-&gt;<b>set_schema</b> ($key, $schema, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_17"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_schema_schema_"><p>$schema (schema)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean26"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_client_get_st">string = $client-&gt;<b>get_string</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_18"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean27"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_client_set_s1">boolean = $client-&gt;<b>set_string</b> ($key, $val, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_19"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_val_string_"><p>$val (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean28"><p>$check_error (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns FALSE on failure
+</p>
+<h3 class="POD_HEAD2"><a name="_client_suggest_sync">$client-&gt;<b>suggest_sync</b> ($check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_check_error_boolean29"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_client_unreturn">list = $client-&gt;<b>unreturned_error</b> ($error)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_error_scalar_a_Glib1"><p>$error (scalar) a <a class="POD_LINK" href="../../Glib/Error.html">Glib::Error</a></p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+You should not use this method.
+This method emits the &quot;unreturned-error&quot; signal.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="boolean_client_unset">boolean = $client-&gt;<b>unset</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_20"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean30"><p>$check_error (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_client_value_ch">list = $client-&gt;<b>value_changed</b> ($key, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_21"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_value_value_1"><p>$value (value)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+You should not use this method.
+This method emits the &quot;value-changed&quot; signal.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="value_client_get_wit">value = $client-&gt;<b>get_without_default</b> ($key, $check_error=TRUE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_string_22"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_check_error_boolean31"><p>$check_error (boolean)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="value_changed_Gnome2"><b>value-changed</b> (Gnome2::GConf::Client, string, gpointer)</a>
+<dt><a name="unreturned_error_Gno"><b>unreturned-error</b> (Gnome2::GConf::Client, gpointer)</a>
+<dt><a name="error_Gnome2_GConf_C"><b>error</b> (Gnome2::GConf::Client, gpointer)</a>
+<dd></dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gnome2_GConf_Cl">enum Gnome2::GConf::ClientErrorHandlingMode</a></h3>
+<p></p>
+<p></p>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_handle_none_GCONF_C"><p>&#39;handle-none&#39; / &#39;GCONF_CLIENT_HANDLE_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_handle_unreturned_G"><p>&#39;handle-unreturned&#39; / &#39;GCONF_CLIENT_HANDLE_UNRETURNED&#39;</p></a>
+<li class="POD_ITEM"><a name="_handle_all_GCONF_CL"><p>&#39;handle-all&#39; / &#39;GCONF_CLIENT_HANDLE_ALL&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gnome2_GConf_Cl1">enum Gnome2::GConf::ClientPreloadType</a></h3>
+<p></p>
+<p></p>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_preload_none_GCONF_"><p>&#39;preload-none&#39; / &#39;GCONF_CLIENT_PRELOAD_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_preload_onelevel_GC"><p>&#39;preload-onelevel&#39; / &#39;GCONF_CLIENT_PRELOAD_ONELEVEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_preload_recursive_G"><p>&#39;preload-recursive&#39; / &#39;GCONF_CLIENT_PRELOAD_RECURSIVE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="flags_Gnome2_GConf_U">flags Gnome2::GConf::UnsetFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_names_GCONF_UNSET_I"><p>&#39;names&#39; / &#39;GCONF_UNSET_INCLUDING_SCHEMA_NAMES&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../../Gnome2/GConf.html">Gnome2::GConf</a>, <a class="POD_LINK" href="../../Glib/Object.html">Glib::Object</a>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2006 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gnome2/GConf.html">Gnome2::GConf</a> for a full
+notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:29 2009
+</body>
+</html>
+

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::CellRendererProgress</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/CellRendererSpin.html">Next:<br />Gtk2::CellRendererSpin</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/CellRendererPixbuf.html">Previous:<br />Gtk2::CellRendererPixbuf</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::CellRendererProgress</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#cellrenderer_Gtk2_Ce">cellrenderer = Gtk2::CellRendererProgress-&gt;<b>new</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ProgressBa">enum Gtk2::ProgressBarOrientation</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::CellRendererProgress
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::CellRenderer
+                 +----Gtk2::CellRendererProgress
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="cellrenderer_Gtk2_Ce">cellrenderer = Gtk2::CellRendererProgress-&gt;<b>new</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_orientation_Gtk2_Pr">&#39;orientation&#39; (Gtk2::ProgressBarOrientation : readable / writable / private)</a>
+<dd>
+Orientation and growth direction of the progress bar
+<dt class="POD_ITEM"><a name="_pulse_integer_reada">&#39;pulse&#39; (integer : readable / writable / private)</a>
+<dd>
+Set this to positive values to indicate that some progress is made, but you don&#39;t know how much.
+<dt class="POD_ITEM"><a name="_text_string_readabl">&#39;text&#39; (string : readable / writable / private)</a>
+<dd>
+Text on the progress bar
+<dt class="POD_ITEM"><a name="_text_xalign_Glib_Fl">&#39;text-xalign&#39; (Glib::Float : readable / writable / private)</a>
+<dd>
+The horizontal text alignment, from 0 (left) to 1 (right). Reversed for RTL layouts.
+<dt class="POD_ITEM"><a name="_text_yalign_Glib_Fl">&#39;text-yalign&#39; (Glib::Float : readable / writable / private)</a>
+<dd>
+The vertical text alignment, from 0 (top) to 1 (bottom).
+<dt class="POD_ITEM"><a name="_value_integer_reada">&#39;value&#39; (integer : readable / writable / private)</a>
+<dd>
+Value of the progress bar
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ProgressBa">enum Gtk2::ProgressBarOrientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_left_to_right_GTK_P"><p>&#39;left-to-right&#39; / &#39;GTK_PROGRESS_LEFT_TO_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_to_left_GTK_P"><p>&#39;right-to-left&#39; / &#39;GTK_PROGRESS_RIGHT_TO_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_to_top_GTK_P"><p>&#39;bottom-to-top&#39; / &#39;GTK_PROGRESS_BOTTOM_TO_TOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_to_bottom_GTK_P"><p>&#39;top-to-bottom&#39; / &#39;GTK_PROGRESS_TOP_TO_BOTTOM&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/CellRenderer.html">Gtk2::CellRenderer</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:42 2009
+</body>
+</html>
+

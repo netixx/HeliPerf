@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Print::UnitSelector</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Program.html">Next:<br />Gnome2::Program</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Print/Unit.html">Previous:<br />Gnome2::Print::Unit</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Print::UnitSelector</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_Print_">widget = Gnome2::Print::UnitSelector-&gt;<b>new</b> ($bases)</a>
+<li><a class="POD_NAVLINK" href="#_selector_add_adjust">$selector-&gt;<b>add_adjustment</b> ($adjustment)</a>
+<li><a class="POD_NAVLINK" href="#_selector_set_bases_">$selector-&gt;<b>set_bases</b> ($bases)</a>
+<li><a class="POD_NAVLINK" href="#_selector_remove_adj">$selector-&gt;<b>remove_adjustment</b> ($adjustment)</a>
+<li><a class="POD_NAVLINK" href="#unit_selector_get_un">unit = $selector-&gt;<b>get_unit</b></a>
+<li><a class="POD_NAVLINK" href="#_selector_set_unit_u">$selector-&gt;<b>set_unit</b> ($unit)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Print::UnitSelector
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Box
+                           +----Gtk2::HBox
+                                +----Gnome2::Print::UnitSelector
+</pre>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_Print_">widget = Gnome2::Print::UnitSelector-&gt;<b>new</b> ($bases)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_bases_integer_"><p>$bases (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selector_add_adjust">$selector-&gt;<b>add_adjustment</b> ($adjustment)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_adjustment_Gtk2_Adj"><p>$adjustment (Gtk2::Adjustment)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selector_set_bases_">$selector-&gt;<b>set_bases</b> ($bases)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_bases_integer_1"><p>$bases (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selector_remove_adj">$selector-&gt;<b>remove_adjustment</b> ($adjustment)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_adjustment_Gtk2_Adj1"><p>$adjustment (Gtk2::Adjustment)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="unit_selector_get_un">unit = $selector-&gt;<b>get_unit</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_selector_set_unit_u">$selector-&gt;<b>set_unit</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gnome2_Print_U"><p>$unit (Gnome2::Print::Unit)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="modified_Gnome2_Prin"><b>modified</b> (Gnome2::Print::UnitSelector)</a>
+<dd></dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../../Gnome2/Print.html">Gnome2::Print</a>, <a class="POD_LINK" href="../../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../../Gtk2/Box.html">Gtk2::Box</a>, <a class="POD_LINK" href="../../Gtk2/HBox.html">Gtk2::HBox</a>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gnome2/Print.html">Gnome2::Print</a> for a full
+notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:01 2009
+</body>
+</html>
+

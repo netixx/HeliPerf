@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Glib::ParseXSDoc</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/Signal.html">Next:<br />Glib::Signal</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/ParamSpec.html">Previous:<br />Glib::ParamSpec</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Glib::ParseXSDoc</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#FUNCTIONS">FUNCTIONS</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<li><a class="POD_NAVLINK" href="#AUTHOR">AUTHOR</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Glib::ParseXSDoc - Parse POD and XSub declarations from XS files.
+</p>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+This is the heart of an automatic API reference documentation system for
+XS-based Perl modules.  FIXME more info here!!
+</p>
+<p class="POD_TEXT">
+FIXME document recognized POD directives and the output data structures
+</p>
+<h2 class="POD_HEAD1"><a name="FUNCTIONS">FUNCTIONS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="xsdocparse_filenames">xsdocparse (@filenames)</a>
+<dd>
+Parse xs files for xsub signatures and pod.  Writes to standard output a
+data structure suitable for eval&#39;ing in another Perl script, describing
+all the stuff found.  The output contains three variables:
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_xspods_ARRAYREF">$xspods = ARRAYREF</a>
+<dd>
+array of pods found in the verbatim C portion of the XS file, listed in the
+order found.  These are assumed to pertain to the XS/C api, not the Perl api.
+Any <code>=for apidoc</code> paragraphs following an <code>=object</code> paragraphs in the
+verbatim sections are stripped (as are the <code>=object</code> paragraphs), and will
+appear instead in <code>$data-&gt;{$package}{pods}</code>.
+<dt class="POD_ITEM"><a name="_data_HASHREF">$data = HASHREF</a>
+<dd>
+big hash keyed by package name (as found in the MODULE line), containing under
+each key a hash with all the xsubs and pods in that package, in the order
+found.  Packages are consolidated across multiple files.
+</dl>
+<p class="POD_TEXT">
+FYI, this creates a new parser and calls <code>parse_file</code> on it for each
+input filename; then calls <code>swizzle_pods</code> to ensure that any
+<code>=for apidoc name</code> pods are matched up with their target xsubs; and
+finally calls Data::Dumper to write the data to stdout.  So, if you want
+to get finer control over how the output is created, or keep all the data
+in-process, now you know how.  :-)
+</p>
+</dl>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_Glib_ParseXSDoc_ver">$Glib::ParseXSDoc::verbose</a>
+<dd>
+If true, this causes the parser to be verbose.
+<dt class="POD_ITEM"><a name="_parser_Glib_ParseXS">$parser = Glib::ParseXSDoc-&gt;new</a>
+<dd>
+Create a new xsub parser.
+<dt class="POD_ITEM"><a name="string_parser_packag">string = $parser-&gt;package</a>
+<dd>
+Get the current package name.  Falls back to the module name.  Will be undef
+if the parser hasn&#39;t reached the first MODULE line.
+<dt class="POD_ITEM"><a name="HASHREF_parser_pkgda">HASHREF = $parser-&gt;pkgdata</a>
+<dd>
+The data hash corresponding to the current package, honoring the most recently
+encountered <code>=for object</code> directive.  Ensures that it exists.
+Returns a reference to the member of the main data structure, so modifications
+are permanent and useful.
+<dt class="POD_ITEM"><a name="_parser_parse_file_f">$parser-&gt;parse_file (filename)</a>
+<dd>
+Parse one xs file.  Stores all the collected data in <i>$parser</i>&#39;s internal
+data structures.
+<dt class="POD_ITEM"><a name="_parser_swizzle_pods">$parser-&gt;swizzle_pods</a>
+<dd>
+Match <code>=for apidoc</code> pods to xsubs.
+<dt class="POD_ITEM"><a name="_parser_preprocess_p">$parser-&gt;preprocess_pods</a>
+<dd>
+Honor the <code>__hide__</code> and <code>__function__</code> directives in <code>=for apidoc</code> lines.
+<p class="POD_TEXT">
+We look for the strings anywhere, but you&#39;ll typically have it at the end of
+the line, e.g.:
+</p>
+<pre class="POD_VERBATIM">
+  =for apidoc symname __hide__        for detached blocks
+  =for apidoc __hide__                for attached blocks
+
+  =for apidoc symname __function__    for functions rather than methods
+  =for apidoc __function__            for functions rather than methods
+</pre>
+<dt class="POD_ITEM"><a name="bool_parser_is_modul">bool = $parser-&gt;is_module_line ($line)</a>
+<dd>
+Analyze <i>$line</i> to see if it contains an XS MODULE directive.  If so, returns
+true after setting the <i>$parser</i>&#39;s <i>module</i>, <i>package</i>, and <i>prefix</i>
+accordingly.
+<dt class="POD_ITEM"><a name="_pod_parser_slurp_po">$pod = $parser-&gt;slurp_pod_paragraph ($firstline, $term_regex=/^=cut\s*/)</a>
+<dd>
+Slurp up POD lines from <i>$filehandle</i> from here to the next
+<i>$term_regex</i> or EOF.  Since you probably already read a
+line to determine that we needed to start a pod, you can pass
+that first line to be included.
+<dt class="POD_ITEM"><a name="_xsub_parser_parse_x">$xsub = $parser-&gt;parse_xsub (\@lines)</a>
+<dt><a name="_xsub_parser_parse_x1">$xsub = $parser-&gt;parse_xsub (@lines)</a>
+<dd>
+Parse an xsub header, in the form of a list of lines,
+into a data structure describing the xsub.  That includes
+pulling out the argument types, aliases, and code type.
+<p class="POD_TEXT">
+Without artificial intelligence, we cannot reliably 
+determine anything about the types or number of parameters
+returned from xsubs with PPCODE bodies.
+</p>
+<p class="POD_TEXT">
+OUTLIST parameters are pulled from the args list and put
+into an &quot;outlist&quot; key.  IN_OUTLIST parameters are put into
+both.
+</p>
+<p class="POD_TEXT">
+Data type names are not mangled at all.
+</p>
+<p class="POD_TEXT">
+Note that the method can take either a list of lines or a reference to a
+list of lines.  The flat list form is provided for compatibility; the
+reference form is preferred, to avoid duplicating a potentially large list
+of strings.
+</p>
+<dt class="POD_ITEM"><a name="_parser_clean_out_em">$parser-&gt;clean_out_empty_pods</a>
+<dd>
+Looks through the data member of the parser and removes any keys (and
+associated values) when no pod, enums, and xsubs exist for the package.
+</dl>
+<h2 class="POD_HEAD1"><a name="AUTHOR">AUTHOR</a></h2>
+<p class="POD_TEXT">
+muppet &lt;scott at asofyet dot org&gt;
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003, 2004 by muppet
+</p>
+<p class="POD_TEXT">
+This library is free software; you can redistribute it and/or modify it under
+the terms of the GNU Library General Public License as published by the Free
+Software Foundation; either version 2.1 of the License, or (at your option) any
+later version.
+</p>
+<p class="POD_TEXT">
+This library is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Library General Public License for more
+details.
+</p>
+<p class="POD_TEXT">
+You should have received a copy of the GNU Library General Public License along
+with this library; if not, write to the Free Software Foundation, Inc., 59
+Temple Place - Suite 330, Boston, MA  02111-1307  USA.
+</p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:57:49 2009
+</body>
+</html>
+

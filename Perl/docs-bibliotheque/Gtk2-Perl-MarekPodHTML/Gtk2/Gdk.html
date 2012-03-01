@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Gdk</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Gdk/Atom.html">Next:<br />Gtk2::Gdk::Atom</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/GC.html">Previous:<br />Gtk2::GC</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Gdk</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT">atom = Gtk2::Gdk-&gt;<b>SELECTION_CLIPBOARD</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT1">atom = Gtk2::Gdk-&gt;<b>SELECTION_PRIMARY</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT2">atom = Gtk2::Gdk-&gt;<b>SELECTION_SECONDARY</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT3">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_ATOM</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT4">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_BITMAP</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT5">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_COLORMAP</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT6">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_DRAWABLE</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT7">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_INTEGER</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT8">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_PIXMAP</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT9">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_STRING</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_SELECT10">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_WINDOW</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_TARGET">atom = Gtk2::Gdk-&gt;<b>TARGET_BITMAP</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_TARGET1">atom = Gtk2::Gdk-&gt;<b>TARGET_COLORMAP</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_TARGET2">atom = Gtk2::Gdk-&gt;<b>TARGET_DRAWABLE</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_TARGET3">atom = Gtk2::Gdk-&gt;<b>TARGET_PIXMAP</b></a>
+<li><a class="POD_NAVLINK" href="#atom_Gtk2_Gdk_TARGET4">atom = Gtk2::Gdk-&gt;<b>TARGET_STRING</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_beep">Gtk2::Gdk-&gt;<b>beep</b></a>
+<li><a class="POD_NAVLINK" href="#window_Gtk2_Gdk_get_">window = Gtk2::Gdk-&gt;<b>get_default_root_window</b></a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_device">list = Gtk2::Gdk-&gt;<b>devices_list</b></a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_Gdk_get_">string = Gtk2::Gdk-&gt;<b>get_display_arg_name</b></a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_Gdk_get_1">string = Gtk2::Gdk-&gt;<b>get_display</b></a>
+<li><a class="POD_NAVLINK" href="#integer_Gtk2_Gdk_err">integer = Gtk2::Gdk-&gt;<b>error_trap_pop</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_error_trap_">Gtk2::Gdk-&gt;<b>error_trap_push</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_Gtk2_Gdk_eve">boolean = Gtk2::Gdk-&gt;<b>events_pending</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_flush">Gtk2::Gdk-&gt;<b>flush</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_Gtk2_Gdk_ini">boolean = Gtk2::Gdk-&gt;<b>init</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_Gtk2_Gdk_ini1">boolean = Gtk2::Gdk-&gt;<b>init_check</b></a>
+<li><a class="POD_NAVLINK" href="#grabstatus_Gtk2_Gdk_">grabstatus = Gtk2::Gdk-&gt;<b>keyboard_grab</b> ($window, $owner_events, $time_)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_keyboard_un">Gtk2::Gdk-&gt;<b>keyboard_ungrab</b> ($time_)</a>
+<li><a class="POD_NAVLINK" href="#_lower_upper_Gtk2_Gd">(lower, upper) = Gtk2::Gdk::Keyval-&gt;<b>convert_case</b> ($symbol)</a>
+<li><a class="POD_NAVLINK" href="#integer_Gtk2_Gdk_key">integer = Gtk2::Gdk-&gt;<b>keyval_from_name</b> ($keyval_name)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gtk2_Gdk_key">boolean = Gtk2::Gdk-&gt;<b>keyval_is_lower</b> ($keyval)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gtk2_Gdk_key1">boolean = Gtk2::Gdk-&gt;<b>keyval_is_upper</b> ($keyval)</a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_Gdk_keyv">string = Gtk2::Gdk-&gt;<b>keyval_name</b> ($keyval)</a>
+<li><a class="POD_NAVLINK" href="#integer_Gtk2_Gdk_key1">integer = Gtk2::Gdk-&gt;<b>keyval_to_lower</b> ($keyval)</a>
+<li><a class="POD_NAVLINK" href="#unsigned_Gtk2_Gdk_ke">unsigned = Gtk2::Gdk-&gt;<b>keyval_to_unicode</b> ($keyval)</a>
+<li><a class="POD_NAVLINK" href="#integer_Gtk2_Gdk_key2">integer = Gtk2::Gdk-&gt;<b>keyval_to_upper</b> ($keyval)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_list_v">list = Gtk2::Gdk-&gt;<b>list_visuals</b></a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_Gdk_set_">string = Gtk2::Gdk-&gt;<b>set_locale</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_notify_star">Gtk2::Gdk-&gt;<b>notify_startup_complete</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_notify_star1">Gtk2::Gdk-&gt;<b>notify_startup_complete_with_id</b> ($startup_id)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_parse_args">Gtk2::Gdk-&gt;<b>parse_args</b></a>
+<li><a class="POD_NAVLINK" href="#grabstatus_Gtk2_Gdk_1">grabstatus = Gtk2::Gdk-&gt;<b>pointer_grab</b> ($window, $owner_events, $event_mask, $confine_to, $cursor, $time_)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gtk2_Gdk_poi">boolean = Gtk2::Gdk-&gt;<b>pointer_is_grabbed</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_pointer_ung">Gtk2::Gdk-&gt;<b>pointer_ungrab</b> ($time_)</a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_Gdk_get_2">string = Gtk2::Gdk-&gt;<b>get_program_class</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_set_program">Gtk2::Gdk-&gt;<b>set_program_class</b> ($program_class)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_query_">list = Gtk2::Gdk-&gt;<b>query_depths</b></a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_query_1">list = Gtk2::Gdk-&gt;<b>query_visual_types</b></a>
+<li><a class="POD_NAVLINK" href="#integer_Gtk2_Gdk_scr">integer = Gtk2::Gdk-&gt;<b>screen_height</b></a>
+<li><a class="POD_NAVLINK" href="#integer_Gtk2_Gdk_scr1">integer = Gtk2::Gdk-&gt;<b>screen_height_mm</b></a>
+<li><a class="POD_NAVLINK" href="#integer_Gtk2_Gdk_scr2">integer = Gtk2::Gdk-&gt;<b>screen_width</b></a>
+<li><a class="POD_NAVLINK" href="#integer_Gtk2_Gdk_scr3">integer = Gtk2::Gdk-&gt;<b>screen_width_mm</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gtk2_Gdk_sett">scalar = Gtk2::Gdk-&gt;<b>setting_get</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gtk2_Gdk_get">boolean = Gtk2::Gdk-&gt;<b>get_show_events</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_set_show_ev">Gtk2::Gdk-&gt;<b>set_show_events</b> ($show_events)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_set_sm_clie">Gtk2::Gdk-&gt;<b>set_sm_client_id</b> ($sm_client_id=undef)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_string">list = Gtk2::Gdk-&gt;<b>string_to_compound_text</b> ($str)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_string1">list = Gtk2::Gdk-&gt;<b>string_to_compound_text_for_display</b> ($display, $str)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_text_p">list = Gtk2::Gdk-&gt;<b>text_property_to_text_list</b> ($encoding, $format, $text)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_text_p1">list = Gtk2::Gdk-&gt;<b>text_property_to_text_list_for_display</b> ($display, $encoding, $format, $text)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_text_p2">list = Gtk2::Gdk-&gt;<b>text_property_to_utf8_list</b> ($encoding, $format, $text)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_text_p3">list = Gtk2::Gdk-&gt;<b>text_property_to_utf8_list_for_display</b> ($display, $encoding, $format, $text)</a>
+<li><a class="POD_NAVLINK" href="#integer_Gtk2_Gdk_uni">integer = Gtk2::Gdk-&gt;<b>unicode_to_keyval</b> ($wc)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_utf8_t">list = Gtk2::Gdk-&gt;<b>utf8_to_compound_text</b> ($str)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_utf8_t1">list = Gtk2::Gdk-&gt;<b>utf8_to_compound_text_for_display</b> ($display, $str)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_Gtk2">string or undef = Gtk2::Gdk-&gt;<b>utf8_to_string_target</b> ($str)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Event">flags Gtk2::Gdk::EventMask</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_GrabSt">enum Gtk2::Gdk::GrabStatus</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Gdk
+</p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT">atom = Gtk2::Gdk-&gt;<b>SELECTION_CLIPBOARD</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT1">atom = Gtk2::Gdk-&gt;<b>SELECTION_PRIMARY</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT2">atom = Gtk2::Gdk-&gt;<b>SELECTION_SECONDARY</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT3">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_ATOM</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT4">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_BITMAP</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT5">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_COLORMAP</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT6">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_DRAWABLE</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT7">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_INTEGER</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT8">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_PIXMAP</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT9">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_STRING</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_SELECT10">atom = Gtk2::Gdk-&gt;<b>SELECTION_TYPE_WINDOW</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_TARGET">atom = Gtk2::Gdk-&gt;<b>TARGET_BITMAP</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_TARGET1">atom = Gtk2::Gdk-&gt;<b>TARGET_COLORMAP</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_TARGET2">atom = Gtk2::Gdk-&gt;<b>TARGET_DRAWABLE</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_TARGET3">atom = Gtk2::Gdk-&gt;<b>TARGET_PIXMAP</b></a></h3>
+<h3 class="POD_HEAD2"><a name="atom_Gtk2_Gdk_TARGET4">atom = Gtk2::Gdk-&gt;<b>TARGET_STRING</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_beep">Gtk2::Gdk-&gt;<b>beep</b></a></h3>
+<h3 class="POD_HEAD2"><a name="window_Gtk2_Gdk_get_">window = Gtk2::Gdk-&gt;<b>get_default_root_window</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_device">list = Gtk2::Gdk-&gt;<b>devices_list</b></a></h3>
+<p></p>
+<p class="POD_TEXT">
+Returns a list of <i>GdkDevice</i>s.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_Gdk_get_">string = Gtk2::Gdk-&gt;<b>get_display_arg_name</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_Gdk_get_1">string = Gtk2::Gdk-&gt;<b>get_display</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_Gtk2_Gdk_err">integer = Gtk2::Gdk-&gt;<b>error_trap_pop</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_error_trap_">Gtk2::Gdk-&gt;<b>error_trap_push</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_Gtk2_Gdk_eve">boolean = Gtk2::Gdk-&gt;<b>events_pending</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_flush">Gtk2::Gdk-&gt;<b>flush</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_Gtk2_Gdk_ini">boolean = Gtk2::Gdk-&gt;<b>init</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_Gtk2_Gdk_ini1">boolean = Gtk2::Gdk-&gt;<b>init_check</b></a></h3>
+<h3 class="POD_HEAD2"><a name="grabstatus_Gtk2_Gdk_">grabstatus = Gtk2::Gdk-&gt;<b>keyboard_grab</b> ($window, $owner_events, $time_)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_window_Gtk2_Gdk_Win"><p>$window (Gtk2::Gdk::Window)</p></a>
+<li class="POD_ITEM"><a name="_owner_events_boolea"><p>$owner_events (boolean)</p></a>
+<li class="POD_ITEM"><a name="_time_unsigned_"><p>$time_ (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_keyboard_un">Gtk2::Gdk-&gt;<b>keyboard_ungrab</b> ($time_)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_time_unsigned_1"><p>$time_ (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_lower_upper_Gtk2_Gd">(lower, upper) = Gtk2::Gdk::Keyval-&gt;<b>convert_case</b> ($symbol)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_symbol_integer_"><p>$symbol (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="integer_Gtk2_Gdk_key">integer = Gtk2::Gdk-&gt;<b>keyval_from_name</b> ($keyval_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_keyval_name_string_"><p>$keyval_name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gtk2_Gdk_key">boolean = Gtk2::Gdk-&gt;<b>keyval_is_lower</b> ($keyval)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_keyval_integer_"><p>$keyval (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gtk2_Gdk_key1">boolean = Gtk2::Gdk-&gt;<b>keyval_is_upper</b> ($keyval)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_keyval_integer_1"><p>$keyval (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_Gdk_keyv">string = Gtk2::Gdk-&gt;<b>keyval_name</b> ($keyval)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_keyval_integer_2"><p>$keyval (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_Gtk2_Gdk_key1">integer = Gtk2::Gdk-&gt;<b>keyval_to_lower</b> ($keyval)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_keyval_integer_3"><p>$keyval (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="unsigned_Gtk2_Gdk_ke">unsigned = Gtk2::Gdk-&gt;<b>keyval_to_unicode</b> ($keyval)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_keyval_integer_4"><p>$keyval (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_Gtk2_Gdk_key2">integer = Gtk2::Gdk-&gt;<b>keyval_to_upper</b> ($keyval)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_keyval_integer_5"><p>$keyval (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_list_v">list = Gtk2::Gdk-&gt;<b>list_visuals</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_Gdk_set_">string = Gtk2::Gdk-&gt;<b>set_locale</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_notify_star">Gtk2::Gdk-&gt;<b>notify_startup_complete</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_notify_star1">Gtk2::Gdk-&gt;<b>notify_startup_complete_with_id</b> ($startup_id)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_startup_id_string_"><p>$startup_id (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_parse_args">Gtk2::Gdk-&gt;<b>parse_args</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="grabstatus_Gtk2_Gdk_1">grabstatus = Gtk2::Gdk-&gt;<b>pointer_grab</b> ($window, $owner_events, $event_mask, $confine_to, $cursor, $time_)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_window_Gtk2_Gdk_Win1"><p>$window (Gtk2::Gdk::Window)</p></a>
+<li class="POD_ITEM"><a name="_owner_events_boolea1"><p>$owner_events (boolean)</p></a>
+<li class="POD_ITEM"><a name="_event_mask_Gtk2_Gdk"><p>$event_mask (Gtk2::Gdk::EventMask)</p></a>
+<li class="POD_ITEM"><a name="_confine_to_Gtk2_Gdk"><p>$confine_to (Gtk2::Gdk::Window or undef)</p></a>
+<li class="POD_ITEM"><a name="_cursor_Gtk2_Gdk_Cur"><p>$cursor (Gtk2::Gdk::Cursor or undef)</p></a>
+<li class="POD_ITEM"><a name="_time_unsigned_2"><p>$time_ (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gtk2_Gdk_poi">boolean = Gtk2::Gdk-&gt;<b>pointer_is_grabbed</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_pointer_ung">Gtk2::Gdk-&gt;<b>pointer_ungrab</b> ($time_)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_time_unsigned_3"><p>$time_ (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_Gdk_get_2">string = Gtk2::Gdk-&gt;<b>get_program_class</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_set_program">Gtk2::Gdk-&gt;<b>set_program_class</b> ($program_class)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_program_class_strin"><p>$program_class (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_query_">list = Gtk2::Gdk-&gt;<b>query_depths</b></a></h3>
+<p class="POD_TEXT">
+Returns a list of depths.
+</p>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_query_1">list = Gtk2::Gdk-&gt;<b>query_visual_types</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_Gtk2_Gdk_scr">integer = Gtk2::Gdk-&gt;<b>screen_height</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_Gtk2_Gdk_scr1">integer = Gtk2::Gdk-&gt;<b>screen_height_mm</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_Gtk2_Gdk_scr2">integer = Gtk2::Gdk-&gt;<b>screen_width</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_Gtk2_Gdk_scr3">integer = Gtk2::Gdk-&gt;<b>screen_width_mm</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gtk2_Gdk_sett">scalar = Gtk2::Gdk-&gt;<b>setting_get</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gtk2_Gdk_get">boolean = Gtk2::Gdk-&gt;<b>get_show_events</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_set_show_ev">Gtk2::Gdk-&gt;<b>set_show_events</b> ($show_events)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_show_events_boolean"><p>$show_events (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_set_sm_clie">Gtk2::Gdk-&gt;<b>set_sm_client_id</b> ($sm_client_id=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_sm_client_id_string"><p>$sm_client_id (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_string">list = Gtk2::Gdk-&gt;<b>string_to_compound_text</b> ($str)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_str_string_"><p>$str (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of strings.
+</p>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_string1">list = Gtk2::Gdk-&gt;<b>string_to_compound_text_for_display</b> ($display, $str)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_display_Gtk2_Gdk_Di"><p>$display (Gtk2::Gdk::Display)</p></a>
+<li class="POD_ITEM"><a name="_str_string_1"><p>$str (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of strings.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_text_p">list = Gtk2::Gdk-&gt;<b>text_property_to_text_list</b> ($encoding, $format, $text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_encoding_Gtk2_Gdk_A"><p>$encoding (Gtk2::Gdk::Atom)</p></a>
+<li class="POD_ITEM"><a name="_format_integer_"><p>$format (integer)</p></a>
+<li class="POD_ITEM"><a name="_text_scalar_"><p>$text (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of strings.
+</p>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_text_p1">list = Gtk2::Gdk-&gt;<b>text_property_to_text_list_for_display</b> ($display, $encoding, $format, $text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_display_Gtk2_Gdk_Di1"><p>$display (Gtk2::Gdk::Display)</p></a>
+<li class="POD_ITEM"><a name="_encoding_Gtk2_Gdk_A1"><p>$encoding (Gtk2::Gdk::Atom)</p></a>
+<li class="POD_ITEM"><a name="_format_integer_1"><p>$format (integer)</p></a>
+<li class="POD_ITEM"><a name="_text_scalar_1"><p>$text (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of strings.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_text_p2">list = Gtk2::Gdk-&gt;<b>text_property_to_utf8_list</b> ($encoding, $format, $text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_encoding_Gtk2_Gdk_A2"><p>$encoding (Gtk2::Gdk::Atom)</p></a>
+<li class="POD_ITEM"><a name="_format_integer_2"><p>$format (integer)</p></a>
+<li class="POD_ITEM"><a name="_text_scalar_2"><p>$text (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of strings.
+</p>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_text_p3">list = Gtk2::Gdk-&gt;<b>text_property_to_utf8_list_for_display</b> ($display, $encoding, $format, $text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_display_Gtk2_Gdk_Di2"><p>$display (Gtk2::Gdk::Display)</p></a>
+<li class="POD_ITEM"><a name="_encoding_Gtk2_Gdk_A3"><p>$encoding (Gtk2::Gdk::Atom)</p></a>
+<li class="POD_ITEM"><a name="_format_integer_3"><p>$format (integer)</p></a>
+<li class="POD_ITEM"><a name="_text_scalar_3"><p>$text (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of strings.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="integer_Gtk2_Gdk_uni">integer = Gtk2::Gdk-&gt;<b>unicode_to_keyval</b> ($wc)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_wc_unsigned_"><p>$wc (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_utf8_t">list = Gtk2::Gdk-&gt;<b>utf8_to_compound_text</b> ($str)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_str_string_2"><p>$str (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of strings.
+</p>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_utf8_t1">list = Gtk2::Gdk-&gt;<b>utf8_to_compound_text_for_display</b> ($display, $str)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_display_Gtk2_Gdk_Di3"><p>$display (Gtk2::Gdk::Display)</p></a>
+<li class="POD_ITEM"><a name="_str_string_3"><p>$str (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of strings.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="string_or_undef_Gtk2">string or undef = Gtk2::Gdk-&gt;<b>utf8_to_string_target</b> ($str)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_str_string_4"><p>$str (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of strings.
+</p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Event">flags Gtk2::Gdk::EventMask</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_exposure_mask_GDK_E"><p>&#39;exposure-mask&#39; / &#39;GDK_EXPOSURE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_pointer_motion_mask"><p>&#39;pointer-motion-mask&#39; / &#39;GDK_POINTER_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_pointer_motion_hint"><p>&#39;pointer-motion-hint-mask&#39; / &#39;GDK_POINTER_MOTION_HINT_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_motion_mask_"><p>&#39;button-motion-mask&#39; / &#39;GDK_BUTTON_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button1_motion_mask"><p>&#39;button1-motion-mask&#39; / &#39;GDK_BUTTON1_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button2_motion_mask"><p>&#39;button2-motion-mask&#39; / &#39;GDK_BUTTON2_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button3_motion_mask"><p>&#39;button3-motion-mask&#39; / &#39;GDK_BUTTON3_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_press_mask_G"><p>&#39;button-press-mask&#39; / &#39;GDK_BUTTON_PRESS_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_release_mask"><p>&#39;button-release-mask&#39; / &#39;GDK_BUTTON_RELEASE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_key_press_mask_GDK_"><p>&#39;key-press-mask&#39; / &#39;GDK_KEY_PRESS_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_key_release_mask_GD"><p>&#39;key-release-mask&#39; / &#39;GDK_KEY_RELEASE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_enter_notify_mask_G"><p>&#39;enter-notify-mask&#39; / &#39;GDK_ENTER_NOTIFY_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_leave_notify_mask_G"><p>&#39;leave-notify-mask&#39; / &#39;GDK_LEAVE_NOTIFY_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_focus_change_mask_G"><p>&#39;focus-change-mask&#39; / &#39;GDK_FOCUS_CHANGE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_structure_mask_GDK_"><p>&#39;structure-mask&#39; / &#39;GDK_STRUCTURE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_property_change_mas"><p>&#39;property-change-mask&#39; / &#39;GDK_PROPERTY_CHANGE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_visibility_notify_m"><p>&#39;visibility-notify-mask&#39; / &#39;GDK_VISIBILITY_NOTIFY_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_proximity_in_mask_G"><p>&#39;proximity-in-mask&#39; / &#39;GDK_PROXIMITY_IN_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_proximity_out_mask_"><p>&#39;proximity-out-mask&#39; / &#39;GDK_PROXIMITY_OUT_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_substructure_mask_G"><p>&#39;substructure-mask&#39; / &#39;GDK_SUBSTRUCTURE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_scroll_mask_GDK_SCR"><p>&#39;scroll-mask&#39; / &#39;GDK_SCROLL_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_all_events_mask_GDK"><p>&#39;all-events-mask&#39; / &#39;GDK_ALL_EVENTS_MASK&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_GrabSt">enum Gtk2::Gdk::GrabStatus</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_success_GDK_GRAB_SU"><p>&#39;success&#39; / &#39;GDK_GRAB_SUCCESS&#39;</p></a>
+<li class="POD_ITEM"><a name="_already_grabbed_GDK"><p>&#39;already-grabbed&#39; / &#39;GDK_GRAB_ALREADY_GRABBED&#39;</p></a>
+<li class="POD_ITEM"><a name="_invalid_time_GDK_GR"><p>&#39;invalid-time&#39; / &#39;GDK_GRAB_INVALID_TIME&#39;</p></a>
+<li class="POD_ITEM"><a name="_not_viewable_GDK_GR"><p>&#39;not-viewable&#39; / &#39;GDK_GRAB_NOT_VIEWABLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_frozen_GDK_GRAB_FRO"><p>&#39;frozen&#39; / &#39;GDK_GRAB_FROZEN&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:01:27 2009
+</body>
+</html>
+

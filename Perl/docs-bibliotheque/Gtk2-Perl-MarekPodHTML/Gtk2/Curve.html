@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Curve</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/devel.html">Next:<br />Gtk2::devel</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Container.html">Previous:<br />Gtk2::Container</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Curve</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_Curve_ne">widget = Gtk2::Curve-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#_curve_set_curve_typ">$curve-&gt;<b>set_curve_type</b> ($type)</a>
+<li><a class="POD_NAVLINK" href="#_curve_set_gamma_gam">$curve-&gt;<b>set_gamma</b> ($gamma)</a>
+<li><a class="POD_NAVLINK" href="#_curve_set_range_min">$curve-&gt;<b>set_range</b> ($min_x, $max_x, $min_y, $max_y)</a>
+<li><a class="POD_NAVLINK" href="#_curve_reset">$curve-&gt;<b>reset</b></a>
+<li><a class="POD_NAVLINK" href="#list_curve_get_vecto">list = $curve-&gt;<b>get_vector</b> ($veclen=32)</a>
+<li><a class="POD_NAVLINK" href="#_curve_set_vector_">$curve-&gt;<b>set_vector</b> (...)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_CurveType">enum Gtk2::CurveType</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Curve
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::DrawingArea
+                      +----Gtk2::Curve
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_Curve_ne">widget = Gtk2::Curve-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_curve_set_curve_typ">$curve-&gt;<b>set_curve_type</b> ($type)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_type_Gtk2_CurveType"><p>$type (Gtk2::CurveType)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_curve_set_gamma_gam">$curve-&gt;<b>set_gamma</b> ($gamma)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_gamma_double_"><p>$gamma (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_curve_set_range_min">$curve-&gt;<b>set_range</b> ($min_x, $max_x, $min_y, $max_y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_min_x_double_"><p>$min_x (double)</p></a>
+<li class="POD_ITEM"><a name="_max_x_double_"><p>$max_x (double)</p></a>
+<li class="POD_ITEM"><a name="_min_y_double_"><p>$min_y (double)</p></a>
+<li class="POD_ITEM"><a name="_max_y_double_"><p>$max_y (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_curve_reset">$curve-&gt;<b>reset</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_curve_get_vecto">list = $curve-&gt;<b>get_vector</b> ($veclen=32)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_veclen_integer_"><p>$veclen (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of real numbers, the curve&#39;s vector.
+</p>
+<h3 class="POD_HEAD2"><a name="_curve_set_vector_">$curve-&gt;<b>set_vector</b> (...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_of_float_s_the"><p>... (list) of float&#39;s, the points of the curve</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_curve_type_Gtk2_Cur">&#39;curve-type&#39; (Gtk2::CurveType : readable / writable / private)</a>
+<dd>
+Is this curve linear, spline interpolated, or free-form
+<dt class="POD_ITEM"><a name="_max_x_Glib_Float_re">&#39;max-x&#39; (Glib::Float : readable / writable / private)</a>
+<dd>
+Maximum possible X value
+<dt class="POD_ITEM"><a name="_max_y_Glib_Float_re">&#39;max-y&#39; (Glib::Float : readable / writable / private)</a>
+<dd>
+Maximum possible value for Y
+<dt class="POD_ITEM"><a name="_min_x_Glib_Float_re">&#39;min-x&#39; (Glib::Float : readable / writable / private)</a>
+<dd>
+Minimum possible value for X
+<dt class="POD_ITEM"><a name="_min_y_Glib_Float_re">&#39;min-y&#39; (Glib::Float : readable / writable / private)</a>
+<dd>
+Minimum possible value for Y
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="curve_type_changed_G"><b>curve-type-changed</b> (Gtk2::Curve)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_CurveType">enum Gtk2::CurveType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_linear_GTK_CURVE_TY"><p>&#39;linear&#39; / &#39;GTK_CURVE_TYPE_LINEAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_spline_GTK_CURVE_TY"><p>&#39;spline&#39; / &#39;GTK_CURVE_TYPE_SPLINE&#39;</p></a>
+<li class="POD_ITEM"><a name="_free_GTK_CURVE_TYPE"><p>&#39;free&#39; / &#39;GTK_CURVE_TYPE_FREE&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/DrawingArea.html">Gtk2::DrawingArea</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:56 2009
+</body>
+</html>
+

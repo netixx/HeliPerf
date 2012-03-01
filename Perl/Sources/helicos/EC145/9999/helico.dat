@@ -1,0 +1,44 @@
+#EC145
+#bras et masse de l'hélico et l'image
+[helico]
+2374	4556	EC145_schema_small.png
+EC145_mini.png
+
+#Bras\tMasse
+[graphcoord]
+4337	2000
+4667	1750
+4544	3585
+4372	3585
+
+[taillegraphe]
+#x
+4000	275
+#y
+2000	144
+1000
+0
+
+#Configuration par defaut de l'hélicoptère
+#item	bras longitudinal
+[configbase]
+Manuel de vol “Basic”	1.24	2300
+Manuel de vol “Equipement”	1.27	2300
+Trousse de  secours	2.835	6200
+Extincteur Portable XXL	2.363	2743
+Ecran anti-éblouissement droit	0.289	1450
+Ecran anti-éblouissement gauche	0.289	1450
+Coupe cable,Partie detachable	7.89	2087
+Coupe cable standard DR	3.416	4321
+Coupe cable standard GA	3.416	4321
+Torche électrique	0.553	2144
+Pare-Soleil	2.073	2455
+Filet de sécurité soute	1.165	5000
+Deflecteur de cable gauche	0.963	4468
+Patin standard	18.415	4259
+Pièce entrainement IFR	2.107	1762
+Haut parleur externe	4.851	3110
+
+
+
+

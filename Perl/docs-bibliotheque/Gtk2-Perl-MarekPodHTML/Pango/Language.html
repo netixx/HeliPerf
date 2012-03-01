@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Pango::Language</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Pango/Layout.html">Next:<br />Pango::Layout</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Pango/index.html">Previous:<br />Pango::index</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Pango::Language</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#language_Pango_Langu">language = Pango::Language-&gt;<b>get_default</b></a>
+<li><a class="POD_NAVLINK" href="#direction_Pango_find">direction = Pango-&gt;<b>find_base_dir</b> ($text)</a>
+<li><a class="POD_NAVLINK" href="#language_Pango_Langu1">language = Pango::Language-&gt;<b>from_string</b> ($language)</a>
+<li><a class="POD_NAVLINK" href="#boolean_language_inc">boolean = $language-&gt;<b>includes_script</b> ($script)</a>
+<li><a class="POD_NAVLINK" href="#boolean_language_mat">boolean = $language-&gt;<b>matches</b> ($range_list)</a>
+<li><a class="POD_NAVLINK" href="#string_language_to_s">string = $language-&gt;<b>to_string</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Pango_Direction">enum Pango::Direction</a>
+<li><a class="POD_NAVLINK" href="#enum_Pango_Script">enum Pango::Script</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Pango::Language
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Boxed
+  +----Pango::Language
+</pre>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="language_Pango_Langu">language = Pango::Language-&gt;<b>get_default</b></a></h3>
+<p class="POD_TEXT">
+Since: pango 1.16
+</p>
+<h3 class="POD_HEAD2"><a name="direction_Pango_find">direction = Pango-&gt;<b>find_base_dir</b> ($text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_string_"><p>$text (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: pango 1.4
+</p>
+<h3 class="POD_HEAD2"><a name="language_Pango_Langu1">language = Pango::Language-&gt;<b>from_string</b> ($language)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_language_string_"><p>$language (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_language_inc">boolean = $language-&gt;<b>includes_script</b> ($script)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_script_Pango_Script"><p>$script (Pango::Script)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: pango 1.4
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_language_mat">boolean = $language-&gt;<b>matches</b> ($range_list)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_range_list_string_"><p>$range_list (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_language_to_s">string = $language-&gt;<b>to_string</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Pango_Direction">enum Pango::Direction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ltr_PANGO_DIRECTION"><p>&#39;ltr&#39; / &#39;PANGO_DIRECTION_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_rtl_PANGO_DIRECTION"><p>&#39;rtl&#39; / &#39;PANGO_DIRECTION_RTL&#39;</p></a>
+<li class="POD_ITEM"><a name="_ttb_ltr_PANGO_DIREC"><p>&#39;ttb-ltr&#39; / &#39;PANGO_DIRECTION_TTB_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_ttb_rtl_PANGO_DIREC"><p>&#39;ttb-rtl&#39; / &#39;PANGO_DIRECTION_TTB_RTL&#39;</p></a>
+<li class="POD_ITEM"><a name="_weak_ltr_PANGO_DIRE"><p>&#39;weak-ltr&#39; / &#39;PANGO_DIRECTION_WEAK_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_weak_rtl_PANGO_DIRE"><p>&#39;weak-rtl&#39; / &#39;PANGO_DIRECTION_WEAK_RTL&#39;</p></a>
+<li class="POD_ITEM"><a name="_neutral_PANGO_DIREC"><p>&#39;neutral&#39; / &#39;PANGO_DIRECTION_NEUTRAL&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Pango_Script">enum Pango::Script</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_invalid_code_PANGO_"><p>&#39;invalid-code&#39; / &#39;PANGO_SCRIPT_INVALID_CODE&#39;</p></a>
+<li class="POD_ITEM"><a name="_common_PANGO_SCRIPT"><p>&#39;common&#39; / &#39;PANGO_SCRIPT_COMMON&#39;</p></a>
+<li class="POD_ITEM"><a name="_inherited_PANGO_SCR"><p>&#39;inherited&#39; / &#39;PANGO_SCRIPT_INHERITED&#39;</p></a>
+<li class="POD_ITEM"><a name="_arabic_PANGO_SCRIPT"><p>&#39;arabic&#39; / &#39;PANGO_SCRIPT_ARABIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_armenian_PANGO_SCRI"><p>&#39;armenian&#39; / &#39;PANGO_SCRIPT_ARMENIAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_bengali_PANGO_SCRIP"><p>&#39;bengali&#39; / &#39;PANGO_SCRIPT_BENGALI&#39;</p></a>
+<li class="POD_ITEM"><a name="_bopomofo_PANGO_SCRI"><p>&#39;bopomofo&#39; / &#39;PANGO_SCRIPT_BOPOMOFO&#39;</p></a>
+<li class="POD_ITEM"><a name="_cherokee_PANGO_SCRI"><p>&#39;cherokee&#39; / &#39;PANGO_SCRIPT_CHEROKEE&#39;</p></a>
+<li class="POD_ITEM"><a name="_coptic_PANGO_SCRIPT"><p>&#39;coptic&#39; / &#39;PANGO_SCRIPT_COPTIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_cyrillic_PANGO_SCRI"><p>&#39;cyrillic&#39; / &#39;PANGO_SCRIPT_CYRILLIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_deseret_PANGO_SCRIP"><p>&#39;deseret&#39; / &#39;PANGO_SCRIPT_DESERET&#39;</p></a>
+<li class="POD_ITEM"><a name="_devanagari_PANGO_SC"><p>&#39;devanagari&#39; / &#39;PANGO_SCRIPT_DEVANAGARI&#39;</p></a>
+<li class="POD_ITEM"><a name="_ethiopic_PANGO_SCRI"><p>&#39;ethiopic&#39; / &#39;PANGO_SCRIPT_ETHIOPIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_georgian_PANGO_SCRI"><p>&#39;georgian&#39; / &#39;PANGO_SCRIPT_GEORGIAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_gothic_PANGO_SCRIPT"><p>&#39;gothic&#39; / &#39;PANGO_SCRIPT_GOTHIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_greek_PANGO_SCRIPT_"><p>&#39;greek&#39; / &#39;PANGO_SCRIPT_GREEK&#39;</p></a>
+<li class="POD_ITEM"><a name="_gujarati_PANGO_SCRI"><p>&#39;gujarati&#39; / &#39;PANGO_SCRIPT_GUJARATI&#39;</p></a>
+<li class="POD_ITEM"><a name="_gurmukhi_PANGO_SCRI"><p>&#39;gurmukhi&#39; / &#39;PANGO_SCRIPT_GURMUKHI&#39;</p></a>
+<li class="POD_ITEM"><a name="_han_PANGO_SCRIPT_HA"><p>&#39;han&#39; / &#39;PANGO_SCRIPT_HAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_hangul_PANGO_SCRIPT"><p>&#39;hangul&#39; / &#39;PANGO_SCRIPT_HANGUL&#39;</p></a>
+<li class="POD_ITEM"><a name="_hebrew_PANGO_SCRIPT"><p>&#39;hebrew&#39; / &#39;PANGO_SCRIPT_HEBREW&#39;</p></a>
+<li class="POD_ITEM"><a name="_hiragana_PANGO_SCRI"><p>&#39;hiragana&#39; / &#39;PANGO_SCRIPT_HIRAGANA&#39;</p></a>
+<li class="POD_ITEM"><a name="_kannada_PANGO_SCRIP"><p>&#39;kannada&#39; / &#39;PANGO_SCRIPT_KANNADA&#39;</p></a>
+<li class="POD_ITEM"><a name="_katakana_PANGO_SCRI"><p>&#39;katakana&#39; / &#39;PANGO_SCRIPT_KATAKANA&#39;</p></a>
+<li class="POD_ITEM"><a name="_khmer_PANGO_SCRIPT_"><p>&#39;khmer&#39; / &#39;PANGO_SCRIPT_KHMER&#39;</p></a>
+<li class="POD_ITEM"><a name="_lao_PANGO_SCRIPT_LA"><p>&#39;lao&#39; / &#39;PANGO_SCRIPT_LAO&#39;</p></a>
+<li class="POD_ITEM"><a name="_latin_PANGO_SCRIPT_"><p>&#39;latin&#39; / &#39;PANGO_SCRIPT_LATIN&#39;</p></a>
+<li class="POD_ITEM"><a name="_malayalam_PANGO_SCR"><p>&#39;malayalam&#39; / &#39;PANGO_SCRIPT_MALAYALAM&#39;</p></a>
+<li class="POD_ITEM"><a name="_mongolian_PANGO_SCR"><p>&#39;mongolian&#39; / &#39;PANGO_SCRIPT_MONGOLIAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_myanmar_PANGO_SCRIP"><p>&#39;myanmar&#39; / &#39;PANGO_SCRIPT_MYANMAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_ogham_PANGO_SCRIPT_"><p>&#39;ogham&#39; / &#39;PANGO_SCRIPT_OGHAM&#39;</p></a>
+<li class="POD_ITEM"><a name="_old_italic_PANGO_SC"><p>&#39;old-italic&#39; / &#39;PANGO_SCRIPT_OLD_ITALIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_oriya_PANGO_SCRIPT_"><p>&#39;oriya&#39; / &#39;PANGO_SCRIPT_ORIYA&#39;</p></a>
+<li class="POD_ITEM"><a name="_runic_PANGO_SCRIPT_"><p>&#39;runic&#39; / &#39;PANGO_SCRIPT_RUNIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_sinhala_PANGO_SCRIP"><p>&#39;sinhala&#39; / &#39;PANGO_SCRIPT_SINHALA&#39;</p></a>
+<li class="POD_ITEM"><a name="_syriac_PANGO_SCRIPT"><p>&#39;syriac&#39; / &#39;PANGO_SCRIPT_SYRIAC&#39;</p></a>
+<li class="POD_ITEM"><a name="_tamil_PANGO_SCRIPT_"><p>&#39;tamil&#39; / &#39;PANGO_SCRIPT_TAMIL&#39;</p></a>
+<li class="POD_ITEM"><a name="_telugu_PANGO_SCRIPT"><p>&#39;telugu&#39; / &#39;PANGO_SCRIPT_TELUGU&#39;</p></a>
+<li class="POD_ITEM"><a name="_thaana_PANGO_SCRIPT"><p>&#39;thaana&#39; / &#39;PANGO_SCRIPT_THAANA&#39;</p></a>
+<li class="POD_ITEM"><a name="_thai_PANGO_SCRIPT_T"><p>&#39;thai&#39; / &#39;PANGO_SCRIPT_THAI&#39;</p></a>
+<li class="POD_ITEM"><a name="_tibetan_PANGO_SCRIP"><p>&#39;tibetan&#39; / &#39;PANGO_SCRIPT_TIBETAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_canadian_aboriginal"><p>&#39;canadian-aboriginal&#39; / &#39;PANGO_SCRIPT_CANADIAN_ABORIGINAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_yi_PANGO_SCRIPT_YI_"><p>&#39;yi&#39; / &#39;PANGO_SCRIPT_YI&#39;</p></a>
+<li class="POD_ITEM"><a name="_tagalog_PANGO_SCRIP"><p>&#39;tagalog&#39; / &#39;PANGO_SCRIPT_TAGALOG&#39;</p></a>
+<li class="POD_ITEM"><a name="_hanunoo_PANGO_SCRIP"><p>&#39;hanunoo&#39; / &#39;PANGO_SCRIPT_HANUNOO&#39;</p></a>
+<li class="POD_ITEM"><a name="_buhid_PANGO_SCRIPT_"><p>&#39;buhid&#39; / &#39;PANGO_SCRIPT_BUHID&#39;</p></a>
+<li class="POD_ITEM"><a name="_tagbanwa_PANGO_SCRI"><p>&#39;tagbanwa&#39; / &#39;PANGO_SCRIPT_TAGBANWA&#39;</p></a>
+<li class="POD_ITEM"><a name="_braille_PANGO_SCRIP"><p>&#39;braille&#39; / &#39;PANGO_SCRIPT_BRAILLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_cypriot_PANGO_SCRIP"><p>&#39;cypriot&#39; / &#39;PANGO_SCRIPT_CYPRIOT&#39;</p></a>
+<li class="POD_ITEM"><a name="_limbu_PANGO_SCRIPT_"><p>&#39;limbu&#39; / &#39;PANGO_SCRIPT_LIMBU&#39;</p></a>
+<li class="POD_ITEM"><a name="_osmanya_PANGO_SCRIP"><p>&#39;osmanya&#39; / &#39;PANGO_SCRIPT_OSMANYA&#39;</p></a>
+<li class="POD_ITEM"><a name="_shavian_PANGO_SCRIP"><p>&#39;shavian&#39; / &#39;PANGO_SCRIPT_SHAVIAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_linear_b_PANGO_SCRI"><p>&#39;linear-b&#39; / &#39;PANGO_SCRIPT_LINEAR_B&#39;</p></a>
+<li class="POD_ITEM"><a name="_tai_le_PANGO_SCRIPT"><p>&#39;tai-le&#39; / &#39;PANGO_SCRIPT_TAI_LE&#39;</p></a>
+<li class="POD_ITEM"><a name="_ugaritic_PANGO_SCRI"><p>&#39;ugaritic&#39; / &#39;PANGO_SCRIPT_UGARITIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_new_tai_lue_PANGO_S"><p>&#39;new-tai-lue&#39; / &#39;PANGO_SCRIPT_NEW_TAI_LUE&#39;</p></a>
+<li class="POD_ITEM"><a name="_buginese_PANGO_SCRI"><p>&#39;buginese&#39; / &#39;PANGO_SCRIPT_BUGINESE&#39;</p></a>
+<li class="POD_ITEM"><a name="_glagolitic_PANGO_SC"><p>&#39;glagolitic&#39; / &#39;PANGO_SCRIPT_GLAGOLITIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_tifinagh_PANGO_SCRI"><p>&#39;tifinagh&#39; / &#39;PANGO_SCRIPT_TIFINAGH&#39;</p></a>
+<li class="POD_ITEM"><a name="_syloti_nagri_PANGO_"><p>&#39;syloti-nagri&#39; / &#39;PANGO_SCRIPT_SYLOTI_NAGRI&#39;</p></a>
+<li class="POD_ITEM"><a name="_old_persian_PANGO_S"><p>&#39;old-persian&#39; / &#39;PANGO_SCRIPT_OLD_PERSIAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_kharoshthi_PANGO_SC"><p>&#39;kharoshthi&#39; / &#39;PANGO_SCRIPT_KHAROSHTHI&#39;</p></a>
+<li class="POD_ITEM"><a name="_unknown_PANGO_SCRIP"><p>&#39;unknown&#39; / &#39;PANGO_SCRIPT_UNKNOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_balinese_PANGO_SCRI"><p>&#39;balinese&#39; / &#39;PANGO_SCRIPT_BALINESE&#39;</p></a>
+<li class="POD_ITEM"><a name="_cuneiform_PANGO_SCR"><p>&#39;cuneiform&#39; / &#39;PANGO_SCRIPT_CUNEIFORM&#39;</p></a>
+<li class="POD_ITEM"><a name="_phoenician_PANGO_SC"><p>&#39;phoenician&#39; / &#39;PANGO_SCRIPT_PHOENICIAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_phags_pa_PANGO_SCRI"><p>&#39;phags-pa&#39; / &#39;PANGO_SCRIPT_PHAGS_PA&#39;</p></a>
+<li class="POD_ITEM"><a name="_nko_PANGO_SCRIPT_NK"><p>&#39;nko&#39; / &#39;PANGO_SCRIPT_NKO&#39;</p></a>
+<li class="POD_ITEM"><a name="_kayah_li_PANGO_SCRI"><p>&#39;kayah-li&#39; / &#39;PANGO_SCRIPT_KAYAH_LI&#39;</p></a>
+<li class="POD_ITEM"><a name="_lepcha_PANGO_SCRIPT"><p>&#39;lepcha&#39; / &#39;PANGO_SCRIPT_LEPCHA&#39;</p></a>
+<li class="POD_ITEM"><a name="_rejang_PANGO_SCRIPT"><p>&#39;rejang&#39; / &#39;PANGO_SCRIPT_REJANG&#39;</p></a>
+<li class="POD_ITEM"><a name="_sundanese_PANGO_SCR"><p>&#39;sundanese&#39; / &#39;PANGO_SCRIPT_SUNDANESE&#39;</p></a>
+<li class="POD_ITEM"><a name="_saurashtra_PANGO_SC"><p>&#39;saurashtra&#39; / &#39;PANGO_SCRIPT_SAURASHTRA&#39;</p></a>
+<li class="POD_ITEM"><a name="_cham_PANGO_SCRIPT_C"><p>&#39;cham&#39; / &#39;PANGO_SCRIPT_CHAM&#39;</p></a>
+<li class="POD_ITEM"><a name="_ol_chiki_PANGO_SCRI"><p>&#39;ol-chiki&#39; / &#39;PANGO_SCRIPT_OL_CHIKI&#39;</p></a>
+<li class="POD_ITEM"><a name="_vai_PANGO_SCRIPT_VA"><p>&#39;vai&#39; / &#39;PANGO_SCRIPT_VAI&#39;</p></a>
+<li class="POD_ITEM"><a name="_carian_PANGO_SCRIPT"><p>&#39;carian&#39; / &#39;PANGO_SCRIPT_CARIAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_lycian_PANGO_SCRIPT"><p>&#39;lycian&#39; / &#39;PANGO_SCRIPT_LYCIAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_lydian_PANGO_SCRIPT"><p>&#39;lydian&#39; / &#39;PANGO_SCRIPT_LYDIAN&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Pango.html">Pango</a>, <a class="POD_LINK" href="../Glib/Boxed.html">Glib::Boxed</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2009 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Pango.html">Pango</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:05:11 2009
+</body>
+</html>
+

@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Config</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Config/Iterator.html">Next:<br />Gnome2::Config::Iterator</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/ColorPicker.html">Previous:<br />Gnome2::ColorPicker</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Config</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#boolean_Gnome2_Confi">boolean = Gnome2::Config-&gt;<b>get_bool</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gnome2_Confi1">boolean = Gnome2::Config::Private-&gt;<b>get_bool</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_set_bo">Gnome2::Config-&gt;<b>set_bool</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat">Gnome2::Config::Private-&gt;<b>set_bool</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_g">list = Gnome2::Config-&gt;<b>get_bool_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_P">list = Gnome2::Config::Private-&gt;<b>get_bool_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_clean_">Gnome2::Config-&gt;<b>clean_file</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat1">Gnome2::Config::Private-&gt;<b>clean_file</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_clean_1">Gnome2::Config-&gt;<b>clean_key</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat2">Gnome2::Config::Private-&gt;<b>clean_key</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_clean_2">Gnome2::Config-&gt;<b>clean_section</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat3">Gnome2::Config::Private-&gt;<b>clean_section</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_drop_a">Gnome2::Config-&gt;<b>drop_all</b></a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_drop_f">Gnome2::Config-&gt;<b>drop_file</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat4">Gnome2::Config::Private-&gt;<b>drop_file</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#double_Gnome2_Config">double = Gnome2::Config-&gt;<b>get_float</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#double_Gnome2_Config1">double = Gnome2::Config::Private-&gt;<b>get_float</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_set_fl">Gnome2::Config-&gt;<b>set_float</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat5">Gnome2::Config::Private-&gt;<b>set_float</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_g1">list = Gnome2::Config-&gt;<b>get_float_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_P1">list = Gnome2::Config::Private-&gt;<b>get_float_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gnome2_Confi2">boolean = Gnome2::Config-&gt;<b>has_section</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gnome2_Confi3">boolean = Gnome2::Config::Private-&gt;<b>has_section</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_Config">scalar = Gnome2::Config-&gt;<b>init_iterator</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_Config1">scalar = Gnome2::Config::Private-&gt;<b>init_iterator</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_Config2">scalar = Gnome2::Config-&gt;<b>init_iterator_sections</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_Config3">scalar = Gnome2::Config::Private-&gt;<b>init_iterator_sections</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#integer_Gnome2_Confi">integer = Gnome2::Config-&gt;<b>get_int</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#integer_Gnome2_Confi1">integer = Gnome2::Config::Private-&gt;<b>get_int</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_set_in">Gnome2::Config-&gt;<b>set_int</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat6">Gnome2::Config::Private-&gt;<b>set_int</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_g2">list = Gnome2::Config-&gt;<b>get_int_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_P2">list = Gnome2::Config::Private-&gt;<b>get_int_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_pop_pr">Gnome2::Config-&gt;<b>pop_prefix</b></a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_push_p">Gnome2::Config-&gt;<b>push_prefix</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_Config">string = Gnome2::Config-&gt;<b>get_real_path</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_Config1">string = Gnome2::Config::Private-&gt;<b>get_real_path</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_Config2">string = Gnome2::Config-&gt;<b>get_string</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_Config3">string = Gnome2::Config::Private-&gt;<b>get_string</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_set_st">Gnome2::Config-&gt;<b>set_string</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat7">Gnome2::Config::Private-&gt;<b>set_string</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_g3">list = Gnome2::Config-&gt;<b>get_string_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_P3">list = Gnome2::Config::Private-&gt;<b>get_string_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gnome2_Confi4">boolean = Gnome2::Config-&gt;<b>sync</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_Gnome2_Confi5">boolean = Gnome2::Config-&gt;<b>sync_file</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gnome2_Confi6">boolean = Gnome2::Config::Private-&gt;<b>sync_file</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_Config4">string = Gnome2::Config-&gt;<b>get_translated_string</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_Config5">string = Gnome2::Config::Private-&gt;<b>get_translated_string</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_set_tr">Gnome2::Config-&gt;<b>set_translated_string</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat8">Gnome2::Config::Private-&gt;<b>set_translated_string</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_g4">list = Gnome2::Config-&gt;<b>get_translated_string_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_P4">list = Gnome2::Config::Private-&gt;<b>get_translated_string_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_Config4">scalar = Gnome2::Config-&gt;<b>get_vector</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_Config5">scalar = Gnome2::Config::Private-&gt;<b>get_vector</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_set_ve">Gnome2::Config-&gt;<b>set_vector</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Config_Privat9">Gnome2::Config::Private-&gt;<b>set_vector</b> ($path, $value)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_g5">list = Gnome2::Config-&gt;<b>get_vector_with_default</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_Config_P5">list = Gnome2::Config::Private-&gt;<b>get_vector_with_default</b> ($path)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Config
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="boolean_Gnome2_Confi">boolean = Gnome2::Config-&gt;<b>get_bool</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gnome2_Confi1">boolean = Gnome2::Config::Private-&gt;<b>get_bool</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_1"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_set_bo">Gnome2::Config-&gt;<b>set_bool</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_2"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_boolean_"><p>$value (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat">Gnome2::Config::Private-&gt;<b>set_bool</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_3"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_boolean_1"><p>$value (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_g">list = Gnome2::Config-&gt;<b>get_bool_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_4"><p>$path (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns a boolean indicating whether the default was used and the actual value.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_P">list = Gnome2::Config::Private-&gt;<b>get_bool_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_5"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_clean_">Gnome2::Config-&gt;<b>clean_file</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_6"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat1">Gnome2::Config::Private-&gt;<b>clean_file</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_7"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_clean_1">Gnome2::Config-&gt;<b>clean_key</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_8"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat2">Gnome2::Config::Private-&gt;<b>clean_key</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_9"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_clean_2">Gnome2::Config-&gt;<b>clean_section</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_10"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat3">Gnome2::Config::Private-&gt;<b>clean_section</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_11"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_drop_a">Gnome2::Config-&gt;<b>drop_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_drop_f">Gnome2::Config-&gt;<b>drop_file</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_12"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat4">Gnome2::Config::Private-&gt;<b>drop_file</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_13"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_Gnome2_Config">double = Gnome2::Config-&gt;<b>get_float</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_14"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_Gnome2_Config1">double = Gnome2::Config::Private-&gt;<b>get_float</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_15"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_set_fl">Gnome2::Config-&gt;<b>set_float</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_16"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_double_"><p>$value (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat5">Gnome2::Config::Private-&gt;<b>set_float</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_17"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_double_1"><p>$value (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_g1">list = Gnome2::Config-&gt;<b>get_float_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_18"><p>$path (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns a boolean indicating whether the default was used and the actual value.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_P1">list = Gnome2::Config::Private-&gt;<b>get_float_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_19"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gnome2_Confi2">boolean = Gnome2::Config-&gt;<b>has_section</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_20"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gnome2_Confi3">boolean = Gnome2::Config::Private-&gt;<b>has_section</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_21"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_Config">scalar = Gnome2::Config-&gt;<b>init_iterator</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_22"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_Config1">scalar = Gnome2::Config::Private-&gt;<b>init_iterator</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_23"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_Config2">scalar = Gnome2::Config-&gt;<b>init_iterator_sections</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_24"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_Config3">scalar = Gnome2::Config::Private-&gt;<b>init_iterator_sections</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_25"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_Gnome2_Confi">integer = Gnome2::Config-&gt;<b>get_int</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_26"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_Gnome2_Confi1">integer = Gnome2::Config::Private-&gt;<b>get_int</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_27"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_set_in">Gnome2::Config-&gt;<b>set_int</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_28"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_integer_"><p>$value (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat6">Gnome2::Config::Private-&gt;<b>set_int</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_29"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_integer_1"><p>$value (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_g2">list = Gnome2::Config-&gt;<b>get_int_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_30"><p>$path (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns a boolean indicating whether the default was used and the actual value.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_P2">list = Gnome2::Config::Private-&gt;<b>get_int_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_31"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_pop_pr">Gnome2::Config-&gt;<b>pop_prefix</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_push_p">Gnome2::Config-&gt;<b>push_prefix</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_32"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_Config">string = Gnome2::Config-&gt;<b>get_real_path</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_33"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_Config1">string = Gnome2::Config::Private-&gt;<b>get_real_path</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_34"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_Config2">string = Gnome2::Config-&gt;<b>get_string</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_35"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_Config3">string = Gnome2::Config::Private-&gt;<b>get_string</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_36"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_set_st">Gnome2::Config-&gt;<b>set_string</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_37"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_string_"><p>$value (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat7">Gnome2::Config::Private-&gt;<b>set_string</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_38"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_string_1"><p>$value (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_g3">list = Gnome2::Config-&gt;<b>get_string_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_39"><p>$path (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns a boolean indicating whether the default was used and the actual value.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_P3">list = Gnome2::Config::Private-&gt;<b>get_string_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_40"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gnome2_Confi4">boolean = Gnome2::Config-&gt;<b>sync</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_Gnome2_Confi5">boolean = Gnome2::Config-&gt;<b>sync_file</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_41"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gnome2_Confi6">boolean = Gnome2::Config::Private-&gt;<b>sync_file</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_42"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_Config4">string = Gnome2::Config-&gt;<b>get_translated_string</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_43"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_Config5">string = Gnome2::Config::Private-&gt;<b>get_translated_string</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_44"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_set_tr">Gnome2::Config-&gt;<b>set_translated_string</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_45"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_string_2"><p>$value (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat8">Gnome2::Config::Private-&gt;<b>set_translated_string</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_46"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_string_3"><p>$value (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_g4">list = Gnome2::Config-&gt;<b>get_translated_string_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_47"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_P4">list = Gnome2::Config::Private-&gt;<b>get_translated_string_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_48"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_Config4">scalar = Gnome2::Config-&gt;<b>get_vector</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_49"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_Config5">scalar = Gnome2::Config::Private-&gt;<b>get_vector</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_50"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_set_ve">Gnome2::Config-&gt;<b>set_vector</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_51"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_scalar_"><p>$value (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Config_Privat9">Gnome2::Config::Private-&gt;<b>set_vector</b> ($path, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_52"><p>$path (string)</p></a>
+<li class="POD_ITEM"><a name="_value_scalar_1"><p>$value (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_g5">list = Gnome2::Config-&gt;<b>get_vector_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_53"><p>$path (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns a boolean indicating whether the default was used and the actual value.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_Config_P5">list = Gnome2::Config::Private-&gt;<b>get_vector_with_default</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_54"><p>$path (string)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:17 2009
+</body>
+</html>
+

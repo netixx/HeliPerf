@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::ActionGroup</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Adjustment.html">Next:<br />Gtk2::Adjustment</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Action.html">Previous:<br />Gtk2::Action</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::ActionGroup</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#NOTE_Translation">NOTE: Translation</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#actiongroup_Gtk2_Act">actiongroup = Gtk2::ActionGroup-&gt;<b>new</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#action_action_group_">action = $action_group-&gt;<b>get_action</b> ($action_name)</a>
+<li><a class="POD_NAVLINK" href="#_action_group_add_ac">$action_group-&gt;<b>add_action</b> ($action)</a>
+<li><a class="POD_NAVLINK" href="#_action_group_add_ac1">$action_group-&gt;<b>add_action_with_accel</b> ($action, $accelerator)</a>
+<li><a class="POD_NAVLINK" href="#_action_group_add_ac2">$action_group-&gt;<b>add_actions</b> ($action_entries, $user_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_action_group_add_ra">$action_group-&gt;<b>add_radio_actions</b> ($radio_action_entries, $value, $on_change, $user_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_action_group_add_to">$action_group-&gt;<b>add_toggle_actions</b> ($toggle_action_entries, $user_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#list_action_group_li">list = $action_group-&gt;<b>list_actions</b></a>
+<li><a class="POD_NAVLINK" href="#string_action_group_">string = $action_group-&gt;<b>get_name</b></a>
+<li><a class="POD_NAVLINK" href="#_action_group_remove">$action_group-&gt;<b>remove_action</b> ($action)</a>
+<li><a class="POD_NAVLINK" href="#boolean_action_group">boolean = $action_group-&gt;<b>get_sensitive</b></a>
+<li><a class="POD_NAVLINK" href="#_action_group_set_se">$action_group-&gt;<b>set_sensitive</b> ($sensitive)</a>
+<li><a class="POD_NAVLINK" href="#_action_group_set_tr">$action_group-&gt;<b>set_translate_func</b> ($func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#string_action_group_1">string = $action_group-&gt;<b>translate_string</b> ($string)</a>
+<li><a class="POD_NAVLINK" href="#_action_group_set_tr1">$action_group-&gt;<b>set_translation_domain</b> ($domain)</a>
+<li><a class="POD_NAVLINK" href="#boolean_action_group1">boolean = $action_group-&gt;<b>get_visible</b></a>
+<li><a class="POD_NAVLINK" href="#_action_group_set_vi">$action_group-&gt;<b>set_visible</b> ($sensitive)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::ActionGroup
+</p>
+<h3 class="POD_HEAD2"><a name="NOTE_Translation">NOTE: Translation</a></h3>
+<p class="POD_TEXT">
+In C, gtk+&#39;s action groups can use the translation domain to ensure that action
+labels and tooltips are translated along with the rest of the app.  However,
+the translation function was not available for calling <b>by</b> the Perl bindings
+until gtk+ 2.6; that is, setting the translation domain had no effect.
+Translation of action groups is supported in Perl as of Gtk2 1.080 using
+gtk+ 2.6.0 or later.
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::ActionGroup
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="actiongroup_Gtk2_Act">actiongroup = Gtk2::ActionGroup-&gt;<b>new</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="action_action_group_">action = $action_group-&gt;<b>get_action</b> ($action_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_action_name_string_"><p>$action_name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_action_group_add_ac">$action_group-&gt;<b>add_action</b> ($action)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_action_Gtk2_Action_"><p>$action (Gtk2::Action)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_action_group_add_ac1">$action_group-&gt;<b>add_action_with_accel</b> ($action, $accelerator)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_action_Gtk2_Action_1"><p>$action (Gtk2::Action)</p></a>
+<li class="POD_ITEM"><a name="_accelerator_string_"><p>$accelerator (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_action_group_add_ac2">$action_group-&gt;<b>add_actions</b> ($action_entries, $user_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_action_entries_scal"><p>$action_entries (scalar)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_"><p>$user_data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_action_group_add_ra">$action_group-&gt;<b>add_radio_actions</b> ($radio_action_entries, $value, $on_change, $user_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_radio_action_entrie"><p>$radio_action_entries (scalar)</p></a>
+<li class="POD_ITEM"><a name="_value_integer_"><p>$value (integer)</p></a>
+<li class="POD_ITEM"><a name="_on_change_scalar_"><p>$on_change (scalar)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_1"><p>$user_data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_action_group_add_to">$action_group-&gt;<b>add_toggle_actions</b> ($toggle_action_entries, $user_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_toggle_action_entri"><p>$toggle_action_entries (scalar)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_2"><p>$user_data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_action_group_li">list = $action_group-&gt;<b>list_actions</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_action_group_">string = $action_group-&gt;<b>get_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_action_group_remove">$action_group-&gt;<b>remove_action</b> ($action)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_action_Gtk2_Action_2"><p>$action (Gtk2::Action)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_action_group">boolean = $action_group-&gt;<b>get_sensitive</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_action_group_set_se">$action_group-&gt;<b>set_sensitive</b> ($sensitive)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_sensitive_boolean_"><p>$sensitive (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_action_group_set_tr">$action_group-&gt;<b>set_translate_func</b> ($func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="string_action_group_1">string = $action_group-&gt;<b>translate_string</b> ($string)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_string_string_"><p>$string (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_action_group_set_tr1">$action_group-&gt;<b>set_translation_domain</b> ($domain)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_"><p>$domain (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_action_group1">boolean = $action_group-&gt;<b>get_visible</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_action_group_set_vi">$action_group-&gt;<b>set_visible</b> ($sensitive)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_sensitive_boolean_1"><p>$sensitive (boolean)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_name_string_readabl">&#39;name&#39; (string : readable / writable / construct-only / private)</a>
+<dd>
+A name for the action group.
+<dt class="POD_ITEM"><a name="_sensitive_boolean_r">&#39;sensitive&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the action group is enabled.
+<dt class="POD_ITEM"><a name="_visible_boolean_rea">&#39;visible&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the action group is visible.
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="connect_proxy_Gtk2_A"><b>connect-proxy</b> (Gtk2::ActionGroup, Gtk2::Action, Gtk2::Widget)</a>
+<dt><a name="disconnect_proxy_Gtk"><b>disconnect-proxy</b> (Gtk2::ActionGroup, Gtk2::Action, Gtk2::Widget)</a>
+<dt><a name="pre_activate_Gtk2_Ac"><b>pre-activate</b> (Gtk2::ActionGroup, Gtk2::Action)</a>
+<dt><a name="post_activate_Gtk2_A"><b>post-activate</b> (Gtk2::ActionGroup, Gtk2::Action)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:24 2009
+</body>
+</html>
+

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::IconEntry</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/IconList.html">Next:<br />Gnome2::IconList</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/I18N.html">Previous:<br />Gnome2::I18N</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::IconEntry</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_IconEn">widget = Gnome2::IconEntry-&gt;<b>new</b> ($history_id, $browse_dialog_title)</a>
+<li><a class="POD_NAVLINK" href="#_ientry_set_browse_d">$ientry-&gt;<b>set_browse_dialog_title</b> ($browse_dialog_title)</a>
+<li><a class="POD_NAVLINK" href="#string_ientry_get_fi">string = $ientry-&gt;<b>get_filename</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_ientry_set_f">boolean = $ientry-&gt;<b>set_filename</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#_ientry_set_history_">$ientry-&gt;<b>set_history_id</b> ($history_id)</a>
+<li><a class="POD_NAVLINK" href="#_ientry_set_max_save">$ientry-&gt;<b>set_max_saved</b> ($max_saved)</a>
+<li><a class="POD_NAVLINK" href="#widget_or_undef_ient">widget or undef = $ientry-&gt;<b>pick_dialog</b></a>
+<li><a class="POD_NAVLINK" href="#_ientry_set_pixmap_s">$ientry-&gt;<b>set_pixmap_subdir</b> ($subdir)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::IconEntry
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Box
+                           +----Gtk2::VBox
+                                +----Gnome2::IconEntry
+</pre>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_IconEn">widget = Gnome2::IconEntry-&gt;<b>new</b> ($history_id, $browse_dialog_title)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_history_id_string_"><p>$history_id (string)</p></a>
+<li class="POD_ITEM"><a name="_browse_dialog_title"><p>$browse_dialog_title (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_ientry_set_browse_d">$ientry-&gt;<b>set_browse_dialog_title</b> ($browse_dialog_title)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_browse_dialog_title1"><p>$browse_dialog_title (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_ientry_get_fi">string = $ientry-&gt;<b>get_filename</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_ientry_set_f">boolean = $ientry-&gt;<b>set_filename</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_"><p>$filename (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_ientry_set_history_">$ientry-&gt;<b>set_history_id</b> ($history_id)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_history_id_string_1"><p>$history_id (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_ientry_set_max_save">$ientry-&gt;<b>set_max_saved</b> ($max_saved)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_max_saved_integer_"><p>$max_saved (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: libgnomeui 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="widget_or_undef_ient">widget or undef = $ientry-&gt;<b>pick_dialog</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_ientry_set_pixmap_s">$ientry-&gt;<b>set_pixmap_subdir</b> ($subdir)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_subdir_string_"><p>$subdir (string)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_browse_dialog_title2">&#39;browse-dialog-title&#39; (string : readable / writable)</a>
+<dd>
+Title for the Browse icon dialog.
+<dt class="POD_ITEM"><a name="_filename_string_rea">&#39;filename&#39; (string : readable / writable)</a>
+<dd>
+Filename that should be displayed in the icon entry.
+<dt class="POD_ITEM"><a name="_history_id_string_r">&#39;history-id&#39; (string : readable / writable)</a>
+<dd>
+Unique identifier for the icon entry.  This will be used to save the history list.
+<dt class="POD_ITEM"><a name="_pick_dialog_Gtk2_Di">&#39;pick-dialog&#39; (Gtk2::Dialog : readable)</a>
+<dd>
+Icon picker dialog.  You can use this property to get the GtkDialog if you need to modify or query any of its properties.
+<dt class="POD_ITEM"><a name="_pixmap_subdir_strin">&#39;pixmap-subdir&#39; (string : readable / writable)</a>
+<dd>
+Directory that will be searched for icons.
+</dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="changed_Gnome2_IconE"><b>changed</b> (Gnome2::IconEntry)</a>
+<dt><a name="browse_Gnome2_IconEn"><b>browse</b> (Gnome2::IconEntry)</a>
+<dd></dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Box.html">Gtk2::Box</a>, <a class="POD_LINK" href="../Gtk2/VBox.html">Gtk2::VBox</a>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:36 2009
+</body>
+</html>
+

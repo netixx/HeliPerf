@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Glib::Log</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/MainLoop.html">Next:<br />Glib::MainLoop</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/KeyFile.html">Previous:<br />Glib::KeyFile</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Glib::Log</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#scalar_Glib_Log_set_">scalar = Glib::Log-&gt;<b>set_always_fatal</b> ($fatal_mask)</a>
+<li><a class="POD_NAVLINK" href="#Glib_critical_domain">Glib-&gt;<b>critical</b> ($domain, $message)</a>
+<li><a class="POD_NAVLINK" href="#Glib_error_domain_me">Glib-&gt;<b>error</b> ($domain, $message)</a>
+<li><a class="POD_NAVLINK" href="#scalar_Glib_Log_set_1">scalar = Glib::Log-&gt;<b>set_fatal_mask</b> ($log_domain, $fatal_mask)</a>
+<li><a class="POD_NAVLINK" href="#integer_Glib_Log_set">integer = Glib::Log-&gt;<b>set_handler</b> ($log_domain, $log_levels, $log_func, $user_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#Glib_log_log_domain_">Glib-&gt;<b>log</b> ($log_domain, $log_level, $message)</a>
+<li><a class="POD_NAVLINK" href="#Glib_message_domain_">Glib-&gt;<b>message</b> ($domain, $message)</a>
+<li><a class="POD_NAVLINK" href="#Glib_Log_remove_hand">Glib::Log-&gt;<b>remove_handler</b> ($log_domain, $handler_id)</a>
+<li><a class="POD_NAVLINK" href="#Glib_warning_domain_">Glib-&gt;<b>warning</b> ($domain, $message)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#flags_Glib_LogLevelF">flags Glib::LogLevelFlags</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Glib::Log -  A flexible logging mechanism
+</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="scalar_Glib_Log_set_">scalar = Glib::Log-&gt;<b>set_always_fatal</b> ($fatal_mask)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_fatal_mask_scalar_"><p>$fatal_mask (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Glib_critical_domain">Glib-&gt;<b>critical</b> ($domain, $message)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_or_un"><p>$domain (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_message_string_"><p>$message (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Glib_error_domain_me">Glib-&gt;<b>error</b> ($domain, $message)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_or_un1"><p>$domain (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_message_string_1"><p>$message (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_Glib_Log_set_1">scalar = Glib::Log-&gt;<b>set_fatal_mask</b> ($log_domain, $fatal_mask)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_log_domain_string_"><p>$log_domain (string)</p></a>
+<li class="POD_ITEM"><a name="_fatal_mask_scalar_1"><p>$fatal_mask (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_Glib_Log_set">integer = Glib::Log-&gt;<b>set_handler</b> ($log_domain, $log_levels, $log_func, $user_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_log_domain_string_o"><p>$log_domain (string or undef) name of the domain to handle with this callback.</p></a>
+<li class="POD_ITEM"><a name="_log_levels_Glib_Log"><p>$log_levels (Glib::LogLevelFlags) log levels to handle with this callback</p></a>
+<li class="POD_ITEM"><a name="_log_func_subroutine"><p>$log_func (subroutine) handler function</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_"><p>$user_data (scalar)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Glib_log_log_domain_">Glib-&gt;<b>log</b> ($log_domain, $log_level, $message)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_log_domain_string_o1"><p>$log_domain (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_log_level_scalar_"><p>$log_level (scalar)</p></a>
+<li class="POD_ITEM"><a name="_message_string_2"><p>$message (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Glib_message_domain_">Glib-&gt;<b>message</b> ($domain, $message)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_or_un2"><p>$domain (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_message_string_3"><p>$message (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Glib_Log_remove_hand">Glib::Log-&gt;<b>remove_handler</b> ($log_domain, $handler_id)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_log_domain_string_o2"><p>$log_domain (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_handler_id_integer_"><p>$handler_id (integer) as returned by <code>set_handler</code></p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Glib_warning_domain_">Glib-&gt;<b>warning</b> ($domain, $message)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_or_un3"><p>$domain (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_message_string_4"><p>$message (string)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="flags_Glib_LogLevelF">flags Glib::LogLevelFlags</a></h3>
+<p></p>
+<p></p>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_recursion_G_LOG_FLA"><p>&#39;recursion&#39; / &#39;G_LOG_FLAG_RECURSION&#39;</p></a>
+<li class="POD_ITEM"><a name="_fatal_G_LOG_FLAG_FA"><p>&#39;fatal&#39; / &#39;G_LOG_FLAG_FATAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_error_G_LOG_LEVEL_E"><p>&#39;error&#39; / &#39;G_LOG_LEVEL_ERROR&#39;</p></a>
+<li class="POD_ITEM"><a name="_critical_G_LOG_LEVE"><p>&#39;critical&#39; / &#39;G_LOG_LEVEL_CRITICAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_warning_G_LOG_LEVEL"><p>&#39;warning&#39; / &#39;G_LOG_LEVEL_WARNING&#39;</p></a>
+<li class="POD_ITEM"><a name="_message_G_LOG_LEVEL"><p>&#39;message&#39; / &#39;G_LOG_LEVEL_MESSAGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_info_G_LOG_LEVEL_IN"><p>&#39;info&#39; / &#39;G_LOG_LEVEL_INFO&#39;</p></a>
+<li class="POD_ITEM"><a name="_debug_G_LOG_LEVEL_D"><p>&#39;debug&#39; / &#39;G_LOG_LEVEL_DEBUG&#39;</p></a>
+<li class="POD_ITEM"><a name="_fatal_mask_G_LOG_FA"><p>&#39;fatal-mask&#39; / &#39;G_LOG_FATAL_MASK&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Glib.html">Glib</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2009 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Glib.html">Glib</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:57:37 2009
+</body>
+</html>
+

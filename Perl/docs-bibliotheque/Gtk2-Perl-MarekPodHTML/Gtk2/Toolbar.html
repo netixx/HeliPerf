@@ -1,0 +1,391 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Toolbar</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ToolButton.html">Next:<br />Gtk2::ToolButton</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ToggleToolButton.html">Previous:<br />Gtk2::ToggleToolButton</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Toolbar</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_Toolbar_">widget = Gtk2::Toolbar-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#widget_toolbar_appen">widget = $toolbar-&gt;<b>append_element</b> ($type, $widget, $text, $tooltip_text, $tooltip_private_text, $icon, $callback=undef, $user_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_toolbar_appen1">widget = $toolbar-&gt;<b>append_item</b> ($text, $tooltip_text, $tooltip_private_text, $icon, $callback=undef, $user_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_toolbar_append_spac">$toolbar-&gt;<b>append_space</b></a>
+<li><a class="POD_NAVLINK" href="#_toolbar_append_widg">$toolbar-&gt;<b>append_widget</b> ($widget, $tooltip_text, $tooltip_private_text)</a>
+<li><a class="POD_NAVLINK" href="#_toolbar_set_drop_hi">$toolbar-&gt;<b>set_drop_highlight_item</b> ($tool_item, $index)</a>
+<li><a class="POD_NAVLINK" href="#integer_toolbar_get_">integer = $toolbar-&gt;<b>get_drop_index</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#iconsize_toolbar_get">iconsize = $toolbar-&gt;<b>get_icon_size</b></a>
+<li><a class="POD_NAVLINK" href="#_toolbar_set_icon_si">$toolbar-&gt;<b>set_icon_size</b> ($icon_size)</a>
+<li><a class="POD_NAVLINK" href="#_toolbar_insert_item">$toolbar-&gt;<b>insert</b> ($item, $pos)</a>
+<li><a class="POD_NAVLINK" href="#widget_toolbar_inser">widget = $toolbar-&gt;<b>insert_element</b> ($type, $widget, $text, $tooltip_text, $tooltip_private_text, $icon, $callback, $user_data, $position)</a>
+<li><a class="POD_NAVLINK" href="#widget_toolbar_inser1">widget = $toolbar-&gt;<b>insert_item</b> ($text, $tooltip_text, $tooltip_private_text, $icon, $callback, $user_data, $position)</a>
+<li><a class="POD_NAVLINK" href="#_toolbar_insert_spac">$toolbar-&gt;<b>insert_space</b> ($position)</a>
+<li><a class="POD_NAVLINK" href="#widget_toolbar_inser2">widget = $toolbar-&gt;<b>insert_stock</b> ($stock_id, $tooltip_text, $tooltip_private_text, $callback, $user_data, $position)</a>
+<li><a class="POD_NAVLINK" href="#_toolbar_insert_widg">$toolbar-&gt;<b>insert_widget</b> ($widget, $tooltip_text, $tooltip_private_text, $position)</a>
+<li><a class="POD_NAVLINK" href="#integer_toolbar_get_1">integer = $toolbar-&gt;<b>get_item_index</b> ($item)</a>
+<li><a class="POD_NAVLINK" href="#integer_toolbar_get_2">integer = $toolbar-&gt;<b>get_n_items</b></a>
+<li><a class="POD_NAVLINK" href="#toolitem_or_undef_to">toolitem or undef = $toolbar-&gt;<b>get_nth_item</b> ($n)</a>
+<li><a class="POD_NAVLINK" href="#orientation_toolbar_">orientation = $toolbar-&gt;<b>get_orientation</b></a>
+<li><a class="POD_NAVLINK" href="#_toolbar_set_orienta">$toolbar-&gt;<b>set_orientation</b> ($orientation)</a>
+<li><a class="POD_NAVLINK" href="#widget_toolbar_prepe">widget = $toolbar-&gt;<b>prepend_element</b> ($type, $widget, $text, $tooltip_text, $tooltip_private_text, $icon, $callback=undef, $user_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_toolbar_prepe1">widget = $toolbar-&gt;<b>prepend_item</b> ($text, $tooltip_text, $tooltip_private_text, $icon, $callback=undef, $user_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_toolbar_prepend_spa">$toolbar-&gt;<b>prepend_space</b></a>
+<li><a class="POD_NAVLINK" href="#_toolbar_prepend_wid">$toolbar-&gt;<b>prepend_widget</b> ($widget, $tooltip_text, $tooltip_private_text)</a>
+<li><a class="POD_NAVLINK" href="#reliefstyle_toolbar_">reliefstyle = $toolbar-&gt;<b>get_relief_style</b></a>
+<li><a class="POD_NAVLINK" href="#_toolbar_remove_spac">$toolbar-&gt;<b>remove_space</b> ($position)</a>
+<li><a class="POD_NAVLINK" href="#boolean_toolbar_get_">boolean = $toolbar-&gt;<b>get_show_arrow</b></a>
+<li><a class="POD_NAVLINK" href="#_toolbar_set_show_ar">$toolbar-&gt;<b>set_show_arrow</b> ($show_arrow)</a>
+<li><a class="POD_NAVLINK" href="#toolbarstyle_toolbar">toolbarstyle = $toolbar-&gt;<b>get_style</b></a>
+<li><a class="POD_NAVLINK" href="#_toolbar_set_style_s">$toolbar-&gt;<b>set_style</b> ($style)</a>
+<li><a class="POD_NAVLINK" href="#boolean_toolbar_get_1">boolean = $toolbar-&gt;<b>get_tooltips</b></a>
+<li><a class="POD_NAVLINK" href="#_toolbar_set_tooltip">$toolbar-&gt;<b>set_tooltips</b> ($enable)</a>
+<li><a class="POD_NAVLINK" href="#_toolbar_unset_icon_">$toolbar-&gt;<b>unset_icon_size</b></a>
+<li><a class="POD_NAVLINK" href="#_toolbar_unset_style">$toolbar-&gt;<b>unset_style</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IconSize">enum Gtk2::IconSize</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Orientatio">enum Gtk2::Orientation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ReliefStyl">enum Gtk2::ReliefStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ToolbarChi">enum Gtk2::ToolbarChildType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ToolbarSty">enum Gtk2::ToolbarStyle</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Toolbar
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Toolbar
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_Toolbar_">widget = Gtk2::Toolbar-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_toolbar_appen">widget = $toolbar-&gt;<b>append_element</b> ($type, $widget, $text, $tooltip_text, $tooltip_private_text, $icon, $callback=undef, $user_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_type_Gtk2_ToolbarCh"><p>$type (Gtk2::ToolbarChildType)</p></a>
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_"><p>$widget (Gtk2::Widget or undef)</p></a>
+<li class="POD_ITEM"><a name="_text_string_"><p>$text (string)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex"><p>$tooltip_private_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_icon_Gtk2_Widget_or"><p>$icon (Gtk2::Widget or undef)</p></a>
+<li class="POD_ITEM"><a name="_callback_subroutine"><p>$callback (subroutine)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_"><p>$user_data (scalar)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="widget_toolbar_appen1">widget = $toolbar-&gt;<b>append_item</b> ($text, $tooltip_text, $tooltip_private_text, $icon, $callback=undef, $user_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_string_1"><p>$text (string)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string1"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex1"><p>$tooltip_private_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_icon_Gtk2_Widget_or1"><p>$icon (Gtk2::Widget or undef)</p></a>
+<li class="POD_ITEM"><a name="_callback_subroutine1"><p>$callback (subroutine)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_1"><p>$user_data (scalar)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_toolbar_append_spac">$toolbar-&gt;<b>append_space</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolbar_append_widg">$toolbar-&gt;<b>append_widget</b> ($widget, $tooltip_text, $tooltip_private_text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_1"><p>$widget (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string2"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex2"><p>$tooltip_private_text (string or undef)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_toolbar_set_drop_hi">$toolbar-&gt;<b>set_drop_highlight_item</b> ($tool_item, $index)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tool_item_Gtk2_Tool"><p>$tool_item (Gtk2::ToolItem or undef)</p></a>
+<li class="POD_ITEM"><a name="_index_integer_"><p>$index (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="integer_toolbar_get_">integer = $toolbar-&gt;<b>get_drop_index</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_"><p>$y (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="iconsize_toolbar_get">iconsize = $toolbar-&gt;<b>get_icon_size</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolbar_set_icon_si">$toolbar-&gt;<b>set_icon_size</b> ($icon_size)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_icon_size_Gtk2_Icon"><p>$icon_size (Gtk2::IconSize)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_toolbar_insert_item">$toolbar-&gt;<b>insert</b> ($item, $pos)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_item_Gtk2_ToolItem_"><p>$item (Gtk2::ToolItem)</p></a>
+<li class="POD_ITEM"><a name="_pos_integer_"><p>$pos (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="widget_toolbar_inser">widget = $toolbar-&gt;<b>insert_element</b> ($type, $widget, $text, $tooltip_text, $tooltip_private_text, $icon, $callback, $user_data, $position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_type_Gtk2_ToolbarCh1"><p>$type (Gtk2::ToolbarChildType)</p></a>
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_2"><p>$widget (Gtk2::Widget or undef)</p></a>
+<li class="POD_ITEM"><a name="_text_string_2"><p>$text (string)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string3"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex3"><p>$tooltip_private_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_icon_Gtk2_Widget_or2"><p>$icon (Gtk2::Widget or undef)</p></a>
+<li class="POD_ITEM"><a name="_callback_subroutine2"><p>$callback (subroutine)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_2"><p>$user_data (scalar)</p></a>
+<li class="POD_ITEM"><a name="_position_integer_"><p>$position (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="widget_toolbar_inser1">widget = $toolbar-&gt;<b>insert_item</b> ($text, $tooltip_text, $tooltip_private_text, $icon, $callback, $user_data, $position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_string_3"><p>$text (string)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string4"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex4"><p>$tooltip_private_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_icon_Gtk2_Widget_or3"><p>$icon (Gtk2::Widget or undef)</p></a>
+<li class="POD_ITEM"><a name="_callback_subroutine3"><p>$callback (subroutine)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_3"><p>$user_data (scalar)</p></a>
+<li class="POD_ITEM"><a name="_position_integer_1"><p>$position (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_toolbar_insert_spac">$toolbar-&gt;<b>insert_space</b> ($position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_position_integer_2"><p>$position (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_toolbar_inser2">widget = $toolbar-&gt;<b>insert_stock</b> ($stock_id, $tooltip_text, $tooltip_private_text, $callback, $user_data, $position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_stock_id_string_"><p>$stock_id (string)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string5"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex5"><p>$tooltip_private_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_callback_subroutine4"><p>$callback (subroutine)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_4"><p>$user_data (scalar)</p></a>
+<li class="POD_ITEM"><a name="_position_integer_3"><p>$position (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_toolbar_insert_widg">$toolbar-&gt;<b>insert_widget</b> ($widget, $tooltip_text, $tooltip_private_text, $position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_3"><p>$widget (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string6"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex6"><p>$tooltip_private_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_position_integer_4"><p>$position (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="integer_toolbar_get_1">integer = $toolbar-&gt;<b>get_item_index</b> ($item)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_item_Gtk2_ToolItem_1"><p>$item (Gtk2::ToolItem)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="integer_toolbar_get_2">integer = $toolbar-&gt;<b>get_n_items</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="toolitem_or_undef_to">toolitem or undef = $toolbar-&gt;<b>get_nth_item</b> ($n)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_n_integer_"><p>$n (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="orientation_toolbar_">orientation = $toolbar-&gt;<b>get_orientation</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolbar_set_orienta">$toolbar-&gt;<b>set_orientation</b> ($orientation)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_orientation_Gtk2_Or"><p>$orientation (Gtk2::Orientation)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_toolbar_prepe">widget = $toolbar-&gt;<b>prepend_element</b> ($type, $widget, $text, $tooltip_text, $tooltip_private_text, $icon, $callback=undef, $user_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_type_Gtk2_ToolbarCh2"><p>$type (Gtk2::ToolbarChildType)</p></a>
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_4"><p>$widget (Gtk2::Widget or undef)</p></a>
+<li class="POD_ITEM"><a name="_text_string_4"><p>$text (string)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string7"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex7"><p>$tooltip_private_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_icon_Gtk2_Widget_or4"><p>$icon (Gtk2::Widget or undef)</p></a>
+<li class="POD_ITEM"><a name="_callback_subroutine5"><p>$callback (subroutine)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_5"><p>$user_data (scalar)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="widget_toolbar_prepe1">widget = $toolbar-&gt;<b>prepend_item</b> ($text, $tooltip_text, $tooltip_private_text, $icon, $callback=undef, $user_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_string_5"><p>$text (string)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string8"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex8"><p>$tooltip_private_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_icon_Gtk2_Widget_or5"><p>$icon (Gtk2::Widget or undef)</p></a>
+<li class="POD_ITEM"><a name="_callback_subroutine6"><p>$callback (subroutine)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_6"><p>$user_data (scalar)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_toolbar_prepend_spa">$toolbar-&gt;<b>prepend_space</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolbar_prepend_wid">$toolbar-&gt;<b>prepend_widget</b> ($widget, $tooltip_text, $tooltip_private_text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_5"><p>$widget (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_text_string9"><p>$tooltip_text (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_tooltip_private_tex9"><p>$tooltip_private_text (string or undef)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="reliefstyle_toolbar_">reliefstyle = $toolbar-&gt;<b>get_relief_style</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="_toolbar_remove_spac">$toolbar-&gt;<b>remove_space</b> ($position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_position_integer_5"><p>$position (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_toolbar_get_">boolean = $toolbar-&gt;<b>get_show_arrow</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="_toolbar_set_show_ar">$toolbar-&gt;<b>set_show_arrow</b> ($show_arrow)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_show_arrow_boolean_"><p>$show_arrow (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="toolbarstyle_toolbar">toolbarstyle = $toolbar-&gt;<b>get_style</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolbar_set_style_s">$toolbar-&gt;<b>set_style</b> ($style)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_style_Gtk2_ToolbarS"><p>$style (Gtk2::ToolbarStyle)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_toolbar_get_1">boolean = $toolbar-&gt;<b>get_tooltips</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolbar_set_tooltip">$toolbar-&gt;<b>set_tooltips</b> ($enable)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_enable_boolean_"><p>$enable (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_toolbar_unset_icon_">$toolbar-&gt;<b>unset_icon_size</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolbar_unset_style">$toolbar-&gt;<b>unset_style</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_icon_size_Gtk2_Icon1">&#39;icon-size&#39; (Gtk2::IconSize : readable / writable / private)</a>
+<dd>
+Size of icons in this toolbar
+<dt class="POD_ITEM"><a name="_icon_size_set_boole">&#39;icon-size-set&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the icon-size property has been set
+<dt class="POD_ITEM"><a name="_orientation_Gtk2_Or1">&#39;orientation&#39; (Gtk2::Orientation : readable / writable / private)</a>
+<dd>
+The orientation of the toolbar
+<dt class="POD_ITEM"><a name="_show_arrow_boolean_1">&#39;show-arrow&#39; (boolean : readable / writable / private)</a>
+<dd>
+If an arrow should be shown if the toolbar doesn&#39;t fit
+<dt class="POD_ITEM"><a name="_toolbar_style_Gtk2_">&#39;toolbar-style&#39; (Gtk2::ToolbarStyle : readable / writable / private)</a>
+<dd>
+How to draw the toolbar
+<dt class="POD_ITEM"><a name="_tooltips_boolean_re">&#39;tooltips&#39; (boolean : readable / writable / private)</a>
+<dd>
+If the tooltips of the toolbar should be active or not
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="orientation_changed_"><b>orientation-changed</b> (Gtk2::Toolbar, Gtk2::Orientation)</a>
+<dt><a name="style_changed_Gtk2_T"><b>style-changed</b> (Gtk2::Toolbar, Gtk2::ToolbarStyle)</a>
+<dt><a name="boolean_popup_contex">boolean = <b>popup-context-menu</b> (Gtk2::Toolbar, integer, integer, integer)</a>
+<dt><a name="boolean_focus_home_o">boolean = <b>focus-home-or-end</b> (Gtk2::Toolbar, boolean)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IconSize">enum Gtk2::IconSize</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_invalid_GTK_ICON_SI"><p>&#39;invalid&#39; / &#39;GTK_ICON_SIZE_INVALID&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GTK_ICON_SIZE_"><p>&#39;menu&#39; / &#39;GTK_ICON_SIZE_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_small_toolbar_GTK_I"><p>&#39;small-toolbar&#39; / &#39;GTK_ICON_SIZE_SMALL_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_large_toolbar_GTK_I"><p>&#39;large-toolbar&#39; / &#39;GTK_ICON_SIZE_LARGE_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_GTK_ICON_SIZ"><p>&#39;button&#39; / &#39;GTK_ICON_SIZE_BUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_dnd_GTK_ICON_SIZE_D"><p>&#39;dnd&#39; / &#39;GTK_ICON_SIZE_DND&#39;</p></a>
+<li class="POD_ITEM"><a name="_dialog_GTK_ICON_SIZ"><p>&#39;dialog&#39; / &#39;GTK_ICON_SIZE_DIALOG&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Orientatio">enum Gtk2::Orientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_horizontal_GTK_ORIE"><p>&#39;horizontal&#39; / &#39;GTK_ORIENTATION_HORIZONTAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_vertical_GTK_ORIENT"><p>&#39;vertical&#39; / &#39;GTK_ORIENTATION_VERTICAL&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ReliefStyl">enum Gtk2::ReliefStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_normal_GTK_RELIEF_N"><p>&#39;normal&#39; / &#39;GTK_RELIEF_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_half_GTK_RELIEF_HAL"><p>&#39;half&#39; / &#39;GTK_RELIEF_HALF&#39;</p></a>
+<li class="POD_ITEM"><a name="_none_GTK_RELIEF_NON"><p>&#39;none&#39; / &#39;GTK_RELIEF_NONE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ToolbarChi">enum Gtk2::ToolbarChildType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_space_GTK_TOOLBAR_C"><p>&#39;space&#39; / &#39;GTK_TOOLBAR_CHILD_SPACE&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_GTK_TOOLBAR_"><p>&#39;button&#39; / &#39;GTK_TOOLBAR_CHILD_BUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_togglebutton_GTK_TO"><p>&#39;togglebutton&#39; / &#39;GTK_TOOLBAR_CHILD_TOGGLEBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_radiobutton_GTK_TOO"><p>&#39;radiobutton&#39; / &#39;GTK_TOOLBAR_CHILD_RADIOBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_widget_GTK_TOOLBAR_"><p>&#39;widget&#39; / &#39;GTK_TOOLBAR_CHILD_WIDGET&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ToolbarSty">enum Gtk2::ToolbarStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_icons_GTK_TOOLBAR_I"><p>&#39;icons&#39; / &#39;GTK_TOOLBAR_ICONS&#39;</p></a>
+<li class="POD_ITEM"><a name="_text_GTK_TOOLBAR_TE"><p>&#39;text&#39; / &#39;GTK_TOOLBAR_TEXT&#39;</p></a>
+<li class="POD_ITEM"><a name="_both_GTK_TOOLBAR_BO"><p>&#39;both&#39; / &#39;GTK_TOOLBAR_BOTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_both_horiz_GTK_TOOL"><p>&#39;both-horiz&#39; / &#39;GTK_TOOLBAR_BOTH_HORIZ&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:04:08 2009
+</body>
+</html>
+

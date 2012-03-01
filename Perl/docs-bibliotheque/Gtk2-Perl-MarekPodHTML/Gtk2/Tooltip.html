@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Tooltip</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Tooltips.html">Next:<br />Gtk2::Tooltips</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ToolItem.html">Previous:<br />Gtk2::ToolItem</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Tooltip</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#_tooltip_set_custom_">$tooltip-&gt;<b>set_custom</b> ($custom_widget)</a>
+<li><a class="POD_NAVLINK" href="#_tooltip_set_icon_fr">$tooltip-&gt;<b>set_icon_from_stock</b> ($stock_id, $size)</a>
+<li><a class="POD_NAVLINK" href="#_tooltip_set_icon_pi">$tooltip-&gt;<b>set_icon</b> ($pixbuf)</a>
+<li><a class="POD_NAVLINK" href="#_tooltip_set_markup_">$tooltip-&gt;<b>set_markup</b> ($markup)</a>
+<li><a class="POD_NAVLINK" href="#_tooltip_set_text_te">$tooltip-&gt;<b>set_text</b> ($text)</a>
+<li><a class="POD_NAVLINK" href="#_tooltip_set_tip_are">$tooltip-&gt;<b>set_tip_area</b> ($rect)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Tooltip_trigger">Gtk2::Tooltip::trigger_tooltip_query ($display)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IconSize">enum Gtk2::IconSize</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Tooltip
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::Tooltip
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="_tooltip_set_custom_">$tooltip-&gt;<b>set_custom</b> ($custom_widget)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_custom_widget_Gtk2_"><p>$custom_widget (Gtk2::Widget or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_tooltip_set_icon_fr">$tooltip-&gt;<b>set_icon_from_stock</b> ($stock_id, $size)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_stock_id_string_or_"><p>$stock_id (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_size_Gtk2_IconSize_"><p>$size (Gtk2::IconSize)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_tooltip_set_icon_pi">$tooltip-&gt;<b>set_icon</b> ($pixbuf)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixbuf_Gtk2_Gdk_Pix"><p>$pixbuf (Gtk2::Gdk::Pixbuf or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_tooltip_set_markup_">$tooltip-&gt;<b>set_markup</b> ($markup)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_markup_string_or_un"><p>$markup (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_tooltip_set_text_te">$tooltip-&gt;<b>set_text</b> ($text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_string_or_unde"><p>$text (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_tooltip_set_tip_are">$tooltip-&gt;<b>set_tip_area</b> ($rect)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rect_Gtk2_Gdk_Recta"><p>$rect (Gtk2::Gdk::Rectangle or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gtk2_Tooltip_trigger">Gtk2::Tooltip::trigger_tooltip_query ($display)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_display_Gtk2_Gdk_Di"><p>$display (Gtk2::Gdk::Display)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IconSize">enum Gtk2::IconSize</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_invalid_GTK_ICON_SI"><p>&#39;invalid&#39; / &#39;GTK_ICON_SIZE_INVALID&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GTK_ICON_SIZE_"><p>&#39;menu&#39; / &#39;GTK_ICON_SIZE_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_small_toolbar_GTK_I"><p>&#39;small-toolbar&#39; / &#39;GTK_ICON_SIZE_SMALL_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_large_toolbar_GTK_I"><p>&#39;large-toolbar&#39; / &#39;GTK_ICON_SIZE_LARGE_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_GTK_ICON_SIZ"><p>&#39;button&#39; / &#39;GTK_ICON_SIZE_BUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_dnd_GTK_ICON_SIZE_D"><p>&#39;dnd&#39; / &#39;GTK_ICON_SIZE_DND&#39;</p></a>
+<li class="POD_ITEM"><a name="_dialog_GTK_ICON_SIZ"><p>&#39;dialog&#39; / &#39;GTK_ICON_SIZE_DIALOG&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:04:12 2009
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::VFS::DNSSD</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/VFS/DNSSD/Browse/Handle.html">Next:<br />Gnome2::VFS::DNSSD::Browse::Handle</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/VFS/Directory/Handle.html">Previous:<br />Gnome2::VFS::Directory::Handle</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::VFS::DNSSD</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_VFS_DNSS">list = Gnome2::VFS::DNSSD-&gt;<b>browse</b> ($domain, $type, $func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_VFS_DNSS1">list = Gnome2::VFS::DNSSD-&gt;<b>browse_sync</b> ($domain, $type, $timeout_msec)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_VFS_get_">list = Gnome2::VFS-&gt;<b>get_default_browse_domains</b></a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_VFS_DNSS2">list = Gnome2::VFS::DNSSD-&gt;<b>list_browse_domains_sync</b> ($domain, $timeout_msec)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_VFS_DNSS3">list = Gnome2::VFS::DNSSD-&gt;<b>resolve</b> ($name, $type, $domain, $timeout, $func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_VFS_DNSS4">list = Gnome2::VFS::DNSSD-&gt;<b>resolve_sync</b> ($name, $type, $domain, $timeout_msec)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::VFS::DNSSD
+</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_VFS_DNSS">list = Gnome2::VFS::DNSSD-&gt;<b>browse</b> ($domain, $type, $func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_"><p>$domain (string)</p></a>
+<li class="POD_ITEM"><a name="_type_string_"><p>$type (string)</p></a>
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_VFS_DNSS1">list = Gnome2::VFS::DNSSD-&gt;<b>browse_sync</b> ($domain, $type, $timeout_msec)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_1"><p>$domain (string)</p></a>
+<li class="POD_ITEM"><a name="_type_string_1"><p>$type (string)</p></a>
+<li class="POD_ITEM"><a name="_timeout_msec_intege"><p>$timeout_msec (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_VFS_get_">list = Gnome2::VFS-&gt;<b>get_default_browse_domains</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_VFS_DNSS2">list = Gnome2::VFS::DNSSD-&gt;<b>list_browse_domains_sync</b> ($domain, $timeout_msec)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_2"><p>$domain (string)</p></a>
+<li class="POD_ITEM"><a name="_timeout_msec_intege1"><p>$timeout_msec (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_VFS_DNSS3">list = Gnome2::VFS::DNSSD-&gt;<b>resolve</b> ($name, $type, $domain, $timeout, $func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+<li class="POD_ITEM"><a name="_type_string_2"><p>$type (string)</p></a>
+<li class="POD_ITEM"><a name="_domain_string_3"><p>$domain (string)</p></a>
+<li class="POD_ITEM"><a name="_timeout_integer_"><p>$timeout (integer)</p></a>
+<li class="POD_ITEM"><a name="_func_scalar_1"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_1"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_VFS_DNSS4">list = Gnome2::VFS::DNSSD-&gt;<b>resolve_sync</b> ($name, $type, $domain, $timeout_msec)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_1"><p>$name (string)</p></a>
+<li class="POD_ITEM"><a name="_type_string_3"><p>$type (string)</p></a>
+<li class="POD_ITEM"><a name="_domain_string_4"><p>$domain (string)</p></a>
+<li class="POD_ITEM"><a name="_timeout_msec_intege2"><p>$timeout_msec (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../../Gnome2/VFS.html">Gnome2::VFS</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2007 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gnome2/VFS.html">Gnome2::VFS</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:15 2009
+</body>
+</html>
+

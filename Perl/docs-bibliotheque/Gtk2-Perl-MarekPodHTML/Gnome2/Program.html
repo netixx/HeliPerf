@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Program</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Rsvg.html">Next:<br />Gnome2::Rsvg</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Print/UnitSelector.html">Previous:<br />Gnome2::Print::UnitSelector</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Program</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#string_program_get_a">string = $program-&gt;<b>get_app_id</b></a>
+<li><a class="POD_NAVLINK" href="#string_program_get_a1">string = $program-&gt;<b>get_app_version</b></a>
+<li><a class="POD_NAVLINK" href="#string_program_get_h">string = $program-&gt;<b>get_human_readable_name</b></a>
+<li><a class="POD_NAVLINK" href="#program_Gnome2_Progr">program = Gnome2::Program-&gt;<b>init</b> ($app_id, $app_version, $module_info=undef, ...)</a>
+<li><a class="POD_NAVLINK" href="#list_program_locate_">list = $program-&gt;<b>locate_file</b> ($domain, $file_name, $only_if_exists)</a>
+<li><a class="POD_NAVLINK" href="#moduleinfo_Gnome2_Pr">moduleinfo = Gnome2::Program-&gt;<b>module_load</b> ($mod_name)</a>
+<li><a class="POD_NAVLINK" href="#Gnome2_Program_modul">Gnome2::Program-&gt;<b>module_register</b> ($module_info)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gnome2_Progr">boolean = Gnome2::Program-&gt;<b>module_registered</b> ($module_info)</a>
+<li><a class="POD_NAVLINK" href="#program_or_undef_Gno">program or undef = Gnome2::Program-&gt;<b>get_program</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gnome2_FileDoma">enum Gnome2::FileDomain</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Program
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gnome2::Program
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="string_program_get_a">string = $program-&gt;<b>get_app_id</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_program_get_a1">string = $program-&gt;<b>get_app_version</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_program_get_h">string = $program-&gt;<b>get_human_readable_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="program_Gnome2_Progr">program = Gnome2::Program-&gt;<b>init</b> ($app_id, $app_version, $module_info=undef, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_app_id_string_"><p>$app_id (string)</p></a>
+<li class="POD_ITEM"><a name="_app_version_string_"><p>$app_version (string)</p></a>
+<li class="POD_ITEM"><a name="_module_info_scalar_"><p>$module_info (scalar)</p></a>
+<li class="POD_ITEM"><a name="_list_"><p>... (list)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+The list argument is for property-value pairs.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_program_locate_">list = $program-&gt;<b>locate_file</b> ($domain, $file_name, $only_if_exists)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_Gnome2_FileD"><p>$domain (Gnome2::FileDomain)</p></a>
+<li class="POD_ITEM"><a name="_file_name_string_"><p>$file_name (string)</p></a>
+<li class="POD_ITEM"><a name="_only_if_exists_bool"><p>$only_if_exists (boolean)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns a list of locations.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="moduleinfo_Gnome2_Pr">moduleinfo = Gnome2::Program-&gt;<b>module_load</b> ($mod_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mod_name_string_"><p>$mod_name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gnome2_Program_modul">Gnome2::Program-&gt;<b>module_register</b> ($module_info)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_module_info_scalar_1"><p>$module_info (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gnome2_Progr">boolean = Gnome2::Program-&gt;<b>module_registered</b> ($module_info)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_module_info_scalar_2"><p>$module_info (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="program_or_undef_Gno">program or undef = Gnome2::Program-&gt;<b>get_program</b></a></h3>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_app_datadir_string_">&#39;app-datadir&#39; (string : readable / writable)</a>
+<dd>
+Data prefix where this application was installed
+<dt class="POD_ITEM"><a name="_app_id_string_reada">&#39;app-id&#39; (string : readable)</a>
+<dd>
+ID string to use for this application
+<dt class="POD_ITEM"><a name="_app_libdir_string_r">&#39;app-libdir&#39; (string : readable / writable)</a>
+<dd>
+Library prefix where this application was installed
+<dt class="POD_ITEM"><a name="_app_prefix_string_r">&#39;app-prefix&#39; (string : readable / writable)</a>
+<dd>
+Prefix where this application was installed
+<dt class="POD_ITEM"><a name="_app_sysconfdir_stri">&#39;app-sysconfdir&#39; (string : readable / writable)</a>
+<dd>
+Configuration prefix where this application was installed
+<dt class="POD_ITEM"><a name="_app_version_string_1">&#39;app-version&#39; (string : readable)</a>
+<dd>
+Version of this application
+<dt class="POD_ITEM"><a name="_create_directories_">&#39;create-directories&#39; (boolean : readable / writable / construct-only)</a>
+<dd>
+Create standard GNOME directories on startup
+<dt class="POD_ITEM"><a name="_enable_sound_boolea">&#39;enable-sound&#39; (boolean : readable / writable)</a>
+<dd>
+Enable sound on startup
+<dt class="POD_ITEM"><a name="_espeaker_string_rea">&#39;espeaker&#39; (string : readable / writable)</a>
+<dd>
+How to connect to esd
+<dt class="POD_ITEM"><a name="_gnome_datadir_strin">&#39;gnome-datadir&#39; (string : readable / writable / construct-only)</a>
+<dd>
+Data prefix where GNOME was installed
+<dt class="POD_ITEM"><a name="_gnome_libdir_string">&#39;gnome-libdir&#39; (string : readable / writable / construct-only)</a>
+<dd>
+Library prefix where GNOME was installed
+<dt class="POD_ITEM"><a name="_gnome_path_string_r">&#39;gnome-path&#39; (string : readable / writable / construct-only)</a>
+<dd>
+Path in which to look for installed files
+<dt class="POD_ITEM"><a name="_gnome_prefix_string">&#39;gnome-prefix&#39; (string : readable / writable / construct-only)</a>
+<dd>
+Prefix where GNOME was installed
+<dt class="POD_ITEM"><a name="_gnome_sysconfdir_st">&#39;gnome-sysconfdir&#39; (string : readable / writable / construct-only)</a>
+<dd>
+Configuration prefix where GNOME was installed
+<dt class="POD_ITEM"><a name="_goption_context_gpo">&#39;goption-context&#39; (gpointer : readable / writable / construct-only)</a>
+<dd>
+The goption context pointer that GnomeProgram is using
+<dt class="POD_ITEM"><a name="_human_readable_name">&#39;human-readable-name&#39; (string : readable / writable / construct-only)</a>
+<dd>
+Human readable name of this application
+<dt class="POD_ITEM"><a name="_popt_context_gpoint">&#39;popt-context&#39; (gpointer : readable)</a>
+<dd>
+The popt context pointer that GnomeProgram is using
+<dt class="POD_ITEM"><a name="_popt_flags_integer_">&#39;popt-flags&#39; (integer : writable / construct-only)</a>
+<dd>
+The flags to use for popt
+<dt class="POD_ITEM"><a name="_popt_table_gpointer">&#39;popt-table&#39; (gpointer : writable / construct-only)</a>
+<dd>
+The table of options for popt
+</dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gnome2_FileDoma">enum Gnome2::FileDomain</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unknown_GNOME_FILE_"><p>&#39;unknown&#39; / &#39;GNOME_FILE_DOMAIN_UNKNOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_libdir_GNOME_FILE_D"><p>&#39;libdir&#39; / &#39;GNOME_FILE_DOMAIN_LIBDIR&#39;</p></a>
+<li class="POD_ITEM"><a name="_datadir_GNOME_FILE_"><p>&#39;datadir&#39; / &#39;GNOME_FILE_DOMAIN_DATADIR&#39;</p></a>
+<li class="POD_ITEM"><a name="_sound_GNOME_FILE_DO"><p>&#39;sound&#39; / &#39;GNOME_FILE_DOMAIN_SOUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_pixmap_GNOME_FILE_D"><p>&#39;pixmap&#39; / &#39;GNOME_FILE_DOMAIN_PIXMAP&#39;</p></a>
+<li class="POD_ITEM"><a name="_config_GNOME_FILE_D"><p>&#39;config&#39; / &#39;GNOME_FILE_DOMAIN_CONFIG&#39;</p></a>
+<li class="POD_ITEM"><a name="_help_GNOME_FILE_DOM"><p>&#39;help&#39; / &#39;GNOME_FILE_DOMAIN_HELP&#39;</p></a>
+<li class="POD_ITEM"><a name="_app_libdir_GNOME_FI"><p>&#39;app-libdir&#39; / &#39;GNOME_FILE_DOMAIN_APP_LIBDIR&#39;</p></a>
+<li class="POD_ITEM"><a name="_app_datadir_GNOME_F"><p>&#39;app-datadir&#39; / &#39;GNOME_FILE_DOMAIN_APP_DATADIR&#39;</p></a>
+<li class="POD_ITEM"><a name="_app_sound_GNOME_FIL"><p>&#39;app-sound&#39; / &#39;GNOME_FILE_DOMAIN_APP_SOUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_app_pixmap_GNOME_FI"><p>&#39;app-pixmap&#39; / &#39;GNOME_FILE_DOMAIN_APP_PIXMAP&#39;</p></a>
+<li class="POD_ITEM"><a name="_app_config_GNOME_FI"><p>&#39;app-config&#39; / &#39;GNOME_FILE_DOMAIN_APP_CONFIG&#39;</p></a>
+<li class="POD_ITEM"><a name="_app_help_GNOME_FILE"><p>&#39;app-help&#39; / &#39;GNOME_FILE_DOMAIN_APP_HELP&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:02 2009
+</body>
+</html>
+

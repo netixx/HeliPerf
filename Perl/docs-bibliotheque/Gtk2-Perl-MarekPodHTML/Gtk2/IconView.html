@@ -1,0 +1,515 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::IconView</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Image.html">Next:<br />Gtk2::Image</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/IconTheme.html">Previous:<br />Gtk2::IconTheme</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::IconView</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_IconView">widget = Gtk2::IconView-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_IconView1">widget = Gtk2::IconView-&gt;<b>new_with_model</b> ($model)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge">integer = $icon_view-&gt;<b>get_column_spacing</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_colum">$icon_view-&gt;<b>set_column_spacing</b> ($column_spacing)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge1">integer = $icon_view-&gt;<b>get_columns</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_colum1">$icon_view-&gt;<b>set_columns</b> ($columns)</a>
+<li><a class="POD_NAVLINK" href="#_bx_by_icon_view_con">(bx, by) = $icon_view-&gt;<b>convert_widget_to_bin_window_coords</b> ($wx, $wy)</a>
+<li><a class="POD_NAVLINK" href="#pixmap_icon_view_cre">pixmap = $icon_view-&gt;<b>create_drag_icon</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#list_icon_view_get_c">list = $icon_view-&gt;<b>get_cursor</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_curso">$icon_view-&gt;<b>set_cursor</b> ($path, $cell, $start_editing)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_get_dest_">$icon_view-&gt;<b>get_dest_item_at_pos</b> ($drag_x, $drag_y)</a>
+<li><a class="POD_NAVLINK" href="#list_icon_view_get_d">list = $icon_view-&gt;<b>get_drag_dest_item</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_drag_">$icon_view-&gt;<b>set_drag_dest_item</b> ($path, $pos)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_enable_mo">$icon_view-&gt;<b>enable_model_drag_dest</b> ($actions, ...)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_enable_mo1">$icon_view-&gt;<b>enable_model_drag_source</b> ($start_button_mask, $actions, ...)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_item_acti">$icon_view-&gt;<b>item_activated</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_get_item_">$icon_view-&gt;<b>get_item_at_pos</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge2">integer = $icon_view-&gt;<b>get_item_width</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_item_">$icon_view-&gt;<b>set_item_width</b> ($item_width)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge3">integer = $icon_view-&gt;<b>get_margin</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_margi">$icon_view-&gt;<b>set_margin</b> ($margin)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge4">integer = $icon_view-&gt;<b>get_markup_column</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_marku">$icon_view-&gt;<b>set_markup_column</b> ($column)</a>
+<li><a class="POD_NAVLINK" href="#treemodel_icon_view_">treemodel = $icon_view-&gt;<b>get_model</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_model">$icon_view-&gt;<b>set_model</b> ($model)</a>
+<li><a class="POD_NAVLINK" href="#orientation_icon_vie">orientation = $icon_view-&gt;<b>get_orientation</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_orien">$icon_view-&gt;<b>set_orientation</b> ($orientation)</a>
+<li><a class="POD_NAVLINK" href="#treepath_icon_view_g">treepath = $icon_view-&gt;<b>get_path_at_pos</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#boolean_icon_view_pa">boolean = $icon_view-&gt;<b>path_is_selected</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge5">integer = $icon_view-&gt;<b>get_pixbuf_column</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_pixbu">$icon_view-&gt;<b>set_pixbuf_column</b> ($column)</a>
+<li><a class="POD_NAVLINK" href="#boolean_icon_view_ge">boolean = $icon_view-&gt;<b>get_reorderable</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_reord">$icon_view-&gt;<b>set_reorderable</b> ($reorderable)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge6">integer = $icon_view-&gt;<b>get_row_spacing</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_row_s">$icon_view-&gt;<b>set_row_spacing</b> ($row_spacing)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_scroll_to">$icon_view-&gt;<b>scroll_to_path</b> ($path, $use_align=FALSE, $row_align=0.0, $col_align=0.0)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_select_al">$icon_view-&gt;<b>select_all</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_select_pa">$icon_view-&gt;<b>select_path</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_selected_">$icon_view-&gt;<b>selected_foreach</b> ($func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#list_icon_view_get_s">list = $icon_view-&gt;<b>get_selected_items</b></a>
+<li><a class="POD_NAVLINK" href="#selectionmode_icon_v">selectionmode = $icon_view-&gt;<b>get_selection_mode</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_selec">$icon_view-&gt;<b>set_selection_mode</b> ($mode)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge7">integer = $icon_view-&gt;<b>get_spacing</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_spaci">$icon_view-&gt;<b>set_spacing</b> ($spacing)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge8">integer = $icon_view-&gt;<b>get_text_column</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_text_">$icon_view-&gt;<b>set_text_column</b> ($column)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_toolt">$icon_view-&gt;<b>set_tooltip_cell</b> ($tooltip, $path, $cell)</a>
+<li><a class="POD_NAVLINK" href="#integer_icon_view_ge9">integer = $icon_view-&gt;<b>get_tooltip_column</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_toolt1">$icon_view-&gt;<b>set_tooltip_column</b> ($column)</a>
+<li><a class="POD_NAVLINK" href="#list_icon_view_get_t">list = $icon_view-&gt;<b>get_tooltip_context</b> ($x, $y, $keyboard_tip)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_set_toolt2">$icon_view-&gt;<b>set_tooltip_item</b> ($tooltip, $path)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_unselect_">$icon_view-&gt;<b>unselect_all</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_unselect_1">$icon_view-&gt;<b>unselect_path</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#_icon_view_unset_mod">$icon_view-&gt;<b>unset_model_drag_dest</b></a>
+<li><a class="POD_NAVLINK" href="#_icon_view_unset_mod1">$icon_view-&gt;<b>unset_model_drag_source</b></a>
+<li><a class="POD_NAVLINK" href="#list_icon_view_get_v">list = $icon_view-&gt;<b>get_visible_range</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_DragA">flags Gtk2::Gdk::DragAction</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Modif">flags Gtk2::Gdk::ModifierType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IconView_D">enum Gtk2::IconView::DropPosition</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_MovementSt">enum Gtk2::MovementStep</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Orientatio">enum Gtk2::Orientation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SelectionM">enum Gtk2::SelectionMode</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::IconView
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::IconView
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+  Gtk2::CellLayout
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_IconView">widget = Gtk2::IconView-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_IconView1">widget = Gtk2::IconView-&gt;<b>new_with_model</b> ($model)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_model_Gtk2_TreeMode"><p>$model (Gtk2::TreeModel)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge">integer = $icon_view-&gt;<b>get_column_spacing</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_colum">$icon_view-&gt;<b>set_column_spacing</b> ($column_spacing)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_column_spacing_inte"><p>$column_spacing (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge1">integer = $icon_view-&gt;<b>get_columns</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_colum1">$icon_view-&gt;<b>set_columns</b> ($columns)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_columns_integer_"><p>$columns (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_bx_by_icon_view_con">(bx, by) = $icon_view-&gt;<b>convert_widget_to_bin_window_coords</b> ($wx, $wy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_wx_integer_"><p>$wx (integer)</p></a>
+<li class="POD_ITEM"><a name="_wy_integer_"><p>$wy (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.11
+</p>
+<h3 class="POD_HEAD2"><a name="pixmap_icon_view_cre">pixmap = $icon_view-&gt;<b>create_drag_icon</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_"><p>$path (Gtk2::TreePath)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="list_icon_view_get_c">list = $icon_view-&gt;<b>get_cursor</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_curso">$icon_view-&gt;<b>set_cursor</b> ($path, $cell, $start_editing)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_1"><p>$path (Gtk2::TreePath)</p></a>
+<li class="POD_ITEM"><a name="_cell_Gtk2_CellRende"><p>$cell (Gtk2::CellRenderer or undef)</p></a>
+<li class="POD_ITEM"><a name="_start_editing_boole"><p>$start_editing (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_get_dest_">$icon_view-&gt;<b>get_dest_item_at_pos</b> ($drag_x, $drag_y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_drag_x_integer_"><p>$drag_x (integer)</p></a>
+<li class="POD_ITEM"><a name="_drag_y_integer_"><p>$drag_y (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="list_icon_view_get_d">list = $icon_view-&gt;<b>get_drag_dest_item</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_drag_">$icon_view-&gt;<b>set_drag_dest_item</b> ($path, $pos)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_2"><p>$path (Gtk2::TreePath)</p></a>
+<li class="POD_ITEM"><a name="_pos_Gtk2_IconView_D"><p>$pos (Gtk2::IconView::DropPosition)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_enable_mo">$icon_view-&gt;<b>enable_model_drag_dest</b> ($actions, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_actions_Gtk2_Gdk_Dr"><p>$actions (Gtk2::Gdk::DragAction)</p></a>
+<li class="POD_ITEM"><a name="_list_of_Gtk2_Target"><p>... (list) of Gtk2::TargetEntry&#39;s</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_enable_mo1">$icon_view-&gt;<b>enable_model_drag_source</b> ($start_button_mask, $actions, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_start_button_mask_G"><p>$start_button_mask (Gtk2::Gdk::ModifierType)</p></a>
+<li class="POD_ITEM"><a name="_actions_Gtk2_Gdk_Dr1"><p>$actions (Gtk2::Gdk::DragAction)</p></a>
+<li class="POD_ITEM"><a name="_list_of_Gtk2_Target1"><p>... (list) of Gtk2::TargetEntry&#39;s</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_item_acti">$icon_view-&gt;<b>item_activated</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_3"><p>$path (Gtk2::TreePath)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_icon_view_get_item_">$icon_view-&gt;<b>get_item_at_pos</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_"><p>$y (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge2">integer = $icon_view-&gt;<b>get_item_width</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_item_">$icon_view-&gt;<b>set_item_width</b> ($item_width)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_item_width_integer_"><p>$item_width (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge3">integer = $icon_view-&gt;<b>get_margin</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_margi">$icon_view-&gt;<b>set_margin</b> ($margin)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_margin_integer_"><p>$margin (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge4">integer = $icon_view-&gt;<b>get_markup_column</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_marku">$icon_view-&gt;<b>set_markup_column</b> ($column)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_column_integer_"><p>$column (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="treemodel_icon_view_">treemodel = $icon_view-&gt;<b>get_model</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_model">$icon_view-&gt;<b>set_model</b> ($model)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_model_Gtk2_TreeMode1"><p>$model (Gtk2::TreeModel)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="orientation_icon_vie">orientation = $icon_view-&gt;<b>get_orientation</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_orien">$icon_view-&gt;<b>set_orientation</b> ($orientation)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_orientation_Gtk2_Or"><p>$orientation (Gtk2::Orientation)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="treepath_icon_view_g">treepath = $icon_view-&gt;<b>get_path_at_pos</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_1"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_1"><p>$y (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_icon_view_pa">boolean = $icon_view-&gt;<b>path_is_selected</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_4"><p>$path (Gtk2::TreePath)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge5">integer = $icon_view-&gt;<b>get_pixbuf_column</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_pixbu">$icon_view-&gt;<b>set_pixbuf_column</b> ($column)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_column_integer_1"><p>$column (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_icon_view_ge">boolean = $icon_view-&gt;<b>get_reorderable</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_reord">$icon_view-&gt;<b>set_reorderable</b> ($reorderable)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_reorderable_boolean"><p>$reorderable (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge6">integer = $icon_view-&gt;<b>get_row_spacing</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_row_s">$icon_view-&gt;<b>set_row_spacing</b> ($row_spacing)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_row_spacing_integer"><p>$row_spacing (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_icon_view_scroll_to">$icon_view-&gt;<b>scroll_to_path</b> ($path, $use_align=FALSE, $row_align=0.0, $col_align=0.0)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_5"><p>$path (Gtk2::TreePath)</p></a>
+<li class="POD_ITEM"><a name="_use_align_boolean_"><p>$use_align (boolean)</p></a>
+<li class="POD_ITEM"><a name="_row_align_double_"><p>$row_align (double)</p></a>
+<li class="POD_ITEM"><a name="_col_align_double_"><p>$col_align (double)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_select_al">$icon_view-&gt;<b>select_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_select_pa">$icon_view-&gt;<b>select_path</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_6"><p>$path (Gtk2::TreePath)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_icon_view_selected_">$icon_view-&gt;<b>selected_foreach</b> ($func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_icon_view_get_s">list = $icon_view-&gt;<b>get_selected_items</b></a></h3>
+<h3 class="POD_HEAD2"><a name="selectionmode_icon_v">selectionmode = $icon_view-&gt;<b>get_selection_mode</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_selec">$icon_view-&gt;<b>set_selection_mode</b> ($mode)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mode_Gtk2_Selection"><p>$mode (Gtk2::SelectionMode)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge7">integer = $icon_view-&gt;<b>get_spacing</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_spaci">$icon_view-&gt;<b>set_spacing</b> ($spacing)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_spacing_integer_"><p>$spacing (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge8">integer = $icon_view-&gt;<b>get_text_column</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_text_">$icon_view-&gt;<b>set_text_column</b> ($column)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_column_integer_2"><p>$column (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_toolt">$icon_view-&gt;<b>set_tooltip_cell</b> ($tooltip, $path, $cell)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tooltip_Gtk2_Toolti"><p>$tooltip (Gtk2::Tooltip)</p></a>
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_7"><p>$path (Gtk2::TreePath)</p></a>
+<li class="POD_ITEM"><a name="_cell_Gtk2_CellRende1"><p>$cell (Gtk2::CellRenderer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.11
+</p>
+<h3 class="POD_HEAD2"><a name="integer_icon_view_ge9">integer = $icon_view-&gt;<b>get_tooltip_column</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.11
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_toolt1">$icon_view-&gt;<b>set_tooltip_column</b> ($column)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_column_integer_3"><p>$column (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.11
+</p>
+<h3 class="POD_HEAD2"><a name="list_icon_view_get_t">list = $icon_view-&gt;<b>get_tooltip_context</b> ($x, $y, $keyboard_tip)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_2"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_2"><p>$y (integer)</p></a>
+<li class="POD_ITEM"><a name="_keyboard_tip_boolea"><p>$keyboard_tip (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.11
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_set_toolt2">$icon_view-&gt;<b>set_tooltip_item</b> ($tooltip, $path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tooltip_Gtk2_Toolti1"><p>$tooltip (Gtk2::Tooltip)</p></a>
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_8"><p>$path (Gtk2::TreePath)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.11
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_unselect_">$icon_view-&gt;<b>unselect_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_icon_view_unselect_1">$icon_view-&gt;<b>unselect_path</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_9"><p>$path (Gtk2::TreePath)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_icon_view_unset_mod">$icon_view-&gt;<b>unset_model_drag_dest</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_icon_view_unset_mod1">$icon_view-&gt;<b>unset_model_drag_source</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="list_icon_view_get_v">list = $icon_view-&gt;<b>get_visible_range</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_column_spacing_inte1">&#39;column-spacing&#39; (integer : readable / writable / private)</a>
+<dd>
+Space which is inserted between grid columns
+<dt class="POD_ITEM"><a name="_columns_integer_rea">&#39;columns&#39; (integer : readable / writable / private)</a>
+<dd>
+Number of columns to display
+<dt class="POD_ITEM"><a name="_item_width_integer_1">&#39;item-width&#39; (integer : readable / writable / private)</a>
+<dd>
+The width used for each item
+<dt class="POD_ITEM"><a name="_margin_integer_read">&#39;margin&#39; (integer : readable / writable / private)</a>
+<dd>
+Space which is inserted at the edges of the icon view
+<dt class="POD_ITEM"><a name="_markup_column_integ">&#39;markup-column&#39; (integer : readable / writable / private)</a>
+<dd>
+Model column used to retrieve the text if using Pango markup
+<dt class="POD_ITEM"><a name="_model_Gtk2_TreeMode2">&#39;model&#39; (Gtk2::TreeModel : readable / writable / private)</a>
+<dd>
+The model for the icon view
+<dt class="POD_ITEM"><a name="_orientation_Gtk2_Or1">&#39;orientation&#39; (Gtk2::Orientation : readable / writable / private)</a>
+<dd>
+How the text and icon of each item are positioned relative to each other
+<dt class="POD_ITEM"><a name="_pixbuf_column_integ">&#39;pixbuf-column&#39; (integer : readable / writable / private)</a>
+<dd>
+Model column used to retrieve the icon pixbuf from
+<dt class="POD_ITEM"><a name="_reorderable_boolean1">&#39;reorderable&#39; (boolean : readable / writable)</a>
+<dd>
+View is reorderable
+<dt class="POD_ITEM"><a name="_row_spacing_integer1">&#39;row-spacing&#39; (integer : readable / writable / private)</a>
+<dd>
+Space which is inserted between grid rows
+<dt class="POD_ITEM"><a name="_selection_mode_Gtk2">&#39;selection-mode&#39; (Gtk2::SelectionMode : readable / writable / private)</a>
+<dd>
+The selection mode
+<dt class="POD_ITEM"><a name="_spacing_integer_rea">&#39;spacing&#39; (integer : readable / writable / private)</a>
+<dd>
+Space which is inserted between cells of an item
+<dt class="POD_ITEM"><a name="_text_column_integer">&#39;text-column&#39; (integer : readable / writable / private)</a>
+<dd>
+Model column used to retrieve the text from
+<dt class="POD_ITEM"><a name="_tooltip_column_inte">&#39;tooltip-column&#39; (integer : readable / writable / private)</a>
+<dd>
+The column in the model containing the tooltip texts for the items
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="set_scroll_adjustmen"><b>set-scroll-adjustments</b> (Gtk2::IconView, Gtk2::Adjustment, Gtk2::Adjustment)</a>
+<dt><a name="item_activated_Gtk2_"><b>item-activated</b> (Gtk2::IconView, Gtk2::TreePath)</a>
+<dt><a name="selection_changed_Gt"><b>selection-changed</b> (Gtk2::IconView)</a>
+<dt><a name="select_all_Gtk2_Icon"><b>select-all</b> (Gtk2::IconView)</a>
+<dt><a name="unselect_all_Gtk2_Ic"><b>unselect-all</b> (Gtk2::IconView)</a>
+<dt><a name="select_cursor_item_G"><b>select-cursor-item</b> (Gtk2::IconView)</a>
+<dt><a name="toggle_cursor_item_G"><b>toggle-cursor-item</b> (Gtk2::IconView)</a>
+<dt><a name="boolean_activate_cur">boolean = <b>activate-cursor-item</b> (Gtk2::IconView)</a>
+<dt><a name="boolean_move_cursor_">boolean = <b>move-cursor</b> (Gtk2::IconView, Gtk2::MovementStep, integer)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_DragA">flags Gtk2::Gdk::DragAction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_default_GDK_ACTION_"><p>&#39;default&#39; / &#39;GDK_ACTION_DEFAULT&#39;</p></a>
+<li class="POD_ITEM"><a name="_copy_GDK_ACTION_COP"><p>&#39;copy&#39; / &#39;GDK_ACTION_COPY&#39;</p></a>
+<li class="POD_ITEM"><a name="_move_GDK_ACTION_MOV"><p>&#39;move&#39; / &#39;GDK_ACTION_MOVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_link_GDK_ACTION_LIN"><p>&#39;link&#39; / &#39;GDK_ACTION_LINK&#39;</p></a>
+<li class="POD_ITEM"><a name="_private_GDK_ACTION_"><p>&#39;private&#39; / &#39;GDK_ACTION_PRIVATE&#39;</p></a>
+<li class="POD_ITEM"><a name="_ask_GDK_ACTION_ASK_"><p>&#39;ask&#39; / &#39;GDK_ACTION_ASK&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Modif">flags Gtk2::Gdk::ModifierType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_shift_mask_GDK_SHIF"><p>&#39;shift-mask&#39; / &#39;GDK_SHIFT_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_lock_mask_GDK_LOCK_"><p>&#39;lock-mask&#39; / &#39;GDK_LOCK_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_control_mask_GDK_CO"><p>&#39;control-mask&#39; / &#39;GDK_CONTROL_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod1_mask_GDK_MOD1_"><p>&#39;mod1-mask&#39; / &#39;GDK_MOD1_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod2_mask_GDK_MOD2_"><p>&#39;mod2-mask&#39; / &#39;GDK_MOD2_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod3_mask_GDK_MOD3_"><p>&#39;mod3-mask&#39; / &#39;GDK_MOD3_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod4_mask_GDK_MOD4_"><p>&#39;mod4-mask&#39; / &#39;GDK_MOD4_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod5_mask_GDK_MOD5_"><p>&#39;mod5-mask&#39; / &#39;GDK_MOD5_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button1_mask_GDK_BU"><p>&#39;button1-mask&#39; / &#39;GDK_BUTTON1_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button2_mask_GDK_BU"><p>&#39;button2-mask&#39; / &#39;GDK_BUTTON2_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button3_mask_GDK_BU"><p>&#39;button3-mask&#39; / &#39;GDK_BUTTON3_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button4_mask_GDK_BU"><p>&#39;button4-mask&#39; / &#39;GDK_BUTTON4_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button5_mask_GDK_BU"><p>&#39;button5-mask&#39; / &#39;GDK_BUTTON5_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_super_mask_GDK_SUPE"><p>&#39;super-mask&#39; / &#39;GDK_SUPER_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_hyper_mask_GDK_HYPE"><p>&#39;hyper-mask&#39; / &#39;GDK_HYPER_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_meta_mask_GDK_META_"><p>&#39;meta-mask&#39; / &#39;GDK_META_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_release_mask_GDK_RE"><p>&#39;release-mask&#39; / &#39;GDK_RELEASE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_modifier_mask_GDK_M"><p>&#39;modifier-mask&#39; / &#39;GDK_MODIFIER_MASK&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IconView_D">enum Gtk2::IconView::DropPosition</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_no_drop_GTK_ICON_VI"><p>&#39;no-drop&#39; / &#39;GTK_ICON_VIEW_NO_DROP&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_into_GTK_ICON_"><p>&#39;drop-into&#39; / &#39;GTK_ICON_VIEW_DROP_INTO&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_left_GTK_ICON_"><p>&#39;drop-left&#39; / &#39;GTK_ICON_VIEW_DROP_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_right_GTK_ICON"><p>&#39;drop-right&#39; / &#39;GTK_ICON_VIEW_DROP_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_above_GTK_ICON"><p>&#39;drop-above&#39; / &#39;GTK_ICON_VIEW_DROP_ABOVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_below_GTK_ICON"><p>&#39;drop-below&#39; / &#39;GTK_ICON_VIEW_DROP_BELOW&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_MovementSt">enum Gtk2::MovementStep</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_logical_positions_G"><p>&#39;logical-positions&#39; / &#39;GTK_MOVEMENT_LOGICAL_POSITIONS&#39;</p></a>
+<li class="POD_ITEM"><a name="_visual_positions_GT"><p>&#39;visual-positions&#39; / &#39;GTK_MOVEMENT_VISUAL_POSITIONS&#39;</p></a>
+<li class="POD_ITEM"><a name="_words_GTK_MOVEMENT_"><p>&#39;words&#39; / &#39;GTK_MOVEMENT_WORDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_display_lines_GTK_M"><p>&#39;display-lines&#39; / &#39;GTK_MOVEMENT_DISPLAY_LINES&#39;</p></a>
+<li class="POD_ITEM"><a name="_display_line_ends_G"><p>&#39;display-line-ends&#39; / &#39;GTK_MOVEMENT_DISPLAY_LINE_ENDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_paragraphs_GTK_MOVE"><p>&#39;paragraphs&#39; / &#39;GTK_MOVEMENT_PARAGRAPHS&#39;</p></a>
+<li class="POD_ITEM"><a name="_paragraph_ends_GTK_"><p>&#39;paragraph-ends&#39; / &#39;GTK_MOVEMENT_PARAGRAPH_ENDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_pages_GTK_MOVEMENT_"><p>&#39;pages&#39; / &#39;GTK_MOVEMENT_PAGES&#39;</p></a>
+<li class="POD_ITEM"><a name="_buffer_ends_GTK_MOV"><p>&#39;buffer-ends&#39; / &#39;GTK_MOVEMENT_BUFFER_ENDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_horizontal_pages_GT"><p>&#39;horizontal-pages&#39; / &#39;GTK_MOVEMENT_HORIZONTAL_PAGES&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Orientatio">enum Gtk2::Orientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_horizontal_GTK_ORIE"><p>&#39;horizontal&#39; / &#39;GTK_ORIENTATION_HORIZONTAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_vertical_GTK_ORIENT"><p>&#39;vertical&#39; / &#39;GTK_ORIENTATION_VERTICAL&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SelectionM">enum Gtk2::SelectionMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SELECTION_"><p>&#39;none&#39; / &#39;GTK_SELECTION_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_single_GTK_SELECTIO"><p>&#39;single&#39; / &#39;GTK_SELECTION_SINGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_browse_GTK_SELECTIO"><p>&#39;browse&#39; / &#39;GTK_SELECTION_BROWSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_multiple_GTK_SELECT"><p>&#39;multiple&#39; / &#39;GTK_SELECTION_MULTIPLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_extended_GTK_SELECT"><p>&#39;extended&#39; / &#39;GTK_SELECTION_EXTENDED&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:02:20 2009
+</body>
+</html>
+

@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Canvas</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Canvas/Bpath.html">Next:<br />Gnome2::Canvas::Bpath</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Bonobo/DockItem.html">Previous:<br />Gnome2::Bonobo::DockItem</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Canvas</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_Canvas">widget = Gnome2::Canvas-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_Canvas1">widget = Gnome2::Canvas-&gt;<b>new_aa</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_canvas_aa">boolean = $canvas-&gt;<b>aa</b></a>
+<li><a class="POD_NAVLINK" href="#_bx1_by1_bx2_by2_Gno">($bx1, $by1, $bx2, $by2) = Gnome2::Canvas-&gt;<b>get_butt_points</b> ($x1, $y1, $x2, $y2, $width, $project)</a>
+<li><a class="POD_NAVLINK" href="#_wx_wy_canvas_c2w_cx">(wx, wy) = $canvas-&gt;<b>c2w</b> ($cx, $cy)</a>
+<li><a class="POD_NAVLINK" href="#boolean_canvas_get_c">boolean = $canvas-&gt;<b>get_center_scroll_region</b></a>
+<li><a class="POD_NAVLINK" href="#_canvas_set_center_s">$canvas-&gt;<b>set_center_scroll_region</b> ($center_scroll_region)</a>
+<li><a class="POD_NAVLINK" href="#list_canvas_get_colo">list = $canvas-&gt;<b>get_color</b> ($spec)</a>
+<li><a class="POD_NAVLINK" href="#unsigned_canvas_get_">unsigned = $canvas-&gt;<b>get_color_pixel</b> ($rgba)</a>
+<li><a class="POD_NAVLINK" href="#rgbdither_canvas_get">rgbdither = $canvas-&gt;<b>get_dither</b></a>
+<li><a class="POD_NAVLINK" href="#_canvas_set_dither_d">$canvas-&gt;<b>set_dither</b> ($dither)</a>
+<li><a class="POD_NAVLINK" href="#item_canvas_get_item">item = $canvas-&gt;<b>get_item_at</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_mx1_my1_mx2_my2_Gno">($mx1, $my1, $mx2, $my2) = Gnome2::Canvas-&gt;<b>get_miter_points</b> ($x1, $y1, $x2, $y2, $x3, $y3, $width)</a>
+<li><a class="POD_NAVLINK" href="#double_canvas_get_pi">double = $canvas-&gt;<b>get_pixels_per_unit</b></a>
+<li><a class="POD_NAVLINK" href="#_canvas_set_pixels_p">$canvas-&gt;<b>set_pixels_per_unit</b> ($n)</a>
+<li><a class="POD_NAVLINK" href="#double_Gnome2_Canvas">double = Gnome2::Canvas-&gt;<b>polygon_to_point</b> ($poly_ref, $x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_canvas_request_redr">$canvas-&gt;<b>request_redraw</b> ($x1, $y1, $x2, $y2)</a>
+<li><a class="POD_NAVLINK" href="#group_canvas_root">group = $canvas-&gt;<b>root</b></a>
+<li><a class="POD_NAVLINK" href="#_cx_cy_canvas_get_sc">(cx, cy) = $canvas-&gt;<b>get_scroll_offsets</b></a>
+<li><a class="POD_NAVLINK" href="#_x1_y1_x2_y2_canvas_">(x1, y1, x2, y2) = $canvas-&gt;<b>get_scroll_region</b></a>
+<li><a class="POD_NAVLINK" href="#_canvas_set_scroll_r">$canvas-&gt;<b>set_scroll_region</b> ($x1, $y1, $x2, $y2)</a>
+<li><a class="POD_NAVLINK" href="#_canvas_scroll_to_cx">$canvas-&gt;<b>scroll_to</b> ($cx, $cy)</a>
+<li><a class="POD_NAVLINK" href="#_canvas_set_stipple_">$canvas-&gt;<b>set_stipple_origin</b> ($gc)</a>
+<li><a class="POD_NAVLINK" href="#_canvas_update_now">$canvas-&gt;<b>update_now</b></a>
+<li><a class="POD_NAVLINK" href="#_cx_cy_canvas_w2c_wx">(cx, cy) = $canvas-&gt;<b>w2c</b> ($wx, $wy)</a>
+<li><a class="POD_NAVLINK" href="#_affine_canvas_w2c_a">$affine = $canvas-&gt;<b>w2c_affine</b></a>
+<li><a class="POD_NAVLINK" href="#_cx_cy_canvas_w2c_d_">(cx, cy) = $canvas-&gt;<b>w2c_d</b> ($wx, $wy)</a>
+<li><a class="POD_NAVLINK" href="#_worldx_worldy_canva">(worldx, worldy) = $canvas-&gt;<b>window_to_world</b> ($winx, $winy)</a>
+<li><a class="POD_NAVLINK" href="#_winx_winy_canvas_wo">(winx, winy) = $canvas-&gt;<b>world_to_window</b> ($worldx, $worldy)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_RgbDit">enum Gtk2::Gdk::RgbDither</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#AUTHOR">AUTHOR</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Canvas -  A structured graphics canvas
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  use strict;
+  use Gtk2 -init;
+  use Gnome2::Canvas;
+  my $window = Gtk2::Window-&gt;new;
+  my $scroller = Gtk2::ScrolledWindow-&gt;new;
+  my $canvas = Gnome2::Canvas-&gt;new;
+  $scroller-&gt;add ($canvas);
+  $window-&gt;add ($scroller);
+  $window-&gt;set_default_size (150, 150);
+  $canvas-&gt;set_scroll_region (0, 0, 200, 200);
+  $window-&gt;show_all;
+
+  my $root = $canvas-&gt;root;
+  Gnome2::Canvas::Item-&gt;new ($root, &#39;Gnome2::Canvas::Text&#39;,
+                             x =&gt; 20,
+                             y =&gt; 15,
+                             fill_color =&gt; &#39;black&#39;,
+                             font =&gt; &#39;Sans 14&#39;,
+                             anchor =&gt; &#39;GTK_ANCHOR_NW&#39;,
+                             text =&gt; &#39;Hello, World!&#39;);
+  my $box = Gnome2::Canvas::Item-&gt;new ($root, &#39;Gnome2::Canvas::Rect&#39;,
+                                       x1 =&gt; 10, y1 =&gt; 5,
+                                       x2 =&gt; 150, y2 =&gt; 135,
+                                       fill_color =&gt; &#39;red&#39;,
+                                       outline_color =&gt; &#39;black&#39;);
+  $box-&gt;lower_to_bottom;
+  $box-&gt;signal_connect (event =&gt; sub {
+          my ($item, $event) = @_;
+          warn &quot;event &quot;.$event-&gt;type.&quot;\n&quot;;
+  });
+
+  Gtk2-&gt;main;
+</pre>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+The Gnome Canvas is an engine for structured graphics that offers a
+rich imaging model, high-performance rendering, and a powerful,
+high level API.  It offers a choice of two rendering back-ends,
+one based on GDK for extremely fast display, and another based on
+Libart, a sophisticated, antialiased, alpha-compositing engine.
+This widget can be used for flexible display of graphics and for
+creating interactive user interface elements.
+</p>
+<p class="POD_TEXT">
+To create a new Gnome2::Canvas widget call <code>Gnome2::Canvas-&gt;new</code> or
+<code>Gnome2::Canvas-&gt;new_aa</code> for an anti-aliased mode canvas.
+</p>
+<p class="POD_TEXT">
+A Gnome2::Canvas contains one or more Gnome2::CanvasItem
+objects. Items consist of graphing elements like lines, ellipses,
+polygons, images, text, and curves.  These items are organized using
+Gnome2::CanvasGroup objects, which are themselves derived from
+Gnome2::CanvasItem.  Since a group is an item it can be contained within
+other groups, forming a tree of canvas items.  Certain operations, like
+translating and scaling, can be performed on all items in a group.
+</p>
+<p class="POD_TEXT">
+There is a special root group created by a Gnome2::Canvas.  This is the top
+level group under which all items in a canvas are contained.  The root group
+is available as <code>$canvas-&gt;root</code>.
+</p>
+<p class="POD_TEXT">
+There are several different coordinate systems used by Gnome2::Canvas
+widgets.  The primary system is a logical, abstract coordinate space
+called world coordinates.  World coordinates are expressed as unbounded
+double floating point numbers.  When it comes to rendering to a screen
+the canvas pixel coordinate system (also referred to as just canvas
+coordinates) is used.  This system uses integers to specify screen
+pixel positions.  A user defined scaling factor and offset are used to
+convert between world coordinates and canvas coordinates.  Each item in
+a canvas has its own coordinate system called item coordinates.  This
+system is specified in world coordinates but they are relative to an
+item (0.0, 0.0 would be the top left corner of the item).  The final
+coordinate system of interest is window coordinates.  These are like
+canvas coordinates but are offsets from within a window a canvas is
+displayed in.  This last system is rarely used, but is useful when
+manually handling GDK events (such as drag and drop) which are 
+specified in window coordinates (the events processed by the canvas
+are already converted for you).
+</p>
+<p class="POD_TEXT">
+Along with different coordinate systems come methods to convert
+between them.  <code>$canvas-&gt;w2c</code> converts world to canvas pixel
+coordinates and <code>canvas-&gt;c2w</code> converts from canvas to
+world.  To get the affine transform matrix for converting
+from world coordinates to canvas coordinates call <code>$canvas-&gt;w2c_affine</code>.
+<code>$canvas-&gt;window_to_world</code> converts from window to world
+coordinates and <code>$canvas-&gt;world_to_window</code> converts in the other
+direction.  There are no methods for converting between canvas and
+window coordinates, since this is just a matter of subtracting the
+canvas scrolling offset.  To convert to/from item coordinates use the
+methods defined for Gnome2::CanvasItem objects.
+</p>
+<p class="POD_TEXT">
+To set the canvas zoom factor (canvas pixels per world unit, the
+scaling factor) call <code>$canvas-&gt;set_pixels_per_unit</code>; setting this
+to 1.0 will cause the two coordinate systems to correspond (e.g., [5, 6]
+in pixel units would be [5.0, 6.0] in world units).
+</p>
+<p class="POD_TEXT">
+Defining the scrollable area of a canvas widget is done by calling
+<code>$canvas-&gt;set_scroll_region</code> and to get the current region
+<code>$canvas-&gt;get_scroll_region</code> can be used.  If the window is
+larger than the canvas scrolling region it can optionally be centered
+in the window.  Use <code>$canvas-&gt;set_center_scroll_region</code> to enable or
+disable this behavior.  To scroll to a particular canvas pixel coordinate
+use <code>$canvas-&gt;scroll_to</code> (typically not used since scrollbars are
+usually set up to handle the scrolling), and to get the current canvas pixel
+scroll offset call <code>$canvas-&gt;get_scroll_offsets</code>.
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Layout
+                           +----Gnome2::Canvas
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_Canvas">widget = Gnome2::Canvas-&gt;<b>new</b></a></h3>
+<p class="POD_TEXT">
+Create a new empty canvas in non-antialiased mode.
+</p>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_Canvas1">widget = Gnome2::Canvas-&gt;<b>new_aa</b></a></h3>
+<p class="POD_TEXT">
+Create a new empty canvas in antialiased mode.
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_canvas_aa">boolean = $canvas-&gt;<b>aa</b></a></h3>
+<p></p>
+<p class="POD_TEXT">
+Returns true if <i>$canvas</i> was created in anti-aliased mode.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_bx1_by1_bx2_by2_Gno">($bx1, $by1, $bx2, $by2) = Gnome2::Canvas-&gt;<b>get_butt_points</b> ($x1, $y1, $x2, $y2, $width, $project)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x1_double_"><p>$x1 (double)</p></a>
+<li class="POD_ITEM"><a name="_y1_double_"><p>$y1 (double)</p></a>
+<li class="POD_ITEM"><a name="_x2_double_"><p>$x2 (double)</p></a>
+<li class="POD_ITEM"><a name="_y2_double_"><p>$y2 (double)</p></a>
+<li class="POD_ITEM"><a name="_width_double_"><p>$width (double)</p></a>
+<li class="POD_ITEM"><a name="_project_integer_"><p>$project (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_wx_wy_canvas_c2w_cx">(wx, wy) = $canvas-&gt;<b>c2w</b> ($cx, $cy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cx_integer_"><p>$cx (integer)</p></a>
+<li class="POD_ITEM"><a name="_cy_integer_"><p>$cy (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_canvas_get_c">boolean = $canvas-&gt;<b>get_center_scroll_region</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_canvas_set_center_s">$canvas-&gt;<b>set_center_scroll_region</b> ($center_scroll_region)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_center_scroll_regio"><p>$center_scroll_region (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_canvas_get_colo">list = $canvas-&gt;<b>get_color</b> ($spec)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_spec_string_"><p>$spec (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns an integer indicating the success of the color allocation and a
+GdkColor.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="unsigned_canvas_get_">unsigned = $canvas-&gt;<b>get_color_pixel</b> ($rgba)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rgba_integer_"><p>$rgba (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="rgbdither_canvas_get">rgbdither = $canvas-&gt;<b>get_dither</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_canvas_set_dither_d">$canvas-&gt;<b>set_dither</b> ($dither)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dither_Gtk2_Gdk_Rgb"><p>$dither (Gtk2::Gdk::RgbDither)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="item_canvas_get_item">item = $canvas-&gt;<b>get_item_at</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_double_"><p>$x (double)</p></a>
+<li class="POD_ITEM"><a name="_y_double_"><p>$y (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_mx1_my1_mx2_my2_Gno">($mx1, $my1, $mx2, $my2) = Gnome2::Canvas-&gt;<b>get_miter_points</b> ($x1, $y1, $x2, $y2, $x3, $y3, $width)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x1_double_1"><p>$x1 (double)</p></a>
+<li class="POD_ITEM"><a name="_y1_double_1"><p>$y1 (double)</p></a>
+<li class="POD_ITEM"><a name="_x2_double_1"><p>$x2 (double)</p></a>
+<li class="POD_ITEM"><a name="_y2_double_1"><p>$y2 (double)</p></a>
+<li class="POD_ITEM"><a name="_x3_double_"><p>$x3 (double)</p></a>
+<li class="POD_ITEM"><a name="_y3_double_"><p>$y3 (double)</p></a>
+<li class="POD_ITEM"><a name="_width_double_1"><p>$width (double)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="double_canvas_get_pi">double = $canvas-&gt;<b>get_pixels_per_unit</b></a></h3>
+<p class="POD_TEXT">
+Fetch <i>$canvas</i>&#39; scale factor.
+</p>
+<h3 class="POD_HEAD2"><a name="_canvas_set_pixels_p">$canvas-&gt;<b>set_pixels_per_unit</b> ($n)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_n_double_"><p>$n (double)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Set the zooming factor of <i>$canvas</i> by specifying the number of screen
+pixels that correspond to one canvas unit.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="double_Gnome2_Canvas">double = Gnome2::Canvas-&gt;<b>polygon_to_point</b> ($poly_ref, $x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_poly_ref_arrayref_c"><p>$poly_ref (arrayref) coordinate pairs that make up the polygon</p></a>
+<li class="POD_ITEM"><a name="_x_double_1"><p>$x (double)</p></a>
+<li class="POD_ITEM"><a name="_y_double_1"><p>$y (double)</p></a>
+</ul>
+<p class="POD_TEXT">
+Return the distance from the point <i>$x</i>,<i>$y</i> to the polygon described by
+the vertices in <i>$poly_ref</i>, or zero if the point is inside the polygon.
+</p>
+<h3 class="POD_HEAD2"><a name="_canvas_request_redr">$canvas-&gt;<b>request_redraw</b> ($x1, $y1, $x2, $y2)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x1_integer_"><p>$x1 (integer)</p></a>
+<li class="POD_ITEM"><a name="_y1_integer_"><p>$y1 (integer)</p></a>
+<li class="POD_ITEM"><a name="_x2_integer_"><p>$x2 (integer)</p></a>
+<li class="POD_ITEM"><a name="_y2_integer_"><p>$y2 (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="group_canvas_root">group = $canvas-&gt;<b>root</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_cx_cy_canvas_get_sc">(cx, cy) = $canvas-&gt;<b>get_scroll_offsets</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_x1_y1_x2_y2_canvas_">(x1, y1, x2, y2) = $canvas-&gt;<b>get_scroll_region</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_canvas_set_scroll_r">$canvas-&gt;<b>set_scroll_region</b> ($x1, $y1, $x2, $y2)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x1_double_2"><p>$x1 (double)</p></a>
+<li class="POD_ITEM"><a name="_y1_double_2"><p>$y1 (double)</p></a>
+<li class="POD_ITEM"><a name="_x2_double_2"><p>$x2 (double)</p></a>
+<li class="POD_ITEM"><a name="_y2_double_2"><p>$y2 (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_canvas_scroll_to_cx">$canvas-&gt;<b>scroll_to</b> ($cx, $cy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cx_integer_1"><p>$cx (integer)</p></a>
+<li class="POD_ITEM"><a name="_cy_integer_1"><p>$cy (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_canvas_set_stipple_">$canvas-&gt;<b>set_stipple_origin</b> ($gc)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_gc_Gtk2_Gdk_GC_"><p>$gc (Gtk2::Gdk::GC)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_canvas_update_now">$canvas-&gt;<b>update_now</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_cx_cy_canvas_w2c_wx">(cx, cy) = $canvas-&gt;<b>w2c</b> ($wx, $wy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_wx_double_"><p>$wx (double)</p></a>
+<li class="POD_ITEM"><a name="_wy_double_"><p>$wy (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_affine_canvas_w2c_a">$affine = $canvas-&gt;<b>w2c_affine</b></a></h3>
+<p class="POD_TEXT">
+Fetch the affine transform that converts from world coordinates to canvas
+pixel coordinates.
+</p>
+<p class="POD_TEXT">
+Note: This method was completely broken for all
+$Gnome2::Canvas::VERSION &lt; 1.002.
+</p>
+<h3 class="POD_HEAD2"><a name="_cx_cy_canvas_w2c_d_">(cx, cy) = $canvas-&gt;<b>w2c_d</b> ($wx, $wy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_wx_double_1"><p>$wx (double)</p></a>
+<li class="POD_ITEM"><a name="_wy_double_1"><p>$wy (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_worldx_worldy_canva">(worldx, worldy) = $canvas-&gt;<b>window_to_world</b> ($winx, $winy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_winx_double_"><p>$winx (double)</p></a>
+<li class="POD_ITEM"><a name="_winy_double_"><p>$winy (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_winx_winy_canvas_wo">(winx, winy) = $canvas-&gt;<b>world_to_window</b> ($worldx, $worldy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_worldx_double_"><p>$worldx (double)</p></a>
+<li class="POD_ITEM"><a name="_worldy_double_"><p>$worldy (double)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_aa_boolean_readable">&#39;aa&#39; (boolean : readable / writable / construct-only)</a>
+<dd>
+The antialiasing mode of the canvas.
+<dt class="POD_ITEM"><a name="_focused_item_Gnome2">&#39;focused-item&#39; (Gnome2::Canvas::Item : readable / writable)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="draw_background_Gnom"><b>draw-background</b> (Gnome2::Canvas, Gtk2::Gdk::Drawable, integer, integer, integer, integer)</a>
+<dt><a name="render_background_Gn"><b>render-background</b> (Gnome2::Canvas, gpointer)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_RgbDit">enum Gtk2::Gdk::RgbDither</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GDK_RGB_DITHER"><p>&#39;none&#39; / &#39;GDK_RGB_DITHER_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_normal_GDK_RGB_DITH"><p>&#39;normal&#39; / &#39;GDK_RGB_DITHER_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_max_GDK_RGB_DITHER_"><p>&#39;max&#39; / &#39;GDK_RGB_DITHER_MAX&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+Gnome2::Canvas::index(3pm) lists the generated Perl API reference PODs.
+<p class="POD_TEXT">
+Frederico Mena Quintero&#39;s whitepaper on the GNOME Canvas:
+http://developer.gnome.org/doc/whitepapers/canvas/canvas.html
+</p>
+<p class="POD_TEXT">
+The real GnomeCanvas is implemented in a C library; the Gnome2::Canvas module
+allows a Perl developer to use the canvas like a normal gtk2-perl object.
+Like the Gtk2 module on which it depends, Gnome2::Canvas follows the C API of
+libgnomecanvas-2.0 as closely as possible while still being perlish.
+Thus, the C API reference remains the canonical documentation; the Perl
+reference documentation lists call signatures and argument types, and is
+meant to be used in conjunction with the C API reference.
+</p>
+<p class="POD_TEXT">
+GNOME Canvas Library Reference Manual
+http://developer.gnome.org/doc/API/2.0/libgnomecanvas/index.html
+</p>
+<p class="POD_TEXT">
+perl(1), Glib(3pm), Gtk2(3pm).
+</p>
+<p class="POD_TEXT">
+To discuss gtk2-perl, ask questions and flame/praise the authors,
+join gtk-perl-list@gnome.org at lists.gnome.org.
+</p>
+<h2 class="POD_HEAD1"><a name="AUTHOR">AUTHOR</a></h2>
+<p class="POD_TEXT">
+muppet &lt;scott at asofyet dot org&gt;, with patches from
+Torsten Schoenfeld &lt;kaffetisch at web dot de&gt;.
+</p>
+<p class="POD_TEXT">
+The DESCRIPTION section of this page is adapted from the documentation of
+libgnomecanvas.
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a></h2>
+<p class="POD_TEXT">
+Copyright 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+</p>
+<p class="POD_TEXT">
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+</p>
+<p class="POD_TEXT">
+You should have received a copy of the GNU Library General Public
+License along with this library; if not, write to the 
+Free Software Foundation, Inc., 59 Temple Place - Suite 330, 
+Boston, MA  02111-1307  USA.
+</p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:03 2009
+</body>
+</html>
+

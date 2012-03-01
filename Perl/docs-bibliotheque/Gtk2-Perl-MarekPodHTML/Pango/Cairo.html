@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Pango::Cairo</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Pango/Cairo/Context.html">Next:<br />Pango::Cairo::Context</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Pango/AttrWeight.html">Previous:<br />Pango::AttrWeight</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Pango::Cairo</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#layout_Pango_Cairo_c">layout = Pango::Cairo::create_layout ($cr)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_error_un">Pango::Cairo::error_underline_path ($cr, $x, $y, $width, $height)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_glyph_st">Pango::Cairo::glyph_string_path ($cr, $font, $glyphs)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_layout_l">Pango::Cairo::layout_line_path ($cr, $line)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_layout_p">Pango::Cairo::layout_path ($cr, $layout)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_show_err">Pango::Cairo::show_error_underline ($cr, $x, $y, $width, $height)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_show_gly">Pango::Cairo::show_glyph_string ($cr, $font, $glyphs)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_show_lay">Pango::Cairo::show_layout ($cr, $layout)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_show_lay1">Pango::Cairo::show_layout_line ($cr, $line)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_update_c">Pango::Cairo::update_context ($cr, $context)</a>
+<li><a class="POD_NAVLINK" href="#Pango_Cairo_update_l">Pango::Cairo::update_layout ($cr, $layout)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Pango::Cairo
+</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="layout_Pango_Cairo_c">layout = Pango::Cairo::create_layout ($cr)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_"><p>$cr (Cairo::Context)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_error_un">Pango::Cairo::error_underline_path ($cr, $x, $y, $width, $height)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_1"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_x_double_"><p>$x (double)</p></a>
+<li class="POD_ITEM"><a name="_y_double_"><p>$y (double)</p></a>
+<li class="POD_ITEM"><a name="_width_double_"><p>$width (double)</p></a>
+<li class="POD_ITEM"><a name="_height_double_"><p>$height (double)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+Since: pango 1.14
+</p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_glyph_st">Pango::Cairo::glyph_string_path ($cr, $font, $glyphs)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_2"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_font_Pango_Font_"><p>$font (Pango::Font)</p></a>
+<li class="POD_ITEM"><a name="_glyphs_Pango_GlyphS"><p>$glyphs (Pango::GlyphString)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_layout_l">Pango::Cairo::layout_line_path ($cr, $line)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_3"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_line_Pango_LayoutLi"><p>$line (Pango::LayoutLine)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_layout_p">Pango::Cairo::layout_path ($cr, $layout)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_4"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_layout_Pango_Layout"><p>$layout (Pango::Layout)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_show_err">Pango::Cairo::show_error_underline ($cr, $x, $y, $width, $height)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_5"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_x_double_1"><p>$x (double)</p></a>
+<li class="POD_ITEM"><a name="_y_double_1"><p>$y (double)</p></a>
+<li class="POD_ITEM"><a name="_width_double_1"><p>$width (double)</p></a>
+<li class="POD_ITEM"><a name="_height_double_1"><p>$height (double)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+Since: pango 1.14
+</p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_show_gly">Pango::Cairo::show_glyph_string ($cr, $font, $glyphs)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_6"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_font_Pango_Font_1"><p>$font (Pango::Font)</p></a>
+<li class="POD_ITEM"><a name="_glyphs_Pango_GlyphS1"><p>$glyphs (Pango::GlyphString)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_show_lay">Pango::Cairo::show_layout ($cr, $layout)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_7"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_layout_Pango_Layout1"><p>$layout (Pango::Layout)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_show_lay1">Pango::Cairo::show_layout_line ($cr, $line)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_8"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_line_Pango_LayoutLi1"><p>$line (Pango::LayoutLine)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_update_c">Pango::Cairo::update_context ($cr, $context)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_9"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_context_Pango_Conte"><p>$context (Pango::Context)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Pango_Cairo_update_l">Pango::Cairo::update_layout ($cr, $layout)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cr_Cairo_Context_10"><p>$cr (Cairo::Context)</p></a>
+<li class="POD_ITEM"><a name="_layout_Pango_Layout2"><p>$layout (Pango::Layout)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Pango.html">Pango</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2009 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Pango.html">Pango</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:05:00 2009
+</body>
+</html>
+

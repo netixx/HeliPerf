@@ -1,0 +1,1513 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::enums</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/EventBox.html">Next:<br />Gtk2::EventBox</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/EntryCompletion.html">Previous:<br />Gtk2::EntryCompletion</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::enums</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#LISTING">LISTING</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_AxisUs">enum Gtk2::Gdk::AxisUse</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_ByteOr">enum Gtk2::Gdk::ByteOrder</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_CapSty">enum Gtk2::Gdk::CapStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Colors">enum Gtk2::Gdk::Colorspace</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Crossi">enum Gtk2::Gdk::CrossingMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Cursor">enum Gtk2::Gdk::CursorType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_DragA">flags Gtk2::Gdk::DragAction</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_DragPr">enum Gtk2::Gdk::DragProtocol</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Event">flags Gtk2::Gdk::EventMask</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_EventT">enum Gtk2::Gdk::EventType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Extens">enum Gtk2::Gdk::ExtensionMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Fill">enum Gtk2::Gdk::Fill</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_FillRu">enum Gtk2::Gdk::FillRule</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Filter">enum Gtk2::Gdk::FilterReturn</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_FontTy">enum Gtk2::Gdk::FontType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Functi">enum Gtk2::Gdk::Function</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_GCVal">flags Gtk2::Gdk::GCValuesMask</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_GrabSt">enum Gtk2::Gdk::GrabStatus</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Gravit">enum Gtk2::Gdk::Gravity</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_ImageT">enum Gtk2::Gdk::ImageType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Input">flags Gtk2::Gdk::InputCondition</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_InputM">enum Gtk2::Gdk::InputMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_InputS">enum Gtk2::Gdk::InputSource</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Interp">enum Gtk2::Gdk::InterpType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_JoinSt">enum Gtk2::Gdk::JoinStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_LineSt">enum Gtk2::Gdk::LineStyle</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Modif">flags Gtk2::Gdk::ModifierType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Notify">enum Gtk2::Gdk::NotifyType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Overla">enum Gtk2::Gdk::OverlapType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Pixbuf">enum Gtk2::Gdk::PixbufAlphaMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Pixbuf1">enum Gtk2::Gdk::PixbufError</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Proper">enum Gtk2::Gdk::PropertyState</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_PropMo">enum Gtk2::Gdk::PropMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_RgbDit">enum Gtk2::Gdk::RgbDither</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Scroll">enum Gtk2::Gdk::ScrollDirection</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Settin">enum Gtk2::Gdk::SettingAction</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Status">enum Gtk2::Gdk::Status</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Subwin">enum Gtk2::Gdk::SubwindowMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Visibi">enum Gtk2::Gdk::VisibilityState</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Visual">enum Gtk2::Gdk::VisualType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Windo">flags Gtk2::Gdk::WindowAttributesType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Window">enum Gtk2::Gdk::WindowClass</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Window1">enum Gtk2::Gdk::WindowEdge</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Windo1">flags Gtk2::Gdk::WindowHints</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Windo2">flags Gtk2::Gdk::WindowState</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Window2">enum Gtk2::Gdk::WindowType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Window3">enum Gtk2::Gdk::WindowTypeHint</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_WMDec">flags Gtk2::Gdk::WMDecoration</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_WMFun">flags Gtk2::Gdk::WMFunction</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_AccelFlag">flags Gtk2::AccelFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_AnchorType">enum Gtk2::AnchorType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_ArgFlags">flags Gtk2::ArgFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ArrowType">enum Gtk2::ArrowType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_AttachOpt">flags Gtk2::AttachOptions</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ButtonBoxS">enum Gtk2::ButtonBoxStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ButtonsTyp">enum Gtk2::ButtonsType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_CalendarD">flags Gtk2::CalendarDisplayOptions</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_CellRender">enum Gtk2::CellRendererMode</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_CellRende">flags Gtk2::CellRendererState</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_CornerType">enum Gtk2::CornerType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_CurveType">enum Gtk2::CurveType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_DebugFlag">flags Gtk2::DebugFlag</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_DeleteType">enum Gtk2::DeleteType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_DestDefau">flags Gtk2::DestDefaults</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_DialogFla">flags Gtk2::DialogFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_DirectionT">enum Gtk2::DirectionType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ExpanderSt">enum Gtk2::ExpanderStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IconSize">enum Gtk2::IconSize</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ImageType">enum Gtk2::ImageType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IMPreeditS">enum Gtk2::IMPreeditStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IMStatusSt">enum Gtk2::IMStatusStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Justificat">enum Gtk2::Justification</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_MatchType">enum Gtk2::MatchType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_MenuDirect">enum Gtk2::MenuDirectionType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_MessageTyp">enum Gtk2::MessageType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_MetricType">enum Gtk2::MetricType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_MovementSt">enum Gtk2::MovementStep</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_NotebookTa">enum Gtk2::NotebookTab</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_ObjectFla">flags Gtk2::ObjectFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Orientatio">enum Gtk2::Orientation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PackType">enum Gtk2::PackType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PathPriori">enum Gtk2::PathPriorityType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PathType">enum Gtk2::PathType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PolicyType">enum Gtk2::PolicyType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PositionTy">enum Gtk2::PositionType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PreviewTyp">enum Gtk2::PreviewType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_PrivateFl">flags Gtk2::PrivateFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ProgressBa">enum Gtk2::ProgressBarOrientation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ProgressBa1">enum Gtk2::ProgressBarStyle</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_RcFlags">flags Gtk2::RcFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_RcTokenTyp">enum Gtk2::RcTokenType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ReliefStyl">enum Gtk2::ReliefStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ResizeMode">enum Gtk2::ResizeMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ResponseTy">enum Gtk2::ResponseType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ScrollType">enum Gtk2::ScrollType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SelectionM">enum Gtk2::SelectionMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ShadowType">enum Gtk2::ShadowType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SideType">enum Gtk2::SideType</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_SignalRun">flags Gtk2::SignalRunType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SizeGroupM">enum Gtk2::SizeGroupMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SortType">enum Gtk2::SortType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SpinButton">enum Gtk2::SpinButtonUpdatePolicy</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SpinType">enum Gtk2::SpinType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_StateType">enum Gtk2::StateType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SubmenuDir">enum Gtk2::SubmenuDirection</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SubmenuPla">enum Gtk2::SubmenuPlacement</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_TargetFla">flags Gtk2::TargetFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_TextDirect">enum Gtk2::TextDirection</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_TextSearc">flags Gtk2::TextSearchFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_TextWindow">enum Gtk2::TextWindowType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ToolbarChi">enum Gtk2::ToolbarChildType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ToolbarSpa">enum Gtk2::ToolbarSpaceStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ToolbarSty">enum Gtk2::ToolbarStyle</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_TreeModel">flags Gtk2::TreeModelFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_TreeViewCo">enum Gtk2::TreeViewColumnSizing</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_TreeViewDr">enum Gtk2::TreeViewDropPosition</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_TreeViewMo">enum Gtk2::TreeViewMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_UpdateType">enum Gtk2::UpdateType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Visibility">enum Gtk2::Visibility</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_WidgetFla">flags Gtk2::WidgetFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_WidgetHelp">enum Gtk2::WidgetHelpType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_WindowPosi">enum Gtk2::WindowPosition</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_WindowType">enum Gtk2::WindowType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_WrapMode">enum Gtk2::WrapMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_AssistantP">enum Gtk2::AssistantPageType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_CellRender1">enum Gtk2::CellRendererAccelMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PageOrient">enum Gtk2::PageOrientation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PrintOpera">enum Gtk2::PrintOperationAction</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PrintOpera1">enum Gtk2::PrintOperationResult</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PrintStatu">enum Gtk2::PrintStatus</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_RecentFil">flags Gtk2::RecentFilterFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_RecentSort">enum Gtk2::RecentSortType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Sensitivit">enum Gtk2::SensitivityType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_TreeViewGr">enum Gtk2::TreeViewGridLines</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Unit">enum Gtk2::Unit</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_FileChoose">enum Gtk2::FileChooserAction</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_FileChoose1">enum Gtk2::FileChooserError</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_FileFilte">flags Gtk2::FileFilterFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IconThemeE">enum Gtk2::IconThemeError</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_IconLooku">flags Gtk2::IconLookupFlags</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_UIManager">flags Gtk2::UIManagerItemType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_OwnerC">enum Gtk2::Gdk::OwnerChange</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Pixbuf2">enum Gtk2::Gdk::PixbufRotation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PackDirect">enum Gtk2::PackDirection</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IconView_D">enum Gtk2::IconView::DropPosition</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#AUTHOR">AUTHOR</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::enums - enumeration and flag values for Gtk2
+</p>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+Just a listing of all enum and flags types defined for Gtk2, in one place
+for convenience.  For more information, see the description of flags and
+enums in <a class="POD_LINK" href="../Glib.html">Glib</a>.
+</p>
+<h2 class="POD_HEAD1"><a name="LISTING">LISTING</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_AxisUs">enum Gtk2::Gdk::AxisUse</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ignore_GDK_AXIS_IGN"><p>&#39;ignore&#39; / &#39;GDK_AXIS_IGNORE&#39;</p></a>
+<li class="POD_ITEM"><a name="_x_GDK_AXIS_X_"><p>&#39;x&#39; / &#39;GDK_AXIS_X&#39;</p></a>
+<li class="POD_ITEM"><a name="_y_GDK_AXIS_Y_"><p>&#39;y&#39; / &#39;GDK_AXIS_Y&#39;</p></a>
+<li class="POD_ITEM"><a name="_pressure_GDK_AXIS_P"><p>&#39;pressure&#39; / &#39;GDK_AXIS_PRESSURE&#39;</p></a>
+<li class="POD_ITEM"><a name="_xtilt_GDK_AXIS_XTIL"><p>&#39;xtilt&#39; / &#39;GDK_AXIS_XTILT&#39;</p></a>
+<li class="POD_ITEM"><a name="_ytilt_GDK_AXIS_YTIL"><p>&#39;ytilt&#39; / &#39;GDK_AXIS_YTILT&#39;</p></a>
+<li class="POD_ITEM"><a name="_wheel_GDK_AXIS_WHEE"><p>&#39;wheel&#39; / &#39;GDK_AXIS_WHEEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_last_GDK_AXIS_LAST_"><p>&#39;last&#39; / &#39;GDK_AXIS_LAST&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_ByteOr">enum Gtk2::Gdk::ByteOrder</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_lsb_first_GDK_LSB_F"><p>&#39;lsb-first&#39; / &#39;GDK_LSB_FIRST&#39;</p></a>
+<li class="POD_ITEM"><a name="_msb_first_GDK_MSB_F"><p>&#39;msb-first&#39; / &#39;GDK_MSB_FIRST&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_CapSty">enum Gtk2::Gdk::CapStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_not_last_GDK_CAP_NO"><p>&#39;not-last&#39; / &#39;GDK_CAP_NOT_LAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_butt_GDK_CAP_BUTT_"><p>&#39;butt&#39; / &#39;GDK_CAP_BUTT&#39;</p></a>
+<li class="POD_ITEM"><a name="_round_GDK_CAP_ROUND"><p>&#39;round&#39; / &#39;GDK_CAP_ROUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_projecting_GDK_CAP_"><p>&#39;projecting&#39; / &#39;GDK_CAP_PROJECTING&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Colors">enum Gtk2::Gdk::Colorspace</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rgb_GDK_COLORSPACE_"><p>&#39;rgb&#39; / &#39;GDK_COLORSPACE_RGB&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Crossi">enum Gtk2::Gdk::CrossingMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_normal_GDK_CROSSING"><p>&#39;normal&#39; / &#39;GDK_CROSSING_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_grab_GDK_CROSSING_G"><p>&#39;grab&#39; / &#39;GDK_CROSSING_GRAB&#39;</p></a>
+<li class="POD_ITEM"><a name="_ungrab_GDK_CROSSING"><p>&#39;ungrab&#39; / &#39;GDK_CROSSING_UNGRAB&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Cursor">enum Gtk2::Gdk::CursorType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_cursor_GDK_X_CURS"><p>&#39;x-cursor&#39; / &#39;GDK_X_CURSOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_arrow_GDK_ARROW_"><p>&#39;arrow&#39; / &#39;GDK_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_based_arrow_down_GD"><p>&#39;based-arrow-down&#39; / &#39;GDK_BASED_ARROW_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_based_arrow_up_GDK_"><p>&#39;based-arrow-up&#39; / &#39;GDK_BASED_ARROW_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_boat_GDK_BOAT_"><p>&#39;boat&#39; / &#39;GDK_BOAT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bogosity_GDK_BOGOSI"><p>&#39;bogosity&#39; / &#39;GDK_BOGOSITY&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_left_corner_"><p>&#39;bottom-left-corner&#39; / &#39;GDK_BOTTOM_LEFT_CORNER&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_right_corner"><p>&#39;bottom-right-corner&#39; / &#39;GDK_BOTTOM_RIGHT_CORNER&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_side_GDK_BOT"><p>&#39;bottom-side&#39; / &#39;GDK_BOTTOM_SIDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_tee_GDK_BOTT"><p>&#39;bottom-tee&#39; / &#39;GDK_BOTTOM_TEE&#39;</p></a>
+<li class="POD_ITEM"><a name="_box_spiral_GDK_BOX_"><p>&#39;box-spiral&#39; / &#39;GDK_BOX_SPIRAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_center_ptr_GDK_CENT"><p>&#39;center-ptr&#39; / &#39;GDK_CENTER_PTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_circle_GDK_CIRCLE_"><p>&#39;circle&#39; / &#39;GDK_CIRCLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_clock_GDK_CLOCK_"><p>&#39;clock&#39; / &#39;GDK_CLOCK&#39;</p></a>
+<li class="POD_ITEM"><a name="_coffee_mug_GDK_COFF"><p>&#39;coffee-mug&#39; / &#39;GDK_COFFEE_MUG&#39;</p></a>
+<li class="POD_ITEM"><a name="_cross_GDK_CROSS_"><p>&#39;cross&#39; / &#39;GDK_CROSS&#39;</p></a>
+<li class="POD_ITEM"><a name="_cross_reverse_GDK_C"><p>&#39;cross-reverse&#39; / &#39;GDK_CROSS_REVERSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_crosshair_GDK_CROSS"><p>&#39;crosshair&#39; / &#39;GDK_CROSSHAIR&#39;</p></a>
+<li class="POD_ITEM"><a name="_diamond_cross_GDK_D"><p>&#39;diamond-cross&#39; / &#39;GDK_DIAMOND_CROSS&#39;</p></a>
+<li class="POD_ITEM"><a name="_dot_GDK_DOT_"><p>&#39;dot&#39; / &#39;GDK_DOT&#39;</p></a>
+<li class="POD_ITEM"><a name="_dotbox_GDK_DOTBOX_"><p>&#39;dotbox&#39; / &#39;GDK_DOTBOX&#39;</p></a>
+<li class="POD_ITEM"><a name="_double_arrow_GDK_DO"><p>&#39;double-arrow&#39; / &#39;GDK_DOUBLE_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_draft_large_GDK_DRA"><p>&#39;draft-large&#39; / &#39;GDK_DRAFT_LARGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_draft_small_GDK_DRA"><p>&#39;draft-small&#39; / &#39;GDK_DRAFT_SMALL&#39;</p></a>
+<li class="POD_ITEM"><a name="_draped_box_GDK_DRAP"><p>&#39;draped-box&#39; / &#39;GDK_DRAPED_BOX&#39;</p></a>
+<li class="POD_ITEM"><a name="_exchange_GDK_EXCHAN"><p>&#39;exchange&#39; / &#39;GDK_EXCHANGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_fleur_GDK_FLEUR_"><p>&#39;fleur&#39; / &#39;GDK_FLEUR&#39;</p></a>
+<li class="POD_ITEM"><a name="_gobbler_GDK_GOBBLER"><p>&#39;gobbler&#39; / &#39;GDK_GOBBLER&#39;</p></a>
+<li class="POD_ITEM"><a name="_gumby_GDK_GUMBY_"><p>&#39;gumby&#39; / &#39;GDK_GUMBY&#39;</p></a>
+<li class="POD_ITEM"><a name="_hand1_GDK_HAND1_"><p>&#39;hand1&#39; / &#39;GDK_HAND1&#39;</p></a>
+<li class="POD_ITEM"><a name="_hand2_GDK_HAND2_"><p>&#39;hand2&#39; / &#39;GDK_HAND2&#39;</p></a>
+<li class="POD_ITEM"><a name="_heart_GDK_HEART_"><p>&#39;heart&#39; / &#39;GDK_HEART&#39;</p></a>
+<li class="POD_ITEM"><a name="_icon_GDK_ICON_"><p>&#39;icon&#39; / &#39;GDK_ICON&#39;</p></a>
+<li class="POD_ITEM"><a name="_iron_cross_GDK_IRON"><p>&#39;iron-cross&#39; / &#39;GDK_IRON_CROSS&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_ptr_GDK_LEFT_P"><p>&#39;left-ptr&#39; / &#39;GDK_LEFT_PTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_side_GDK_LEFT_"><p>&#39;left-side&#39; / &#39;GDK_LEFT_SIDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_tee_GDK_LEFT_T"><p>&#39;left-tee&#39; / &#39;GDK_LEFT_TEE&#39;</p></a>
+<li class="POD_ITEM"><a name="_leftbutton_GDK_LEFT"><p>&#39;leftbutton&#39; / &#39;GDK_LEFTBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_ll_angle_GDK_LL_ANG"><p>&#39;ll-angle&#39; / &#39;GDK_LL_ANGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_lr_angle_GDK_LR_ANG"><p>&#39;lr-angle&#39; / &#39;GDK_LR_ANGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_man_GDK_MAN_"><p>&#39;man&#39; / &#39;GDK_MAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_middlebutton_GDK_MI"><p>&#39;middlebutton&#39; / &#39;GDK_MIDDLEBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_mouse_GDK_MOUSE_"><p>&#39;mouse&#39; / &#39;GDK_MOUSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_pencil_GDK_PENCIL_"><p>&#39;pencil&#39; / &#39;GDK_PENCIL&#39;</p></a>
+<li class="POD_ITEM"><a name="_pirate_GDK_PIRATE_"><p>&#39;pirate&#39; / &#39;GDK_PIRATE&#39;</p></a>
+<li class="POD_ITEM"><a name="_plus_GDK_PLUS_"><p>&#39;plus&#39; / &#39;GDK_PLUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_question_arrow_GDK_"><p>&#39;question-arrow&#39; / &#39;GDK_QUESTION_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_ptr_GDK_RIGHT"><p>&#39;right-ptr&#39; / &#39;GDK_RIGHT_PTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_side_GDK_RIGH"><p>&#39;right-side&#39; / &#39;GDK_RIGHT_SIDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_tee_GDK_RIGHT"><p>&#39;right-tee&#39; / &#39;GDK_RIGHT_TEE&#39;</p></a>
+<li class="POD_ITEM"><a name="_rightbutton_GDK_RIG"><p>&#39;rightbutton&#39; / &#39;GDK_RIGHTBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_rtl_logo_GDK_RTL_LO"><p>&#39;rtl-logo&#39; / &#39;GDK_RTL_LOGO&#39;</p></a>
+<li class="POD_ITEM"><a name="_sailboat_GDK_SAILBO"><p>&#39;sailboat&#39; / &#39;GDK_SAILBOAT&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_down_arrow_GDK_S"><p>&#39;sb-down-arrow&#39; / &#39;GDK_SB_DOWN_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_h_double_arrow_G"><p>&#39;sb-h-double-arrow&#39; / &#39;GDK_SB_H_DOUBLE_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_left_arrow_GDK_S"><p>&#39;sb-left-arrow&#39; / &#39;GDK_SB_LEFT_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_right_arrow_GDK_"><p>&#39;sb-right-arrow&#39; / &#39;GDK_SB_RIGHT_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_up_arrow_GDK_SB_"><p>&#39;sb-up-arrow&#39; / &#39;GDK_SB_UP_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_v_double_arrow_G"><p>&#39;sb-v-double-arrow&#39; / &#39;GDK_SB_V_DOUBLE_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_shuttle_GDK_SHUTTLE"><p>&#39;shuttle&#39; / &#39;GDK_SHUTTLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_sizing_GDK_SIZING_"><p>&#39;sizing&#39; / &#39;GDK_SIZING&#39;</p></a>
+<li class="POD_ITEM"><a name="_spider_GDK_SPIDER_"><p>&#39;spider&#39; / &#39;GDK_SPIDER&#39;</p></a>
+<li class="POD_ITEM"><a name="_spraycan_GDK_SPRAYC"><p>&#39;spraycan&#39; / &#39;GDK_SPRAYCAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_star_GDK_STAR_"><p>&#39;star&#39; / &#39;GDK_STAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_target_GDK_TARGET_"><p>&#39;target&#39; / &#39;GDK_TARGET&#39;</p></a>
+<li class="POD_ITEM"><a name="_tcross_GDK_TCROSS_"><p>&#39;tcross&#39; / &#39;GDK_TCROSS&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_left_arrow_GDK_"><p>&#39;top-left-arrow&#39; / &#39;GDK_TOP_LEFT_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_left_corner_GDK"><p>&#39;top-left-corner&#39; / &#39;GDK_TOP_LEFT_CORNER&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_right_corner_GD"><p>&#39;top-right-corner&#39; / &#39;GDK_TOP_RIGHT_CORNER&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_side_GDK_TOP_SI"><p>&#39;top-side&#39; / &#39;GDK_TOP_SIDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_tee_GDK_TOP_TEE"><p>&#39;top-tee&#39; / &#39;GDK_TOP_TEE&#39;</p></a>
+<li class="POD_ITEM"><a name="_trek_GDK_TREK_"><p>&#39;trek&#39; / &#39;GDK_TREK&#39;</p></a>
+<li class="POD_ITEM"><a name="_ul_angle_GDK_UL_ANG"><p>&#39;ul-angle&#39; / &#39;GDK_UL_ANGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_umbrella_GDK_UMBREL"><p>&#39;umbrella&#39; / &#39;GDK_UMBRELLA&#39;</p></a>
+<li class="POD_ITEM"><a name="_ur_angle_GDK_UR_ANG"><p>&#39;ur-angle&#39; / &#39;GDK_UR_ANGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_watch_GDK_WATCH_"><p>&#39;watch&#39; / &#39;GDK_WATCH&#39;</p></a>
+<li class="POD_ITEM"><a name="_xterm_GDK_XTERM_"><p>&#39;xterm&#39; / &#39;GDK_XTERM&#39;</p></a>
+<li class="POD_ITEM"><a name="_last_cursor_GDK_LAS"><p>&#39;last-cursor&#39; / &#39;GDK_LAST_CURSOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_cursor_is_pixmap_GD"><p>&#39;cursor-is-pixmap&#39; / &#39;GDK_CURSOR_IS_PIXMAP&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_DragA">flags Gtk2::Gdk::DragAction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_default_GDK_ACTION_"><p>&#39;default&#39; / &#39;GDK_ACTION_DEFAULT&#39;</p></a>
+<li class="POD_ITEM"><a name="_copy_GDK_ACTION_COP"><p>&#39;copy&#39; / &#39;GDK_ACTION_COPY&#39;</p></a>
+<li class="POD_ITEM"><a name="_move_GDK_ACTION_MOV"><p>&#39;move&#39; / &#39;GDK_ACTION_MOVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_link_GDK_ACTION_LIN"><p>&#39;link&#39; / &#39;GDK_ACTION_LINK&#39;</p></a>
+<li class="POD_ITEM"><a name="_private_GDK_ACTION_"><p>&#39;private&#39; / &#39;GDK_ACTION_PRIVATE&#39;</p></a>
+<li class="POD_ITEM"><a name="_ask_GDK_ACTION_ASK_"><p>&#39;ask&#39; / &#39;GDK_ACTION_ASK&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_DragPr">enum Gtk2::Gdk::DragProtocol</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_motif_GDK_DRAG_PROT"><p>&#39;motif&#39; / &#39;GDK_DRAG_PROTO_MOTIF&#39;</p></a>
+<li class="POD_ITEM"><a name="_xdnd_GDK_DRAG_PROTO"><p>&#39;xdnd&#39; / &#39;GDK_DRAG_PROTO_XDND&#39;</p></a>
+<li class="POD_ITEM"><a name="_rootwin_GDK_DRAG_PR"><p>&#39;rootwin&#39; / &#39;GDK_DRAG_PROTO_ROOTWIN&#39;</p></a>
+<li class="POD_ITEM"><a name="_none_GDK_DRAG_PROTO"><p>&#39;none&#39; / &#39;GDK_DRAG_PROTO_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_win32_dropfiles_GDK"><p>&#39;win32-dropfiles&#39; / &#39;GDK_DRAG_PROTO_WIN32_DROPFILES&#39;</p></a>
+<li class="POD_ITEM"><a name="_ole2_GDK_DRAG_PROTO"><p>&#39;ole2&#39; / &#39;GDK_DRAG_PROTO_OLE2&#39;</p></a>
+<li class="POD_ITEM"><a name="_local_GDK_DRAG_PROT"><p>&#39;local&#39; / &#39;GDK_DRAG_PROTO_LOCAL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Event">flags Gtk2::Gdk::EventMask</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_exposure_mask_GDK_E"><p>&#39;exposure-mask&#39; / &#39;GDK_EXPOSURE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_pointer_motion_mask"><p>&#39;pointer-motion-mask&#39; / &#39;GDK_POINTER_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_pointer_motion_hint"><p>&#39;pointer-motion-hint-mask&#39; / &#39;GDK_POINTER_MOTION_HINT_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_motion_mask_"><p>&#39;button-motion-mask&#39; / &#39;GDK_BUTTON_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button1_motion_mask"><p>&#39;button1-motion-mask&#39; / &#39;GDK_BUTTON1_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button2_motion_mask"><p>&#39;button2-motion-mask&#39; / &#39;GDK_BUTTON2_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button3_motion_mask"><p>&#39;button3-motion-mask&#39; / &#39;GDK_BUTTON3_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_press_mask_G"><p>&#39;button-press-mask&#39; / &#39;GDK_BUTTON_PRESS_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_release_mask"><p>&#39;button-release-mask&#39; / &#39;GDK_BUTTON_RELEASE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_key_press_mask_GDK_"><p>&#39;key-press-mask&#39; / &#39;GDK_KEY_PRESS_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_key_release_mask_GD"><p>&#39;key-release-mask&#39; / &#39;GDK_KEY_RELEASE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_enter_notify_mask_G"><p>&#39;enter-notify-mask&#39; / &#39;GDK_ENTER_NOTIFY_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_leave_notify_mask_G"><p>&#39;leave-notify-mask&#39; / &#39;GDK_LEAVE_NOTIFY_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_focus_change_mask_G"><p>&#39;focus-change-mask&#39; / &#39;GDK_FOCUS_CHANGE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_structure_mask_GDK_"><p>&#39;structure-mask&#39; / &#39;GDK_STRUCTURE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_property_change_mas"><p>&#39;property-change-mask&#39; / &#39;GDK_PROPERTY_CHANGE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_visibility_notify_m"><p>&#39;visibility-notify-mask&#39; / &#39;GDK_VISIBILITY_NOTIFY_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_proximity_in_mask_G"><p>&#39;proximity-in-mask&#39; / &#39;GDK_PROXIMITY_IN_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_proximity_out_mask_"><p>&#39;proximity-out-mask&#39; / &#39;GDK_PROXIMITY_OUT_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_substructure_mask_G"><p>&#39;substructure-mask&#39; / &#39;GDK_SUBSTRUCTURE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_scroll_mask_GDK_SCR"><p>&#39;scroll-mask&#39; / &#39;GDK_SCROLL_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_all_events_mask_GDK"><p>&#39;all-events-mask&#39; / &#39;GDK_ALL_EVENTS_MASK&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_EventT">enum Gtk2::Gdk::EventType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_nothing_GDK_NOTHING"><p>&#39;nothing&#39; / &#39;GDK_NOTHING&#39;</p></a>
+<li class="POD_ITEM"><a name="_delete_GDK_DELETE_"><p>&#39;delete&#39; / &#39;GDK_DELETE&#39;</p></a>
+<li class="POD_ITEM"><a name="_destroy_GDK_DESTROY"><p>&#39;destroy&#39; / &#39;GDK_DESTROY&#39;</p></a>
+<li class="POD_ITEM"><a name="_expose_GDK_EXPOSE_"><p>&#39;expose&#39; / &#39;GDK_EXPOSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_motion_notify_GDK_M"><p>&#39;motion-notify&#39; / &#39;GDK_MOTION_NOTIFY&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_press_GDK_BU"><p>&#39;button-press&#39; / &#39;GDK_BUTTON_PRESS&#39;</p></a>
+<li class="POD_ITEM"><a name="_2button_press_GDK_2"><p>&#39;2button-press&#39; / &#39;GDK_2BUTTON_PRESS&#39;</p></a>
+<li class="POD_ITEM"><a name="_3button_press_GDK_3"><p>&#39;3button-press&#39; / &#39;GDK_3BUTTON_PRESS&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_release_GDK_"><p>&#39;button-release&#39; / &#39;GDK_BUTTON_RELEASE&#39;</p></a>
+<li class="POD_ITEM"><a name="_key_press_GDK_KEY_P"><p>&#39;key-press&#39; / &#39;GDK_KEY_PRESS&#39;</p></a>
+<li class="POD_ITEM"><a name="_key_release_GDK_KEY"><p>&#39;key-release&#39; / &#39;GDK_KEY_RELEASE&#39;</p></a>
+<li class="POD_ITEM"><a name="_enter_notify_GDK_EN"><p>&#39;enter-notify&#39; / &#39;GDK_ENTER_NOTIFY&#39;</p></a>
+<li class="POD_ITEM"><a name="_leave_notify_GDK_LE"><p>&#39;leave-notify&#39; / &#39;GDK_LEAVE_NOTIFY&#39;</p></a>
+<li class="POD_ITEM"><a name="_focus_change_GDK_FO"><p>&#39;focus-change&#39; / &#39;GDK_FOCUS_CHANGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_configure_GDK_CONFI"><p>&#39;configure&#39; / &#39;GDK_CONFIGURE&#39;</p></a>
+<li class="POD_ITEM"><a name="_map_GDK_MAP_"><p>&#39;map&#39; / &#39;GDK_MAP&#39;</p></a>
+<li class="POD_ITEM"><a name="_unmap_GDK_UNMAP_"><p>&#39;unmap&#39; / &#39;GDK_UNMAP&#39;</p></a>
+<li class="POD_ITEM"><a name="_property_notify_GDK"><p>&#39;property-notify&#39; / &#39;GDK_PROPERTY_NOTIFY&#39;</p></a>
+<li class="POD_ITEM"><a name="_selection_clear_GDK"><p>&#39;selection-clear&#39; / &#39;GDK_SELECTION_CLEAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_selection_request_G"><p>&#39;selection-request&#39; / &#39;GDK_SELECTION_REQUEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_selection_notify_GD"><p>&#39;selection-notify&#39; / &#39;GDK_SELECTION_NOTIFY&#39;</p></a>
+<li class="POD_ITEM"><a name="_proximity_in_GDK_PR"><p>&#39;proximity-in&#39; / &#39;GDK_PROXIMITY_IN&#39;</p></a>
+<li class="POD_ITEM"><a name="_proximity_out_GDK_P"><p>&#39;proximity-out&#39; / &#39;GDK_PROXIMITY_OUT&#39;</p></a>
+<li class="POD_ITEM"><a name="_drag_enter_GDK_DRAG"><p>&#39;drag-enter&#39; / &#39;GDK_DRAG_ENTER&#39;</p></a>
+<li class="POD_ITEM"><a name="_drag_leave_GDK_DRAG"><p>&#39;drag-leave&#39; / &#39;GDK_DRAG_LEAVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_drag_motion_GDK_DRA"><p>&#39;drag-motion&#39; / &#39;GDK_DRAG_MOTION&#39;</p></a>
+<li class="POD_ITEM"><a name="_drag_status_GDK_DRA"><p>&#39;drag-status&#39; / &#39;GDK_DRAG_STATUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_start_GDK_DROP"><p>&#39;drop-start&#39; / &#39;GDK_DROP_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_finished_GDK_D"><p>&#39;drop-finished&#39; / &#39;GDK_DROP_FINISHED&#39;</p></a>
+<li class="POD_ITEM"><a name="_client_event_GDK_CL"><p>&#39;client-event&#39; / &#39;GDK_CLIENT_EVENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_visibility_notify_G"><p>&#39;visibility-notify&#39; / &#39;GDK_VISIBILITY_NOTIFY&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_expose_GDK_NO_EX"><p>&#39;no-expose&#39; / &#39;GDK_NO_EXPOSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_scroll_GDK_SCROLL_"><p>&#39;scroll&#39; / &#39;GDK_SCROLL&#39;</p></a>
+<li class="POD_ITEM"><a name="_window_state_GDK_WI"><p>&#39;window-state&#39; / &#39;GDK_WINDOW_STATE&#39;</p></a>
+<li class="POD_ITEM"><a name="_setting_GDK_SETTING"><p>&#39;setting&#39; / &#39;GDK_SETTING&#39;</p></a>
+<li class="POD_ITEM"><a name="_owner_change_GDK_OW"><p>&#39;owner-change&#39; / &#39;GDK_OWNER_CHANGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_grab_broken_GDK_GRA"><p>&#39;grab-broken&#39; / &#39;GDK_GRAB_BROKEN&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Extens">enum Gtk2::Gdk::ExtensionMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GDK_EXTENSION_"><p>&#39;none&#39; / &#39;GDK_EXTENSION_EVENTS_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_all_GDK_EXTENSION_E"><p>&#39;all&#39; / &#39;GDK_EXTENSION_EVENTS_ALL&#39;</p></a>
+<li class="POD_ITEM"><a name="_cursor_GDK_EXTENSIO"><p>&#39;cursor&#39; / &#39;GDK_EXTENSION_EVENTS_CURSOR&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Fill">enum Gtk2::Gdk::Fill</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_solid_GDK_SOLID_"><p>&#39;solid&#39; / &#39;GDK_SOLID&#39;</p></a>
+<li class="POD_ITEM"><a name="_tiled_GDK_TILED_"><p>&#39;tiled&#39; / &#39;GDK_TILED&#39;</p></a>
+<li class="POD_ITEM"><a name="_stippled_GDK_STIPPL"><p>&#39;stippled&#39; / &#39;GDK_STIPPLED&#39;</p></a>
+<li class="POD_ITEM"><a name="_opaque_stippled_GDK"><p>&#39;opaque-stippled&#39; / &#39;GDK_OPAQUE_STIPPLED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_FillRu">enum Gtk2::Gdk::FillRule</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_even_odd_rule_GDK_E"><p>&#39;even-odd-rule&#39; / &#39;GDK_EVEN_ODD_RULE&#39;</p></a>
+<li class="POD_ITEM"><a name="_winding_rule_GDK_WI"><p>&#39;winding-rule&#39; / &#39;GDK_WINDING_RULE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Filter">enum Gtk2::Gdk::FilterReturn</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_continue_GDK_FILTER"><p>&#39;continue&#39; / &#39;GDK_FILTER_CONTINUE&#39;</p></a>
+<li class="POD_ITEM"><a name="_translate_GDK_FILTE"><p>&#39;translate&#39; / &#39;GDK_FILTER_TRANSLATE&#39;</p></a>
+<li class="POD_ITEM"><a name="_remove_GDK_FILTER_R"><p>&#39;remove&#39; / &#39;GDK_FILTER_REMOVE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_FontTy">enum Gtk2::Gdk::FontType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_font_GDK_FONT_FONT_"><p>&#39;font&#39; / &#39;GDK_FONT_FONT&#39;</p></a>
+<li class="POD_ITEM"><a name="_fontset_GDK_FONT_FO"><p>&#39;fontset&#39; / &#39;GDK_FONT_FONTSET&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Functi">enum Gtk2::Gdk::Function</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_copy_GDK_COPY_"><p>&#39;copy&#39; / &#39;GDK_COPY&#39;</p></a>
+<li class="POD_ITEM"><a name="_invert_GDK_INVERT_"><p>&#39;invert&#39; / &#39;GDK_INVERT&#39;</p></a>
+<li class="POD_ITEM"><a name="_xor_GDK_XOR_"><p>&#39;xor&#39; / &#39;GDK_XOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_clear_GDK_CLEAR_"><p>&#39;clear&#39; / &#39;GDK_CLEAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_and_GDK_AND_"><p>&#39;and&#39; / &#39;GDK_AND&#39;</p></a>
+<li class="POD_ITEM"><a name="_and_reverse_GDK_AND"><p>&#39;and-reverse&#39; / &#39;GDK_AND_REVERSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_and_invert_GDK_AND_"><p>&#39;and-invert&#39; / &#39;GDK_AND_INVERT&#39;</p></a>
+<li class="POD_ITEM"><a name="_noop_GDK_NOOP_"><p>&#39;noop&#39; / &#39;GDK_NOOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_or_GDK_OR_"><p>&#39;or&#39; / &#39;GDK_OR&#39;</p></a>
+<li class="POD_ITEM"><a name="_equiv_GDK_EQUIV_"><p>&#39;equiv&#39; / &#39;GDK_EQUIV&#39;</p></a>
+<li class="POD_ITEM"><a name="_or_reverse_GDK_OR_R"><p>&#39;or-reverse&#39; / &#39;GDK_OR_REVERSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_copy_invert_GDK_COP"><p>&#39;copy-invert&#39; / &#39;GDK_COPY_INVERT&#39;</p></a>
+<li class="POD_ITEM"><a name="_or_invert_GDK_OR_IN"><p>&#39;or-invert&#39; / &#39;GDK_OR_INVERT&#39;</p></a>
+<li class="POD_ITEM"><a name="_nand_GDK_NAND_"><p>&#39;nand&#39; / &#39;GDK_NAND&#39;</p></a>
+<li class="POD_ITEM"><a name="_nor_GDK_NOR_"><p>&#39;nor&#39; / &#39;GDK_NOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_set_GDK_SET_"><p>&#39;set&#39; / &#39;GDK_SET&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_GCVal">flags Gtk2::Gdk::GCValuesMask</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_foreground_GDK_GC_F"><p>&#39;foreground&#39; / &#39;GDK_GC_FOREGROUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_background_GDK_GC_B"><p>&#39;background&#39; / &#39;GDK_GC_BACKGROUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_font_GDK_GC_FONT_"><p>&#39;font&#39; / &#39;GDK_GC_FONT&#39;</p></a>
+<li class="POD_ITEM"><a name="_function_GDK_GC_FUN"><p>&#39;function&#39; / &#39;GDK_GC_FUNCTION&#39;</p></a>
+<li class="POD_ITEM"><a name="_fill_GDK_GC_FILL_"><p>&#39;fill&#39; / &#39;GDK_GC_FILL&#39;</p></a>
+<li class="POD_ITEM"><a name="_tile_GDK_GC_TILE_"><p>&#39;tile&#39; / &#39;GDK_GC_TILE&#39;</p></a>
+<li class="POD_ITEM"><a name="_stipple_GDK_GC_STIP"><p>&#39;stipple&#39; / &#39;GDK_GC_STIPPLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_clip_mask_GDK_GC_CL"><p>&#39;clip-mask&#39; / &#39;GDK_GC_CLIP_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_subwindow_GDK_GC_SU"><p>&#39;subwindow&#39; / &#39;GDK_GC_SUBWINDOW&#39;</p></a>
+<li class="POD_ITEM"><a name="_ts_x_origin_GDK_GC_"><p>&#39;ts-x-origin&#39; / &#39;GDK_GC_TS_X_ORIGIN&#39;</p></a>
+<li class="POD_ITEM"><a name="_ts_y_origin_GDK_GC_"><p>&#39;ts-y-origin&#39; / &#39;GDK_GC_TS_Y_ORIGIN&#39;</p></a>
+<li class="POD_ITEM"><a name="_clip_x_origin_GDK_G"><p>&#39;clip-x-origin&#39; / &#39;GDK_GC_CLIP_X_ORIGIN&#39;</p></a>
+<li class="POD_ITEM"><a name="_clip_y_origin_GDK_G"><p>&#39;clip-y-origin&#39; / &#39;GDK_GC_CLIP_Y_ORIGIN&#39;</p></a>
+<li class="POD_ITEM"><a name="_exposures_GDK_GC_EX"><p>&#39;exposures&#39; / &#39;GDK_GC_EXPOSURES&#39;</p></a>
+<li class="POD_ITEM"><a name="_line_width_GDK_GC_L"><p>&#39;line-width&#39; / &#39;GDK_GC_LINE_WIDTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_line_style_GDK_GC_L"><p>&#39;line-style&#39; / &#39;GDK_GC_LINE_STYLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_cap_style_GDK_GC_CA"><p>&#39;cap-style&#39; / &#39;GDK_GC_CAP_STYLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_join_style_GDK_GC_J"><p>&#39;join-style&#39; / &#39;GDK_GC_JOIN_STYLE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_GrabSt">enum Gtk2::Gdk::GrabStatus</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_success_GDK_GRAB_SU"><p>&#39;success&#39; / &#39;GDK_GRAB_SUCCESS&#39;</p></a>
+<li class="POD_ITEM"><a name="_already_grabbed_GDK"><p>&#39;already-grabbed&#39; / &#39;GDK_GRAB_ALREADY_GRABBED&#39;</p></a>
+<li class="POD_ITEM"><a name="_invalid_time_GDK_GR"><p>&#39;invalid-time&#39; / &#39;GDK_GRAB_INVALID_TIME&#39;</p></a>
+<li class="POD_ITEM"><a name="_not_viewable_GDK_GR"><p>&#39;not-viewable&#39; / &#39;GDK_GRAB_NOT_VIEWABLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_frozen_GDK_GRAB_FRO"><p>&#39;frozen&#39; / &#39;GDK_GRAB_FROZEN&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Gravit">enum Gtk2::Gdk::Gravity</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_north_west_GDK_GRAV"><p>&#39;north-west&#39; / &#39;GDK_GRAVITY_NORTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_GDK_GRAVITY_N"><p>&#39;north&#39; / &#39;GDK_GRAVITY_NORTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_east_GDK_GRAV"><p>&#39;north-east&#39; / &#39;GDK_GRAVITY_NORTH_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_west_GDK_GRAVITY_WE"><p>&#39;west&#39; / &#39;GDK_GRAVITY_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_center_GDK_GRAVITY_"><p>&#39;center&#39; / &#39;GDK_GRAVITY_CENTER&#39;</p></a>
+<li class="POD_ITEM"><a name="_east_GDK_GRAVITY_EA"><p>&#39;east&#39; / &#39;GDK_GRAVITY_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_west_GDK_GRAV"><p>&#39;south-west&#39; / &#39;GDK_GRAVITY_SOUTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_GDK_GRAVITY_S"><p>&#39;south&#39; / &#39;GDK_GRAVITY_SOUTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_east_GDK_GRAV"><p>&#39;south-east&#39; / &#39;GDK_GRAVITY_SOUTH_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_static_GDK_GRAVITY_"><p>&#39;static&#39; / &#39;GDK_GRAVITY_STATIC&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_ImageT">enum Gtk2::Gdk::ImageType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_normal_GDK_IMAGE_NO"><p>&#39;normal&#39; / &#39;GDK_IMAGE_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_shared_GDK_IMAGE_SH"><p>&#39;shared&#39; / &#39;GDK_IMAGE_SHARED&#39;</p></a>
+<li class="POD_ITEM"><a name="_fastest_GDK_IMAGE_F"><p>&#39;fastest&#39; / &#39;GDK_IMAGE_FASTEST&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Input">flags Gtk2::Gdk::InputCondition</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_read_GDK_INPUT_READ"><p>&#39;read&#39; / &#39;GDK_INPUT_READ&#39;</p></a>
+<li class="POD_ITEM"><a name="_write_GDK_INPUT_WRI"><p>&#39;write&#39; / &#39;GDK_INPUT_WRITE&#39;</p></a>
+<li class="POD_ITEM"><a name="_exception_GDK_INPUT"><p>&#39;exception&#39; / &#39;GDK_INPUT_EXCEPTION&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_InputM">enum Gtk2::Gdk::InputMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_disabled_GDK_MODE_D"><p>&#39;disabled&#39; / &#39;GDK_MODE_DISABLED&#39;</p></a>
+<li class="POD_ITEM"><a name="_screen_GDK_MODE_SCR"><p>&#39;screen&#39; / &#39;GDK_MODE_SCREEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_window_GDK_MODE_WIN"><p>&#39;window&#39; / &#39;GDK_MODE_WINDOW&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_InputS">enum Gtk2::Gdk::InputSource</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mouse_GDK_SOURCE_MO"><p>&#39;mouse&#39; / &#39;GDK_SOURCE_MOUSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_pen_GDK_SOURCE_PEN_"><p>&#39;pen&#39; / &#39;GDK_SOURCE_PEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_eraser_GDK_SOURCE_E"><p>&#39;eraser&#39; / &#39;GDK_SOURCE_ERASER&#39;</p></a>
+<li class="POD_ITEM"><a name="_cursor_GDK_SOURCE_C"><p>&#39;cursor&#39; / &#39;GDK_SOURCE_CURSOR&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Interp">enum Gtk2::Gdk::InterpType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_nearest_GDK_INTERP_"><p>&#39;nearest&#39; / &#39;GDK_INTERP_NEAREST&#39;</p></a>
+<li class="POD_ITEM"><a name="_tiles_GDK_INTERP_TI"><p>&#39;tiles&#39; / &#39;GDK_INTERP_TILES&#39;</p></a>
+<li class="POD_ITEM"><a name="_bilinear_GDK_INTERP"><p>&#39;bilinear&#39; / &#39;GDK_INTERP_BILINEAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_hyper_GDK_INTERP_HY"><p>&#39;hyper&#39; / &#39;GDK_INTERP_HYPER&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_JoinSt">enum Gtk2::Gdk::JoinStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_miter_GDK_JOIN_MITE"><p>&#39;miter&#39; / &#39;GDK_JOIN_MITER&#39;</p></a>
+<li class="POD_ITEM"><a name="_round_GDK_JOIN_ROUN"><p>&#39;round&#39; / &#39;GDK_JOIN_ROUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_bevel_GDK_JOIN_BEVE"><p>&#39;bevel&#39; / &#39;GDK_JOIN_BEVEL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_LineSt">enum Gtk2::Gdk::LineStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_solid_GDK_LINE_SOLI"><p>&#39;solid&#39; / &#39;GDK_LINE_SOLID&#39;</p></a>
+<li class="POD_ITEM"><a name="_on_off_dash_GDK_LIN"><p>&#39;on-off-dash&#39; / &#39;GDK_LINE_ON_OFF_DASH&#39;</p></a>
+<li class="POD_ITEM"><a name="_double_dash_GDK_LIN"><p>&#39;double-dash&#39; / &#39;GDK_LINE_DOUBLE_DASH&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Modif">flags Gtk2::Gdk::ModifierType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_shift_mask_GDK_SHIF"><p>&#39;shift-mask&#39; / &#39;GDK_SHIFT_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_lock_mask_GDK_LOCK_"><p>&#39;lock-mask&#39; / &#39;GDK_LOCK_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_control_mask_GDK_CO"><p>&#39;control-mask&#39; / &#39;GDK_CONTROL_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod1_mask_GDK_MOD1_"><p>&#39;mod1-mask&#39; / &#39;GDK_MOD1_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod2_mask_GDK_MOD2_"><p>&#39;mod2-mask&#39; / &#39;GDK_MOD2_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod3_mask_GDK_MOD3_"><p>&#39;mod3-mask&#39; / &#39;GDK_MOD3_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod4_mask_GDK_MOD4_"><p>&#39;mod4-mask&#39; / &#39;GDK_MOD4_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_mod5_mask_GDK_MOD5_"><p>&#39;mod5-mask&#39; / &#39;GDK_MOD5_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button1_mask_GDK_BU"><p>&#39;button1-mask&#39; / &#39;GDK_BUTTON1_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button2_mask_GDK_BU"><p>&#39;button2-mask&#39; / &#39;GDK_BUTTON2_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button3_mask_GDK_BU"><p>&#39;button3-mask&#39; / &#39;GDK_BUTTON3_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button4_mask_GDK_BU"><p>&#39;button4-mask&#39; / &#39;GDK_BUTTON4_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button5_mask_GDK_BU"><p>&#39;button5-mask&#39; / &#39;GDK_BUTTON5_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_super_mask_GDK_SUPE"><p>&#39;super-mask&#39; / &#39;GDK_SUPER_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_hyper_mask_GDK_HYPE"><p>&#39;hyper-mask&#39; / &#39;GDK_HYPER_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_meta_mask_GDK_META_"><p>&#39;meta-mask&#39; / &#39;GDK_META_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_release_mask_GDK_RE"><p>&#39;release-mask&#39; / &#39;GDK_RELEASE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_modifier_mask_GDK_M"><p>&#39;modifier-mask&#39; / &#39;GDK_MODIFIER_MASK&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Notify">enum Gtk2::Gdk::NotifyType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ancestor_GDK_NOTIFY"><p>&#39;ancestor&#39; / &#39;GDK_NOTIFY_ANCESTOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_virtual_GDK_NOTIFY_"><p>&#39;virtual&#39; / &#39;GDK_NOTIFY_VIRTUAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_inferior_GDK_NOTIFY"><p>&#39;inferior&#39; / &#39;GDK_NOTIFY_INFERIOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_nonlinear_GDK_NOTIF"><p>&#39;nonlinear&#39; / &#39;GDK_NOTIFY_NONLINEAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_nonlinear_virtual_G"><p>&#39;nonlinear-virtual&#39; / &#39;GDK_NOTIFY_NONLINEAR_VIRTUAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_unknown_GDK_NOTIFY_"><p>&#39;unknown&#39; / &#39;GDK_NOTIFY_UNKNOWN&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Overla">enum Gtk2::Gdk::OverlapType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_in_GDK_OVERLAP_RECT"><p>&#39;in&#39; / &#39;GDK_OVERLAP_RECTANGLE_IN&#39;</p></a>
+<li class="POD_ITEM"><a name="_out_GDK_OVERLAP_REC"><p>&#39;out&#39; / &#39;GDK_OVERLAP_RECTANGLE_OUT&#39;</p></a>
+<li class="POD_ITEM"><a name="_part_GDK_OVERLAP_RE"><p>&#39;part&#39; / &#39;GDK_OVERLAP_RECTANGLE_PART&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Pixbuf">enum Gtk2::Gdk::PixbufAlphaMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_bilevel_GDK_PIXBUF_"><p>&#39;bilevel&#39; / &#39;GDK_PIXBUF_ALPHA_BILEVEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_full_GDK_PIXBUF_ALP"><p>&#39;full&#39; / &#39;GDK_PIXBUF_ALPHA_FULL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Pixbuf1">enum Gtk2::Gdk::PixbufError</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_corrupt_image_GDK_P"><p>&#39;corrupt-image&#39; / &#39;GDK_PIXBUF_ERROR_CORRUPT_IMAGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_insufficient_memory"><p>&#39;insufficient-memory&#39; / &#39;GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY&#39;</p></a>
+<li class="POD_ITEM"><a name="_bad_option_GDK_PIXB"><p>&#39;bad-option&#39; / &#39;GDK_PIXBUF_ERROR_BAD_OPTION&#39;</p></a>
+<li class="POD_ITEM"><a name="_unknown_type_GDK_PI"><p>&#39;unknown-type&#39; / &#39;GDK_PIXBUF_ERROR_UNKNOWN_TYPE&#39;</p></a>
+<li class="POD_ITEM"><a name="_unsupported_operati"><p>&#39;unsupported-operation&#39; / &#39;GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_failed_GDK_PIXBUF_E"><p>&#39;failed&#39; / &#39;GDK_PIXBUF_ERROR_FAILED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Proper">enum Gtk2::Gdk::PropertyState</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_new_value_GDK_PROPE"><p>&#39;new-value&#39; / &#39;GDK_PROPERTY_NEW_VALUE&#39;</p></a>
+<li class="POD_ITEM"><a name="_delete_GDK_PROPERTY"><p>&#39;delete&#39; / &#39;GDK_PROPERTY_DELETE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_PropMo">enum Gtk2::Gdk::PropMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_replace_GDK_PROP_MO"><p>&#39;replace&#39; / &#39;GDK_PROP_MODE_REPLACE&#39;</p></a>
+<li class="POD_ITEM"><a name="_prepend_GDK_PROP_MO"><p>&#39;prepend&#39; / &#39;GDK_PROP_MODE_PREPEND&#39;</p></a>
+<li class="POD_ITEM"><a name="_append_GDK_PROP_MOD"><p>&#39;append&#39; / &#39;GDK_PROP_MODE_APPEND&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_RgbDit">enum Gtk2::Gdk::RgbDither</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GDK_RGB_DITHER"><p>&#39;none&#39; / &#39;GDK_RGB_DITHER_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_normal_GDK_RGB_DITH"><p>&#39;normal&#39; / &#39;GDK_RGB_DITHER_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_max_GDK_RGB_DITHER_"><p>&#39;max&#39; / &#39;GDK_RGB_DITHER_MAX&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Scroll">enum Gtk2::Gdk::ScrollDirection</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_up_GDK_SCROLL_UP_"><p>&#39;up&#39; / &#39;GDK_SCROLL_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_down_GDK_SCROLL_DOW"><p>&#39;down&#39; / &#39;GDK_SCROLL_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_GDK_SCROLL_LEF"><p>&#39;left&#39; / &#39;GDK_SCROLL_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GDK_SCROLL_RI"><p>&#39;right&#39; / &#39;GDK_SCROLL_RIGHT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Settin">enum Gtk2::Gdk::SettingAction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_new_GDK_SETTING_ACT"><p>&#39;new&#39; / &#39;GDK_SETTING_ACTION_NEW&#39;</p></a>
+<li class="POD_ITEM"><a name="_changed_GDK_SETTING"><p>&#39;changed&#39; / &#39;GDK_SETTING_ACTION_CHANGED&#39;</p></a>
+<li class="POD_ITEM"><a name="_deleted_GDK_SETTING"><p>&#39;deleted&#39; / &#39;GDK_SETTING_ACTION_DELETED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Status">enum Gtk2::Gdk::Status</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ok_GDK_OK_"><p>&#39;ok&#39; / &#39;GDK_OK&#39;</p></a>
+<li class="POD_ITEM"><a name="_error_GDK_ERROR_"><p>&#39;error&#39; / &#39;GDK_ERROR&#39;</p></a>
+<li class="POD_ITEM"><a name="_error_param_GDK_ERR"><p>&#39;error-param&#39; / &#39;GDK_ERROR_PARAM&#39;</p></a>
+<li class="POD_ITEM"><a name="_error_file_GDK_ERRO"><p>&#39;error-file&#39; / &#39;GDK_ERROR_FILE&#39;</p></a>
+<li class="POD_ITEM"><a name="_error_mem_GDK_ERROR"><p>&#39;error-mem&#39; / &#39;GDK_ERROR_MEM&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Subwin">enum Gtk2::Gdk::SubwindowMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_clip_by_children_GD"><p>&#39;clip-by-children&#39; / &#39;GDK_CLIP_BY_CHILDREN&#39;</p></a>
+<li class="POD_ITEM"><a name="_include_inferiors_G"><p>&#39;include-inferiors&#39; / &#39;GDK_INCLUDE_INFERIORS&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Visibi">enum Gtk2::Gdk::VisibilityState</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unobscured_GDK_VISI"><p>&#39;unobscured&#39; / &#39;GDK_VISIBILITY_UNOBSCURED&#39;</p></a>
+<li class="POD_ITEM"><a name="_partial_GDK_VISIBIL"><p>&#39;partial&#39; / &#39;GDK_VISIBILITY_PARTIAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_fully_obscured_GDK_"><p>&#39;fully-obscured&#39; / &#39;GDK_VISIBILITY_FULLY_OBSCURED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Visual">enum Gtk2::Gdk::VisualType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_static_gray_GDK_VIS"><p>&#39;static-gray&#39; / &#39;GDK_VISUAL_STATIC_GRAY&#39;</p></a>
+<li class="POD_ITEM"><a name="_grayscale_GDK_VISUA"><p>&#39;grayscale&#39; / &#39;GDK_VISUAL_GRAYSCALE&#39;</p></a>
+<li class="POD_ITEM"><a name="_static_color_GDK_VI"><p>&#39;static-color&#39; / &#39;GDK_VISUAL_STATIC_COLOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_pseudo_color_GDK_VI"><p>&#39;pseudo-color&#39; / &#39;GDK_VISUAL_PSEUDO_COLOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_true_color_GDK_VISU"><p>&#39;true-color&#39; / &#39;GDK_VISUAL_TRUE_COLOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_direct_color_GDK_VI"><p>&#39;direct-color&#39; / &#39;GDK_VISUAL_DIRECT_COLOR&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Windo">flags Gtk2::Gdk::WindowAttributesType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_title_GDK_WA_TITLE_"><p>&#39;title&#39; / &#39;GDK_WA_TITLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_x_GDK_WA_X_"><p>&#39;x&#39; / &#39;GDK_WA_X&#39;</p></a>
+<li class="POD_ITEM"><a name="_y_GDK_WA_Y_"><p>&#39;y&#39; / &#39;GDK_WA_Y&#39;</p></a>
+<li class="POD_ITEM"><a name="_cursor_GDK_WA_CURSO"><p>&#39;cursor&#39; / &#39;GDK_WA_CURSOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_colormap_GDK_WA_COL"><p>&#39;colormap&#39; / &#39;GDK_WA_COLORMAP&#39;</p></a>
+<li class="POD_ITEM"><a name="_visual_GDK_WA_VISUA"><p>&#39;visual&#39; / &#39;GDK_WA_VISUAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_wmclass_GDK_WA_WMCL"><p>&#39;wmclass&#39; / &#39;GDK_WA_WMCLASS&#39;</p></a>
+<li class="POD_ITEM"><a name="_noredir_GDK_WA_NORE"><p>&#39;noredir&#39; / &#39;GDK_WA_NOREDIR&#39;</p></a>
+<li class="POD_ITEM"><a name="_type_hint_GDK_WA_TY"><p>&#39;type-hint&#39; / &#39;GDK_WA_TYPE_HINT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Window">enum Gtk2::Gdk::WindowClass</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_output_GDK_INPUT_OU"><p>&#39;output&#39; / &#39;GDK_INPUT_OUTPUT&#39;</p></a>
+<li class="POD_ITEM"><a name="_only_GDK_INPUT_ONLY"><p>&#39;only&#39; / &#39;GDK_INPUT_ONLY&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Window1">enum Gtk2::Gdk::WindowEdge</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_north_west_GDK_WIND"><p>&#39;north-west&#39; / &#39;GDK_WINDOW_EDGE_NORTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_GDK_WINDOW_ED"><p>&#39;north&#39; / &#39;GDK_WINDOW_EDGE_NORTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_east_GDK_WIND"><p>&#39;north-east&#39; / &#39;GDK_WINDOW_EDGE_NORTH_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_west_GDK_WINDOW_EDG"><p>&#39;west&#39; / &#39;GDK_WINDOW_EDGE_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_east_GDK_WINDOW_EDG"><p>&#39;east&#39; / &#39;GDK_WINDOW_EDGE_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_west_GDK_WIND"><p>&#39;south-west&#39; / &#39;GDK_WINDOW_EDGE_SOUTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_GDK_WINDOW_ED"><p>&#39;south&#39; / &#39;GDK_WINDOW_EDGE_SOUTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_east_GDK_WIND"><p>&#39;south-east&#39; / &#39;GDK_WINDOW_EDGE_SOUTH_EAST&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Windo1">flags Gtk2::Gdk::WindowHints</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pos_GDK_HINT_POS_"><p>&#39;pos&#39; / &#39;GDK_HINT_POS&#39;</p></a>
+<li class="POD_ITEM"><a name="_min_size_GDK_HINT_M"><p>&#39;min-size&#39; / &#39;GDK_HINT_MIN_SIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_max_size_GDK_HINT_M"><p>&#39;max-size&#39; / &#39;GDK_HINT_MAX_SIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_base_size_GDK_HINT_"><p>&#39;base-size&#39; / &#39;GDK_HINT_BASE_SIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_aspect_GDK_HINT_ASP"><p>&#39;aspect&#39; / &#39;GDK_HINT_ASPECT&#39;</p></a>
+<li class="POD_ITEM"><a name="_resize_inc_GDK_HINT"><p>&#39;resize-inc&#39; / &#39;GDK_HINT_RESIZE_INC&#39;</p></a>
+<li class="POD_ITEM"><a name="_win_gravity_GDK_HIN"><p>&#39;win-gravity&#39; / &#39;GDK_HINT_WIN_GRAVITY&#39;</p></a>
+<li class="POD_ITEM"><a name="_user_pos_GDK_HINT_U"><p>&#39;user-pos&#39; / &#39;GDK_HINT_USER_POS&#39;</p></a>
+<li class="POD_ITEM"><a name="_user_size_GDK_HINT_"><p>&#39;user-size&#39; / &#39;GDK_HINT_USER_SIZE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Windo2">flags Gtk2::Gdk::WindowState</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_withdrawn_GDK_WINDO"><p>&#39;withdrawn&#39; / &#39;GDK_WINDOW_STATE_WITHDRAWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_iconified_GDK_WINDO"><p>&#39;iconified&#39; / &#39;GDK_WINDOW_STATE_ICONIFIED&#39;</p></a>
+<li class="POD_ITEM"><a name="_maximized_GDK_WINDO"><p>&#39;maximized&#39; / &#39;GDK_WINDOW_STATE_MAXIMIZED&#39;</p></a>
+<li class="POD_ITEM"><a name="_sticky_GDK_WINDOW_S"><p>&#39;sticky&#39; / &#39;GDK_WINDOW_STATE_STICKY&#39;</p></a>
+<li class="POD_ITEM"><a name="_fullscreen_GDK_WIND"><p>&#39;fullscreen&#39; / &#39;GDK_WINDOW_STATE_FULLSCREEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_above_GDK_WINDOW_ST"><p>&#39;above&#39; / &#39;GDK_WINDOW_STATE_ABOVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_below_GDK_WINDOW_ST"><p>&#39;below&#39; / &#39;GDK_WINDOW_STATE_BELOW&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Window2">enum Gtk2::Gdk::WindowType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_root_GDK_WINDOW_ROO"><p>&#39;root&#39; / &#39;GDK_WINDOW_ROOT&#39;</p></a>
+<li class="POD_ITEM"><a name="_toplevel_GDK_WINDOW"><p>&#39;toplevel&#39; / &#39;GDK_WINDOW_TOPLEVEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_child_GDK_WINDOW_CH"><p>&#39;child&#39; / &#39;GDK_WINDOW_CHILD&#39;</p></a>
+<li class="POD_ITEM"><a name="_dialog_GDK_WINDOW_D"><p>&#39;dialog&#39; / &#39;GDK_WINDOW_DIALOG&#39;</p></a>
+<li class="POD_ITEM"><a name="_temp_GDK_WINDOW_TEM"><p>&#39;temp&#39; / &#39;GDK_WINDOW_TEMP&#39;</p></a>
+<li class="POD_ITEM"><a name="_foreign_GDK_WINDOW_"><p>&#39;foreign&#39; / &#39;GDK_WINDOW_FOREIGN&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Window3">enum Gtk2::Gdk::WindowTypeHint</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_normal_GDK_WINDOW_T"><p>&#39;normal&#39; / &#39;GDK_WINDOW_TYPE_HINT_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_dialog_GDK_WINDOW_T"><p>&#39;dialog&#39; / &#39;GDK_WINDOW_TYPE_HINT_DIALOG&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GDK_WINDOW_TYP"><p>&#39;menu&#39; / &#39;GDK_WINDOW_TYPE_HINT_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_toolbar_GDK_WINDOW_"><p>&#39;toolbar&#39; / &#39;GDK_WINDOW_TYPE_HINT_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_splashscreen_GDK_WI"><p>&#39;splashscreen&#39; / &#39;GDK_WINDOW_TYPE_HINT_SPLASHSCREEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_utility_GDK_WINDOW_"><p>&#39;utility&#39; / &#39;GDK_WINDOW_TYPE_HINT_UTILITY&#39;</p></a>
+<li class="POD_ITEM"><a name="_dock_GDK_WINDOW_TYP"><p>&#39;dock&#39; / &#39;GDK_WINDOW_TYPE_HINT_DOCK&#39;</p></a>
+<li class="POD_ITEM"><a name="_desktop_GDK_WINDOW_"><p>&#39;desktop&#39; / &#39;GDK_WINDOW_TYPE_HINT_DESKTOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_dropdown_menu_GDK_W"><p>&#39;dropdown-menu&#39; / &#39;GDK_WINDOW_TYPE_HINT_DROPDOWN_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_popup_menu_GDK_WIND"><p>&#39;popup-menu&#39; / &#39;GDK_WINDOW_TYPE_HINT_POPUP_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_tooltip_GDK_WINDOW_"><p>&#39;tooltip&#39; / &#39;GDK_WINDOW_TYPE_HINT_TOOLTIP&#39;</p></a>
+<li class="POD_ITEM"><a name="_notification_GDK_WI"><p>&#39;notification&#39; / &#39;GDK_WINDOW_TYPE_HINT_NOTIFICATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_combo_GDK_WINDOW_TY"><p>&#39;combo&#39; / &#39;GDK_WINDOW_TYPE_HINT_COMBO&#39;</p></a>
+<li class="POD_ITEM"><a name="_dnd_GDK_WINDOW_TYPE"><p>&#39;dnd&#39; / &#39;GDK_WINDOW_TYPE_HINT_DND&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_WMDec">flags Gtk2::Gdk::WMDecoration</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_all_GDK_DECOR_ALL_"><p>&#39;all&#39; / &#39;GDK_DECOR_ALL&#39;</p></a>
+<li class="POD_ITEM"><a name="_border_GDK_DECOR_BO"><p>&#39;border&#39; / &#39;GDK_DECOR_BORDER&#39;</p></a>
+<li class="POD_ITEM"><a name="_resizeh_GDK_DECOR_R"><p>&#39;resizeh&#39; / &#39;GDK_DECOR_RESIZEH&#39;</p></a>
+<li class="POD_ITEM"><a name="_title_GDK_DECOR_TIT"><p>&#39;title&#39; / &#39;GDK_DECOR_TITLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GDK_DECOR_MENU"><p>&#39;menu&#39; / &#39;GDK_DECOR_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_minimize_GDK_DECOR_"><p>&#39;minimize&#39; / &#39;GDK_DECOR_MINIMIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_maximize_GDK_DECOR_"><p>&#39;maximize&#39; / &#39;GDK_DECOR_MAXIMIZE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_WMFun">flags Gtk2::Gdk::WMFunction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_all_GDK_FUNC_ALL_"><p>&#39;all&#39; / &#39;GDK_FUNC_ALL&#39;</p></a>
+<li class="POD_ITEM"><a name="_resize_GDK_FUNC_RES"><p>&#39;resize&#39; / &#39;GDK_FUNC_RESIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_move_GDK_FUNC_MOVE_"><p>&#39;move&#39; / &#39;GDK_FUNC_MOVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_minimize_GDK_FUNC_M"><p>&#39;minimize&#39; / &#39;GDK_FUNC_MINIMIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_maximize_GDK_FUNC_M"><p>&#39;maximize&#39; / &#39;GDK_FUNC_MAXIMIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_close_GDK_FUNC_CLOS"><p>&#39;close&#39; / &#39;GDK_FUNC_CLOSE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_AccelFlag">flags Gtk2::AccelFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_visible_GTK_ACCEL_V"><p>&#39;visible&#39; / &#39;GTK_ACCEL_VISIBLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_locked_GTK_ACCEL_LO"><p>&#39;locked&#39; / &#39;GTK_ACCEL_LOCKED&#39;</p></a>
+<li class="POD_ITEM"><a name="_mask_GTK_ACCEL_MASK"><p>&#39;mask&#39; / &#39;GTK_ACCEL_MASK&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_AnchorType">enum Gtk2::AnchorType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_center_GTK_ANCHOR_C"><p>&#39;center&#39; / &#39;GTK_ANCHOR_CENTER&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_GTK_ANCHOR_NO"><p>&#39;north&#39; / &#39;GTK_ANCHOR_NORTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_west_GTK_ANCH"><p>&#39;north-west&#39; / &#39;GTK_ANCHOR_NORTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_east_GTK_ANCH"><p>&#39;north-east&#39; / &#39;GTK_ANCHOR_NORTH_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_GTK_ANCHOR_SO"><p>&#39;south&#39; / &#39;GTK_ANCHOR_SOUTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_west_GTK_ANCH"><p>&#39;south-west&#39; / &#39;GTK_ANCHOR_SOUTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_east_GTK_ANCH"><p>&#39;south-east&#39; / &#39;GTK_ANCHOR_SOUTH_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_west_GTK_ANCHOR_WES"><p>&#39;west&#39; / &#39;GTK_ANCHOR_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_east_GTK_ANCHOR_EAS"><p>&#39;east&#39; / &#39;GTK_ANCHOR_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_n_GTK_ANCHOR_N_"><p>&#39;n&#39; / &#39;GTK_ANCHOR_N&#39;</p></a>
+<li class="POD_ITEM"><a name="_nw_GTK_ANCHOR_NW_"><p>&#39;nw&#39; / &#39;GTK_ANCHOR_NW&#39;</p></a>
+<li class="POD_ITEM"><a name="_ne_GTK_ANCHOR_NE_"><p>&#39;ne&#39; / &#39;GTK_ANCHOR_NE&#39;</p></a>
+<li class="POD_ITEM"><a name="_s_GTK_ANCHOR_S_"><p>&#39;s&#39; / &#39;GTK_ANCHOR_S&#39;</p></a>
+<li class="POD_ITEM"><a name="_sw_GTK_ANCHOR_SW_"><p>&#39;sw&#39; / &#39;GTK_ANCHOR_SW&#39;</p></a>
+<li class="POD_ITEM"><a name="_se_GTK_ANCHOR_SE_"><p>&#39;se&#39; / &#39;GTK_ANCHOR_SE&#39;</p></a>
+<li class="POD_ITEM"><a name="_w_GTK_ANCHOR_W_"><p>&#39;w&#39; / &#39;GTK_ANCHOR_W&#39;</p></a>
+<li class="POD_ITEM"><a name="_e_GTK_ANCHOR_E_"><p>&#39;e&#39; / &#39;GTK_ANCHOR_E&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_ArgFlags">flags Gtk2::ArgFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_readable_GTK_ARG_RE"><p>&#39;readable&#39; / &#39;GTK_ARG_READABLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_writable_GTK_ARG_WR"><p>&#39;writable&#39; / &#39;GTK_ARG_WRITABLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_construct_GTK_ARG_C"><p>&#39;construct&#39; / &#39;GTK_ARG_CONSTRUCT&#39;</p></a>
+<li class="POD_ITEM"><a name="_construct_only_GTK_"><p>&#39;construct-only&#39; / &#39;GTK_ARG_CONSTRUCT_ONLY&#39;</p></a>
+<li class="POD_ITEM"><a name="_child_arg_GTK_ARG_C"><p>&#39;child-arg&#39; / &#39;GTK_ARG_CHILD_ARG&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ArrowType">enum Gtk2::ArrowType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_up_GTK_ARROW_UP_"><p>&#39;up&#39; / &#39;GTK_ARROW_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_down_GTK_ARROW_DOWN"><p>&#39;down&#39; / &#39;GTK_ARROW_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_GTK_ARROW_LEFT"><p>&#39;left&#39; / &#39;GTK_ARROW_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_ARROW_RIG"><p>&#39;right&#39; / &#39;GTK_ARROW_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_none_GTK_ARROW_NONE"><p>&#39;none&#39; / &#39;GTK_ARROW_NONE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_AttachOpt">flags Gtk2::AttachOptions</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_expand_GTK_EXPAND_"><p>&#39;expand&#39; / &#39;GTK_EXPAND&#39;</p></a>
+<li class="POD_ITEM"><a name="_shrink_GTK_SHRINK_"><p>&#39;shrink&#39; / &#39;GTK_SHRINK&#39;</p></a>
+<li class="POD_ITEM"><a name="_fill_GTK_FILL_"><p>&#39;fill&#39; / &#39;GTK_FILL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ButtonBoxS">enum Gtk2::ButtonBoxStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_default_style_GTK_B"><p>&#39;default-style&#39; / &#39;GTK_BUTTONBOX_DEFAULT_STYLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_spread_GTK_BUTTONBO"><p>&#39;spread&#39; / &#39;GTK_BUTTONBOX_SPREAD&#39;</p></a>
+<li class="POD_ITEM"><a name="_edge_GTK_BUTTONBOX_"><p>&#39;edge&#39; / &#39;GTK_BUTTONBOX_EDGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_start_GTK_BUTTONBOX"><p>&#39;start&#39; / &#39;GTK_BUTTONBOX_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_GTK_BUTTONBOX_E"><p>&#39;end&#39; / &#39;GTK_BUTTONBOX_END&#39;</p></a>
+<li class="POD_ITEM"><a name="_center_GTK_BUTTONBO"><p>&#39;center&#39; / &#39;GTK_BUTTONBOX_CENTER&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ButtonsTyp">enum Gtk2::ButtonsType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_BUTTONS_NO"><p>&#39;none&#39; / &#39;GTK_BUTTONS_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_ok_GTK_BUTTONS_OK_"><p>&#39;ok&#39; / &#39;GTK_BUTTONS_OK&#39;</p></a>
+<li class="POD_ITEM"><a name="_close_GTK_BUTTONS_C"><p>&#39;close&#39; / &#39;GTK_BUTTONS_CLOSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_cancel_GTK_BUTTONS_"><p>&#39;cancel&#39; / &#39;GTK_BUTTONS_CANCEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_yes_no_GTK_BUTTONS_"><p>&#39;yes-no&#39; / &#39;GTK_BUTTONS_YES_NO&#39;</p></a>
+<li class="POD_ITEM"><a name="_ok_cancel_GTK_BUTTO"><p>&#39;ok-cancel&#39; / &#39;GTK_BUTTONS_OK_CANCEL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_CalendarD">flags Gtk2::CalendarDisplayOptions</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_show_heading_GTK_CA"><p>&#39;show-heading&#39; / &#39;GTK_CALENDAR_SHOW_HEADING&#39;</p></a>
+<li class="POD_ITEM"><a name="_show_day_names_GTK_"><p>&#39;show-day-names&#39; / &#39;GTK_CALENDAR_SHOW_DAY_NAMES&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_month_change_GTK"><p>&#39;no-month-change&#39; / &#39;GTK_CALENDAR_NO_MONTH_CHANGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_show_week_numbers_G"><p>&#39;show-week-numbers&#39; / &#39;GTK_CALENDAR_SHOW_WEEK_NUMBERS&#39;</p></a>
+<li class="POD_ITEM"><a name="_week_start_monday_G"><p>&#39;week-start-monday&#39; / &#39;GTK_CALENDAR_WEEK_START_MONDAY&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_CellRender">enum Gtk2::CellRendererMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_inert_GTK_CELL_REND"><p>&#39;inert&#39; / &#39;GTK_CELL_RENDERER_MODE_INERT&#39;</p></a>
+<li class="POD_ITEM"><a name="_activatable_GTK_CEL"><p>&#39;activatable&#39; / &#39;GTK_CELL_RENDERER_MODE_ACTIVATABLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_editable_GTK_CELL_R"><p>&#39;editable&#39; / &#39;GTK_CELL_RENDERER_MODE_EDITABLE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_CellRende">flags Gtk2::CellRendererState</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_selected_GTK_CELL_R"><p>&#39;selected&#39; / &#39;GTK_CELL_RENDERER_SELECTED&#39;</p></a>
+<li class="POD_ITEM"><a name="_prelit_GTK_CELL_REN"><p>&#39;prelit&#39; / &#39;GTK_CELL_RENDERER_PRELIT&#39;</p></a>
+<li class="POD_ITEM"><a name="_insensitive_GTK_CEL"><p>&#39;insensitive&#39; / &#39;GTK_CELL_RENDERER_INSENSITIVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_sorted_GTK_CELL_REN"><p>&#39;sorted&#39; / &#39;GTK_CELL_RENDERER_SORTED&#39;</p></a>
+<li class="POD_ITEM"><a name="_focused_GTK_CELL_RE"><p>&#39;focused&#39; / &#39;GTK_CELL_RENDERER_FOCUSED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_CornerType">enum Gtk2::CornerType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_top_left_GTK_CORNER"><p>&#39;top-left&#39; / &#39;GTK_CORNER_TOP_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_left_GTK_COR"><p>&#39;bottom-left&#39; / &#39;GTK_CORNER_BOTTOM_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_right_GTK_CORNE"><p>&#39;top-right&#39; / &#39;GTK_CORNER_TOP_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_right_GTK_CO"><p>&#39;bottom-right&#39; / &#39;GTK_CORNER_BOTTOM_RIGHT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_CurveType">enum Gtk2::CurveType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_linear_GTK_CURVE_TY"><p>&#39;linear&#39; / &#39;GTK_CURVE_TYPE_LINEAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_spline_GTK_CURVE_TY"><p>&#39;spline&#39; / &#39;GTK_CURVE_TYPE_SPLINE&#39;</p></a>
+<li class="POD_ITEM"><a name="_free_GTK_CURVE_TYPE"><p>&#39;free&#39; / &#39;GTK_CURVE_TYPE_FREE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_DebugFlag">flags Gtk2::DebugFlag</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_misc_GTK_DEBUG_MISC"><p>&#39;misc&#39; / &#39;GTK_DEBUG_MISC&#39;</p></a>
+<li class="POD_ITEM"><a name="_plugsocket_GTK_DEBU"><p>&#39;plugsocket&#39; / &#39;GTK_DEBUG_PLUGSOCKET&#39;</p></a>
+<li class="POD_ITEM"><a name="_text_GTK_DEBUG_TEXT"><p>&#39;text&#39; / &#39;GTK_DEBUG_TEXT&#39;</p></a>
+<li class="POD_ITEM"><a name="_tree_GTK_DEBUG_TREE"><p>&#39;tree&#39; / &#39;GTK_DEBUG_TREE&#39;</p></a>
+<li class="POD_ITEM"><a name="_updates_GTK_DEBUG_U"><p>&#39;updates&#39; / &#39;GTK_DEBUG_UPDATES&#39;</p></a>
+<li class="POD_ITEM"><a name="_keybindings_GTK_DEB"><p>&#39;keybindings&#39; / &#39;GTK_DEBUG_KEYBINDINGS&#39;</p></a>
+<li class="POD_ITEM"><a name="_multihead_GTK_DEBUG"><p>&#39;multihead&#39; / &#39;GTK_DEBUG_MULTIHEAD&#39;</p></a>
+<li class="POD_ITEM"><a name="_modules_GTK_DEBUG_M"><p>&#39;modules&#39; / &#39;GTK_DEBUG_MODULES&#39;</p></a>
+<li class="POD_ITEM"><a name="_geometry_GTK_DEBUG_"><p>&#39;geometry&#39; / &#39;GTK_DEBUG_GEOMETRY&#39;</p></a>
+<li class="POD_ITEM"><a name="_icontheme_GTK_DEBUG"><p>&#39;icontheme&#39; / &#39;GTK_DEBUG_ICONTHEME&#39;</p></a>
+<li class="POD_ITEM"><a name="_printing_GTK_DEBUG_"><p>&#39;printing&#39; / &#39;GTK_DEBUG_PRINTING&#39;</p></a>
+<li class="POD_ITEM"><a name="_builder_GTK_DEBUG_B"><p>&#39;builder&#39; / &#39;GTK_DEBUG_BUILDER&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_DeleteType">enum Gtk2::DeleteType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_chars_GTK_DELETE_CH"><p>&#39;chars&#39; / &#39;GTK_DELETE_CHARS&#39;</p></a>
+<li class="POD_ITEM"><a name="_word_ends_GTK_DELET"><p>&#39;word-ends&#39; / &#39;GTK_DELETE_WORD_ENDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_words_GTK_DELETE_WO"><p>&#39;words&#39; / &#39;GTK_DELETE_WORDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_display_lines_GTK_D"><p>&#39;display-lines&#39; / &#39;GTK_DELETE_DISPLAY_LINES&#39;</p></a>
+<li class="POD_ITEM"><a name="_display_line_ends_G"><p>&#39;display-line-ends&#39; / &#39;GTK_DELETE_DISPLAY_LINE_ENDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_paragraph_ends_GTK_"><p>&#39;paragraph-ends&#39; / &#39;GTK_DELETE_PARAGRAPH_ENDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_paragraphs_GTK_DELE"><p>&#39;paragraphs&#39; / &#39;GTK_DELETE_PARAGRAPHS&#39;</p></a>
+<li class="POD_ITEM"><a name="_whitespace_GTK_DELE"><p>&#39;whitespace&#39; / &#39;GTK_DELETE_WHITESPACE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_DestDefau">flags Gtk2::DestDefaults</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_motion_GTK_DEST_DEF"><p>&#39;motion&#39; / &#39;GTK_DEST_DEFAULT_MOTION&#39;</p></a>
+<li class="POD_ITEM"><a name="_highlight_GTK_DEST_"><p>&#39;highlight&#39; / &#39;GTK_DEST_DEFAULT_HIGHLIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_GTK_DEST_DEFAU"><p>&#39;drop&#39; / &#39;GTK_DEST_DEFAULT_DROP&#39;</p></a>
+<li class="POD_ITEM"><a name="_all_GTK_DEST_DEFAUL"><p>&#39;all&#39; / &#39;GTK_DEST_DEFAULT_ALL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_DialogFla">flags Gtk2::DialogFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_modal_GTK_DIALOG_MO"><p>&#39;modal&#39; / &#39;GTK_DIALOG_MODAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_destroy_with_parent"><p>&#39;destroy-with-parent&#39; / &#39;GTK_DIALOG_DESTROY_WITH_PARENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_separator_GTK_DI"><p>&#39;no-separator&#39; / &#39;GTK_DIALOG_NO_SEPARATOR&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_DirectionT">enum Gtk2::DirectionType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tab_forward_GTK_DIR"><p>&#39;tab-forward&#39; / &#39;GTK_DIR_TAB_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_tab_backward_GTK_DI"><p>&#39;tab-backward&#39; / &#39;GTK_DIR_TAB_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_up_GTK_DIR_UP_"><p>&#39;up&#39; / &#39;GTK_DIR_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_down_GTK_DIR_DOWN_"><p>&#39;down&#39; / &#39;GTK_DIR_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_GTK_DIR_LEFT_"><p>&#39;left&#39; / &#39;GTK_DIR_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_DIR_RIGHT"><p>&#39;right&#39; / &#39;GTK_DIR_RIGHT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ExpanderSt">enum Gtk2::ExpanderStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_collapsed_GTK_EXPAN"><p>&#39;collapsed&#39; / &#39;GTK_EXPANDER_COLLAPSED&#39;</p></a>
+<li class="POD_ITEM"><a name="_semi_collapsed_GTK_"><p>&#39;semi-collapsed&#39; / &#39;GTK_EXPANDER_SEMI_COLLAPSED&#39;</p></a>
+<li class="POD_ITEM"><a name="_semi_expanded_GTK_E"><p>&#39;semi-expanded&#39; / &#39;GTK_EXPANDER_SEMI_EXPANDED&#39;</p></a>
+<li class="POD_ITEM"><a name="_expanded_GTK_EXPAND"><p>&#39;expanded&#39; / &#39;GTK_EXPANDER_EXPANDED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IconSize">enum Gtk2::IconSize</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_invalid_GTK_ICON_SI"><p>&#39;invalid&#39; / &#39;GTK_ICON_SIZE_INVALID&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GTK_ICON_SIZE_"><p>&#39;menu&#39; / &#39;GTK_ICON_SIZE_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_small_toolbar_GTK_I"><p>&#39;small-toolbar&#39; / &#39;GTK_ICON_SIZE_SMALL_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_large_toolbar_GTK_I"><p>&#39;large-toolbar&#39; / &#39;GTK_ICON_SIZE_LARGE_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_GTK_ICON_SIZ"><p>&#39;button&#39; / &#39;GTK_ICON_SIZE_BUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_dnd_GTK_ICON_SIZE_D"><p>&#39;dnd&#39; / &#39;GTK_ICON_SIZE_DND&#39;</p></a>
+<li class="POD_ITEM"><a name="_dialog_GTK_ICON_SIZ"><p>&#39;dialog&#39; / &#39;GTK_ICON_SIZE_DIALOG&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ImageType">enum Gtk2::ImageType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_empty_GTK_IMAGE_EMP"><p>&#39;empty&#39; / &#39;GTK_IMAGE_EMPTY&#39;</p></a>
+<li class="POD_ITEM"><a name="_pixmap_GTK_IMAGE_PI"><p>&#39;pixmap&#39; / &#39;GTK_IMAGE_PIXMAP&#39;</p></a>
+<li class="POD_ITEM"><a name="_image_GTK_IMAGE_IMA"><p>&#39;image&#39; / &#39;GTK_IMAGE_IMAGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_pixbuf_GTK_IMAGE_PI"><p>&#39;pixbuf&#39; / &#39;GTK_IMAGE_PIXBUF&#39;</p></a>
+<li class="POD_ITEM"><a name="_stock_GTK_IMAGE_STO"><p>&#39;stock&#39; / &#39;GTK_IMAGE_STOCK&#39;</p></a>
+<li class="POD_ITEM"><a name="_icon_set_GTK_IMAGE_"><p>&#39;icon-set&#39; / &#39;GTK_IMAGE_ICON_SET&#39;</p></a>
+<li class="POD_ITEM"><a name="_animation_GTK_IMAGE"><p>&#39;animation&#39; / &#39;GTK_IMAGE_ANIMATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_icon_name_GTK_IMAGE"><p>&#39;icon-name&#39; / &#39;GTK_IMAGE_ICON_NAME&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IMPreeditS">enum Gtk2::IMPreeditStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_nothing_GTK_IM_PREE"><p>&#39;nothing&#39; / &#39;GTK_IM_PREEDIT_NOTHING&#39;</p></a>
+<li class="POD_ITEM"><a name="_callback_GTK_IM_PRE"><p>&#39;callback&#39; / &#39;GTK_IM_PREEDIT_CALLBACK&#39;</p></a>
+<li class="POD_ITEM"><a name="_none_GTK_IM_PREEDIT"><p>&#39;none&#39; / &#39;GTK_IM_PREEDIT_NONE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IMStatusSt">enum Gtk2::IMStatusStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_nothing_GTK_IM_STAT"><p>&#39;nothing&#39; / &#39;GTK_IM_STATUS_NOTHING&#39;</p></a>
+<li class="POD_ITEM"><a name="_callback_GTK_IM_STA"><p>&#39;callback&#39; / &#39;GTK_IM_STATUS_CALLBACK&#39;</p></a>
+<li class="POD_ITEM"><a name="_none_GTK_IM_STATUS_"><p>&#39;none&#39; / &#39;GTK_IM_STATUS_NONE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Justificat">enum Gtk2::Justification</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_left_GTK_JUSTIFY_LE"><p>&#39;left&#39; / &#39;GTK_JUSTIFY_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_JUSTIFY_R"><p>&#39;right&#39; / &#39;GTK_JUSTIFY_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_center_GTK_JUSTIFY_"><p>&#39;center&#39; / &#39;GTK_JUSTIFY_CENTER&#39;</p></a>
+<li class="POD_ITEM"><a name="_fill_GTK_JUSTIFY_FI"><p>&#39;fill&#39; / &#39;GTK_JUSTIFY_FILL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_MatchType">enum Gtk2::MatchType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_all_GTK_MATCH_ALL_"><p>&#39;all&#39; / &#39;GTK_MATCH_ALL&#39;</p></a>
+<li class="POD_ITEM"><a name="_all_tail_GTK_MATCH_"><p>&#39;all-tail&#39; / &#39;GTK_MATCH_ALL_TAIL&#39;</p></a>
+<li class="POD_ITEM"><a name="_head_GTK_MATCH_HEAD"><p>&#39;head&#39; / &#39;GTK_MATCH_HEAD&#39;</p></a>
+<li class="POD_ITEM"><a name="_tail_GTK_MATCH_TAIL"><p>&#39;tail&#39; / &#39;GTK_MATCH_TAIL&#39;</p></a>
+<li class="POD_ITEM"><a name="_exact_GTK_MATCH_EXA"><p>&#39;exact&#39; / &#39;GTK_MATCH_EXACT&#39;</p></a>
+<li class="POD_ITEM"><a name="_last_GTK_MATCH_LAST"><p>&#39;last&#39; / &#39;GTK_MATCH_LAST&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_MenuDirect">enum Gtk2::MenuDirectionType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_parent_GTK_MENU_DIR"><p>&#39;parent&#39; / &#39;GTK_MENU_DIR_PARENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_child_GTK_MENU_DIR_"><p>&#39;child&#39; / &#39;GTK_MENU_DIR_CHILD&#39;</p></a>
+<li class="POD_ITEM"><a name="_next_GTK_MENU_DIR_N"><p>&#39;next&#39; / &#39;GTK_MENU_DIR_NEXT&#39;</p></a>
+<li class="POD_ITEM"><a name="_prev_GTK_MENU_DIR_P"><p>&#39;prev&#39; / &#39;GTK_MENU_DIR_PREV&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_MessageTyp">enum Gtk2::MessageType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_info_GTK_MESSAGE_IN"><p>&#39;info&#39; / &#39;GTK_MESSAGE_INFO&#39;</p></a>
+<li class="POD_ITEM"><a name="_warning_GTK_MESSAGE"><p>&#39;warning&#39; / &#39;GTK_MESSAGE_WARNING&#39;</p></a>
+<li class="POD_ITEM"><a name="_question_GTK_MESSAG"><p>&#39;question&#39; / &#39;GTK_MESSAGE_QUESTION&#39;</p></a>
+<li class="POD_ITEM"><a name="_error_GTK_MESSAGE_E"><p>&#39;error&#39; / &#39;GTK_MESSAGE_ERROR&#39;</p></a>
+<li class="POD_ITEM"><a name="_other_GTK_MESSAGE_O"><p>&#39;other&#39; / &#39;GTK_MESSAGE_OTHER&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_MetricType">enum Gtk2::MetricType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixels_GTK_PIXELS_"><p>&#39;pixels&#39; / &#39;GTK_PIXELS&#39;</p></a>
+<li class="POD_ITEM"><a name="_inches_GTK_INCHES_"><p>&#39;inches&#39; / &#39;GTK_INCHES&#39;</p></a>
+<li class="POD_ITEM"><a name="_centimeters_GTK_CEN"><p>&#39;centimeters&#39; / &#39;GTK_CENTIMETERS&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_MovementSt">enum Gtk2::MovementStep</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_logical_positions_G"><p>&#39;logical-positions&#39; / &#39;GTK_MOVEMENT_LOGICAL_POSITIONS&#39;</p></a>
+<li class="POD_ITEM"><a name="_visual_positions_GT"><p>&#39;visual-positions&#39; / &#39;GTK_MOVEMENT_VISUAL_POSITIONS&#39;</p></a>
+<li class="POD_ITEM"><a name="_words_GTK_MOVEMENT_"><p>&#39;words&#39; / &#39;GTK_MOVEMENT_WORDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_display_lines_GTK_M"><p>&#39;display-lines&#39; / &#39;GTK_MOVEMENT_DISPLAY_LINES&#39;</p></a>
+<li class="POD_ITEM"><a name="_display_line_ends_G1"><p>&#39;display-line-ends&#39; / &#39;GTK_MOVEMENT_DISPLAY_LINE_ENDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_paragraphs_GTK_MOVE"><p>&#39;paragraphs&#39; / &#39;GTK_MOVEMENT_PARAGRAPHS&#39;</p></a>
+<li class="POD_ITEM"><a name="_paragraph_ends_GTK_1"><p>&#39;paragraph-ends&#39; / &#39;GTK_MOVEMENT_PARAGRAPH_ENDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_pages_GTK_MOVEMENT_"><p>&#39;pages&#39; / &#39;GTK_MOVEMENT_PAGES&#39;</p></a>
+<li class="POD_ITEM"><a name="_buffer_ends_GTK_MOV"><p>&#39;buffer-ends&#39; / &#39;GTK_MOVEMENT_BUFFER_ENDS&#39;</p></a>
+<li class="POD_ITEM"><a name="_horizontal_pages_GT"><p>&#39;horizontal-pages&#39; / &#39;GTK_MOVEMENT_HORIZONTAL_PAGES&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_NotebookTa">enum Gtk2::NotebookTab</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_first_GTK_NOTEBOOK_"><p>&#39;first&#39; / &#39;GTK_NOTEBOOK_TAB_FIRST&#39;</p></a>
+<li class="POD_ITEM"><a name="_last_GTK_NOTEBOOK_T"><p>&#39;last&#39; / &#39;GTK_NOTEBOOK_TAB_LAST&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_ObjectFla">flags Gtk2::ObjectFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_in_destruction_GTK_"><p>&#39;in-destruction&#39; / &#39;GTK_IN_DESTRUCTION&#39;</p></a>
+<li class="POD_ITEM"><a name="_floating_GTK_FLOATI"><p>&#39;floating&#39; / &#39;GTK_FLOATING&#39;</p></a>
+<li class="POD_ITEM"><a name="_reserved_1_GTK_RESE"><p>&#39;reserved-1&#39; / &#39;GTK_RESERVED_1&#39;</p></a>
+<li class="POD_ITEM"><a name="_reserved_2_GTK_RESE"><p>&#39;reserved-2&#39; / &#39;GTK_RESERVED_2&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Orientatio">enum Gtk2::Orientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_horizontal_GTK_ORIE"><p>&#39;horizontal&#39; / &#39;GTK_ORIENTATION_HORIZONTAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_vertical_GTK_ORIENT"><p>&#39;vertical&#39; / &#39;GTK_ORIENTATION_VERTICAL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PackType">enum Gtk2::PackType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_start_GTK_PACK_STAR"><p>&#39;start&#39; / &#39;GTK_PACK_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_GTK_PACK_END_"><p>&#39;end&#39; / &#39;GTK_PACK_END&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PathPriori">enum Gtk2::PathPriorityType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_lowest_GTK_PATH_PRI"><p>&#39;lowest&#39; / &#39;GTK_PATH_PRIO_LOWEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_gtk_GTK_PATH_PRIO_G"><p>&#39;gtk&#39; / &#39;GTK_PATH_PRIO_GTK&#39;</p></a>
+<li class="POD_ITEM"><a name="_application_GTK_PAT"><p>&#39;application&#39; / &#39;GTK_PATH_PRIO_APPLICATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_theme_GTK_PATH_PRIO"><p>&#39;theme&#39; / &#39;GTK_PATH_PRIO_THEME&#39;</p></a>
+<li class="POD_ITEM"><a name="_rc_GTK_PATH_PRIO_RC"><p>&#39;rc&#39; / &#39;GTK_PATH_PRIO_RC&#39;</p></a>
+<li class="POD_ITEM"><a name="_highest_GTK_PATH_PR"><p>&#39;highest&#39; / &#39;GTK_PATH_PRIO_HIGHEST&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PathType">enum Gtk2::PathType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_widget_GTK_PATH_WID"><p>&#39;widget&#39; / &#39;GTK_PATH_WIDGET&#39;</p></a>
+<li class="POD_ITEM"><a name="_widget_class_GTK_PA"><p>&#39;widget-class&#39; / &#39;GTK_PATH_WIDGET_CLASS&#39;</p></a>
+<li class="POD_ITEM"><a name="_class_GTK_PATH_CLAS"><p>&#39;class&#39; / &#39;GTK_PATH_CLASS&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PolicyType">enum Gtk2::PolicyType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_always_GTK_POLICY_A"><p>&#39;always&#39; / &#39;GTK_POLICY_ALWAYS&#39;</p></a>
+<li class="POD_ITEM"><a name="_automatic_GTK_POLIC"><p>&#39;automatic&#39; / &#39;GTK_POLICY_AUTOMATIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_never_GTK_POLICY_NE"><p>&#39;never&#39; / &#39;GTK_POLICY_NEVER&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PositionTy">enum Gtk2::PositionType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_left_GTK_POS_LEFT_"><p>&#39;left&#39; / &#39;GTK_POS_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_POS_RIGHT"><p>&#39;right&#39; / &#39;GTK_POS_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_GTK_POS_TOP_"><p>&#39;top&#39; / &#39;GTK_POS_TOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_GTK_POS_BOTT"><p>&#39;bottom&#39; / &#39;GTK_POS_BOTTOM&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PreviewTyp">enum Gtk2::PreviewType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_GTK_PREVIEW_C"><p>&#39;color&#39; / &#39;GTK_PREVIEW_COLOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_grayscale_GTK_PREVI"><p>&#39;grayscale&#39; / &#39;GTK_PREVIEW_GRAYSCALE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_PrivateFl">flags Gtk2::PrivateFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_user_style_PRIVATE_"><p>&#39;user-style&#39; / &#39;PRIVATE_GTK_USER_STYLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_resize_pending_PRIV"><p>&#39;resize-pending&#39; / &#39;PRIVATE_GTK_RESIZE_PENDING&#39;</p></a>
+<li class="POD_ITEM"><a name="_leave_pending_PRIVA"><p>&#39;leave-pending&#39; / &#39;PRIVATE_GTK_LEAVE_PENDING&#39;</p></a>
+<li class="POD_ITEM"><a name="_has_shape_mask_PRIV"><p>&#39;has-shape-mask&#39; / &#39;PRIVATE_GTK_HAS_SHAPE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_in_reparent_PRIVATE"><p>&#39;in-reparent&#39; / &#39;PRIVATE_GTK_IN_REPARENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_direction_set_PRIVA"><p>&#39;direction-set&#39; / &#39;PRIVATE_GTK_DIRECTION_SET&#39;</p></a>
+<li class="POD_ITEM"><a name="_direction_ltr_PRIVA"><p>&#39;direction-ltr&#39; / &#39;PRIVATE_GTK_DIRECTION_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_anchored_PRIVATE_GT"><p>&#39;anchored&#39; / &#39;PRIVATE_GTK_ANCHORED&#39;</p></a>
+<li class="POD_ITEM"><a name="_child_visible_PRIVA"><p>&#39;child-visible&#39; / &#39;PRIVATE_GTK_CHILD_VISIBLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_redraw_on_alloc_PRI"><p>&#39;redraw-on-alloc&#39; / &#39;PRIVATE_GTK_REDRAW_ON_ALLOC&#39;</p></a>
+<li class="POD_ITEM"><a name="_alloc_needed_PRIVAT"><p>&#39;alloc-needed&#39; / &#39;PRIVATE_GTK_ALLOC_NEEDED&#39;</p></a>
+<li class="POD_ITEM"><a name="_request_needed_PRIV"><p>&#39;request-needed&#39; / &#39;PRIVATE_GTK_REQUEST_NEEDED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ProgressBa">enum Gtk2::ProgressBarOrientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_left_to_right_GTK_P"><p>&#39;left-to-right&#39; / &#39;GTK_PROGRESS_LEFT_TO_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_to_left_GTK_P"><p>&#39;right-to-left&#39; / &#39;GTK_PROGRESS_RIGHT_TO_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_to_top_GTK_P"><p>&#39;bottom-to-top&#39; / &#39;GTK_PROGRESS_BOTTOM_TO_TOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_to_bottom_GTK_P"><p>&#39;top-to-bottom&#39; / &#39;GTK_PROGRESS_TOP_TO_BOTTOM&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ProgressBa1">enum Gtk2::ProgressBarStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_continuous_GTK_PROG"><p>&#39;continuous&#39; / &#39;GTK_PROGRESS_CONTINUOUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_discrete_GTK_PROGRE"><p>&#39;discrete&#39; / &#39;GTK_PROGRESS_DISCRETE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_RcFlags">flags Gtk2::RcFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_fg_GTK_RC_FG_"><p>&#39;fg&#39; / &#39;GTK_RC_FG&#39;</p></a>
+<li class="POD_ITEM"><a name="_bg_GTK_RC_BG_"><p>&#39;bg&#39; / &#39;GTK_RC_BG&#39;</p></a>
+<li class="POD_ITEM"><a name="_text_GTK_RC_TEXT_"><p>&#39;text&#39; / &#39;GTK_RC_TEXT&#39;</p></a>
+<li class="POD_ITEM"><a name="_base_GTK_RC_BASE_"><p>&#39;base&#39; / &#39;GTK_RC_BASE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_RcTokenTyp">enum Gtk2::RcTokenType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_invalid_GTK_RC_TOKE"><p>&#39;invalid&#39; / &#39;GTK_RC_TOKEN_INVALID&#39;</p></a>
+<li class="POD_ITEM"><a name="_include_GTK_RC_TOKE"><p>&#39;include&#39; / &#39;GTK_RC_TOKEN_INCLUDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_normal_GTK_RC_TOKEN"><p>&#39;normal&#39; / &#39;GTK_RC_TOKEN_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_active_GTK_RC_TOKEN"><p>&#39;active&#39; / &#39;GTK_RC_TOKEN_ACTIVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_prelight_GTK_RC_TOK"><p>&#39;prelight&#39; / &#39;GTK_RC_TOKEN_PRELIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_selected_GTK_RC_TOK"><p>&#39;selected&#39; / &#39;GTK_RC_TOKEN_SELECTED&#39;</p></a>
+<li class="POD_ITEM"><a name="_insensitive_GTK_RC_"><p>&#39;insensitive&#39; / &#39;GTK_RC_TOKEN_INSENSITIVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_fg_GTK_RC_TOKEN_FG_"><p>&#39;fg&#39; / &#39;GTK_RC_TOKEN_FG&#39;</p></a>
+<li class="POD_ITEM"><a name="_bg_GTK_RC_TOKEN_BG_"><p>&#39;bg&#39; / &#39;GTK_RC_TOKEN_BG&#39;</p></a>
+<li class="POD_ITEM"><a name="_text_GTK_RC_TOKEN_T"><p>&#39;text&#39; / &#39;GTK_RC_TOKEN_TEXT&#39;</p></a>
+<li class="POD_ITEM"><a name="_base_GTK_RC_TOKEN_B"><p>&#39;base&#39; / &#39;GTK_RC_TOKEN_BASE&#39;</p></a>
+<li class="POD_ITEM"><a name="_xthickness_GTK_RC_T"><p>&#39;xthickness&#39; / &#39;GTK_RC_TOKEN_XTHICKNESS&#39;</p></a>
+<li class="POD_ITEM"><a name="_ythickness_GTK_RC_T"><p>&#39;ythickness&#39; / &#39;GTK_RC_TOKEN_YTHICKNESS&#39;</p></a>
+<li class="POD_ITEM"><a name="_font_GTK_RC_TOKEN_F"><p>&#39;font&#39; / &#39;GTK_RC_TOKEN_FONT&#39;</p></a>
+<li class="POD_ITEM"><a name="_fontset_GTK_RC_TOKE"><p>&#39;fontset&#39; / &#39;GTK_RC_TOKEN_FONTSET&#39;</p></a>
+<li class="POD_ITEM"><a name="_font_name_GTK_RC_TO"><p>&#39;font-name&#39; / &#39;GTK_RC_TOKEN_FONT_NAME&#39;</p></a>
+<li class="POD_ITEM"><a name="_bg_pixmap_GTK_RC_TO"><p>&#39;bg-pixmap&#39; / &#39;GTK_RC_TOKEN_BG_PIXMAP&#39;</p></a>
+<li class="POD_ITEM"><a name="_pixmap_path_GTK_RC_"><p>&#39;pixmap-path&#39; / &#39;GTK_RC_TOKEN_PIXMAP_PATH&#39;</p></a>
+<li class="POD_ITEM"><a name="_style_GTK_RC_TOKEN_"><p>&#39;style&#39; / &#39;GTK_RC_TOKEN_STYLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_binding_GTK_RC_TOKE"><p>&#39;binding&#39; / &#39;GTK_RC_TOKEN_BINDING&#39;</p></a>
+<li class="POD_ITEM"><a name="_bind_GTK_RC_TOKEN_B"><p>&#39;bind&#39; / &#39;GTK_RC_TOKEN_BIND&#39;</p></a>
+<li class="POD_ITEM"><a name="_widget_GTK_RC_TOKEN"><p>&#39;widget&#39; / &#39;GTK_RC_TOKEN_WIDGET&#39;</p></a>
+<li class="POD_ITEM"><a name="_widget_class_GTK_RC"><p>&#39;widget-class&#39; / &#39;GTK_RC_TOKEN_WIDGET_CLASS&#39;</p></a>
+<li class="POD_ITEM"><a name="_class_GTK_RC_TOKEN_"><p>&#39;class&#39; / &#39;GTK_RC_TOKEN_CLASS&#39;</p></a>
+<li class="POD_ITEM"><a name="_lowest_GTK_RC_TOKEN"><p>&#39;lowest&#39; / &#39;GTK_RC_TOKEN_LOWEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_gtk_GTK_RC_TOKEN_GT"><p>&#39;gtk&#39; / &#39;GTK_RC_TOKEN_GTK&#39;</p></a>
+<li class="POD_ITEM"><a name="_application_GTK_RC_"><p>&#39;application&#39; / &#39;GTK_RC_TOKEN_APPLICATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_theme_GTK_RC_TOKEN_"><p>&#39;theme&#39; / &#39;GTK_RC_TOKEN_THEME&#39;</p></a>
+<li class="POD_ITEM"><a name="_rc_GTK_RC_TOKEN_RC_"><p>&#39;rc&#39; / &#39;GTK_RC_TOKEN_RC&#39;</p></a>
+<li class="POD_ITEM"><a name="_highest_GTK_RC_TOKE"><p>&#39;highest&#39; / &#39;GTK_RC_TOKEN_HIGHEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_engine_GTK_RC_TOKEN"><p>&#39;engine&#39; / &#39;GTK_RC_TOKEN_ENGINE&#39;</p></a>
+<li class="POD_ITEM"><a name="_module_path_GTK_RC_"><p>&#39;module-path&#39; / &#39;GTK_RC_TOKEN_MODULE_PATH&#39;</p></a>
+<li class="POD_ITEM"><a name="_im_module_path_GTK_"><p>&#39;im-module-path&#39; / &#39;GTK_RC_TOKEN_IM_MODULE_PATH&#39;</p></a>
+<li class="POD_ITEM"><a name="_im_module_file_GTK_"><p>&#39;im-module-file&#39; / &#39;GTK_RC_TOKEN_IM_MODULE_FILE&#39;</p></a>
+<li class="POD_ITEM"><a name="_stock_GTK_RC_TOKEN_"><p>&#39;stock&#39; / &#39;GTK_RC_TOKEN_STOCK&#39;</p></a>
+<li class="POD_ITEM"><a name="_ltr_GTK_RC_TOKEN_LT"><p>&#39;ltr&#39; / &#39;GTK_RC_TOKEN_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_rtl_GTK_RC_TOKEN_RT"><p>&#39;rtl&#39; / &#39;GTK_RC_TOKEN_RTL&#39;</p></a>
+<li class="POD_ITEM"><a name="_color_GTK_RC_TOKEN_"><p>&#39;color&#39; / &#39;GTK_RC_TOKEN_COLOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_unbind_GTK_RC_TOKEN"><p>&#39;unbind&#39; / &#39;GTK_RC_TOKEN_UNBIND&#39;</p></a>
+<li class="POD_ITEM"><a name="_last_GTK_RC_TOKEN_L"><p>&#39;last&#39; / &#39;GTK_RC_TOKEN_LAST&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ReliefStyl">enum Gtk2::ReliefStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_normal_GTK_RELIEF_N"><p>&#39;normal&#39; / &#39;GTK_RELIEF_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_half_GTK_RELIEF_HAL"><p>&#39;half&#39; / &#39;GTK_RELIEF_HALF&#39;</p></a>
+<li class="POD_ITEM"><a name="_none_GTK_RELIEF_NON"><p>&#39;none&#39; / &#39;GTK_RELIEF_NONE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ResizeMode">enum Gtk2::ResizeMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_parent_GTK_RESIZE_P"><p>&#39;parent&#39; / &#39;GTK_RESIZE_PARENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_queue_GTK_RESIZE_QU"><p>&#39;queue&#39; / &#39;GTK_RESIZE_QUEUE&#39;</p></a>
+<li class="POD_ITEM"><a name="_immediate_GTK_RESIZ"><p>&#39;immediate&#39; / &#39;GTK_RESIZE_IMMEDIATE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ResponseTy">enum Gtk2::ResponseType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_RESPONSE_N"><p>&#39;none&#39; / &#39;GTK_RESPONSE_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_reject_GTK_RESPONSE"><p>&#39;reject&#39; / &#39;GTK_RESPONSE_REJECT&#39;</p></a>
+<li class="POD_ITEM"><a name="_accept_GTK_RESPONSE"><p>&#39;accept&#39; / &#39;GTK_RESPONSE_ACCEPT&#39;</p></a>
+<li class="POD_ITEM"><a name="_delete_event_GTK_RE"><p>&#39;delete-event&#39; / &#39;GTK_RESPONSE_DELETE_EVENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_ok_GTK_RESPONSE_OK_"><p>&#39;ok&#39; / &#39;GTK_RESPONSE_OK&#39;</p></a>
+<li class="POD_ITEM"><a name="_cancel_GTK_RESPONSE"><p>&#39;cancel&#39; / &#39;GTK_RESPONSE_CANCEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_close_GTK_RESPONSE_"><p>&#39;close&#39; / &#39;GTK_RESPONSE_CLOSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_yes_GTK_RESPONSE_YE"><p>&#39;yes&#39; / &#39;GTK_RESPONSE_YES&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_GTK_RESPONSE_NO_"><p>&#39;no&#39; / &#39;GTK_RESPONSE_NO&#39;</p></a>
+<li class="POD_ITEM"><a name="_apply_GTK_RESPONSE_"><p>&#39;apply&#39; / &#39;GTK_RESPONSE_APPLY&#39;</p></a>
+<li class="POD_ITEM"><a name="_help_GTK_RESPONSE_H"><p>&#39;help&#39; / &#39;GTK_RESPONSE_HELP&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ScrollType">enum Gtk2::ScrollType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SCROLL_NON"><p>&#39;none&#39; / &#39;GTK_SCROLL_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_jump_GTK_SCROLL_JUM"><p>&#39;jump&#39; / &#39;GTK_SCROLL_JUMP&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_backward_GTK_S"><p>&#39;step-backward&#39; / &#39;GTK_SCROLL_STEP_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_forward_GTK_SC"><p>&#39;step-forward&#39; / &#39;GTK_SCROLL_STEP_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_backward_GTK_S"><p>&#39;page-backward&#39; / &#39;GTK_SCROLL_PAGE_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_forward_GTK_SC"><p>&#39;page-forward&#39; / &#39;GTK_SCROLL_PAGE_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_up_GTK_SCROLL_"><p>&#39;step-up&#39; / &#39;GTK_SCROLL_STEP_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_down_GTK_SCROL"><p>&#39;step-down&#39; / &#39;GTK_SCROLL_STEP_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_up_GTK_SCROLL_"><p>&#39;page-up&#39; / &#39;GTK_SCROLL_PAGE_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_down_GTK_SCROL"><p>&#39;page-down&#39; / &#39;GTK_SCROLL_PAGE_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_left_GTK_SCROL"><p>&#39;step-left&#39; / &#39;GTK_SCROLL_STEP_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_right_GTK_SCRO"><p>&#39;step-right&#39; / &#39;GTK_SCROLL_STEP_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_left_GTK_SCROL"><p>&#39;page-left&#39; / &#39;GTK_SCROLL_PAGE_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_right_GTK_SCRO"><p>&#39;page-right&#39; / &#39;GTK_SCROLL_PAGE_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_start_GTK_SCROLL_ST"><p>&#39;start&#39; / &#39;GTK_SCROLL_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_GTK_SCROLL_END_"><p>&#39;end&#39; / &#39;GTK_SCROLL_END&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SelectionM">enum Gtk2::SelectionMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SELECTION_"><p>&#39;none&#39; / &#39;GTK_SELECTION_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_single_GTK_SELECTIO"><p>&#39;single&#39; / &#39;GTK_SELECTION_SINGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_browse_GTK_SELECTIO"><p>&#39;browse&#39; / &#39;GTK_SELECTION_BROWSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_multiple_GTK_SELECT"><p>&#39;multiple&#39; / &#39;GTK_SELECTION_MULTIPLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_extended_GTK_SELECT"><p>&#39;extended&#39; / &#39;GTK_SELECTION_EXTENDED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ShadowType">enum Gtk2::ShadowType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SHADOW_NON"><p>&#39;none&#39; / &#39;GTK_SHADOW_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_in_GTK_SHADOW_IN_"><p>&#39;in&#39; / &#39;GTK_SHADOW_IN&#39;</p></a>
+<li class="POD_ITEM"><a name="_out_GTK_SHADOW_OUT_"><p>&#39;out&#39; / &#39;GTK_SHADOW_OUT&#39;</p></a>
+<li class="POD_ITEM"><a name="_etched_in_GTK_SHADO"><p>&#39;etched-in&#39; / &#39;GTK_SHADOW_ETCHED_IN&#39;</p></a>
+<li class="POD_ITEM"><a name="_etched_out_GTK_SHAD"><p>&#39;etched-out&#39; / &#39;GTK_SHADOW_ETCHED_OUT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SideType">enum Gtk2::SideType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_top_GTK_SIDE_TOP_"><p>&#39;top&#39; / &#39;GTK_SIDE_TOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_GTK_SIDE_BOT"><p>&#39;bottom&#39; / &#39;GTK_SIDE_BOTTOM&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_GTK_SIDE_LEFT_"><p>&#39;left&#39; / &#39;GTK_SIDE_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_SIDE_RIGH"><p>&#39;right&#39; / &#39;GTK_SIDE_RIGHT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_SignalRun">flags Gtk2::SignalRunType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_first_GTK_RUN_FIRST"><p>&#39;first&#39; / &#39;GTK_RUN_FIRST&#39;</p></a>
+<li class="POD_ITEM"><a name="_last_GTK_RUN_LAST_"><p>&#39;last&#39; / &#39;GTK_RUN_LAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_both_GTK_RUN_BOTH_"><p>&#39;both&#39; / &#39;GTK_RUN_BOTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_recurse_GTK_RUN_"><p>&#39;no-recurse&#39; / &#39;GTK_RUN_NO_RECURSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_action_GTK_RUN_ACTI"><p>&#39;action&#39; / &#39;GTK_RUN_ACTION&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_hooks_GTK_RUN_NO"><p>&#39;no-hooks&#39; / &#39;GTK_RUN_NO_HOOKS&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SizeGroupM">enum Gtk2::SizeGroupMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SIZE_GROUP"><p>&#39;none&#39; / &#39;GTK_SIZE_GROUP_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_horizontal_GTK_SIZE"><p>&#39;horizontal&#39; / &#39;GTK_SIZE_GROUP_HORIZONTAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_vertical_GTK_SIZE_G"><p>&#39;vertical&#39; / &#39;GTK_SIZE_GROUP_VERTICAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_both_GTK_SIZE_GROUP"><p>&#39;both&#39; / &#39;GTK_SIZE_GROUP_BOTH&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SortType">enum Gtk2::SortType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ascending_GTK_SORT_"><p>&#39;ascending&#39; / &#39;GTK_SORT_ASCENDING&#39;</p></a>
+<li class="POD_ITEM"><a name="_descending_GTK_SORT"><p>&#39;descending&#39; / &#39;GTK_SORT_DESCENDING&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SpinButton">enum Gtk2::SpinButtonUpdatePolicy</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_always_GTK_UPDATE_A"><p>&#39;always&#39; / &#39;GTK_UPDATE_ALWAYS&#39;</p></a>
+<li class="POD_ITEM"><a name="_if_valid_GTK_UPDATE"><p>&#39;if-valid&#39; / &#39;GTK_UPDATE_IF_VALID&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SpinType">enum Gtk2::SpinType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_step_forward_GTK_SP"><p>&#39;step-forward&#39; / &#39;GTK_SPIN_STEP_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_backward_GTK_S1"><p>&#39;step-backward&#39; / &#39;GTK_SPIN_STEP_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_forward_GTK_SP"><p>&#39;page-forward&#39; / &#39;GTK_SPIN_PAGE_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_backward_GTK_S1"><p>&#39;page-backward&#39; / &#39;GTK_SPIN_PAGE_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_home_GTK_SPIN_HOME_"><p>&#39;home&#39; / &#39;GTK_SPIN_HOME&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_GTK_SPIN_END_"><p>&#39;end&#39; / &#39;GTK_SPIN_END&#39;</p></a>
+<li class="POD_ITEM"><a name="_user_defined_GTK_SP"><p>&#39;user-defined&#39; / &#39;GTK_SPIN_USER_DEFINED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_StateType">enum Gtk2::StateType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_normal_GTK_STATE_NO"><p>&#39;normal&#39; / &#39;GTK_STATE_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_active_GTK_STATE_AC"><p>&#39;active&#39; / &#39;GTK_STATE_ACTIVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_prelight_GTK_STATE_"><p>&#39;prelight&#39; / &#39;GTK_STATE_PRELIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_selected_GTK_STATE_"><p>&#39;selected&#39; / &#39;GTK_STATE_SELECTED&#39;</p></a>
+<li class="POD_ITEM"><a name="_insensitive_GTK_STA"><p>&#39;insensitive&#39; / &#39;GTK_STATE_INSENSITIVE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SubmenuDir">enum Gtk2::SubmenuDirection</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_left_GTK_DIRECTION_"><p>&#39;left&#39; / &#39;GTK_DIRECTION_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_DIRECTION"><p>&#39;right&#39; / &#39;GTK_DIRECTION_RIGHT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SubmenuPla">enum Gtk2::SubmenuPlacement</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_top_bottom_GTK_TOP_"><p>&#39;top-bottom&#39; / &#39;GTK_TOP_BOTTOM&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_right_GTK_LEFT"><p>&#39;left-right&#39; / &#39;GTK_LEFT_RIGHT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_TargetFla">flags Gtk2::TargetFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_same_app_GTK_TARGET"><p>&#39;same-app&#39; / &#39;GTK_TARGET_SAME_APP&#39;</p></a>
+<li class="POD_ITEM"><a name="_same_widget_GTK_TAR"><p>&#39;same-widget&#39; / &#39;GTK_TARGET_SAME_WIDGET&#39;</p></a>
+<li class="POD_ITEM"><a name="_other_app_GTK_TARGE"><p>&#39;other-app&#39; / &#39;GTK_TARGET_OTHER_APP&#39;</p></a>
+<li class="POD_ITEM"><a name="_other_widget_GTK_TA"><p>&#39;other-widget&#39; / &#39;GTK_TARGET_OTHER_WIDGET&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_TextDirect">enum Gtk2::TextDirection</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_TEXT_DIR_N"><p>&#39;none&#39; / &#39;GTK_TEXT_DIR_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_ltr_GTK_TEXT_DIR_LT"><p>&#39;ltr&#39; / &#39;GTK_TEXT_DIR_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_rtl_GTK_TEXT_DIR_RT"><p>&#39;rtl&#39; / &#39;GTK_TEXT_DIR_RTL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_TextSearc">flags Gtk2::TextSearchFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_visible_only_GTK_TE"><p>&#39;visible-only&#39; / &#39;GTK_TEXT_SEARCH_VISIBLE_ONLY&#39;</p></a>
+<li class="POD_ITEM"><a name="_text_only_GTK_TEXT_"><p>&#39;text-only&#39; / &#39;GTK_TEXT_SEARCH_TEXT_ONLY&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_TextWindow">enum Gtk2::TextWindowType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_private_GTK_TEXT_WI"><p>&#39;private&#39; / &#39;GTK_TEXT_WINDOW_PRIVATE&#39;</p></a>
+<li class="POD_ITEM"><a name="_widget_GTK_TEXT_WIN"><p>&#39;widget&#39; / &#39;GTK_TEXT_WINDOW_WIDGET&#39;</p></a>
+<li class="POD_ITEM"><a name="_text_GTK_TEXT_WINDO"><p>&#39;text&#39; / &#39;GTK_TEXT_WINDOW_TEXT&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_GTK_TEXT_WINDO"><p>&#39;left&#39; / &#39;GTK_TEXT_WINDOW_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_TEXT_WIND"><p>&#39;right&#39; / &#39;GTK_TEXT_WINDOW_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_GTK_TEXT_WINDOW"><p>&#39;top&#39; / &#39;GTK_TEXT_WINDOW_TOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_GTK_TEXT_WIN"><p>&#39;bottom&#39; / &#39;GTK_TEXT_WINDOW_BOTTOM&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ToolbarChi">enum Gtk2::ToolbarChildType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_space_GTK_TOOLBAR_C"><p>&#39;space&#39; / &#39;GTK_TOOLBAR_CHILD_SPACE&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_GTK_TOOLBAR_"><p>&#39;button&#39; / &#39;GTK_TOOLBAR_CHILD_BUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_togglebutton_GTK_TO"><p>&#39;togglebutton&#39; / &#39;GTK_TOOLBAR_CHILD_TOGGLEBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_radiobutton_GTK_TOO"><p>&#39;radiobutton&#39; / &#39;GTK_TOOLBAR_CHILD_RADIOBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_widget_GTK_TOOLBAR_"><p>&#39;widget&#39; / &#39;GTK_TOOLBAR_CHILD_WIDGET&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ToolbarSpa">enum Gtk2::ToolbarSpaceStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_empty_GTK_TOOLBAR_S"><p>&#39;empty&#39; / &#39;GTK_TOOLBAR_SPACE_EMPTY&#39;</p></a>
+<li class="POD_ITEM"><a name="_line_GTK_TOOLBAR_SP"><p>&#39;line&#39; / &#39;GTK_TOOLBAR_SPACE_LINE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ToolbarSty">enum Gtk2::ToolbarStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_icons_GTK_TOOLBAR_I"><p>&#39;icons&#39; / &#39;GTK_TOOLBAR_ICONS&#39;</p></a>
+<li class="POD_ITEM"><a name="_text_GTK_TOOLBAR_TE"><p>&#39;text&#39; / &#39;GTK_TOOLBAR_TEXT&#39;</p></a>
+<li class="POD_ITEM"><a name="_both_GTK_TOOLBAR_BO"><p>&#39;both&#39; / &#39;GTK_TOOLBAR_BOTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_both_horiz_GTK_TOOL"><p>&#39;both-horiz&#39; / &#39;GTK_TOOLBAR_BOTH_HORIZ&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_TreeModel">flags Gtk2::TreeModelFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iters_persist_GTK_T"><p>&#39;iters-persist&#39; / &#39;GTK_TREE_MODEL_ITERS_PERSIST&#39;</p></a>
+<li class="POD_ITEM"><a name="_list_only_GTK_TREE_"><p>&#39;list-only&#39; / &#39;GTK_TREE_MODEL_LIST_ONLY&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_TreeViewCo">enum Gtk2::TreeViewColumnSizing</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_grow_only_GTK_TREE_"><p>&#39;grow-only&#39; / &#39;GTK_TREE_VIEW_COLUMN_GROW_ONLY&#39;</p></a>
+<li class="POD_ITEM"><a name="_autosize_GTK_TREE_V"><p>&#39;autosize&#39; / &#39;GTK_TREE_VIEW_COLUMN_AUTOSIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_fixed_GTK_TREE_VIEW"><p>&#39;fixed&#39; / &#39;GTK_TREE_VIEW_COLUMN_FIXED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_TreeViewDr">enum Gtk2::TreeViewDropPosition</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_before_GTK_TREE_VIE"><p>&#39;before&#39; / &#39;GTK_TREE_VIEW_DROP_BEFORE&#39;</p></a>
+<li class="POD_ITEM"><a name="_after_GTK_TREE_VIEW"><p>&#39;after&#39; / &#39;GTK_TREE_VIEW_DROP_AFTER&#39;</p></a>
+<li class="POD_ITEM"><a name="_into_or_before_GTK_"><p>&#39;into-or-before&#39; / &#39;GTK_TREE_VIEW_DROP_INTO_OR_BEFORE&#39;</p></a>
+<li class="POD_ITEM"><a name="_into_or_after_GTK_T"><p>&#39;into-or-after&#39; / &#39;GTK_TREE_VIEW_DROP_INTO_OR_AFTER&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_TreeViewMo">enum Gtk2::TreeViewMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_line_GTK_TREE_VIEW_"><p>&#39;line&#39; / &#39;GTK_TREE_VIEW_LINE&#39;</p></a>
+<li class="POD_ITEM"><a name="_item_GTK_TREE_VIEW_"><p>&#39;item&#39; / &#39;GTK_TREE_VIEW_ITEM&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_UpdateType">enum Gtk2::UpdateType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_continuous_GTK_UPDA"><p>&#39;continuous&#39; / &#39;GTK_UPDATE_CONTINUOUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_discontinuous_GTK_U"><p>&#39;discontinuous&#39; / &#39;GTK_UPDATE_DISCONTINUOUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_delayed_GTK_UPDATE_"><p>&#39;delayed&#39; / &#39;GTK_UPDATE_DELAYED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Visibility">enum Gtk2::Visibility</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_VISIBILITY"><p>&#39;none&#39; / &#39;GTK_VISIBILITY_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_partial_GTK_VISIBIL"><p>&#39;partial&#39; / &#39;GTK_VISIBILITY_PARTIAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_full_GTK_VISIBILITY"><p>&#39;full&#39; / &#39;GTK_VISIBILITY_FULL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_WidgetFla">flags Gtk2::WidgetFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_toplevel_GTK_TOPLEV"><p>&#39;toplevel&#39; / &#39;GTK_TOPLEVEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_window_GTK_NO_WI"><p>&#39;no-window&#39; / &#39;GTK_NO_WINDOW&#39;</p></a>
+<li class="POD_ITEM"><a name="_realized_GTK_REALIZ"><p>&#39;realized&#39; / &#39;GTK_REALIZED&#39;</p></a>
+<li class="POD_ITEM"><a name="_mapped_GTK_MAPPED_"><p>&#39;mapped&#39; / &#39;GTK_MAPPED&#39;</p></a>
+<li class="POD_ITEM"><a name="_visible_GTK_VISIBLE"><p>&#39;visible&#39; / &#39;GTK_VISIBLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_sensitive_GTK_SENSI"><p>&#39;sensitive&#39; / &#39;GTK_SENSITIVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_parent_sensitive_GT"><p>&#39;parent-sensitive&#39; / &#39;GTK_PARENT_SENSITIVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_can_focus_GTK_CAN_F"><p>&#39;can-focus&#39; / &#39;GTK_CAN_FOCUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_has_focus_GTK_HAS_F"><p>&#39;has-focus&#39; / &#39;GTK_HAS_FOCUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_can_default_GTK_CAN"><p>&#39;can-default&#39; / &#39;GTK_CAN_DEFAULT&#39;</p></a>
+<li class="POD_ITEM"><a name="_has_default_GTK_HAS"><p>&#39;has-default&#39; / &#39;GTK_HAS_DEFAULT&#39;</p></a>
+<li class="POD_ITEM"><a name="_has_grab_GTK_HAS_GR"><p>&#39;has-grab&#39; / &#39;GTK_HAS_GRAB&#39;</p></a>
+<li class="POD_ITEM"><a name="_rc_style_GTK_RC_STY"><p>&#39;rc-style&#39; / &#39;GTK_RC_STYLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_composite_child_GTK"><p>&#39;composite-child&#39; / &#39;GTK_COMPOSITE_CHILD&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_reparent_GTK_NO_"><p>&#39;no-reparent&#39; / &#39;GTK_NO_REPARENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_app_paintable_GTK_A"><p>&#39;app-paintable&#39; / &#39;GTK_APP_PAINTABLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_receives_default_GT"><p>&#39;receives-default&#39; / &#39;GTK_RECEIVES_DEFAULT&#39;</p></a>
+<li class="POD_ITEM"><a name="_double_buffered_GTK"><p>&#39;double-buffered&#39; / &#39;GTK_DOUBLE_BUFFERED&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_show_all_GTK_NO_"><p>&#39;no-show-all&#39; / &#39;GTK_NO_SHOW_ALL&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_WidgetHelp">enum Gtk2::WidgetHelpType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tooltip_GTK_WIDGET_"><p>&#39;tooltip&#39; / &#39;GTK_WIDGET_HELP_TOOLTIP&#39;</p></a>
+<li class="POD_ITEM"><a name="_whats_this_GTK_WIDG"><p>&#39;whats-this&#39; / &#39;GTK_WIDGET_HELP_WHATS_THIS&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_WindowPosi">enum Gtk2::WindowPosition</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_WIN_POS_NO"><p>&#39;none&#39; / &#39;GTK_WIN_POS_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_center_GTK_WIN_POS_"><p>&#39;center&#39; / &#39;GTK_WIN_POS_CENTER&#39;</p></a>
+<li class="POD_ITEM"><a name="_mouse_GTK_WIN_POS_M"><p>&#39;mouse&#39; / &#39;GTK_WIN_POS_MOUSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_center_always_GTK_W"><p>&#39;center-always&#39; / &#39;GTK_WIN_POS_CENTER_ALWAYS&#39;</p></a>
+<li class="POD_ITEM"><a name="_center_on_parent_GT"><p>&#39;center-on-parent&#39; / &#39;GTK_WIN_POS_CENTER_ON_PARENT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_WindowType">enum Gtk2::WindowType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_toplevel_GTK_WINDOW"><p>&#39;toplevel&#39; / &#39;GTK_WINDOW_TOPLEVEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_popup_GTK_WINDOW_PO"><p>&#39;popup&#39; / &#39;GTK_WINDOW_POPUP&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_WrapMode">enum Gtk2::WrapMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_WRAP_NONE_"><p>&#39;none&#39; / &#39;GTK_WRAP_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_char_GTK_WRAP_CHAR_"><p>&#39;char&#39; / &#39;GTK_WRAP_CHAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_word_GTK_WRAP_WORD_"><p>&#39;word&#39; / &#39;GTK_WRAP_WORD&#39;</p></a>
+<li class="POD_ITEM"><a name="_word_char_GTK_WRAP_"><p>&#39;word-char&#39; / &#39;GTK_WRAP_WORD_CHAR&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_AssistantP">enum Gtk2::AssistantPageType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_content_GTK_ASSISTA"><p>&#39;content&#39; / &#39;GTK_ASSISTANT_PAGE_CONTENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_intro_GTK_ASSISTANT"><p>&#39;intro&#39; / &#39;GTK_ASSISTANT_PAGE_INTRO&#39;</p></a>
+<li class="POD_ITEM"><a name="_confirm_GTK_ASSISTA"><p>&#39;confirm&#39; / &#39;GTK_ASSISTANT_PAGE_CONFIRM&#39;</p></a>
+<li class="POD_ITEM"><a name="_summary_GTK_ASSISTA"><p>&#39;summary&#39; / &#39;GTK_ASSISTANT_PAGE_SUMMARY&#39;</p></a>
+<li class="POD_ITEM"><a name="_progress_GTK_ASSIST"><p>&#39;progress&#39; / &#39;GTK_ASSISTANT_PAGE_PROGRESS&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_CellRender1">enum Gtk2::CellRendererAccelMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_gtk_GTK_CELL_RENDER"><p>&#39;gtk&#39; / &#39;GTK_CELL_RENDERER_ACCEL_MODE_GTK&#39;</p></a>
+<li class="POD_ITEM"><a name="_other_GTK_CELL_REND"><p>&#39;other&#39; / &#39;GTK_CELL_RENDERER_ACCEL_MODE_OTHER&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PageOrient">enum Gtk2::PageOrientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_portrait_GTK_PAGE_O"><p>&#39;portrait&#39; / &#39;GTK_PAGE_ORIENTATION_PORTRAIT&#39;</p></a>
+<li class="POD_ITEM"><a name="_landscape_GTK_PAGE_"><p>&#39;landscape&#39; / &#39;GTK_PAGE_ORIENTATION_LANDSCAPE&#39;</p></a>
+<li class="POD_ITEM"><a name="_reverse_portrait_GT"><p>&#39;reverse-portrait&#39; / &#39;GTK_PAGE_ORIENTATION_REVERSE_PORTRAIT&#39;</p></a>
+<li class="POD_ITEM"><a name="_reverse_landscape_G"><p>&#39;reverse-landscape&#39; / &#39;GTK_PAGE_ORIENTATION_REVERSE_LANDSCAPE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PrintOpera">enum Gtk2::PrintOperationAction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_print_dialog_GTK_PR"><p>&#39;print-dialog&#39; / &#39;GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG&#39;</p></a>
+<li class="POD_ITEM"><a name="_print_GTK_PRINT_OPE"><p>&#39;print&#39; / &#39;GTK_PRINT_OPERATION_ACTION_PRINT&#39;</p></a>
+<li class="POD_ITEM"><a name="_preview_GTK_PRINT_O"><p>&#39;preview&#39; / &#39;GTK_PRINT_OPERATION_ACTION_PREVIEW&#39;</p></a>
+<li class="POD_ITEM"><a name="_export_GTK_PRINT_OP"><p>&#39;export&#39; / &#39;GTK_PRINT_OPERATION_ACTION_EXPORT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PrintOpera1">enum Gtk2::PrintOperationResult</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_error_GTK_PRINT_OPE"><p>&#39;error&#39; / &#39;GTK_PRINT_OPERATION_RESULT_ERROR&#39;</p></a>
+<li class="POD_ITEM"><a name="_apply_GTK_PRINT_OPE"><p>&#39;apply&#39; / &#39;GTK_PRINT_OPERATION_RESULT_APPLY&#39;</p></a>
+<li class="POD_ITEM"><a name="_cancel_GTK_PRINT_OP"><p>&#39;cancel&#39; / &#39;GTK_PRINT_OPERATION_RESULT_CANCEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_in_progress_GTK_PRI"><p>&#39;in-progress&#39; / &#39;GTK_PRINT_OPERATION_RESULT_IN_PROGRESS&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PrintStatu">enum Gtk2::PrintStatus</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_initial_GTK_PRINT_S"><p>&#39;initial&#39; / &#39;GTK_PRINT_STATUS_INITIAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_preparing_GTK_PRINT"><p>&#39;preparing&#39; / &#39;GTK_PRINT_STATUS_PREPARING&#39;</p></a>
+<li class="POD_ITEM"><a name="_generating_data_GTK"><p>&#39;generating-data&#39; / &#39;GTK_PRINT_STATUS_GENERATING_DATA&#39;</p></a>
+<li class="POD_ITEM"><a name="_sending_data_GTK_PR"><p>&#39;sending-data&#39; / &#39;GTK_PRINT_STATUS_SENDING_DATA&#39;</p></a>
+<li class="POD_ITEM"><a name="_pending_GTK_PRINT_S"><p>&#39;pending&#39; / &#39;GTK_PRINT_STATUS_PENDING&#39;</p></a>
+<li class="POD_ITEM"><a name="_pending_issue_GTK_P"><p>&#39;pending-issue&#39; / &#39;GTK_PRINT_STATUS_PENDING_ISSUE&#39;</p></a>
+<li class="POD_ITEM"><a name="_printing_GTK_PRINT_"><p>&#39;printing&#39; / &#39;GTK_PRINT_STATUS_PRINTING&#39;</p></a>
+<li class="POD_ITEM"><a name="_finished_GTK_PRINT_"><p>&#39;finished&#39; / &#39;GTK_PRINT_STATUS_FINISHED&#39;</p></a>
+<li class="POD_ITEM"><a name="_finished_aborted_GT"><p>&#39;finished-aborted&#39; / &#39;GTK_PRINT_STATUS_FINISHED_ABORTED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_RecentFil">flags Gtk2::RecentFilterFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_GTK_RECENT_FILT"><p>&#39;uri&#39; / &#39;GTK_RECENT_FILTER_URI&#39;</p></a>
+<li class="POD_ITEM"><a name="_display_name_GTK_RE"><p>&#39;display-name&#39; / &#39;GTK_RECENT_FILTER_DISPLAY_NAME&#39;</p></a>
+<li class="POD_ITEM"><a name="_mime_type_GTK_RECEN"><p>&#39;mime-type&#39; / &#39;GTK_RECENT_FILTER_MIME_TYPE&#39;</p></a>
+<li class="POD_ITEM"><a name="_application_GTK_REC"><p>&#39;application&#39; / &#39;GTK_RECENT_FILTER_APPLICATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_group_GTK_RECENT_FI"><p>&#39;group&#39; / &#39;GTK_RECENT_FILTER_GROUP&#39;</p></a>
+<li class="POD_ITEM"><a name="_age_GTK_RECENT_FILT"><p>&#39;age&#39; / &#39;GTK_RECENT_FILTER_AGE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_RecentSort">enum Gtk2::RecentSortType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_RECENT_SOR"><p>&#39;none&#39; / &#39;GTK_RECENT_SORT_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_mru_GTK_RECENT_SORT"><p>&#39;mru&#39; / &#39;GTK_RECENT_SORT_MRU&#39;</p></a>
+<li class="POD_ITEM"><a name="_lru_GTK_RECENT_SORT"><p>&#39;lru&#39; / &#39;GTK_RECENT_SORT_LRU&#39;</p></a>
+<li class="POD_ITEM"><a name="_custom_GTK_RECENT_S"><p>&#39;custom&#39; / &#39;GTK_RECENT_SORT_CUSTOM&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Sensitivit">enum Gtk2::SensitivityType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_auto_GTK_SENSITIVIT"><p>&#39;auto&#39; / &#39;GTK_SENSITIVITY_AUTO&#39;</p></a>
+<li class="POD_ITEM"><a name="_on_GTK_SENSITIVITY_"><p>&#39;on&#39; / &#39;GTK_SENSITIVITY_ON&#39;</p></a>
+<li class="POD_ITEM"><a name="_off_GTK_SENSITIVITY"><p>&#39;off&#39; / &#39;GTK_SENSITIVITY_OFF&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_TreeViewGr">enum Gtk2::TreeViewGridLines</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_TREE_VIEW_"><p>&#39;none&#39; / &#39;GTK_TREE_VIEW_GRID_LINES_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_horizontal_GTK_TREE"><p>&#39;horizontal&#39; / &#39;GTK_TREE_VIEW_GRID_LINES_HORIZONTAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_vertical_GTK_TREE_V"><p>&#39;vertical&#39; / &#39;GTK_TREE_VIEW_GRID_LINES_VERTICAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_both_GTK_TREE_VIEW_"><p>&#39;both&#39; / &#39;GTK_TREE_VIEW_GRID_LINES_BOTH&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Unit">enum Gtk2::Unit</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixel_GTK_UNIT_PIXE"><p>&#39;pixel&#39; / &#39;GTK_UNIT_PIXEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_points_GTK_UNIT_POI"><p>&#39;points&#39; / &#39;GTK_UNIT_POINTS&#39;</p></a>
+<li class="POD_ITEM"><a name="_inch_GTK_UNIT_INCH_"><p>&#39;inch&#39; / &#39;GTK_UNIT_INCH&#39;</p></a>
+<li class="POD_ITEM"><a name="_mm_GTK_UNIT_MM_"><p>&#39;mm&#39; / &#39;GTK_UNIT_MM&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_FileChoose">enum Gtk2::FileChooserAction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_open_GTK_FILE_CHOOS"><p>&#39;open&#39; / &#39;GTK_FILE_CHOOSER_ACTION_OPEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_save_GTK_FILE_CHOOS"><p>&#39;save&#39; / &#39;GTK_FILE_CHOOSER_ACTION_SAVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_select_folder_GTK_F"><p>&#39;select-folder&#39; / &#39;GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER&#39;</p></a>
+<li class="POD_ITEM"><a name="_create_folder_GTK_F"><p>&#39;create-folder&#39; / &#39;GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_FileChoose1">enum Gtk2::FileChooserError</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_nonexistent_GTK_FIL"><p>&#39;nonexistent&#39; / &#39;GTK_FILE_CHOOSER_ERROR_NONEXISTENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bad_filename_GTK_FI"><p>&#39;bad-filename&#39; / &#39;GTK_FILE_CHOOSER_ERROR_BAD_FILENAME&#39;</p></a>
+<li class="POD_ITEM"><a name="_already_exists_GTK_"><p>&#39;already-exists&#39; / &#39;GTK_FILE_CHOOSER_ERROR_ALREADY_EXISTS&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_FileFilte">flags Gtk2::FileFilterFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_GTK_FILE_F"><p>&#39;filename&#39; / &#39;GTK_FILE_FILTER_FILENAME&#39;</p></a>
+<li class="POD_ITEM"><a name="_uri_GTK_FILE_FILTER"><p>&#39;uri&#39; / &#39;GTK_FILE_FILTER_URI&#39;</p></a>
+<li class="POD_ITEM"><a name="_display_name_GTK_FI"><p>&#39;display-name&#39; / &#39;GTK_FILE_FILTER_DISPLAY_NAME&#39;</p></a>
+<li class="POD_ITEM"><a name="_mime_type_GTK_FILE_"><p>&#39;mime-type&#39; / &#39;GTK_FILE_FILTER_MIME_TYPE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IconThemeE">enum Gtk2::IconThemeError</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_not_found_GTK_ICON_"><p>&#39;not-found&#39; / &#39;GTK_ICON_THEME_NOT_FOUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_failed_GTK_ICON_THE"><p>&#39;failed&#39; / &#39;GTK_ICON_THEME_FAILED&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_IconLooku">flags Gtk2::IconLookupFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_no_svg_GTK_ICON_LOO"><p>&#39;no-svg&#39; / &#39;GTK_ICON_LOOKUP_NO_SVG&#39;</p></a>
+<li class="POD_ITEM"><a name="_force_svg_GTK_ICON_"><p>&#39;force-svg&#39; / &#39;GTK_ICON_LOOKUP_FORCE_SVG&#39;</p></a>
+<li class="POD_ITEM"><a name="_use_builtin_GTK_ICO"><p>&#39;use-builtin&#39; / &#39;GTK_ICON_LOOKUP_USE_BUILTIN&#39;</p></a>
+<li class="POD_ITEM"><a name="_generic_fallback_GT"><p>&#39;generic-fallback&#39; / &#39;GTK_ICON_LOOKUP_GENERIC_FALLBACK&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_UIManager">flags Gtk2::UIManagerItemType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_auto_GTK_UI_MANAGER"><p>&#39;auto&#39; / &#39;GTK_UI_MANAGER_AUTO&#39;</p></a>
+<li class="POD_ITEM"><a name="_menubar_GTK_UI_MANA"><p>&#39;menubar&#39; / &#39;GTK_UI_MANAGER_MENUBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GTK_UI_MANAGER"><p>&#39;menu&#39; / &#39;GTK_UI_MANAGER_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_toolbar_GTK_UI_MANA"><p>&#39;toolbar&#39; / &#39;GTK_UI_MANAGER_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_placeholder_GTK_UI_"><p>&#39;placeholder&#39; / &#39;GTK_UI_MANAGER_PLACEHOLDER&#39;</p></a>
+<li class="POD_ITEM"><a name="_popup_GTK_UI_MANAGE"><p>&#39;popup&#39; / &#39;GTK_UI_MANAGER_POPUP&#39;</p></a>
+<li class="POD_ITEM"><a name="_menuitem_GTK_UI_MAN"><p>&#39;menuitem&#39; / &#39;GTK_UI_MANAGER_MENUITEM&#39;</p></a>
+<li class="POD_ITEM"><a name="_toolitem_GTK_UI_MAN"><p>&#39;toolitem&#39; / &#39;GTK_UI_MANAGER_TOOLITEM&#39;</p></a>
+<li class="POD_ITEM"><a name="_separator_GTK_UI_MA"><p>&#39;separator&#39; / &#39;GTK_UI_MANAGER_SEPARATOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_accelerator_GTK_UI_"><p>&#39;accelerator&#39; / &#39;GTK_UI_MANAGER_ACCELERATOR&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_OwnerC">enum Gtk2::Gdk::OwnerChange</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_new_owner_GDK_OWNER"><p>&#39;new-owner&#39; / &#39;GDK_OWNER_CHANGE_NEW_OWNER&#39;</p></a>
+<li class="POD_ITEM"><a name="_destroy_GDK_OWNER_C"><p>&#39;destroy&#39; / &#39;GDK_OWNER_CHANGE_DESTROY&#39;</p></a>
+<li class="POD_ITEM"><a name="_close_GDK_OWNER_CHA"><p>&#39;close&#39; / &#39;GDK_OWNER_CHANGE_CLOSE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Pixbuf2">enum Gtk2::Gdk::PixbufRotation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GDK_PIXBUF_ROT"><p>&#39;none&#39; / &#39;GDK_PIXBUF_ROTATE_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_counterclockwise_GD"><p>&#39;counterclockwise&#39; / &#39;GDK_PIXBUF_ROTATE_COUNTERCLOCKWISE&#39;</p></a>
+<li class="POD_ITEM"><a name="_upsidedown_GDK_PIXB"><p>&#39;upsidedown&#39; / &#39;GDK_PIXBUF_ROTATE_UPSIDEDOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_clockwise_GDK_PIXBU"><p>&#39;clockwise&#39; / &#39;GDK_PIXBUF_ROTATE_CLOCKWISE&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PackDirect">enum Gtk2::PackDirection</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ltr_GTK_PACK_DIRECT"><p>&#39;ltr&#39; / &#39;GTK_PACK_DIRECTION_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_rtl_GTK_PACK_DIRECT"><p>&#39;rtl&#39; / &#39;GTK_PACK_DIRECTION_RTL&#39;</p></a>
+<li class="POD_ITEM"><a name="_ttb_GTK_PACK_DIRECT"><p>&#39;ttb&#39; / &#39;GTK_PACK_DIRECTION_TTB&#39;</p></a>
+<li class="POD_ITEM"><a name="_btt_GTK_PACK_DIRECT"><p>&#39;btt&#39; / &#39;GTK_PACK_DIRECTION_BTT&#39;</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IconView_D">enum Gtk2::IconView::DropPosition</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_no_drop_GTK_ICON_VI"><p>&#39;no-drop&#39; / &#39;GTK_ICON_VIEW_NO_DROP&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_into_GTK_ICON_"><p>&#39;drop-into&#39; / &#39;GTK_ICON_VIEW_DROP_INTO&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_left_GTK_ICON_"><p>&#39;drop-left&#39; / &#39;GTK_ICON_VIEW_DROP_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_right_GTK_ICON"><p>&#39;drop-right&#39; / &#39;GTK_ICON_VIEW_DROP_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_above_GTK_ICON"><p>&#39;drop-above&#39; / &#39;GTK_ICON_VIEW_DROP_ABOVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_drop_below_GTK_ICON"><p>&#39;drop-below&#39; / &#39;GTK_ICON_VIEW_DROP_BELOW&#39;</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Glib.html">Glib</a>, <a class="POD_LINK" href="../Glib/Flags.html">Glib::Flags</a>
+</p>
+<h2 class="POD_HEAD1"><a name="AUTHOR">AUTHOR</a></h2>
+<p class="POD_TEXT">
+Generated by tools/podifyenums.pl, using Gtk2 compiled against GTK+
+version 2.12.12.
+</p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:01:09 2009
+</body>
+</html>
+

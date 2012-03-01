@@ -1,0 +1,566 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Glib::KeyFile</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/Log.html">Next:<br />Glib::Log</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/index.html">Previous:<br />Glib::index</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Glib::KeyFile</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#keyfile_Glib_KeyFile">keyfile = Glib::KeyFile-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_key_file_get">boolean = $key_file-&gt;<b>get_boolean</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#list_key_file_get_bo">list = $key_file-&gt;<b>get_boolean_list</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_boolea">$key_file-&gt;<b>set_boolean_list</b> ($group_name, $key, ...)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_boolea1">$key_file-&gt;<b>set_boolean</b> ($group_name, $key, $value)</a>
+<li><a class="POD_NAVLINK" href="#string_key_file_get_">string = $key_file-&gt;<b>get_comment</b> ($group_name=undef, $key=undef)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_commen">$key_file-&gt;<b>set_comment</b> ($group_name, $key, $comment)</a>
+<li><a class="POD_NAVLINK" href="#double_key_file_get_">double = $key_file-&gt;<b>get_double</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#list_key_file_get_do">list = $key_file-&gt;<b>get_double_list</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_double">$key_file-&gt;<b>set_double_list</b> ($group_name, $key, ...)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_double1">$key_file-&gt;<b>set_double</b> ($group_name, $key, $value)</a>
+<li><a class="POD_NAVLINK" href="#list_key_file_get_gr">list = $key_file-&gt;<b>get_groups</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_key_file_has">boolean = $key_file-&gt;<b>has_group</b> ($group_name)</a>
+<li><a class="POD_NAVLINK" href="#boolean_key_file_has1">boolean = $key_file-&gt;<b>has_key</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#integer_key_file_get">integer = $key_file-&gt;<b>get_integer</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#list_key_file_get_in">list = $key_file-&gt;<b>get_integer_list</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_intege">$key_file-&gt;<b>set_integer_list</b> ($group_name, $key, ...)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_intege1">$key_file-&gt;<b>set_integer</b> ($group_name, $key, $value)</a>
+<li><a class="POD_NAVLINK" href="#list_key_file_get_ke">list = $key_file-&gt;<b>get_keys</b> ($group_name)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_list_s">$key_file-&gt;<b>set_list_separator</b> ($separator)</a>
+<li><a class="POD_NAVLINK" href="#boolean_key_file_loa">boolean = $key_file-&gt;<b>load_from_data</b> ($buf, $flags)</a>
+<li><a class="POD_NAVLINK" href="#boolean_key_file_loa1">boolean = $key_file-&gt;<b>load_from_data_dirs</b> ($file, $flags)</a>
+<li><a class="POD_NAVLINK" href="#_boolean_scalar_key_">(boolean, scalar) = $key_file-&gt;<b>load_from_data_dirs</b> ($file, $flags)</a>
+<li><a class="POD_NAVLINK" href="#boolean_key_file_loa2">boolean = $key_file-&gt;<b>load_from_dirs</b> ($file, $flags, @search_dirs)</a>
+<li><a class="POD_NAVLINK" href="#_boolean_scalar_key_1">(boolean, scalar) = $key_file-&gt;<b>load_from_dirs</b> ($file, $flags, @search_dirs)</a>
+<li><a class="POD_NAVLINK" href="#boolean_key_file_loa3">boolean = $key_file-&gt;<b>load_from_file</b> ($file, $flags)</a>
+<li><a class="POD_NAVLINK" href="#string_key_file_get_1">string = $key_file-&gt;<b>get_locale_string</b> ($group_name, $key, $locale=undef)</a>
+<li><a class="POD_NAVLINK" href="#list_key_file_get_lo">list = $key_file-&gt;<b>get_locale_string_list</b> ($group_name, $key, $locale)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_locale">$key_file-&gt;<b>set_locale_string_list</b> ($group_name, $key, $locale, ...)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_locale1">$key_file-&gt;<b>set_locale_string</b> ($group_name, $key, $locale, $string)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_remove_com">$key_file-&gt;<b>remove_comment</b> ($group_name=undef, $key=undef)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_remove_gro">$key_file-&gt;<b>remove_group</b> ($group_name)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_remove_key">$key_file-&gt;<b>remove_key</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#string_key_file_get_2">string = $key_file-&gt;<b>get_start_group</b></a>
+<li><a class="POD_NAVLINK" href="#string_key_file_get_3">string = $key_file-&gt;<b>get_string</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#list_key_file_get_st">list = $key_file-&gt;<b>get_string_list</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_string">$key_file-&gt;<b>set_string_list</b> ($group_name, $key, ...)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_string1">$key_file-&gt;<b>set_string</b> ($group_name, $key, $value)</a>
+<li><a class="POD_NAVLINK" href="#string_key_file_to_d">string = $key_file-&gt;<b>to_data</b></a>
+<li><a class="POD_NAVLINK" href="#string_key_file_get_4">string = $key_file-&gt;<b>get_value</b> ($group_name, $key)</a>
+<li><a class="POD_NAVLINK" href="#_key_file_set_value_">$key_file-&gt;<b>set_value</b> ($group_name, $key, $value)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#flags_Glib_KeyFileFl">flags Glib::KeyFileFlags</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Glib::KeyFile -  Parser for .ini-like files
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  use Glib;
+
+  $data .= $_ while (&lt;DATA&gt;);
+
+  $f = Glib::KeyFile-&gt;new;
+  $f-&gt;load_from_data($data);
+  if ($f-&gt;has_group(&#39;Main&#39;) &amp;&amp; $f-&gt;has_key(&#39;Main&#39;, &#39;someotherkey&#39;)) {
+      $val = $f-&gt;get_integer(&#39;Main&#39;, &#39;someotherkey&#39;);
+      print $val . &quot;\n&quot;;
+  }
+  0;
+  __DATA__
+  # a comment
+  [MainSection]
+  somekey=somevalue
+  someotherkey=42
+  someboolkey=true
+  listkey=1;1;2;3;5;8;13;21
+  localekey=Good Morning
+  localekey[it]=Buon giorno
+  localekey[es]=Buenas dias
+  localekey[fr]=Bonjour
+</pre>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+<b>Glib::KeyFile</b> lets you parse, edit or create files containing groups of
+key-value pairs, which we call key files for lack of a better name. Several
+freedesktop.org specifications use key files now, e.g the Desktop Entry
+Specification and the Icon Theme Specification.
+</p>
+<p class="POD_TEXT">
+The syntax of key files is described in detail in the Desktop Entry
+Specification, here is a quick summary: Key files consists of groups of
+key-value pairs, interspersed with comments.
+</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="keyfile_Glib_KeyFile">keyfile = Glib::KeyFile-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_key_file_get">boolean = $key_file-&gt;<b>get_boolean</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retrieves a boolean value from $key inside $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="list_key_file_get_bo">list = $key_file-&gt;<b>get_boolean_list</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_1"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_1"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retrieves a list of booleans from $key inside $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_boolea">$key_file-&gt;<b>set_boolean_list</b> ($group_name, $key, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_2"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_2"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_list_list_of_boolea"><p>... (list) list of booleans</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets a list of booleans in $key inside $group_name.  If $key cannot be found
+then it is created.  If $group_name cannot be found then it is created.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_boolea1">$key_file-&gt;<b>set_boolean</b> ($group_name, $key, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_3"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_3"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_value_boolean_"><p>$value (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets a boolean value to $key inside $group_name.
+If $key is not found, it is created.
+</p>
+<h3 class="POD_HEAD2"><a name="string_key_file_get_">string = $key_file-&gt;<b>get_comment</b> ($group_name=undef, $key=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_o"><p>$group_name (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_key_string_or_undef"><p>$key (string or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retreives a comment above $key from $group_name.  If $key is undef then
+$comment will be read from above $group_name.  If both $key and $group_name
+are undef, then $comment will be read from above the first group in the file.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_commen">$key_file-&gt;<b>set_comment</b> ($group_name, $key, $comment)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_o1"><p>$group_name (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_key_string_or_undef1"><p>$key (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_comment_string_"><p>$comment (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Places a comment above $key from $group_name.  If $key is undef then $comment
+will be written above $group_name.  If both $key and $group_name are undef,
+then $comment will be written above the first group in the file.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="double_key_file_get_">double = $key_file-&gt;<b>get_double</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_4"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_4"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retrieves a double value from $key inside $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="list_key_file_get_do">list = $key_file-&gt;<b>get_double_list</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_5"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_5"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retrieves a list of doubles from $key inside $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_double">$key_file-&gt;<b>set_double_list</b> ($group_name, $key, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_6"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_6"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_list_list_of_double"><p>... (list) list of doubles</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets a list of doubles in $key inside $group_name.  If $key cannot be found
+then it is created.  If $group_name cannot be found then it is created.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_double1">$key_file-&gt;<b>set_double</b> ($group_name, $key, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_7"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_7"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_value_double_"><p>$value (double)</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets a double value to $key inside $group_name.
+If $key is not found, it is created.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="list_key_file_get_gr">list = $key_file-&gt;<b>get_groups</b></a></h3>
+<p class="POD_TEXT">
+Returns the list of groups inside the key_file.
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_key_file_has">boolean = $key_file-&gt;<b>has_group</b> ($group_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_8"><p>$group_name (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Checks whether $group_name is present in $key_file.
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_key_file_has1">boolean = $key_file-&gt;<b>has_key</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_9"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_8"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Checks whether $group_name has $key in it.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="integer_key_file_get">integer = $key_file-&gt;<b>get_integer</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_10"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_9"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retrieves an integer value from $key inside $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="list_key_file_get_in">list = $key_file-&gt;<b>get_integer_list</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_11"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_10"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retrieves a list of integers from $key inside $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_intege">$key_file-&gt;<b>set_integer_list</b> ($group_name, $key, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_12"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_11"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_list_list_of_intege"><p>... (list) list of integers</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets a list of doubles in $key inside $group_name.  If $key cannot be found
+then it is created.  If $group_name cannot be found then it is created.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_intege1">$key_file-&gt;<b>set_integer</b> ($group_name, $key, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_13"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_12"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_value_integer_"><p>$value (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets an integer value to $key inside $group_name.
+If $key is not found, it is created.
+</p>
+<h3 class="POD_HEAD2"><a name="list_key_file_get_ke">list = $key_file-&gt;<b>get_keys</b> ($group_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_14"><p>$group_name (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns the list of keys inside a group of the key file.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_list_s">$key_file-&gt;<b>set_list_separator</b> ($separator)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_separator_string_"><p>$separator (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets the list separator character.
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_key_file_loa">boolean = $key_file-&gt;<b>load_from_data</b> ($buf, $flags)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_buf_scalar_"><p>$buf (scalar)</p></a>
+<li class="POD_ITEM"><a name="_flags_Glib_KeyFileF"><p>$flags (Glib::KeyFileFlags)</p></a>
+</ul>
+<p class="POD_TEXT">
+Parses a string containing a key file structure.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_key_file_loa1">boolean = $key_file-&gt;<b>load_from_data_dirs</b> ($file, $flags)</a></h3>
+<h3 class="POD_HEAD2"><a name="_boolean_scalar_key_">(boolean, scalar) = $key_file-&gt;<b>load_from_data_dirs</b> ($file, $flags)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_file_string_"><p>$file (string)</p></a>
+<li class="POD_ITEM"><a name="_flags_Glib_KeyFileF1"><p>$flags (Glib::KeyFileFlags)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Parses a key file, searching for it inside the data directories.
+In scalar context, it returns a boolean value (true on success, false otherwise);
+in array context, it returns a boolean value and the full path of the file.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_key_file_loa2">boolean = $key_file-&gt;<b>load_from_dirs</b> ($file, $flags, @search_dirs)</a></h3>
+<h3 class="POD_HEAD2"><a name="_boolean_scalar_key_1">(boolean, scalar) = $key_file-&gt;<b>load_from_dirs</b> ($file, $flags, @search_dirs)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_file_string_1"><p>$file (string)</p></a>
+<li class="POD_ITEM"><a name="_flags_Glib_KeyFileF2"><p>$flags (Glib::KeyFileFlags)</p></a>
+<li class="POD_ITEM"><a name="_list_"><p>... (list)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Parses a key file, searching for it inside the specified directories.
+In scalar context, it returns a boolean value (true on success, false otherwise);
+in array context, it returns a boolean value and the full path of the file.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.14
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_key_file_loa3">boolean = $key_file-&gt;<b>load_from_file</b> ($file, $flags)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_file_string_2"><p>$file (string)</p></a>
+<li class="POD_ITEM"><a name="_flags_Glib_KeyFileF3"><p>$flags (Glib::KeyFileFlags)</p></a>
+</ul>
+<p class="POD_TEXT">
+Parses a key file.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="string_key_file_get_1">string = $key_file-&gt;<b>get_locale_string</b> ($group_name, $key, $locale=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_15"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_13"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_locale_string_or_un"><p>$locale (string or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns the value associated with $key under $group_name translated in the
+given $locale if available.  If $locale is undef then the current locale is
+assumed.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="list_key_file_get_lo">list = $key_file-&gt;<b>get_locale_string_list</b> ($group_name, $key, $locale)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_16"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_14"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_locale_string_"><p>$locale (string)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_locale">$key_file-&gt;<b>set_locale_string_list</b> ($group_name, $key, $locale, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_17"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_15"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_locale_string_1"><p>$locale (string)</p></a>
+<li class="POD_ITEM"><a name="_list_1"><p>... (list)</p></a>
+</ul>
+<p class="POD_TEXT">
+Associates a list of string values for $key and $locale under $group_name.
+If the translation for $key cannot be found then it is created.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_locale1">$key_file-&gt;<b>set_locale_string</b> ($group_name, $key, $locale, $string)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_18"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_16"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_locale_string_2"><p>$locale (string)</p></a>
+<li class="POD_ITEM"><a name="_string_string_"><p>$string (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_key_file_remove_com">$key_file-&gt;<b>remove_comment</b> ($group_name=undef, $key=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_o2"><p>$group_name (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_key_string_or_undef2"><p>$key (string or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Removes a comment from a group in a key file.  If $key is undef, the comment
+will be removed from above $group_name.  If both $key and $group_name are
+undef, the comment will be removed from the top of the key file.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_remove_gro">$key_file-&gt;<b>remove_group</b> ($group_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_19"><p>$group_name (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Removes a group from a key file.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_remove_key">$key_file-&gt;<b>remove_key</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_20"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_17"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Removes a key from $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="string_key_file_get_2">string = $key_file-&gt;<b>get_start_group</b></a></h3>
+<p class="POD_TEXT">
+Returns the first group inside a key file.
+</p>
+<h3 class="POD_HEAD2"><a name="string_key_file_get_3">string = $key_file-&gt;<b>get_string</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_21"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_18"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retrieves a string value from $key inside $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="list_key_file_get_st">list = $key_file-&gt;<b>get_string_list</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_22"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_19"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retrieves a list of strings from $key inside $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_string">$key_file-&gt;<b>set_string_list</b> ($group_name, $key, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_23"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_20"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_list_list_of_string"><p>... (list) list of strings</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets a list of strings in $key inside $group_name.  The strings will be escaped
+if contain special characters.  If $key cannot be found then it is created.  If
+$group_name cannot be found then it is created.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_string1">$key_file-&gt;<b>set_string</b> ($group_name, $key, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_24"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_21"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_value_string_"><p>$value (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets a string value to $key inside $group_name.  The string will be escaped if
+it containes special characters.
+If $key is not found, it is created.
+</p>
+<h3 class="POD_HEAD2"><a name="string_key_file_to_d">string = $key_file-&gt;<b>to_data</b></a></h3>
+<p class="POD_TEXT">
+Returns the key file as a string.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="string_key_file_get_4">string = $key_file-&gt;<b>get_value</b> ($group_name, $key)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_25"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_22"><p>$key (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Retrieves the literal value of $key inside $group_name.
+</p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_key_file_set_value_">$key_file-&gt;<b>set_value</b> ($group_name, $key, $value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_name_string_26"><p>$group_name (string)</p></a>
+<li class="POD_ITEM"><a name="_key_string_23"><p>$key (string)</p></a>
+<li class="POD_ITEM"><a name="_value_string_1"><p>$value (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets the literal value of $key inside $group_name.
+If $key cannot be found, it is created.
+If $group_name cannot be found, it is created.
+</p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="flags_Glib_KeyFileFl">flags Glib::KeyFileFlags</a></h3>
+<p></p>
+<p></p>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_G_KEY_FILE_NON"><p>&#39;none&#39; / &#39;G_KEY_FILE_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_keep_comments_G_KEY"><p>&#39;keep-comments&#39; / &#39;G_KEY_FILE_KEEP_COMMENTS&#39;</p></a>
+<li class="POD_ITEM"><a name="_keep_translations_G"><p>&#39;keep-translations&#39; / &#39;G_KEY_FILE_KEEP_TRANSLATIONS&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Glib.html">Glib</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2009 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Glib.html">Glib</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:57:35 2009
+</body>
+</html>
+

@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::PrintOperation</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/PrintOperationPreview.html">Next:<br />Gtk2::PrintOperationPreview</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/PrintContext.html">Previous:<br />Gtk2::PrintContext</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::PrintOperation</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#printoperation_Gtk2_">printoperation = Gtk2::PrintOperation-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#_op_set_allow_async_">$op-&gt;<b>set_allow_async</b> ($allow_async)</a>
+<li><a class="POD_NAVLINK" href="#_op_cancel">$op-&gt;<b>cancel</b></a>
+<li><a class="POD_NAVLINK" href="#_op_set_current_page">$op-&gt;<b>set_current_page</b> ($current_page)</a>
+<li><a class="POD_NAVLINK" href="#_op_set_custom_tab_l">$op-&gt;<b>set_custom_tab_label</b> ($label)</a>
+<li><a class="POD_NAVLINK" href="#pagesetup_or_undef_o">pagesetup or undef = $op-&gt;<b>get_default_page_setup</b></a>
+<li><a class="POD_NAVLINK" href="#_op_set_default_page">$op-&gt;<b>set_default_page_setup</b> ($default_page_setup)</a>
+<li><a class="POD_NAVLINK" href="#scalar_op_get_error">scalar = $op-&gt;<b>get_error</b></a>
+<li><a class="POD_NAVLINK" href="#_op_set_export_filen">$op-&gt;<b>set_export_filename</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#boolean_op_is_finish">boolean = $op-&gt;<b>is_finished</b></a>
+<li><a class="POD_NAVLINK" href="#_op_set_job_name_job">$op-&gt;<b>set_job_name</b> ($job_name)</a>
+<li><a class="POD_NAVLINK" href="#_op_set_n_pages_n_pa">$op-&gt;<b>set_n_pages</b> ($n_pages)</a>
+<li><a class="POD_NAVLINK" href="#printsettings_or_und">printsettings or undef = $op-&gt;<b>get_print_settings</b></a>
+<li><a class="POD_NAVLINK" href="#_op_set_print_settin">$op-&gt;<b>set_print_settings</b> ($print_settings)</a>
+<li><a class="POD_NAVLINK" href="#printoperationresult">printoperationresult = $op-&gt;<b>run</b> ($action, $parent)</a>
+<li><a class="POD_NAVLINK" href="#_op_set_show_progres">$op-&gt;<b>set_show_progress</b> ($show_progress)</a>
+<li><a class="POD_NAVLINK" href="#printstatus_op_get_s">printstatus = $op-&gt;<b>get_status</b></a>
+<li><a class="POD_NAVLINK" href="#string_op_get_status">string = $op-&gt;<b>get_status_string</b></a>
+<li><a class="POD_NAVLINK" href="#_op_set_track_print_">$op-&gt;<b>set_track_print_status</b> ($track_status)</a>
+<li><a class="POD_NAVLINK" href="#_op_set_unit_unit_">$op-&gt;<b>set_unit</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#_op_set_use_full_pag">$op-&gt;<b>set_use_full_page</b> ($full_page)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PrintOpera">enum Gtk2::PrintOperationAction</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PrintOpera1">enum Gtk2::PrintOperationResult</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PrintStatu">enum Gtk2::PrintStatus</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Unit">enum Gtk2::Unit</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::PrintOperation
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::PrintOperation
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Gtk2::PrintOperationPreview
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="printoperation_Gtk2_">printoperation = Gtk2::PrintOperation-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_op_set_allow_async_">$op-&gt;<b>set_allow_async</b> ($allow_async)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_allow_async_boolean"><p>$allow_async (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_op_cancel">$op-&gt;<b>cancel</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_op_set_current_page">$op-&gt;<b>set_current_page</b> ($current_page)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_current_page_intege"><p>$current_page (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_op_set_custom_tab_l">$op-&gt;<b>set_custom_tab_label</b> ($label)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_label_string_"><p>$label (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="pagesetup_or_undef_o">pagesetup or undef = $op-&gt;<b>get_default_page_setup</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_op_set_default_page">$op-&gt;<b>set_default_page_setup</b> ($default_page_setup)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_default_page_setup_"><p>$default_page_setup (Gtk2::PageSetup or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_op_get_error">scalar = $op-&gt;<b>get_error</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_op_set_export_filen">$op-&gt;<b>set_export_filename</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_"><p>$filename (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_op_is_finish">boolean = $op-&gt;<b>is_finished</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_op_set_job_name_job">$op-&gt;<b>set_job_name</b> ($job_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_job_name_string_"><p>$job_name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_op_set_n_pages_n_pa">$op-&gt;<b>set_n_pages</b> ($n_pages)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_n_pages_integer_"><p>$n_pages (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="printsettings_or_und">printsettings or undef = $op-&gt;<b>get_print_settings</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_op_set_print_settin">$op-&gt;<b>set_print_settings</b> ($print_settings)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_print_settings_Gtk2"><p>$print_settings (Gtk2::PrintSettings or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="printoperationresult">printoperationresult = $op-&gt;<b>run</b> ($action, $parent)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_action_Gtk2_PrintOp"><p>$action (Gtk2::PrintOperationAction)</p></a>
+<li class="POD_ITEM"><a name="_parent_Gtk2_Window_"><p>$parent (Gtk2::Window or undef)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_op_set_show_progres">$op-&gt;<b>set_show_progress</b> ($show_progress)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_show_progress_boole"><p>$show_progress (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="printstatus_op_get_s">printstatus = $op-&gt;<b>get_status</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_op_get_status">string = $op-&gt;<b>get_status_string</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_op_set_track_print_">$op-&gt;<b>set_track_print_status</b> ($track_status)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_track_status_boolea"><p>$track_status (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_op_set_unit_unit_">$op-&gt;<b>set_unit</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_op_set_use_full_pag">$op-&gt;<b>set_use_full_page</b> ($full_page)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_full_page_boolean_"><p>$full_page (boolean)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_allow_async_boolean1">&#39;allow-async&#39; (boolean : readable / writable / private)</a>
+<dd>
+TRUE if print process may run asynchronous.
+<dt class="POD_ITEM"><a name="_current_page_intege1">&#39;current-page&#39; (integer : readable / writable / private)</a>
+<dd>
+The current page in the document
+<dt class="POD_ITEM"><a name="_custom_tab_label_st">&#39;custom-tab-label&#39; (string : readable / writable / private)</a>
+<dd>
+Label for the tab containing custom widgets.
+<dt class="POD_ITEM"><a name="_default_page_setup_1">&#39;default-page-setup&#39; (Gtk2::PageSetup : readable / writable / private)</a>
+<dd>
+The GtkPageSetup used by default
+<dt class="POD_ITEM"><a name="_export_filename_str">&#39;export-filename&#39; (string : readable / writable / private)</a>
+<dd>
+Export filename
+<dt class="POD_ITEM"><a name="_job_name_string_rea">&#39;job-name&#39; (string : readable / writable / private)</a>
+<dd>
+A string used for identifying the print job.
+<dt class="POD_ITEM"><a name="_n_pages_integer_rea">&#39;n-pages&#39; (integer : readable / writable / private)</a>
+<dd>
+The number of pages in the document.
+<dt class="POD_ITEM"><a name="_print_settings_Gtk21">&#39;print-settings&#39; (Gtk2::PrintSettings : readable / writable / private)</a>
+<dd>
+The GtkPrintSettings used for initializing the dialog
+<dt class="POD_ITEM"><a name="_show_progress_boole1">&#39;show-progress&#39; (boolean : readable / writable / private)</a>
+<dd>
+TRUE if a progress dialog is shown while printing.
+<dt class="POD_ITEM"><a name="_status_Gtk2_PrintSt">&#39;status&#39; (Gtk2::PrintStatus : readable / private)</a>
+<dd>
+The status of the print operation
+<dt class="POD_ITEM"><a name="_status_string_strin">&#39;status-string&#39; (string : readable / private)</a>
+<dd>
+A human-readable description of the status
+<dt class="POD_ITEM"><a name="_track_print_status_">&#39;track-print-status&#39; (boolean : readable / writable / private)</a>
+<dd>
+TRUE if the print operation will continue to report on the print job status after the print data has been sent to the printer or print server.
+<dt class="POD_ITEM"><a name="_unit_Gtk2_Unit_read">&#39;unit&#39; (Gtk2::Unit : readable / writable / private)</a>
+<dd>
+The unit in which distances can be measured in the context
+<dt class="POD_ITEM"><a name="_use_full_page_boole">&#39;use-full-page&#39; (boolean : readable / writable / private)</a>
+<dd>
+TRUE if the origin of the context should be at the corner of the page and not the corner of the imageable area
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="done_Gtk2_PrintOpera"><b>done</b> (Gtk2::PrintOperation, Gtk2::PrintOperationResult)</a>
+<dt><a name="begin_print_Gtk2_Pri"><b>begin-print</b> (Gtk2::PrintOperation, Gtk2::PrintContext)</a>
+<dt><a name="boolean_paginate_Gtk">boolean = <b>paginate</b> (Gtk2::PrintOperation, Gtk2::PrintContext)</a>
+<dt><a name="request_page_setup_G"><b>request-page-setup</b> (Gtk2::PrintOperation, Gtk2::PrintContext, integer, Gtk2::PageSetup)</a>
+<dt><a name="draw_page_Gtk2_Print"><b>draw-page</b> (Gtk2::PrintOperation, Gtk2::PrintContext, integer)</a>
+<dt><a name="end_print_Gtk2_Print"><b>end-print</b> (Gtk2::PrintOperation, Gtk2::PrintContext)</a>
+<dt><a name="status_changed_Gtk2_"><b>status-changed</b> (Gtk2::PrintOperation)</a>
+<dt><a name="Glib_Object_create_c">Glib::Object = <b>create-custom-widget</b> (Gtk2::PrintOperation)</a>
+<dt><a name="custom_widget_apply_"><b>custom-widget-apply</b> (Gtk2::PrintOperation, Gtk2::Widget)</a>
+<dt><a name="boolean_preview_Gtk2">boolean = <b>preview</b> (Gtk2::PrintOperation, Gtk2::PrintOperationPreview, Gtk2::PrintContext, Gtk2::Window)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PrintOpera">enum Gtk2::PrintOperationAction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_print_dialog_GTK_PR"><p>&#39;print-dialog&#39; / &#39;GTK_PRINT_OPERATION_ACTION_PRINT_DIALOG&#39;</p></a>
+<li class="POD_ITEM"><a name="_print_GTK_PRINT_OPE"><p>&#39;print&#39; / &#39;GTK_PRINT_OPERATION_ACTION_PRINT&#39;</p></a>
+<li class="POD_ITEM"><a name="_preview_GTK_PRINT_O"><p>&#39;preview&#39; / &#39;GTK_PRINT_OPERATION_ACTION_PREVIEW&#39;</p></a>
+<li class="POD_ITEM"><a name="_export_GTK_PRINT_OP"><p>&#39;export&#39; / &#39;GTK_PRINT_OPERATION_ACTION_EXPORT&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PrintOpera1">enum Gtk2::PrintOperationResult</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_error_GTK_PRINT_OPE"><p>&#39;error&#39; / &#39;GTK_PRINT_OPERATION_RESULT_ERROR&#39;</p></a>
+<li class="POD_ITEM"><a name="_apply_GTK_PRINT_OPE"><p>&#39;apply&#39; / &#39;GTK_PRINT_OPERATION_RESULT_APPLY&#39;</p></a>
+<li class="POD_ITEM"><a name="_cancel_GTK_PRINT_OP"><p>&#39;cancel&#39; / &#39;GTK_PRINT_OPERATION_RESULT_CANCEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_in_progress_GTK_PRI"><p>&#39;in-progress&#39; / &#39;GTK_PRINT_OPERATION_RESULT_IN_PROGRESS&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PrintStatu">enum Gtk2::PrintStatus</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_initial_GTK_PRINT_S"><p>&#39;initial&#39; / &#39;GTK_PRINT_STATUS_INITIAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_preparing_GTK_PRINT"><p>&#39;preparing&#39; / &#39;GTK_PRINT_STATUS_PREPARING&#39;</p></a>
+<li class="POD_ITEM"><a name="_generating_data_GTK"><p>&#39;generating-data&#39; / &#39;GTK_PRINT_STATUS_GENERATING_DATA&#39;</p></a>
+<li class="POD_ITEM"><a name="_sending_data_GTK_PR"><p>&#39;sending-data&#39; / &#39;GTK_PRINT_STATUS_SENDING_DATA&#39;</p></a>
+<li class="POD_ITEM"><a name="_pending_GTK_PRINT_S"><p>&#39;pending&#39; / &#39;GTK_PRINT_STATUS_PENDING&#39;</p></a>
+<li class="POD_ITEM"><a name="_pending_issue_GTK_P"><p>&#39;pending-issue&#39; / &#39;GTK_PRINT_STATUS_PENDING_ISSUE&#39;</p></a>
+<li class="POD_ITEM"><a name="_printing_GTK_PRINT_"><p>&#39;printing&#39; / &#39;GTK_PRINT_STATUS_PRINTING&#39;</p></a>
+<li class="POD_ITEM"><a name="_finished_GTK_PRINT_"><p>&#39;finished&#39; / &#39;GTK_PRINT_STATUS_FINISHED&#39;</p></a>
+<li class="POD_ITEM"><a name="_finished_aborted_GT"><p>&#39;finished-aborted&#39; / &#39;GTK_PRINT_STATUS_FINISHED_ABORTED&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Unit">enum Gtk2::Unit</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixel_GTK_UNIT_PIXE"><p>&#39;pixel&#39; / &#39;GTK_UNIT_PIXEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_points_GTK_UNIT_POI"><p>&#39;points&#39; / &#39;GTK_UNIT_POINTS&#39;</p></a>
+<li class="POD_ITEM"><a name="_inch_GTK_UNIT_INCH_"><p>&#39;inch&#39; / &#39;GTK_UNIT_INCH&#39;</p></a>
+<li class="POD_ITEM"><a name="_mm_GTK_UNIT_MM_"><p>&#39;mm&#39; / &#39;GTK_UNIT_MM&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:16 2009
+</body>
+</html>
+

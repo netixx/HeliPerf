@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Rc</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/RcStyle.html">Next:<br />Gtk2::RcStyle</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Range.html">Previous:<br />Gtk2::Range</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Rc</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#Gtk2_Rc_add_default_">Gtk2::Rc-&gt;<b>add_default_file</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Rc_get_def">list = Gtk2::Rc-&gt;<b>get_default_files</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Rc_set_default_">Gtk2::Rc-&gt;<b>set_default_files</b> (file1, ...)</a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_Rc_get_i">string = Gtk2::Rc-&gt;<b>get_im_module_file</b></a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_Rc_get_i1">string = Gtk2::Rc-&gt;<b>get_im_module_path</b></a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_Rc_get_m">string = Gtk2::Rc-&gt;<b>get_module_dir</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Rc_parse_filena">Gtk2::Rc-&gt;<b>parse</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Rc_parse_string">Gtk2::Rc-&gt;<b>parse_string</b> ($rc_string)</a>
+<li><a class="POD_NAVLINK" href="#boolean_Gtk2_Rc_repa">boolean = Gtk2::Rc-&gt;<b>reparse_all</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_Gtk2_Rc_repa1">boolean = Gtk2::Rc-&gt;<b>reparse_all_for_settings</b> ($settings, $force_load)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Rc_reset_styles">Gtk2::Rc-&gt;<b>reset_styles</b> ($settings)</a>
+<li><a class="POD_NAVLINK" href="#style_Gtk2_Rc_get_st">style = Gtk2::Rc-&gt;<b>get_style_by_paths</b> ($settings, $widget_path, $class_path, $package)</a>
+<li><a class="POD_NAVLINK" href="#style_Gtk2_Rc_get_st1">style = Gtk2::Rc-&gt;<b>get_style</b> ($widget)</a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_Rc_get_t">string = Gtk2::Rc-&gt;<b>get_theme_dir</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Rc
+</p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="Gtk2_Rc_add_default_">Gtk2::Rc-&gt;<b>add_default_file</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_localized_"><p>$filename (localized file name)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Rc_get_def">list = Gtk2::Rc-&gt;<b>get_default_files</b></a></h3>
+<p class="POD_TEXT">
+Returns the list of files that GTK+ will read at the end of Gtk2-&gt;init.
+</p>
+<h3 class="POD_HEAD2"><a name="Gtk2_Rc_set_default_">Gtk2::Rc-&gt;<b>set_default_files</b> (file1, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_of_strings_the"><p>... (list) of strings, the rc files to be parsed</p></a>
+<li class="POD_ITEM"><a name="_file1_localized_fil"><p>$file1 (localized file name)</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets the list of files that GTK+ will read at the end of Gtk2-&gt;init.
+</p>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_Rc_get_i">string = Gtk2::Rc-&gt;<b>get_im_module_file</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_Rc_get_i1">string = Gtk2::Rc-&gt;<b>get_im_module_path</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_Rc_get_m">string = Gtk2::Rc-&gt;<b>get_module_dir</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gtk2_Rc_parse_filena">Gtk2::Rc-&gt;<b>parse</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_localized_1"><p>$filename (localized file name)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gtk2_Rc_parse_string">Gtk2::Rc-&gt;<b>parse_string</b> ($rc_string)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rc_string_string_"><p>$rc_string (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_Gtk2_Rc_repa">boolean = Gtk2::Rc-&gt;<b>reparse_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_Gtk2_Rc_repa1">boolean = Gtk2::Rc-&gt;<b>reparse_all_for_settings</b> ($settings, $force_load)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_settings_Gtk2_Setti"><p>$settings (Gtk2::Settings)</p></a>
+<li class="POD_ITEM"><a name="_force_load_boolean_"><p>$force_load (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gtk2_Rc_reset_styles">Gtk2::Rc-&gt;<b>reset_styles</b> ($settings)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_settings_Gtk2_Setti1"><p>$settings (Gtk2::Settings)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="style_Gtk2_Rc_get_st">style = Gtk2::Rc-&gt;<b>get_style_by_paths</b> ($settings, $widget_path, $class_path, $package)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_settings_Gtk2_Setti2"><p>$settings (Gtk2::Settings)</p></a>
+<li class="POD_ITEM"><a name="_widget_path_string_"><p>$widget_path (string)</p></a>
+<li class="POD_ITEM"><a name="_class_path_string_"><p>$class_path (string)</p></a>
+<li class="POD_ITEM"><a name="_package_string_"><p>$package (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="style_Gtk2_Rc_get_st1">style = Gtk2::Rc-&gt;<b>get_style</b> ($widget)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_"><p>$widget (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_Rc_get_t">string = Gtk2::Rc-&gt;<b>get_theme_dir</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:23 2009
+</body>
+</html>
+

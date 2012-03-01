@@ -1,0 +1,37 @@
+[Materiels]
+Treuil éléctrique Breeze	26	2630	-1540	no_img.png	0	1
+Treuil éléctrique AIR EQU.	33	2686	-1540	no_img.png	0	1
+Phare de recherche LOCATOR	10	920	0	phare.png	0	1
+Skis SEFA avec contrefiches	30	3473	0	no_img.png	0	1
+Skis SEFA sans contrefiches	23	3591	0	no_img.png	0	1
+Skis SURFAIR	26	4231	0	no_img.png	0	1
+Flottabilité de secours	67	3365	0	no_img.png	0	1
+Elingue (swing)	13	3263	0	no_img.png	0	1
+Roues terrain meuble	44	0	0	no_img.png	0	1
+Reservoir de convoyage	35	2351	0	no_img.png	0	1
+EVASAN simple (sans brancard)	0	1561	0	no_img.png	0	1
+EVASAN double (sans brancard)	2	1695	0	no_img.png	0	1
+Brancard	15	1768	-420	no_img.png	0	1
+Train Bas	42	3393	0	no_img.png	0	1
+Train Haut	55	3371	0	no_img.png	0	1
+Marche Pied	2	1896	0	no_img.png	0	1
+Extincteur Cabine	2	1523	0	no_img.png	0	1
+Hache de Secours	1	1545	0	no_img.png	0	1
+Porte et Portillon	14	1942	0	no_img.png	0	1
+Batterie	17	3988	0	no_img.png	0	1
+Double Commande	2	1130	0	no_img.png	0	1
+[personnels]
+Pilotes	90	1550	360	siege_solo_front_soberdarkblue.png	0	1
+Copilote	90	1550	-360	siege_solo_front_soberblue.png	0	1
+4Passager 1	90	2540	-620	siege_solo_front_flashyellow.png	0	1
+4Passager 2	90	2540	-200	siege_solo_front_flashgreen.png	0	1
+4Passager 3	90	2540	200	siege_solo_front_sobergreen.png	0	1
+4Passager 4	90	2540	620	siege_solo_front_soberpink.png	0	1
+3Passager 1	90	2540	-540	siege_solo_front_flashyellow.png	0	1
+3Passager 2	90	2540	0	siege_solo_front_flashgreen.png	0	1
+3Passager 3	90	2540	540	siege_solo_front_flash.png	0	1
+[sièges]
+Banquette arrière 4 places	21	2600	0	no_img.png	0	1
+Banquette arrière	3	26	2580	siege_triple_front_nocolor.png	0	1
+Siege avant haut	10	1613	360	siege_solo_front_nocolor.png	0	1
+Siege avant bas	7	1575	369	siege_solo_front_nocolor.png

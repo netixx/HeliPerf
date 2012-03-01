@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::ProgressBar</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/RadioAction.html">Next:<br />Gtk2::RadioAction</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/PrintSettings.html">Previous:<br />Gtk2::PrintSettings</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::ProgressBar</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_Progress">widget = Gtk2::ProgressBar-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#ellipsizemode_pbar_g">ellipsizemode = $pbar-&gt;<b>get_ellipsize</b></a>
+<li><a class="POD_NAVLINK" href="#_pbar_set_ellipsize_">$pbar-&gt;<b>set_ellipsize</b> ($mode)</a>
+<li><a class="POD_NAVLINK" href="#double_pbar_get_frac">double = $pbar-&gt;<b>get_fraction</b></a>
+<li><a class="POD_NAVLINK" href="#_pbar_set_fraction_f">$pbar-&gt;<b>set_fraction</b> ($fraction)</a>
+<li><a class="POD_NAVLINK" href="#progressbarorientati">progressbarorientation = $pbar-&gt;<b>get_orientation</b></a>
+<li><a class="POD_NAVLINK" href="#_pbar_set_orientatio">$pbar-&gt;<b>set_orientation</b> ($orientation)</a>
+<li><a class="POD_NAVLINK" href="#_pbar_pulse">$pbar-&gt;<b>pulse</b></a>
+<li><a class="POD_NAVLINK" href="#double_pbar_get_puls">double = $pbar-&gt;<b>get_pulse_step</b></a>
+<li><a class="POD_NAVLINK" href="#_pbar_set_pulse_step">$pbar-&gt;<b>set_pulse_step</b> ($fraction)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_pbar">string or undef = $pbar-&gt;<b>get_text</b></a>
+<li><a class="POD_NAVLINK" href="#_pbar_set_text_text_">$pbar-&gt;<b>set_text</b> ($text)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ProgressBa">enum Gtk2::ProgressBarOrientation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ProgressBa1">enum Gtk2::ProgressBarStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Pango_Ellipsize">enum Pango::EllipsizeMode</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::ProgressBar
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Glib::Object::_Unregistered::GtkProgress
+                      +----Gtk2::ProgressBar
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_Progress">widget = Gtk2::ProgressBar-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="ellipsizemode_pbar_g">ellipsizemode = $pbar-&gt;<b>get_ellipsize</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_pbar_set_ellipsize_">$pbar-&gt;<b>set_ellipsize</b> ($mode)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mode_Pango_Ellipsiz"><p>$mode (Pango::EllipsizeMode)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="double_pbar_get_frac">double = $pbar-&gt;<b>get_fraction</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_pbar_set_fraction_f">$pbar-&gt;<b>set_fraction</b> ($fraction)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_fraction_double_"><p>$fraction (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="progressbarorientati">progressbarorientation = $pbar-&gt;<b>get_orientation</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_pbar_set_orientatio">$pbar-&gt;<b>set_orientation</b> ($orientation)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_orientation_Gtk2_Pr"><p>$orientation (Gtk2::ProgressBarOrientation)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_pbar_pulse">$pbar-&gt;<b>pulse</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_pbar_get_puls">double = $pbar-&gt;<b>get_pulse_step</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_pbar_set_pulse_step">$pbar-&gt;<b>set_pulse_step</b> ($fraction)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_fraction_double_1"><p>$fraction (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_or_undef_pbar">string or undef = $pbar-&gt;<b>get_text</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_pbar_set_text_text_">$pbar-&gt;<b>set_text</b> ($text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_string_or_unde"><p>$text (string or undef)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_activity_blocks_Gli">&#39;activity-blocks&#39; (Glib::UInt : readable / writable / private)</a>
+<dd>
+The number of blocks which can fit in the progress bar area in activity mode (Deprecated)
+<dt class="POD_ITEM"><a name="_activity_step_Glib_">&#39;activity-step&#39; (Glib::UInt : readable / writable / private)</a>
+<dd>
+The increment used for each iteration in activity mode (Deprecated)
+<dt class="POD_ITEM"><a name="_adjustment_Gtk2_Adj">&#39;adjustment&#39; (Gtk2::Adjustment : readable / writable / private)</a>
+<dd>
+The GtkAdjustment connected to the progress bar (Deprecated)
+<dt class="POD_ITEM"><a name="_bar_style_Gtk2_Prog">&#39;bar-style&#39; (Gtk2::ProgressBarStyle : readable / writable / private)</a>
+<dd>
+Specifies the visual style of the bar in percentage mode (Deprecated)
+<dt class="POD_ITEM"><a name="_discrete_blocks_Gli">&#39;discrete-blocks&#39; (Glib::UInt : readable / writable / private)</a>
+<dd>
+The number of discrete blocks in a progress bar (when shown in the discrete style)
+<dt class="POD_ITEM"><a name="_ellipsize_Pango_Ell">&#39;ellipsize&#39; (Pango::EllipsizeMode : readable / writable / private)</a>
+<dd>
+The preferred place to ellipsize the string, if the progress bar does not have enough room to display the entire string, if at all.
+<dt class="POD_ITEM"><a name="_fraction_double_rea">&#39;fraction&#39; (double : readable / writable / private)</a>
+<dd>
+The fraction of total work that has been completed
+<dt class="POD_ITEM"><a name="_orientation_Gtk2_Pr1">&#39;orientation&#39; (Gtk2::ProgressBarOrientation : readable / writable / private)</a>
+<dd>
+Orientation and growth direction of the progress bar
+<dt class="POD_ITEM"><a name="_pulse_step_double_r">&#39;pulse-step&#39; (double : readable / writable / private)</a>
+<dd>
+The fraction of total progress to move the bouncing block when pulsed
+<dt class="POD_ITEM"><a name="_text_string_readabl">&#39;text&#39; (string : readable / writable / private)</a>
+<dd>
+Text to be displayed in the progress bar
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ProgressBa">enum Gtk2::ProgressBarOrientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_left_to_right_GTK_P"><p>&#39;left-to-right&#39; / &#39;GTK_PROGRESS_LEFT_TO_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_to_left_GTK_P"><p>&#39;right-to-left&#39; / &#39;GTK_PROGRESS_RIGHT_TO_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_to_top_GTK_P"><p>&#39;bottom-to-top&#39; / &#39;GTK_PROGRESS_BOTTOM_TO_TOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_to_bottom_GTK_P"><p>&#39;top-to-bottom&#39; / &#39;GTK_PROGRESS_TOP_TO_BOTTOM&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ProgressBa1">enum Gtk2::ProgressBarStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_continuous_GTK_PROG"><p>&#39;continuous&#39; / &#39;GTK_PROGRESS_CONTINUOUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_discrete_GTK_PROGRE"><p>&#39;discrete&#39; / &#39;GTK_PROGRESS_DISCRETE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Pango_Ellipsize">enum Pango::EllipsizeMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_PANGO_ELLIPSIZ"><p>&#39;none&#39; / &#39;PANGO_ELLIPSIZE_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_start_PANGO_ELLIPSI"><p>&#39;start&#39; / &#39;PANGO_ELLIPSIZE_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_middle_PANGO_ELLIPS"><p>&#39;middle&#39; / &#39;PANGO_ELLIPSIZE_MIDDLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_PANGO_ELLIPSIZE"><p>&#39;end&#39; / &#39;PANGO_ELLIPSIZE_END&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <u>Glib::Object::_Unregistered::GtkProgress</u>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:18 2009
+</body>
+</html>
+

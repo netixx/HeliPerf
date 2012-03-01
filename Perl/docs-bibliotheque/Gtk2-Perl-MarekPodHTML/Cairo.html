@@ -1,0 +1,851 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Cairo</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="ExtUtils/Depends.html">Next:<br />ExtUtils::Depends</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="index.html">Previous:<br />index</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Cairo</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#ABSTRACT">ABSTRACT</a>
+<li><a class="POD_NAVLINK" href="#API_DOCUMENTATION">API DOCUMENTATION</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#Drawing">Drawing</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#Cairo_Context_The_ca">Cairo::Context -- The cairo drawing context</a>
+<li><a class="POD_NAVLINK" href="#Paths_Creating_paths">Paths -- Creating paths and manipulating path data</a>
+<li><a class="POD_NAVLINK" href="#Patterns_Gradients_a">Patterns -- Gradients and filtered sources</a>
+<li><a class="POD_NAVLINK" href="#Transformations_Mani">Transformations -- Manipulating the current transformation matrix</a>
+<li><a class="POD_NAVLINK" href="#Text_Rendering_text_">Text -- Rendering text and sets of glyphs</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#Fonts">Fonts</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#Cairo_FontFace_Base_">Cairo::FontFace -- Base class for fonts</a>
+<li><a class="POD_NAVLINK" href="#Scaled_Fonts_Caching">Scaled Fonts -- Caching metrics for a particular font size</a>
+<li><a class="POD_NAVLINK" href="#Font_Options_How_a_f">Font Options -- How a font should be rendered</a>
+<li><a class="POD_NAVLINK" href="#FreeType_Fonts_Font_">FreeType Fonts -- Font support for FreeType</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#Surfaces">Surfaces</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#Cairo_Surface_Base_c"><i>Cairo::Surface</i> -- Base class for surfaces</a>
+<li><a class="POD_NAVLINK" href="#Image_Surfaces_Rende">Image Surfaces -- Rendering to memory buffers</a>
+<li><a class="POD_NAVLINK" href="#PDF_Surfaces_Renderi">PDF Surfaces -- Rendering PDF documents</a>
+<li><a class="POD_NAVLINK" href="#PNG_Support_Reading_">PNG Support -- Reading and writing PNG images</a>
+<li><a class="POD_NAVLINK" href="#PostScript_Surfaces_">PostScript Surfaces -- Rendering PostScript documents</a>
+<li><a class="POD_NAVLINK" href="#SVG_Surfaces_Renderi">SVG Surfaces -- Rendering SVG documents</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#Utilities">Utilities</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#Version_Information_">Version Information -- Run-time and compile-time version checks.</a>
+</ul>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#AUTHORS">AUTHORS</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Cairo - Perl interface to the cairo library
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  use Cairo;
+
+  my $surface = Cairo::ImageSurface-&gt;create (&#39;argb32&#39;, 100, 100);
+  my $cr = Cairo::Context-&gt;create ($surface);
+
+  $cr-&gt;rectangle (10, 10, 40, 40);
+  $cr-&gt;set_source_rgb (0, 0, 0);
+  $cr-&gt;fill;
+
+  $cr-&gt;rectangle (50, 50, 40, 40);
+  $cr-&gt;set_source_rgb (1, 1, 1);
+  $cr-&gt;fill;
+
+  $cr-&gt;show_page;
+
+  $surface-&gt;write_to_png (&#39;output.png&#39;);
+</pre>
+<h2 class="POD_HEAD1"><a name="ABSTRACT">ABSTRACT</a></h2>
+<p class="POD_TEXT">
+Cairo provides Perl bindings for the vector graphics library cairo.  It
+supports multiple output targets, including PNG, PDF and SVG.  Cairo produces
+identical output on all those targets.
+</p>
+<h2 class="POD_HEAD1"><a name="API_DOCUMENTATION">API DOCUMENTATION</a></h2>
+<p class="POD_TEXT">
+This is a listing of the API Cairo provides.  For more verbose information,
+refer to the cairo manual at <a class="POD_LINK" href="http://cairographics.org/manual/">http://cairographics.org/manual/</a>.
+</p>
+<h3 class="POD_HEAD2"><a name="Drawing">Drawing</a></h3>
+<h4 class="POD_HEAD3"><a name="Cairo_Context_The_ca">Cairo::Context -- The cairo drawing context</a></h4>
+<p class="POD_TEXT">
+<i>Cairo::Context</i> is the main object used when drawing with Cairo. To draw with
+Cairo, you create a <i>Cairo::Context</i>, set the target surface, and drawing
+options for the <i>Cairo::Context</i>, create shapes with methods like
+<code>$cr-&gt;move_to</code> and <code>$cr-&gt;line_to</code>, and then draw shapes with
+<code>$cr-&gt;stroke</code> or <code>$cr-&gt;fill</code>.
+</p>
+<p class="POD_TEXT">
+<i>Cairo::Context</i>&#39;s can be pushed to a stack via <code>$cr-&gt;save</code>. They may
+then safely be changed, without loosing the current state. Use
+<code>$cr-&gt;restore</code> to restore to the saved state.
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_cr_Cairo_Context_cr">$cr = Cairo::Context-&gt;create ($surface)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_surface_Cairo_Surfa">$surface: <i>Cairo::Surface</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_save">$cr-&gt;save</a>
+<dt><a name="_cr_restore">$cr-&gt;restore</a>
+<dt><a name="_status_cr_status">$status = $cr-&gt;status</a>
+<dt><a name="_surface_cr_get_targ">$surface = $cr-&gt;get_target</a>
+<dt><a name="_cr_push_group_1_2_">$cr-&gt;push_group [1.2]</a>
+<dt><a name="_cr_push_group_with_">$cr-&gt;push_group_with_content ($content) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_content_Cairo_Conte">$content: <i>Cairo::Content</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_pattern_cr_pop_grou">$pattern = $cr-&gt;pop_group [1.2]</a>
+<dt><a name="_cr_pop_group_to_sou">$cr-&gt;pop_group_to_source [1.2]</a>
+<dt><a name="_surface_cr_get_grou">$surface = $cr-&gt;get_group_target [1.2]</a>
+<dt><a name="_cr_set_source_rgb_r">$cr-&gt;set_source_rgb ($red, $green, $blue)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_red_double">$red: double</a>
+<dt><a name="_green_double">$green: double</a>
+<dt><a name="_blue_double">$blue: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_set_source_rgba_">$cr-&gt;set_source_rgba ($red, $green, $blue, $alpha)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_red_double1">$red: double</a>
+<dt><a name="_green_double1">$green: double</a>
+<dt><a name="_blue_double1">$blue: double</a>
+<dt><a name="_alpha_double">$alpha: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_set_source_sourc">$cr-&gt;set_source ($source)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_source_Cairo_Patter">$source: <i>Cairo::Pattern</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_set_source_surfa">$cr-&gt;set_source_surface ($surface, $x, $y)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_surface_Cairo_Surfa1">$surface: <i>Cairo::Surface</i></a>
+<dt><a name="_x_double">$x: double</a>
+<dt><a name="_y_double">$y: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_source_cr_get_sourc">$source = $cr-&gt;get_source</a>
+<dt><a name="_cr_set_antialias_an">$cr-&gt;set_antialias ($antialias)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_antialias_Cairo_Ant">$antialias: <i>Cairo::Antialias</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_antialias_cr_get_an">$antialias = $cr-&gt;get_antialias</a>
+<dt><a name="_cr_set_dash_offset_">$cr-&gt;set_dash ($offset, ...)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_offset_double">$offset: double</a>
+<dt><a name="_list_of_doubles">...: list of doubles</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_set_fill_rule_fi">$cr-&gt;set_fill_rule ($fill_rule)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_fill_rule_Cairo_Fil">$fill_rule: <i>Cairo::FillRule</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_fill_rule_cr_get_fi">$fill_rule = $cr-&gt;get_fill_rule</a>
+<dt><a name="_cr_set_line_cap_lin">$cr-&gt;set_line_cap ($line_cap)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_line_cap_Cairo_Line">$line_cap: <i>Cairo::LineCap</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_line_cap_cr_get_lin">$line_cap = $cr-&gt;get_line_cap</a>
+<dt><a name="_cr_set_line_join_li">$cr-&gt;set_line_join ($line_join)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_line_join_Cairo_Lin">$line_join: <i>Cairo::LineJoin</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_line_join_cr_get_li">$line_join = $cr-&gt;get_line_join</a>
+<dt><a name="_cr_set_line_width_w">$cr-&gt;set_line_width ($width)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_width_double">$width: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_width_cr_get_line_w">$width = $cr-&gt;get_line_width</a>
+<dt><a name="_cr_set_miter_limit_">$cr-&gt;set_miter_limit ($limit)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_limit_double">$limit: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_offset_dashes_cr_ge">($offset, @dashes) = $cr-&gt;get_dash [1.4]</a>
+<dt><a name="_limit_cr_get_miter_">$limit = $cr-&gt;get_miter_limit</a>
+<dt><a name="_cr_set_operator_op_">$cr-&gt;set_operator ($op)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_op_Cairo_Operator">$op: <i>Cairo::Operator</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_op_cr_get_operator">$op = $cr-&gt;get_operator</a>
+<dt><a name="_cr_set_tolerance_to">$cr-&gt;set_tolerance ($tolerance)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_tolerance_double">$tolerance: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_tolerance_cr_get_to">$tolerance = $cr-&gt;get_tolerance</a>
+<dt><a name="_cr_clip">$cr-&gt;clip</a>
+<dt><a name="_cr_clip_preserve">$cr-&gt;clip_preserve</a>
+<dt><a name="_x1_y1_x2_y2_cr_clip">($x1, $y1, $x2, $y2) = $cr-&gt;clip_extents [1.4]</a>
+<dt><a name="_rectangles_cr_copy_">@rectangles = $cr-&gt;copy_clip_rectangle_list [1.4]</a>
+<dt><a name="_cr_reset_clip">$cr-&gt;reset_clip</a>
+<dt><a name="_cr_fill">$cr-&gt;fill</a>
+<dt><a name="_cr_fill_preserve">$cr-&gt;fill_preserve</a>
+<dt><a name="_x1_y1_x2_y2_cr_fill">($x1, $y1, $x2, $y2) = $cr-&gt;fill_extents</a>
+<dt><a name="_bool_cr_in_fill_x_y">$bool = $cr-&gt;in_fill ($x, $y)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_double1">$x: double</a>
+<dt><a name="_y_double1">$y: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_mask_pattern_">$cr-&gt;mask ($pattern)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_pattern_Cairo_Patte">$pattern: <i>Cairo::Pattern</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_mask_surface_sur">$cr-&gt;mask_surface ($surface, $surface_x, $surface_y)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_surface_Cairo_Surfa2">$surface: <i>Cairo::Surface</i></a>
+<dt><a name="_surface_x_double">$surface_x: double</a>
+<dt><a name="_surface_y_double">$surface_y: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_paint">$cr-&gt;paint</a>
+<dt><a name="_cr_paint_with_alpha">$cr-&gt;paint_with_alpha ($alpha)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_alpha_double1">$alpha: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_stroke">$cr-&gt;stroke</a>
+<dt><a name="_cr_stroke_preserve">$cr-&gt;stroke_preserve</a>
+<dt><a name="_x1_y1_x2_y2_cr_stro">($x1, $y1, $x2, $y2) = $cr-&gt;stroke_extents</a>
+<dt><a name="_bool_cr_in_stroke_x">$bool = $cr-&gt;in_stroke ($x, $y)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_double2">$x: double</a>
+<dt><a name="_y_double2">$y: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_copy_page">$cr-&gt;copy_page</a>
+<dt><a name="_cr_show_page">$cr-&gt;show_page</a>
+<dd></dl>
+<h4 class="POD_HEAD3"><a name="Paths_Creating_paths">Paths -- Creating paths and manipulating path data</a></h4>
+<pre class="POD_VERBATIM">
+  $path = [
+    { type =&gt; &quot;move-to&quot;, points =&gt; [[1, 2]] },
+    { type =&gt; &quot;line-to&quot;, points =&gt; [[3, 4]] },
+    { type =&gt; &quot;curve-to&quot;, points =&gt; [[5, 6], [7, 8], [9, 10]] },
+    ...
+    { type =&gt; &quot;close-path&quot;, points =&gt; [] },
+  ];
+</pre>
+
+<i>Cairo::Path</i> is a data structure for holding a path. This data structure
+serves as the return value for <code>$cr-&gt;copy_path_data</code> and
+<code>$cr-&gt;copy_path_data_flat</code> as well the input value for
+<code>$cr-&gt;append_path</code>.
+<p class="POD_TEXT">
+<i>Cairo::Path</i> is represented as an array reference that contains path
+elements, represented by hash references with two keys: <i>type</i> and <i>points</i>.
+The value for <i>type</i> can be either of the following:
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="move_to"><code>move-to</code></a>
+<dt><a name="line_to"><code>line-to</code></a>
+<dt><a name="curve_to"><code>curve-to</code></a>
+<dt><a name="close_path"><code>close-path</code></a>
+<dd></dl>
+
+The value for <i>points</i> is an array reference which contains zero or more
+points.  Points are represented as array references that contain two doubles:
+<i>x</i> and <i>y</i>.  The necessary number of points depends on the <i>type</i> of the
+path element:
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="move_to_1_point"><code>move-to</code>: 1 point</a>
+<dt><a name="line_to_1_point"><code>line_to</code>: 1 point</a>
+<dt><a name="curve_to_3_points"><code>curve-to</code>: 3 points</a>
+<dt><a name="close_path_0_points"><code>close-path</code>: 0 points</a>
+<dd></dl>
+
+The semantics and ordering of the coordinate values are consistent with
+<code>$cr-&gt;move_to</code>, <code>$cr-&gt;line_to</code>, <code>$cr-&gt;curve_to</code>, and
+<code>$cr-&gt;close_path</code>.
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_path_cr_copy_path">$path = $cr-&gt;copy_path</a>
+<dt><a name="_path_cr_copy_path_f">$path = $cr-&gt;copy_path_flat</a>
+<dt><a name="_cr_append_path_path">$cr-&gt;append_path ($path)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_path_Cairo_Path">$path: <i>Cairo::Path</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_bool_cr_has_current">$bool = $cr-&gt;has_current_point [1.6]</a>
+<dt><a name="_x_y_cr_get_current_">($x, $y) = $cr-&gt;get_current_point</a>
+<dt><a name="_cr_new_path">$cr-&gt;new_path</a>
+<dt><a name="_cr_new_sub_path_1_2">$cr-&gt;new_sub_path [1.2]</a>
+<dt><a name="_cr_close_path">$cr-&gt;close_path</a>
+<dt><a name="_x1_y1_x2_y2_cr_path">($x1, $y1, $x2, $y2) = $cr-&gt;path_extents [1.6]</a>
+<dt><a name="_cr_arc_xc_yc_radius">$cr-&gt;arc ($xc, $yc, $radius, $angle1, $angle2)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_xc_double">$xc: double</a>
+<dt><a name="_yc_double">$yc: double</a>
+<dt><a name="_radius_double">$radius: double</a>
+<dt><a name="_angle1_double">$angle1: double</a>
+<dt><a name="_angle2_double">$angle2: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_arc_negative_xc_">$cr-&gt;arc_negative ($xc, $yc, $radius, $angle1, $angle2)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_xc_double1">$xc: double</a>
+<dt><a name="_yc_double1">$yc: double</a>
+<dt><a name="_radius_double1">$radius: double</a>
+<dt><a name="_angle1_double1">$angle1: double</a>
+<dt><a name="_angle2_double1">$angle2: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_curve_to_x1_y1_x">$cr-&gt;curve_to ($x1, $y1, $x2, $y2, $x3, $y3)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x1_double">$x1: double</a>
+<dt><a name="_y1_double">$y1: double</a>
+<dt><a name="_x2_double">$x2: double</a>
+<dt><a name="_y2_double">$y2: double</a>
+<dt><a name="_x3_double">$x3: double</a>
+<dt><a name="_y3_double">$y3: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_line_to_x_y_">$cr-&gt;line_to ($x, $y)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_double3">$x: double</a>
+<dt><a name="_y_double3">$y: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_move_to_x_y_">$cr-&gt;move_to ($x, $y)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_double4">$x: double</a>
+<dt><a name="_y_double4">$y: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_rectangle_x_y_wi">$cr-&gt;rectangle ($x, $y, $width, $height)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_double5">$x: double</a>
+<dt><a name="_y_double5">$y: double</a>
+<dt><a name="_width_double1">$width: double</a>
+<dt><a name="_height_double">$height: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_glyph_path_">$cr-&gt;glyph_path (...)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_list_of_Cairo_Glyph">...: list of <i>Cairo::Glyph</i>&#39;s</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_text_path_utf8_">$cr-&gt;text_path ($utf8)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_utf8_string_in_utf8">$utf8: string in utf8 encoding</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_rel_curve_to_dx1">$cr-&gt;rel_curve_to ($dx1, $dy1, $dx2, $dy2, $dx3, $dy3)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_dx1_double">$dx1: double</a>
+<dt><a name="_dy1_double">$dy1: double</a>
+<dt><a name="_dx2_double">$dx2: double</a>
+<dt><a name="_dy2_double">$dy2: double</a>
+<dt><a name="_dx3_double">$dx3: double</a>
+<dt><a name="_dy3_double">$dy3: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_rel_line_to_dx_d">$cr-&gt;rel_line_to ($dx, $dy)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_dx_double">$dx: double</a>
+<dt><a name="_dy_double">$dy: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_rel_move_to_dx_d">$cr-&gt;rel_move_to ($dx, $dy)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_dx_double1">$dx: double</a>
+<dt><a name="_dy_double1">$dy: double</a>
+<dd></dl>
+</dl>
+<h4 class="POD_HEAD3"><a name="Patterns_Gradients_a">Patterns -- Gradients and filtered sources</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_status_pattern_stat">$status = $pattern-&gt;status</a>
+<dt><a name="_type_pattern_get_ty">$type = $pattern-&gt;get_type [1.2]</a>
+<dt><a name="_pattern_set_matrix_">$pattern-&gt;set_matrix ($matrix)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_matrix_Cairo_Matrix">$matrix: <i>Cairo::Matrix</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_matrix_pattern_get_">$matrix = $pattern-&gt;get_matrix</a>
+<dt><a name="_pattern_Cairo_Solid">$pattern = Cairo::SolidPattern-&gt;create_rgb ($red, $green, $blue)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_red_double2">$red: double</a>
+<dt><a name="_green_double2">$green: double</a>
+<dt><a name="_blue_double2">$blue: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_pattern_Cairo_Solid1">$pattern = Cairo::SolidPattern-&gt;create_rgba ($red, $green, $blue, $alpha)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_red_double3">$red: double</a>
+<dt><a name="_green_double3">$green: double</a>
+<dt><a name="_blue_double3">$blue: double</a>
+<dt><a name="_alpha_double2">$alpha: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_r_g_b_a_pattern_get">($r, $g, $b, $a) = $pattern-&gt;get_rgba [1.4]</a>
+<dt><a name="_pattern_Cairo_Surfa">$pattern = Cairo::SurfacePattern-&gt;create ($surface)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_surface_Cairo_Surfa3">$surface: <i>Cairo::Surface</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_pattern_set_extend_">$pattern-&gt;set_extend ($extend)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_extend_Cairo_Extend">$extend: <i>Cairo::Extend</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_extend_pattern_get_">$extend = $pattern-&gt;get_extend</a>
+<dt><a name="_pattern_set_filter_">$pattern-&gt;set_filter ($filter)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_filter_Cairo_Filter">$filter: <i>Cairo::Filter</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_filter_pattern_get_">$filter = $pattern-&gt;get_filter</a>
+<dt><a name="_surface_pattern_get">$surface = $pattern-&gt;get_surface [1.4]</a>
+<dt><a name="_pattern_Cairo_Linea">$pattern = Cairo::LinearGradient-&gt;create ($x0, $y0, $x1, $y1)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x0_double">$x0: double</a>
+<dt><a name="_y0_double">$y0: double</a>
+<dt><a name="_x1_double1">$x1: double</a>
+<dt><a name="_y1_double1">$y1: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_x0_y0_x1_y1_pattern">($x0, $y0, $x1, $y1) = $pattern-&gt;get_points [1.4]</a>
+<dt><a name="_pattern_Cairo_Radia">$pattern = Cairo::RadialGradient-&gt;create ($cx0, $cy0, $radius0, $cx1, $cy1, $radius1)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_cx0_double">$cx0: double</a>
+<dt><a name="_cy0_double">$cy0: double</a>
+<dt><a name="_radius0_double">$radius0: double</a>
+<dt><a name="_cx1_double">$cx1: double</a>
+<dt><a name="_cy1_double">$cy1: double</a>
+<dt><a name="_radius1_double">$radius1: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_x0_y0_r0_x1_y1_r1_p">($x0, $y0, $r0, $x1, $y1, $r1) = $pattern-&gt;get_circles [1.4]</a>
+<dt><a name="_pattern_add_color_s">$pattern-&gt;add_color_stop_rgb ($offset, $red, $green, $blue)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_offset_double1">$offset: double</a>
+<dt><a name="_red_double4">$red: double</a>
+<dt><a name="_green_double4">$green: double</a>
+<dt><a name="_blue_double4">$blue: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_pattern_add_color_s1">$pattern-&gt;add_color_stop_rgba ($offset, $red, $green, $blue, $alpha)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_offset_double2">$offset: double</a>
+<dt><a name="_red_double5">$red: double</a>
+<dt><a name="_green_double5">$green: double</a>
+<dt><a name="_blue_double5">$blue: double</a>
+<dt><a name="_alpha_double3">$alpha: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_stops_pattern_get_c">@stops = $pattern-&gt;get_color_stops [1.4]</a>
+<dd>
+A color stop is represented as an array reference with five elements: offset,
+red, green, blue, and alpha.
+</dl>
+<h4 class="POD_HEAD3"><a name="Transformations_Mani">Transformations -- Manipulating the current transformation matrix</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_cr_translate_tx_ty_">$cr-&gt;translate ($tx, $ty)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_tx_double">$tx: double</a>
+<dt><a name="_ty_double">$ty: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_scale_sx_sy_">$cr-&gt;scale ($sx, $sy)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_sx_double">$sx: double</a>
+<dt><a name="_sy_double">$sy: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_rotate_angle_">$cr-&gt;rotate ($angle)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_angle_double">$angle: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_transform_matrix">$cr-&gt;transform ($matrix)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_matrix_Cairo_Matrix1">$matrix: <i>Cairo::Matrix</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_set_matrix_matri">$cr-&gt;set_matrix ($matrix)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_matrix_Cairo_Matrix2">$matrix: <i>Cairo::Matrix</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_matrix_cr_get_matri">$matrix = $cr-&gt;get_matrix</a>
+<dt><a name="_cr_identity_matrix">$cr-&gt;identity_matrix</a>
+<dt><a name="_x_y_cr_user_to_devi">($x, $y) = $cr-&gt;user_to_device ($x, $y)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_double6">$x: double</a>
+<dt><a name="_y_double6">$y: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_dx_dy_cr_user_to_de">($dx, $dy) = $cr-&gt;user_to_device_distance ($dx, $dy)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_dx_double2">$dx: double</a>
+<dt><a name="_dy_double2">$dy: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_x_y_cr_device_to_us">($x, $y) = $cr-&gt;device_to_user ($x, $y)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_double7">$x: double</a>
+<dt><a name="_y_double7">$y: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_dx_dy_cr_device_to_">($dx, $dy) = $cr-&gt;device_to_user_distance ($dx, $dy)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_dx_double3">$dx: double</a>
+<dt><a name="_dy_double3">$dy: double</a>
+<dd></dl>
+</dl>
+<h4 class="POD_HEAD3"><a name="Text_Rendering_text_">Text -- Rendering text and sets of glyphs</a></h4>
+
+Glyphs are represented as anonymous hash references with three keys: <i>index</i>,
+<i>x</i> and <i>y</i>.  Example:
+<pre class="POD_VERBATIM">
+  my @glyphs = ({ index =&gt; 1, x =&gt; 2, y =&gt; 3 },
+                { index =&gt; 2, x =&gt; 3, y =&gt; 4 },
+                { index =&gt; 3, x =&gt; 4, y =&gt; 5 });
+</pre>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_cr_select_font_face">$cr-&gt;select_font_face ($family, $slant, $weight)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_family_string">$family: string</a>
+<dt><a name="_slant_Cairo_FontSla">$slant: <i>Cairo::FontSlant</i></a>
+<dt><a name="_weight_Cairo_FontWe">$weight: <i>Cairo::FontWeight</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_set_font_size_si">$cr-&gt;set_font_size ($size)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_size_double">$size: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_set_font_matrix_">$cr-&gt;set_font_matrix ($matrix)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_matrix_Cairo_Matrix3">$matrix: <i>Cairo::Matrix</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_matrix_cr_get_font_">$matrix = $cr-&gt;get_font_matrix</a>
+<dt><a name="_cr_set_font_options">$cr-&gt;set_font_options ($options)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_options_Cairo_FontO">$options: <i>Cairo::FontOptions</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_options_cr_get_font">$options = $cr-&gt;get_font_options</a>
+<dt><a name="_cr_set_scaled_font_">$cr-&gt;set_scaled_font ($scaled_font) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_scaled_font_Cairo_S">$scaled_font: <i>Cairo::ScaledFont</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_scaled_font_cr_get_">$scaled_font = $cr-&gt;get_scaled_font [1.4]</a>
+<dt><a name="_cr_show_text_utf8_">$cr-&gt;show_text ($utf8)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_utf8_string">$utf8: string</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_show_glyphs_">$cr-&gt;show_glyphs (...)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_list_of_glyphs">...: list of glyphs</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_face_cr_get_font_fa">$face = $cr-&gt;get_font_face</a>
+<dt><a name="_extents_cr_font_ext">$extents = $cr-&gt;font_extents</a>
+<dt><a name="_cr_set_font_face_fo">$cr-&gt;set_font_face ($font_face)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_font_face_Cairo_Fon">$font_face: <i>Cairo::FontFace</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_cr_set_scaled_font_1">$cr-&gt;set_scaled_font ($scaled_font)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_scaled_font_Cairo_S1">$scaled_font: <i>Cairo::ScaledFont</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_extents_cr_text_ext">$extents = $cr-&gt;text_extents ($utf8)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_utf8_string1">$utf8: string</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_extents_cr_glyph_ex">$extents = $cr-&gt;glyph_extents (...)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_list_of_glyphs1">...: list of glyphs</a>
+<dd></dl>
+</dl>
+<h3 class="POD_HEAD2"><a name="Fonts">Fonts</a></h3>
+<h4 class="POD_HEAD3"><a name="Cairo_FontFace_Base_">Cairo::FontFace -- Base class for fonts</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_status_font_face_st">$status = $font_face-&gt;status</a>
+<dt><a name="_type_font_face_get_">$type = $font_face-&gt;get_type [1.2]</a>
+<dd></dl>
+<h4 class="POD_HEAD3"><a name="Scaled_Fonts_Caching">Scaled Fonts -- Caching metrics for a particular font size</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_scaled_font_Cairo_S2">$scaled_font = Cairo::ScaledFont-&gt;create ($font_face, $font_matrix, $ctm, $options)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_font_face_Cairo_Fon1">$font_face: <i>Cairo::FontFace</i></a>
+<dt><a name="_font_matrix_Cairo_M">$font_matrix: <i>Cairo::Matrix</i></a>
+<dt><a name="_ctm_Cairo_Matrix">$ctm: <i>Cairo::Matrix</i></a>
+<dt><a name="_options_Cairo_FontO1">$options: <i>Cairo::FontOptions</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_status_scaled_font_">$status = $scaled_font-&gt;status</a>
+<dt><a name="_extents_scaled_font">$extents = $scaled_font-&gt;extents</a>
+<dt><a name="_extents_scaled_font1">$extents = $scaled_font-&gt;text_extents ($utf8) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_utf8_string2">$utf8: string</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_extents_scaled_font2">$extents = $scaled_font-&gt;glyph_extents (...)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_list_of_glyphs2">...: list of glyphs</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_font_face_scaled_fo">$font_face = $scaled_font-&gt;get_font_face [1.2]</a>
+<dt><a name="_options_scaled_font">$options = $scaled_font-&gt;get_font_options [1.2]</a>
+<dt><a name="_font_matrix_scaled_">$font_matrix = $scaled_font-&gt;get_font_matrix [1.2]</a>
+<dt><a name="_ctm_scaled_font_get">$ctm = $scaled_font-&gt;get_ctm [1.2]</a>
+<dt><a name="_type_scaled_font_ge">$type = $scaled_font-&gt;get_type [1.2]</a>
+<dd></dl>
+<h4 class="POD_HEAD3"><a name="Font_Options_How_a_f">Font Options -- How a font should be rendered</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_font_options_Cairo_">$font_options = Cairo::FontOptions-&gt;create</a>
+<dt><a name="_status_font_options">$status = $font_options-&gt;status</a>
+<dt><a name="_font_options_merge_">$font_options-&gt;merge ($other)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_other_Cairo_FontOpt">$other: <i>Cairo::FontOptions</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_hash_font_options_h">$hash = $font_options-&gt;hash</a>
+<dt><a name="_bools_font_options_">$bools = $font_options-&gt;equal ($other)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_other_Cairo_FontOpt1">$other: <i>Cairo::FontOptions</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_font_options_set_an">$font_options-&gt;set_antialias ($antialias)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_antialias_Cairo_Ant1">$antialias: <i>Cairo::AntiAlias</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_antialias_font_opti">$antialias = $font_options-&gt;get_antialias</a>
+<dt><a name="_font_options_set_su">$font_options-&gt;set_subpixel_order ($subpixel_order)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_subpixel_order_Cair">$subpixel_order: <i>Cairo::SubpixelOrder</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_subpixel_order_font">$subpixel_order = $font_options-&gt;get_subpixel_order</a>
+<dt><a name="_font_options_set_hi">$font_options-&gt;set_hint_style ($hint_style)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_hint_style_Cairo_Hi">$hint_style: <i>Cairo::HintStyle</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_hint_style_font_opt">$hint_style = $font_options-&gt;get_hint_style</a>
+<dt><a name="_font_options_set_hi1">$font_options-&gt;set_hint_metrics ($hint_metrics)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_hint_metrics_Cairo_">$hint_metrics: <i>Cairo::HintMetrics</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_hint_metrics_font_o">$hint_metrics = $font_options-&gt;get_hint_metrics</a>
+<dd></dl>
+<h4 class="POD_HEAD3"><a name="FreeType_Fonts_Font_">FreeType Fonts -- Font support for FreeType</a></h4>
+
+If your cairo library supports it, the FreeType integration allows you to load
+font faces from font files.  You can query for this capability with
+<code>Cairo::HAS_FT_FONT</code>.  To actually use this, you&#39;ll need the <u>Font::FreeType</u>
+module.
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="my_face_Cairo_FtFont">my $face = Cairo::FtFontFace-&gt;create ($ft_face, $load_flags=0)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_ft_face_Font_FreeTy">$ft_face: <i>Font::FreeType::Face</i></a>
+<dt><a name="_load_flags_integer">$load_flags: integer</a>
+<dd></dl>
+
+This method allows you to create a <i>Cairo::FontFace</i> from a
+<i>Font::FreeType::Face</i>.  To obtain the latter, you can for example load it
+from a file:
+<pre class="POD_VERBATIM">
+  my $file = &#39;/usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf&#39;;
+  my $ft_face = Font::FreeType-&gt;new-&gt;face ($file);
+  my $face = Cairo::FtFontFace-&gt;create ($ft_face);
+</pre>
+</dl>
+<h3 class="POD_HEAD2"><a name="Surfaces">Surfaces</a></h3>
+<h4 class="POD_HEAD3"><a name="Cairo_Surface_Base_c"><i>Cairo::Surface</i> -- Base class for surfaces</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_new_old_create_simi">$new = $old-&gt;create_similar ($content, $width, $height)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_content_Cairo_Conte1">$content: <i>Cairo::Content</i></a>
+<dt><a name="_width_integer">$width: integer</a>
+<dt><a name="_height_integer">$height: integer</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_status_surface_stat">$status = $surface-&gt;status</a>
+<dt><a name="_surface_finish">$surface-&gt;finish</a>
+<dt><a name="_surface_flush">$surface-&gt;flush</a>
+<dt><a name="_font_options_surfac">$font_options = $surface-&gt;get_font_options</a>
+<dt><a name="_content_surface_get">$content = $surface-&gt;get_content [1.2]</a>
+<dt><a name="_surface_mark_dirty">$surface-&gt;mark_dirty</a>
+<dt><a name="_surface_mark_dirty_">$surface-&gt;mark_dirty_rectangle ($x, $y, $width, $height)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_integer">$x: integer</a>
+<dt><a name="_y_integer">$y: integer</a>
+<dt><a name="_width_integer1">$width: integer</a>
+<dt><a name="_height_integer1">$height: integer</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_set_device_">$surface-&gt;set_device_offset ($x_offset, $y_offset)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_offset_integer">$x_offset: integer</a>
+<dt><a name="_y_offset_integer">$y_offset: integer</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_x_offset_y_offset_s">($x_offset, $y_offset) = $surface-&gt;get_device_offset [1.2]</a>
+<dt><a name="_surface_set_fallbac">$surface-&gt;set_fallback_resolution ($x_pixels_per_inch, $y_pixels_per_inch) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_x_pixels_per_inch_d">$x_pixels_per_inch: double</a>
+<dt><a name="_y_pixels_per_inch_d">$y_pixels_per_inch: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_type_surface_get_ty">$type = $surface-&gt;get_type [1.2]</a>
+<dt><a name="_status_surface_copy">$status = $surface-&gt;copy_page [1.6]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_status_Cairo_Status">$status: <i>Cairo::Status</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_status_surface_show">$status = $surface-&gt;show_page [1.6]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_status_Cairo_Status1">$status: <i>Cairo::Status</i></a>
+<dd></dl>
+</dl>
+<h4 class="POD_HEAD3"><a name="Image_Surfaces_Rende">Image Surfaces -- Rendering to memory buffers</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_surface_Cairo_Image">$surface = Cairo::ImageSurface-&gt;create ($format, $width, $height)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_format_Cairo_Format">$format: <i>Cairo::Format</i></a>
+<dt><a name="_width_integer2">$width: integer</a>
+<dt><a name="_height_integer2">$height: integer</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_Cairo_Image1">$surface = Cairo::ImageSurface-&gt;create_for_data ($data, $format, $width, $height, $stride)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_data_image_data">$data: image data</a>
+<dt><a name="_format_Cairo_Format1">$format: <i>Cairo::Format</i></a>
+<dt><a name="_width_integer3">$width: integer</a>
+<dt><a name="_height_integer3">$height: integer</a>
+<dt><a name="_stride_integer">$stride: integer</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_data_surface_get_da">$data = $surface-&gt;get_data [1.2]</a>
+<dt><a name="_format_surface_get_">$format = $surface-&gt;get_format [1.2]</a>
+<dt><a name="_width_surface_get_w">$width = $surface-&gt;get_width</a>
+<dt><a name="_height_surface_get_">$height = $surface-&gt;get_height</a>
+<dt><a name="_stride_surface_get_">$stride = $surface-&gt;get_stride [1.2]</a>
+<dd></dl>
+<h4 class="POD_HEAD3"><a name="PDF_Surfaces_Renderi">PDF Surfaces -- Rendering PDF documents</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_surface_Cairo_PdfSu">$surface = Cairo::PdfSurface-&gt;create ($filename, $width_in_points, $height_in_points) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_filename_string">$filename: string</a>
+<dt><a name="_width_in_points_dou">$width_in_points: double</a>
+<dt><a name="_height_in_points_do">$height_in_points: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_Cairo_PdfSu1">$surface = Cairo::PdfSurface-&gt;create_for_stream ($callback, $callback_data, $width_in_points, $height_in_points) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_callback_Cairo_Writ">$callback: <u>Cairo::WriteFunc</u></a>
+<dt><a name="_callback_data_scala">$callback_data: scalar</a>
+<dt><a name="_width_in_points_dou1">$width_in_points: double</a>
+<dt><a name="_height_in_points_do1">$height_in_points: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_set_size_wi">$surface-&gt;set_size ($width_in_points, $height_in_points) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_width_in_points_dou2">$width_in_points: double</a>
+<dt><a name="_height_in_points_do2">$height_in_points: double</a>
+<dd></dl>
+</dl>
+<h4 class="POD_HEAD3"><a name="PNG_Support_Reading_">PNG Support -- Reading and writing PNG images</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_surface_Cairo_Image2">$surface = Cairo::ImageSurface-&gt;create_from_png ($filename)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_filename_string1">$filename: string</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="Cairo_ReadFunc_data_">Cairo::ReadFunc: $data = sub { my ($callback_data, $length) = @_; }</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_data_binary_image_d">$data: binary image data, of length $length</a>
+<dt><a name="_callback_data_scala1">$callback_data: scalar, user data</a>
+<dt><a name="_length_integer_byte">$length: integer, bytes to read</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_Cairo_Image3">$surface = Cairo::ImageSurface-&gt;create_from_png_stream ($callback, $callback_data)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_callback_Cairo_Read">$callback: <u>Cairo::ReadFunc</u></a>
+<dt><a name="_callback_data_scala2">$callback_data: scalar</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_status_surface_writ">$status = $surface-&gt;write_to_png ($filename)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_filename_string2">$filename: string</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="Cairo_WriteFunc_sub_">Cairo::WriteFunc: sub { my ($callback_data, $data) = @_; }</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_callback_data_scala3">$callback_data: scalar, user data</a>
+<dt><a name="_data_binary_image_d1">$data: binary image data, to be written</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_status_surface_writ1">$status = $surface-&gt;write_to_png_stream ($callback, $callback_data)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_callback_Cairo_Writ1">$callback: <u>Cairo::WriteFunc</u></a>
+<dt><a name="_callback_data_scala4">$callback_data: scalar</a>
+<dd></dl>
+</dl>
+<h4 class="POD_HEAD3"><a name="PostScript_Surfaces_">PostScript Surfaces -- Rendering PostScript documents</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_surface_Cairo_PsSur">$surface = Cairo::PsSurface-&gt;create ($filename, $width_in_points, $height_in_points) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_filename_string3">$filename: string</a>
+<dt><a name="_width_in_points_dou3">$width_in_points: double</a>
+<dt><a name="_height_in_points_do3">$height_in_points: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_Cairo_PsSur1">$surface = Cairo::PsSurface-&gt;create_for_stream ($callback, $callback_data, $width_in_points, $height_in_points) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_callback_Cairo_Writ2">$callback: <u>Cairo::WriteFunc</u></a>
+<dt><a name="_callback_data_scala5">$callback_data: scalar</a>
+<dt><a name="_width_in_points_dou4">$width_in_points: double</a>
+<dt><a name="_height_in_points_do4">$height_in_points: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_set_size_wi1">$surface-&gt;set_size ($width_in_points, $height_in_points) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_width_in_points_dou5">$width_in_points: double</a>
+<dt><a name="_height_in_points_do5">$height_in_points: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_dsc_begin_s">$surface-&gt;dsc_begin_setup [1.2]</a>
+<dt><a name="_surface_dsc_begin_p">$surface-&gt;dsc_begin_page_setup [1.2]</a>
+<dt><a name="_surface_dsc_comment">$surface-&gt;dsc_comment ($comment) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_comment_string">$comment: string</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_restrict_to">$surface-&gt;restrict_to_level ($level) [1.6]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_level_Cairo_PsLevel">$level: <i>Cairo::PsLevel</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_levels_Cairo_PsSurf">@levels = Cairo::PsSurface::get_levels [1.6]</a>
+<dt><a name="_string_Cairo_PsSurf">$string = Cairo::PsSurface::level_to_string ($level) [1.6]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_level_Cairo_PsLevel1">$level: <i>Cairo::PsLevel</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_set_eps_eps">$surface-&gt;set_eps ($eps) [1.6]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_eps_boolean">$eps: boolean</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_eps_surface_get_eps">$eps = $surface-&gt;get_eps [1.6]</a>
+<dd></dl>
+<h4 class="POD_HEAD3"><a name="SVG_Surfaces_Renderi">SVG Surfaces -- Rendering SVG documents</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_surface_Cairo_SvgSu">$surface = Cairo::SvgSurface-&gt;create ($filename, $width_in_points, $height_in_points) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_filename_string4">$filename: string</a>
+<dt><a name="_width_in_points_dou6">$width_in_points: double</a>
+<dt><a name="_height_in_points_do6">$height_in_points: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_Cairo_SvgSu1">$surface = Cairo::SvgSurface-&gt;create_for_stream ($callback, $callback_data, $width_in_points, $height_in_points) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_callback_Cairo_Writ3">$callback: <u>Cairo::WriteFunc</u></a>
+<dt><a name="_callback_data_scala6">$callback_data: scalar</a>
+<dt><a name="_width_in_points_dou7">$width_in_points: double</a>
+<dt><a name="_height_in_points_do7">$height_in_points: double</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_surface_restrict_to1">$surface-&gt;restrict_to_version ($version) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_version_Cairo_SvgVe">$version: <i>Cairo::SvgVersion</i></a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_versions_Cairo_SvgS">@versions = Cairo::SvgSurface::get_versions [1.2]</a>
+<dt><a name="_string_Cairo_SvgSur">$string = Cairo::SvgSurface::version_to_string ($version) [1.2]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_version_Cairo_SvgVe1">$version: <i>Cairo::SvgVersion</i></a>
+<dd></dl>
+</dl>
+<h3 class="POD_HEAD2"><a name="Utilities">Utilities</a></h3>
+<h4 class="POD_HEAD3"><a name="Version_Information_">Version Information -- Run-time and compile-time version checks.</a></h4>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_version_Cairo_versi">$version = Cairo-&gt;version</a>
+<dt><a name="_string_Cairo_versio">$string = Cairo-&gt;version_string</a>
+<dt><a name="_version_code_Cairo_">$version_code = Cairo-&gt;VERSION</a>
+<dt><a name="_version_code_Cairo_1">$version_code = Cairo-&gt;VERSION_ENCODE ($major, $minor, $micro)</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_major_integer">$major: integer</a>
+<dt><a name="_minor_integer">$minor: integer</a>
+<dt><a name="_micro_integer">$micro: integer</a>
+<dd></dl>
+<dt class="POD_ITEM"><a name="_stride_Cairo_Format">$stride = Cairo::Format::stride_for_width ($format, $width) [1.6]</a>
+<dd><dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_format_Cairo_Format2">$format: <i>Cairo::Format</i></a>
+<dt><a name="_width_integer4">$width: integer</a>
+<dd></dl>
+</dl>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="http_cairographics_o"><a class="POD_LINK" href="http://cairographics.org/documentation">http://cairographics.org/documentation</a></a>
+<dd>
+Lists many available resources including tutorials and examples
+<dt class="POD_ITEM"><a name="http_cairographics_o1"><a class="POD_LINK" href="http://cairographics.org/manual/">http://cairographics.org/manual/</a></a>
+<dd>
+Contains the reference manual
+</dl>
+<h2 class="POD_HEAD1"><a name="AUTHORS">AUTHORS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="Ross_McFarland_rwmcf">Ross McFarland &lt;rwmcfa1 at neces dot com&gt;</a>
+<dt><a name="Torsten_Schoenfeld_k">Torsten Schoenfeld &lt;kaffeetisch at gmx dot de&gt;</a>
+<dd></dl>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+
+Copyright (C) 2004-2009 by the cairo perl team
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:57:22 2009
+</body>
+</html>
+

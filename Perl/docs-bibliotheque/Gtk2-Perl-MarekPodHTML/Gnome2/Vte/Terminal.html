@@ -1,0 +1,589 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Vte::Terminal</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Window.html">Next:<br />Gnome2::Window</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Vte/main.html">Previous:<br />Gnome2::Vte::main</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Vte::Terminal</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_Vte_Te">widget = Gnome2::Vte::Terminal-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#adjustment_terminal_">adjustment = $terminal-&gt;<b>get_adjustment</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_terminal_get">boolean = $terminal-&gt;<b>get_allow_bold</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_allow_">$terminal-&gt;<b>set_allow_bold</b> ($allow_bold)</a>
+<li><a class="POD_NAVLINK" href="#boolean_terminal_get1">boolean = $terminal-&gt;<b>get_audible_bell</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_audibl">$terminal-&gt;<b>set_audible_bell</b> ($is_audible)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_backgr">$terminal-&gt;<b>set_background_image_file</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_backgr1">$terminal-&gt;<b>set_background_image</b> ($image)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_backgr2">$terminal-&gt;<b>set_background_saturation</b> ($saturation)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_backgr3">$terminal-&gt;<b>set_background_tint_color</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_backgr4">$terminal-&gt;<b>set_background_transparent</b> ($transparent)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_backsp">$terminal-&gt;<b>set_backspace_binding</b> ($binding)</a>
+<li><a class="POD_NAVLINK" href="#long_terminal_get_ch">long = $terminal-&gt;<b>get_char_ascent</b></a>
+<li><a class="POD_NAVLINK" href="#long_terminal_get_ch1">long = $terminal-&gt;<b>get_char_descent</b></a>
+<li><a class="POD_NAVLINK" href="#long_terminal_get_ch2">long = $terminal-&gt;<b>get_char_height</b></a>
+<li><a class="POD_NAVLINK" href="#long_terminal_get_ch3">long = $terminal-&gt;<b>get_char_width</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_color_">$terminal-&gt;<b>set_color_background</b> ($background)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_color_1">$terminal-&gt;<b>set_color_bold</b> ($bold)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_color_2">$terminal-&gt;<b>set_color_cursor</b> ($cursor_background)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_color_3">$terminal-&gt;<b>set_color_dim</b> ($dim)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_color_4">$terminal-&gt;<b>set_color_foreground</b> ($foreground)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_color_5">$terminal-&gt;<b>set_color_highlight</b> ($highlight_background)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_colors">$terminal-&gt;<b>set_colors</b> ($foreground, $background, $palette_ref)</a>
+<li><a class="POD_NAVLINK" href="#long_terminal_get_co">long = $terminal-&gt;<b>get_column_count</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_copy_clipb">$terminal-&gt;<b>copy_clipboard</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_copy_prima">$terminal-&gt;<b>copy_primary</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_cursor">$terminal-&gt;<b>set_cursor_blinks</b> ($blink)</a>
+<li><a class="POD_NAVLINK" href="#_column_row_terminal">(column, row) = $terminal-&gt;<b>get_cursor_position</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_defaul">$terminal-&gt;<b>set_default_colors</b></a>
+<li><a class="POD_NAVLINK" href="#string_terminal_get_">string = $terminal-&gt;<b>get_default_emulation</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_delete">$terminal-&gt;<b>set_delete_binding</b> ($binding)</a>
+<li><a class="POD_NAVLINK" href="#string_terminal_get_1">string = $terminal-&gt;<b>get_emulation</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_emulat">$terminal-&gt;<b>set_emulation</b> ($emulation)</a>
+<li><a class="POD_NAVLINK" href="#string_terminal_get_2">string = $terminal-&gt;<b>get_encoding</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_encodi">$terminal-&gt;<b>set_encoding</b> ($codeset)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_feed_data_">$terminal-&gt;<b>feed</b> ($data)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_feed_child">$terminal-&gt;<b>feed_child</b> ($data)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_feed_child1">$terminal-&gt;<b>feed_child_binary</b> ($data)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_font_f">$terminal-&gt;<b>set_font_from_string_full</b> ($name, $anti_alias)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_font_f1">$terminal-&gt;<b>set_font_from_string</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_font_f2">$terminal-&gt;<b>set_font_full</b> ($font_desc, $anti_alias)</a>
+<li><a class="POD_NAVLINK" href="#fontdescription_term">fontdescription = $terminal-&gt;<b>get_font</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_font_f3">$terminal-&gt;<b>set_font</b> ($font_desc)</a>
+<li><a class="POD_NAVLINK" href="#integer_terminal_for">integer = $terminal-&gt;<b>fork_command</b> ($command, $arg_ref, $env_ref, $directory, $lastlog, $utmp, $wtmp)</a>
+<li><a class="POD_NAVLINK" href="#boolean_terminal_get2">boolean = $terminal-&gt;<b>get_has_selection</b></a>
+<li><a class="POD_NAVLINK" href="#string_terminal_get_3">string = $terminal-&gt;<b>get_icon_title</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_im_append_">$terminal-&gt;<b>im_append_menuitems</b> ($menushell)</a>
+<li><a class="POD_NAVLINK" href="#boolean_terminal_is_">boolean = $terminal-&gt;<b>is_word_char</b> ($c)</a>
+<li><a class="POD_NAVLINK" href="#integer_terminal_mat">integer = $terminal-&gt;<b>match_add</b> ($match)</a>
+<li><a class="POD_NAVLINK" href="#list_terminal_match_">list = $terminal-&gt;<b>match_check</b> ($column, $row)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_match_clea">$terminal-&gt;<b>match_clear_all</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_match_remo">$terminal-&gt;<b>match_remove</b> ($tag)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_match_set_">$terminal-&gt;<b>match_set_cursor</b> ($tag, $cursor)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_match_set_1">$terminal-&gt;<b>match_set_cursor_type</b> ($tag, $cursor_type)</a>
+<li><a class="POD_NAVLINK" href="#boolean_terminal_get3">boolean = $terminal-&gt;<b>get_mouse_autohide</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_mouse_">$terminal-&gt;<b>set_mouse_autohide</b> ($setting)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_opacit">$terminal-&gt;<b>set_opacity</b> ($opacity)</a>
+<li><a class="POD_NAVLINK" href="#_xpad_ypad_terminal_">(xpad, ypad) = $terminal-&gt;<b>get_padding</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_paste_clip">$terminal-&gt;<b>paste_clipboard</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_paste_prim">$terminal-&gt;<b>paste_primary</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_pty_pt">$terminal-&gt;<b>set_pty</b> ($pty_master)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_reset_full">$terminal-&gt;<b>reset</b> ($full, $clear_history)</a>
+<li><a class="POD_NAVLINK" href="#long_terminal_get_ro">long = $terminal-&gt;<b>get_row_count</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_scroll">$terminal-&gt;<b>set_scroll_background</b> ($scroll)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_scroll1">$terminal-&gt;<b>set_scroll_on_keystroke</b> ($scroll)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_scroll2">$terminal-&gt;<b>set_scroll_on_output</b> ($scroll)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_scroll3">$terminal-&gt;<b>set_scrollback_lines</b> ($lines)</a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_size_c">$terminal-&gt;<b>set_size</b> ($columns, $rows)</a>
+<li><a class="POD_NAVLINK" href="#string_terminal_get_4">string = $terminal-&gt;<b>get_status_line</b></a>
+<li><a class="POD_NAVLINK" href="#list_terminal_get_te">list = $terminal-&gt;<b>get_text</b> ($func=undef, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#list_terminal_get_te1">list = $terminal-&gt;<b>get_text_include_trailing_spaces</b> ($func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#list_terminal_get_te2">list = $terminal-&gt;<b>get_text_range</b> ($start_row, $start_col, $end_row, $end_col, $func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#boolean_terminal_get4">boolean = $terminal-&gt;<b>get_using_xft</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_terminal_get5">boolean = $terminal-&gt;<b>get_visible_bell</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_visibl">$terminal-&gt;<b>set_visible_bell</b> ($is_visible)</a>
+<li><a class="POD_NAVLINK" href="#string_terminal_get_5">string = $terminal-&gt;<b>get_window_title</b></a>
+<li><a class="POD_NAVLINK" href="#_terminal_set_word_c">$terminal-&gt;<b>set_word_chars</b> ($spec)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gnome2_Vte_Term">enum Gnome2::Vte::Terminal::AntiAlias</a>
+<li><a class="POD_NAVLINK" href="#enum_Gnome2_Vte_Term1">enum Gnome2::Vte::Terminal::EraseBinding</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Cursor">enum Gtk2::Gdk::CursorType</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Vte::Terminal
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gnome2::Vte::Terminal
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_Vte_Te">widget = Gnome2::Vte::Terminal-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="adjustment_terminal_">adjustment = $terminal-&gt;<b>get_adjustment</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_terminal_get">boolean = $terminal-&gt;<b>get_allow_bold</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_allow_">$terminal-&gt;<b>set_allow_bold</b> ($allow_bold)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_allow_bold_boolean_"><p>$allow_bold (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_terminal_get1">boolean = $terminal-&gt;<b>get_audible_bell</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_audibl">$terminal-&gt;<b>set_audible_bell</b> ($is_audible)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_is_audible_boolean_"><p>$is_audible (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_backgr">$terminal-&gt;<b>set_background_image_file</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_backgr1">$terminal-&gt;<b>set_background_image</b> ($image)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_image_Gtk2_Gdk_Pixb"><p>$image (Gtk2::Gdk::Pixbuf or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_backgr2">$terminal-&gt;<b>set_background_saturation</b> ($saturation)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_saturation_double_"><p>$saturation (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_backgr3">$terminal-&gt;<b>set_background_tint_color</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="_terminal_set_backgr4">$terminal-&gt;<b>set_background_transparent</b> ($transparent)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_transparent_boolean"><p>$transparent (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_backsp">$terminal-&gt;<b>set_backspace_binding</b> ($binding)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_binding_Gnome2_Vte_"><p>$binding (Gnome2::Vte::Terminal::EraseBinding)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="long_terminal_get_ch">long = $terminal-&gt;<b>get_char_ascent</b></a></h3>
+<h3 class="POD_HEAD2"><a name="long_terminal_get_ch1">long = $terminal-&gt;<b>get_char_descent</b></a></h3>
+<h3 class="POD_HEAD2"><a name="long_terminal_get_ch2">long = $terminal-&gt;<b>get_char_height</b></a></h3>
+<h3 class="POD_HEAD2"><a name="long_terminal_get_ch3">long = $terminal-&gt;<b>get_char_width</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_color_">$terminal-&gt;<b>set_color_background</b> ($background)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_background_Gtk2_Gdk"><p>$background (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_color_1">$terminal-&gt;<b>set_color_bold</b> ($bold)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_bold_Gtk2_Gdk_Color"><p>$bold (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_color_2">$terminal-&gt;<b>set_color_cursor</b> ($cursor_background)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cursor_background_G"><p>$cursor_background (Gtk2::Gdk::Color or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="_terminal_set_color_3">$terminal-&gt;<b>set_color_dim</b> ($dim)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dim_Gtk2_Gdk_Color_"><p>$dim (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_color_4">$terminal-&gt;<b>set_color_foreground</b> ($foreground)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_foreground_Gtk2_Gdk"><p>$foreground (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_color_5">$terminal-&gt;<b>set_color_highlight</b> ($highlight_background)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_highlight_backgroun"><p>$highlight_background (Gtk2::Gdk::Color or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="_terminal_set_colors">$terminal-&gt;<b>set_colors</b> ($foreground, $background, $palette_ref)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_foreground_Gtk2_Gdk1"><p>$foreground (Gtk2::Gdk::Color or undef)</p></a>
+<li class="POD_ITEM"><a name="_background_Gtk2_Gdk1"><p>$background (Gtk2::Gdk::Color or undef)</p></a>
+<li class="POD_ITEM"><a name="_palette_ref_scalar_"><p>$palette_ref (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="long_terminal_get_co">long = $terminal-&gt;<b>get_column_count</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_copy_clipb">$terminal-&gt;<b>copy_clipboard</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_copy_prima">$terminal-&gt;<b>copy_primary</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_cursor">$terminal-&gt;<b>set_cursor_blinks</b> ($blink)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_blink_boolean_"><p>$blink (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_column_row_terminal">(column, row) = $terminal-&gt;<b>get_cursor_position</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_defaul">$terminal-&gt;<b>set_default_colors</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_terminal_get_">string = $terminal-&gt;<b>get_default_emulation</b></a></h3>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="_terminal_set_delete">$terminal-&gt;<b>set_delete_binding</b> ($binding)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_binding_Gnome2_Vte_1"><p>$binding (Gnome2::Vte::Terminal::EraseBinding)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_terminal_get_1">string = $terminal-&gt;<b>get_emulation</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_emulat">$terminal-&gt;<b>set_emulation</b> ($emulation)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_emulation_string_"><p>$emulation (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_terminal_get_2">string = $terminal-&gt;<b>get_encoding</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_encodi">$terminal-&gt;<b>set_encoding</b> ($codeset)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_codeset_string_"><p>$codeset (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_feed_data_">$terminal-&gt;<b>feed</b> ($data)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_feed_child">$terminal-&gt;<b>feed_child</b> ($data)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_data_scalar_1"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_feed_child1">$terminal-&gt;<b>feed_child_binary</b> ($data)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_data_scalar_2"><p>$data (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="_terminal_set_font_f">$terminal-&gt;<b>set_font_from_string_full</b> ($name, $anti_alias)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+<li class="POD_ITEM"><a name="_anti_alias_Gnome2_V"><p>$anti_alias (Gnome2::Vte::Terminal::AntiAlias)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="_terminal_set_font_f1">$terminal-&gt;<b>set_font_from_string</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_1"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_font_f2">$terminal-&gt;<b>set_font_full</b> ($font_desc, $anti_alias)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_font_desc_Pango_Fon"><p>$font_desc (Pango::FontDescription or undef)</p></a>
+<li class="POD_ITEM"><a name="_anti_alias_Gnome2_V1"><p>$anti_alias (Gnome2::Vte::Terminal::AntiAlias)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="fontdescription_term">fontdescription = $terminal-&gt;<b>get_font</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_font_f3">$terminal-&gt;<b>set_font</b> ($font_desc)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_font_desc_Pango_Fon1"><p>$font_desc (Pango::FontDescription)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_terminal_for">integer = $terminal-&gt;<b>fork_command</b> ($command, $arg_ref, $env_ref, $directory, $lastlog, $utmp, $wtmp)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_command_string_"><p>$command (string)</p></a>
+<li class="POD_ITEM"><a name="_arg_ref_scalar_"><p>$arg_ref (scalar)</p></a>
+<li class="POD_ITEM"><a name="_env_ref_scalar_"><p>$env_ref (scalar)</p></a>
+<li class="POD_ITEM"><a name="_directory_string_or"><p>$directory (string or undef)</p></a>
+<li class="POD_ITEM"><a name="_lastlog_boolean_"><p>$lastlog (boolean)</p></a>
+<li class="POD_ITEM"><a name="_utmp_boolean_"><p>$utmp (boolean)</p></a>
+<li class="POD_ITEM"><a name="_wtmp_boolean_"><p>$wtmp (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_terminal_get2">boolean = $terminal-&gt;<b>get_has_selection</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_terminal_get_3">string = $terminal-&gt;<b>get_icon_title</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_im_append_">$terminal-&gt;<b>im_append_menuitems</b> ($menushell)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_menushell_Gtk2_Menu"><p>$menushell (Gtk2::MenuShell)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_terminal_is_">boolean = $terminal-&gt;<b>is_word_char</b> ($c)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_c_character_"><p>$c (character)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_terminal_mat">integer = $terminal-&gt;<b>match_add</b> ($match)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_match_string_"><p>$match (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_terminal_match_">list = $terminal-&gt;<b>match_check</b> ($column, $row)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_column_Glib_Long_"><p>$column (Glib::Long)</p></a>
+<li class="POD_ITEM"><a name="_row_Glib_Long_"><p>$row (Glib::Long)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_match_clea">$terminal-&gt;<b>match_clear_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_match_remo">$terminal-&gt;<b>match_remove</b> ($tag)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tag_integer_"><p>$tag (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_match_set_">$terminal-&gt;<b>match_set_cursor</b> ($tag, $cursor)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tag_integer_1"><p>$tag (integer)</p></a>
+<li class="POD_ITEM"><a name="_cursor_Gtk2_Gdk_Cur"><p>$cursor (Gtk2::Gdk::Cursor)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="_terminal_match_set_1">$terminal-&gt;<b>match_set_cursor_type</b> ($tag, $cursor_type)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tag_integer_2"><p>$tag (integer)</p></a>
+<li class="POD_ITEM"><a name="_cursor_type_Gtk2_Gd"><p>$cursor_type (Gtk2::Gdk::CursorType)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_terminal_get3">boolean = $terminal-&gt;<b>get_mouse_autohide</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_mouse_">$terminal-&gt;<b>set_mouse_autohide</b> ($setting)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_setting_boolean_"><p>$setting (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_opacit">$terminal-&gt;<b>set_opacity</b> ($opacity)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_opacity_unsigned_"><p>$opacity (unsigned)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.14
+</p>
+<h3 class="POD_HEAD2"><a name="_xpad_ypad_terminal_">(xpad, ypad) = $terminal-&gt;<b>get_padding</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_paste_clip">$terminal-&gt;<b>paste_clipboard</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_paste_prim">$terminal-&gt;<b>paste_primary</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_pty_pt">$terminal-&gt;<b>set_pty</b> ($pty_master)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pty_master_integer_"><p>$pty_master (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="_terminal_reset_full">$terminal-&gt;<b>reset</b> ($full, $clear_history)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_full_boolean_"><p>$full (boolean)</p></a>
+<li class="POD_ITEM"><a name="_clear_history_boole"><p>$clear_history (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="long_terminal_get_ro">long = $terminal-&gt;<b>get_row_count</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_scroll">$terminal-&gt;<b>set_scroll_background</b> ($scroll)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_scroll_boolean_"><p>$scroll (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="_terminal_set_scroll1">$terminal-&gt;<b>set_scroll_on_keystroke</b> ($scroll)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_scroll_boolean_1"><p>$scroll (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_scroll2">$terminal-&gt;<b>set_scroll_on_output</b> ($scroll)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_scroll_boolean_2"><p>$scroll (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_scroll3">$terminal-&gt;<b>set_scrollback_lines</b> ($lines)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_lines_Glib_Long_"><p>$lines (Glib::Long)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_terminal_set_size_c">$terminal-&gt;<b>set_size</b> ($columns, $rows)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_columns_Glib_Long_"><p>$columns (Glib::Long)</p></a>
+<li class="POD_ITEM"><a name="_rows_Glib_Long_"><p>$rows (Glib::Long)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_terminal_get_4">string = $terminal-&gt;<b>get_status_line</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_terminal_get_te">list = $terminal-&gt;<b>get_text</b> ($func=undef, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_3"><p>$data (scalar)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns the selected text and a reference to a VteCharAttributes array
+describing every character in that text.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_terminal_get_te1">list = $terminal-&gt;<b>get_text_include_trailing_spaces</b> ($func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_1"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_4"><p>$data (scalar)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns the selected text and a reference to a VteCharAttributes array
+describing every character in that text.
+</p>
+<p></p>
+<p class="POD_TEXT">
+Since: vte 0.12
+</p>
+<h3 class="POD_HEAD2"><a name="list_terminal_get_te2">list = $terminal-&gt;<b>get_text_range</b> ($start_row, $start_col, $end_row, $end_col, $func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_start_row_Glib_Long"><p>$start_row (Glib::Long)</p></a>
+<li class="POD_ITEM"><a name="_start_col_Glib_Long"><p>$start_col (Glib::Long)</p></a>
+<li class="POD_ITEM"><a name="_end_row_Glib_Long_"><p>$end_row (Glib::Long)</p></a>
+<li class="POD_ITEM"><a name="_end_col_Glib_Long_"><p>$end_col (Glib::Long)</p></a>
+<li class="POD_ITEM"><a name="_func_scalar_2"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_5"><p>$data (scalar)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns the selected text and a reference to a VteCharAttributes array
+describing every character in that text.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="boolean_terminal_get4">boolean = $terminal-&gt;<b>get_using_xft</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_terminal_get5">boolean = $terminal-&gt;<b>get_visible_bell</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_visibl">$terminal-&gt;<b>set_visible_bell</b> ($is_visible)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_is_visible_boolean_"><p>$is_visible (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_terminal_get_5">string = $terminal-&gt;<b>get_window_title</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_terminal_set_word_c">$terminal-&gt;<b>set_word_chars</b> ($spec)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_spec_string_or_unde"><p>$spec (string or undef)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="eof_Gnome2_Vte_Termi"><b>eof</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="child_exited_Gnome2_"><b>child-exited</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="window_title_changed"><b>window-title-changed</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="icon_title_changed_G"><b>icon-title-changed</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="encoding_changed_Gno"><b>encoding-changed</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="commit_Gnome2_Vte_Te"><b>commit</b> (Gnome2::Vte::Terminal, string, Glib::UInt)</a>
+<dt><a name="emulation_changed_Gn"><b>emulation-changed</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="char_size_changed_Gn"><b>char-size-changed</b> (Gnome2::Vte::Terminal, Glib::UInt, Glib::UInt)</a>
+<dt><a name="selection_changed_Gn"><b>selection-changed</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="contents_changed_Gno"><b>contents-changed</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="cursor_moved_Gnome2_"><b>cursor-moved</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="deiconify_window_Gno"><b>deiconify-window</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="iconify_window_Gnome"><b>iconify-window</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="raise_window_Gnome2_"><b>raise-window</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="lower_window_Gnome2_"><b>lower-window</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="refresh_window_Gnome"><b>refresh-window</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="restore_window_Gnome"><b>restore-window</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="maximize_window_Gnom"><b>maximize-window</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="resize_window_Gnome2"><b>resize-window</b> (Gnome2::Vte::Terminal, Glib::UInt, Glib::UInt)</a>
+<dt><a name="move_window_Gnome2_V"><b>move-window</b> (Gnome2::Vte::Terminal, Glib::UInt, Glib::UInt)</a>
+<dt><a name="status_line_changed_"><b>status-line-changed</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="increase_font_size_G"><b>increase-font-size</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="decrease_font_size_G"><b>decrease-font-size</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="text_modified_Gnome2"><b>text-modified</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="text_inserted_Gnome2"><b>text-inserted</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="text_deleted_Gnome2_"><b>text-deleted</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="text_scrolled_Gnome2"><b>text-scrolled</b> (Gnome2::Vte::Terminal, integer)</a>
+<dt><a name="copy_clipboard_Gnome"><b>copy-clipboard</b> (Gnome2::Vte::Terminal)</a>
+<dt><a name="paste_clipboard_Gnom"><b>paste-clipboard</b> (Gnome2::Vte::Terminal)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gnome2_Vte_Term">enum Gnome2::Vte::Terminal::AntiAlias</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_use_default_VTE_ANT"><p>&#39;use-default&#39; / &#39;VTE_ANTI_ALIAS_USE_DEFAULT&#39;</p></a>
+<li class="POD_ITEM"><a name="_force_enable_VTE_AN"><p>&#39;force-enable&#39; / &#39;VTE_ANTI_ALIAS_FORCE_ENABLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_force_disable_VTE_A"><p>&#39;force-disable&#39; / &#39;VTE_ANTI_ALIAS_FORCE_DISABLE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gnome2_Vte_Term1">enum Gnome2::Vte::Terminal::EraseBinding</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_auto_VTE_ERASE_AUTO"><p>&#39;auto&#39; / &#39;VTE_ERASE_AUTO&#39;</p></a>
+<li class="POD_ITEM"><a name="_ascii_backspace_VTE"><p>&#39;ascii-backspace&#39; / &#39;VTE_ERASE_ASCII_BACKSPACE&#39;</p></a>
+<li class="POD_ITEM"><a name="_ascii_delete_VTE_ER"><p>&#39;ascii-delete&#39; / &#39;VTE_ERASE_ASCII_DELETE&#39;</p></a>
+<li class="POD_ITEM"><a name="_delete_sequence_VTE"><p>&#39;delete-sequence&#39; / &#39;VTE_ERASE_DELETE_SEQUENCE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Cursor">enum Gtk2::Gdk::CursorType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_cursor_GDK_X_CURS"><p>&#39;x-cursor&#39; / &#39;GDK_X_CURSOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_arrow_GDK_ARROW_"><p>&#39;arrow&#39; / &#39;GDK_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_based_arrow_down_GD"><p>&#39;based-arrow-down&#39; / &#39;GDK_BASED_ARROW_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_based_arrow_up_GDK_"><p>&#39;based-arrow-up&#39; / &#39;GDK_BASED_ARROW_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_boat_GDK_BOAT_"><p>&#39;boat&#39; / &#39;GDK_BOAT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bogosity_GDK_BOGOSI"><p>&#39;bogosity&#39; / &#39;GDK_BOGOSITY&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_left_corner_"><p>&#39;bottom-left-corner&#39; / &#39;GDK_BOTTOM_LEFT_CORNER&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_right_corner"><p>&#39;bottom-right-corner&#39; / &#39;GDK_BOTTOM_RIGHT_CORNER&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_side_GDK_BOT"><p>&#39;bottom-side&#39; / &#39;GDK_BOTTOM_SIDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_bottom_tee_GDK_BOTT"><p>&#39;bottom-tee&#39; / &#39;GDK_BOTTOM_TEE&#39;</p></a>
+<li class="POD_ITEM"><a name="_box_spiral_GDK_BOX_"><p>&#39;box-spiral&#39; / &#39;GDK_BOX_SPIRAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_center_ptr_GDK_CENT"><p>&#39;center-ptr&#39; / &#39;GDK_CENTER_PTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_circle_GDK_CIRCLE_"><p>&#39;circle&#39; / &#39;GDK_CIRCLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_clock_GDK_CLOCK_"><p>&#39;clock&#39; / &#39;GDK_CLOCK&#39;</p></a>
+<li class="POD_ITEM"><a name="_coffee_mug_GDK_COFF"><p>&#39;coffee-mug&#39; / &#39;GDK_COFFEE_MUG&#39;</p></a>
+<li class="POD_ITEM"><a name="_cross_GDK_CROSS_"><p>&#39;cross&#39; / &#39;GDK_CROSS&#39;</p></a>
+<li class="POD_ITEM"><a name="_cross_reverse_GDK_C"><p>&#39;cross-reverse&#39; / &#39;GDK_CROSS_REVERSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_crosshair_GDK_CROSS"><p>&#39;crosshair&#39; / &#39;GDK_CROSSHAIR&#39;</p></a>
+<li class="POD_ITEM"><a name="_diamond_cross_GDK_D"><p>&#39;diamond-cross&#39; / &#39;GDK_DIAMOND_CROSS&#39;</p></a>
+<li class="POD_ITEM"><a name="_dot_GDK_DOT_"><p>&#39;dot&#39; / &#39;GDK_DOT&#39;</p></a>
+<li class="POD_ITEM"><a name="_dotbox_GDK_DOTBOX_"><p>&#39;dotbox&#39; / &#39;GDK_DOTBOX&#39;</p></a>
+<li class="POD_ITEM"><a name="_double_arrow_GDK_DO"><p>&#39;double-arrow&#39; / &#39;GDK_DOUBLE_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_draft_large_GDK_DRA"><p>&#39;draft-large&#39; / &#39;GDK_DRAFT_LARGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_draft_small_GDK_DRA"><p>&#39;draft-small&#39; / &#39;GDK_DRAFT_SMALL&#39;</p></a>
+<li class="POD_ITEM"><a name="_draped_box_GDK_DRAP"><p>&#39;draped-box&#39; / &#39;GDK_DRAPED_BOX&#39;</p></a>
+<li class="POD_ITEM"><a name="_exchange_GDK_EXCHAN"><p>&#39;exchange&#39; / &#39;GDK_EXCHANGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_fleur_GDK_FLEUR_"><p>&#39;fleur&#39; / &#39;GDK_FLEUR&#39;</p></a>
+<li class="POD_ITEM"><a name="_gobbler_GDK_GOBBLER"><p>&#39;gobbler&#39; / &#39;GDK_GOBBLER&#39;</p></a>
+<li class="POD_ITEM"><a name="_gumby_GDK_GUMBY_"><p>&#39;gumby&#39; / &#39;GDK_GUMBY&#39;</p></a>
+<li class="POD_ITEM"><a name="_hand1_GDK_HAND1_"><p>&#39;hand1&#39; / &#39;GDK_HAND1&#39;</p></a>
+<li class="POD_ITEM"><a name="_hand2_GDK_HAND2_"><p>&#39;hand2&#39; / &#39;GDK_HAND2&#39;</p></a>
+<li class="POD_ITEM"><a name="_heart_GDK_HEART_"><p>&#39;heart&#39; / &#39;GDK_HEART&#39;</p></a>
+<li class="POD_ITEM"><a name="_icon_GDK_ICON_"><p>&#39;icon&#39; / &#39;GDK_ICON&#39;</p></a>
+<li class="POD_ITEM"><a name="_iron_cross_GDK_IRON"><p>&#39;iron-cross&#39; / &#39;GDK_IRON_CROSS&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_ptr_GDK_LEFT_P"><p>&#39;left-ptr&#39; / &#39;GDK_LEFT_PTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_side_GDK_LEFT_"><p>&#39;left-side&#39; / &#39;GDK_LEFT_SIDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_tee_GDK_LEFT_T"><p>&#39;left-tee&#39; / &#39;GDK_LEFT_TEE&#39;</p></a>
+<li class="POD_ITEM"><a name="_leftbutton_GDK_LEFT"><p>&#39;leftbutton&#39; / &#39;GDK_LEFTBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_ll_angle_GDK_LL_ANG"><p>&#39;ll-angle&#39; / &#39;GDK_LL_ANGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_lr_angle_GDK_LR_ANG"><p>&#39;lr-angle&#39; / &#39;GDK_LR_ANGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_man_GDK_MAN_"><p>&#39;man&#39; / &#39;GDK_MAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_middlebutton_GDK_MI"><p>&#39;middlebutton&#39; / &#39;GDK_MIDDLEBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_mouse_GDK_MOUSE_"><p>&#39;mouse&#39; / &#39;GDK_MOUSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_pencil_GDK_PENCIL_"><p>&#39;pencil&#39; / &#39;GDK_PENCIL&#39;</p></a>
+<li class="POD_ITEM"><a name="_pirate_GDK_PIRATE_"><p>&#39;pirate&#39; / &#39;GDK_PIRATE&#39;</p></a>
+<li class="POD_ITEM"><a name="_plus_GDK_PLUS_"><p>&#39;plus&#39; / &#39;GDK_PLUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_question_arrow_GDK_"><p>&#39;question-arrow&#39; / &#39;GDK_QUESTION_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_ptr_GDK_RIGHT"><p>&#39;right-ptr&#39; / &#39;GDK_RIGHT_PTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_side_GDK_RIGH"><p>&#39;right-side&#39; / &#39;GDK_RIGHT_SIDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_tee_GDK_RIGHT"><p>&#39;right-tee&#39; / &#39;GDK_RIGHT_TEE&#39;</p></a>
+<li class="POD_ITEM"><a name="_rightbutton_GDK_RIG"><p>&#39;rightbutton&#39; / &#39;GDK_RIGHTBUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_rtl_logo_GDK_RTL_LO"><p>&#39;rtl-logo&#39; / &#39;GDK_RTL_LOGO&#39;</p></a>
+<li class="POD_ITEM"><a name="_sailboat_GDK_SAILBO"><p>&#39;sailboat&#39; / &#39;GDK_SAILBOAT&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_down_arrow_GDK_S"><p>&#39;sb-down-arrow&#39; / &#39;GDK_SB_DOWN_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_h_double_arrow_G"><p>&#39;sb-h-double-arrow&#39; / &#39;GDK_SB_H_DOUBLE_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_left_arrow_GDK_S"><p>&#39;sb-left-arrow&#39; / &#39;GDK_SB_LEFT_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_right_arrow_GDK_"><p>&#39;sb-right-arrow&#39; / &#39;GDK_SB_RIGHT_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_up_arrow_GDK_SB_"><p>&#39;sb-up-arrow&#39; / &#39;GDK_SB_UP_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_sb_v_double_arrow_G"><p>&#39;sb-v-double-arrow&#39; / &#39;GDK_SB_V_DOUBLE_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_shuttle_GDK_SHUTTLE"><p>&#39;shuttle&#39; / &#39;GDK_SHUTTLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_sizing_GDK_SIZING_"><p>&#39;sizing&#39; / &#39;GDK_SIZING&#39;</p></a>
+<li class="POD_ITEM"><a name="_spider_GDK_SPIDER_"><p>&#39;spider&#39; / &#39;GDK_SPIDER&#39;</p></a>
+<li class="POD_ITEM"><a name="_spraycan_GDK_SPRAYC"><p>&#39;spraycan&#39; / &#39;GDK_SPRAYCAN&#39;</p></a>
+<li class="POD_ITEM"><a name="_star_GDK_STAR_"><p>&#39;star&#39; / &#39;GDK_STAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_target_GDK_TARGET_"><p>&#39;target&#39; / &#39;GDK_TARGET&#39;</p></a>
+<li class="POD_ITEM"><a name="_tcross_GDK_TCROSS_"><p>&#39;tcross&#39; / &#39;GDK_TCROSS&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_left_arrow_GDK_"><p>&#39;top-left-arrow&#39; / &#39;GDK_TOP_LEFT_ARROW&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_left_corner_GDK"><p>&#39;top-left-corner&#39; / &#39;GDK_TOP_LEFT_CORNER&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_right_corner_GD"><p>&#39;top-right-corner&#39; / &#39;GDK_TOP_RIGHT_CORNER&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_side_GDK_TOP_SI"><p>&#39;top-side&#39; / &#39;GDK_TOP_SIDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_top_tee_GDK_TOP_TEE"><p>&#39;top-tee&#39; / &#39;GDK_TOP_TEE&#39;</p></a>
+<li class="POD_ITEM"><a name="_trek_GDK_TREK_"><p>&#39;trek&#39; / &#39;GDK_TREK&#39;</p></a>
+<li class="POD_ITEM"><a name="_ul_angle_GDK_UL_ANG"><p>&#39;ul-angle&#39; / &#39;GDK_UL_ANGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_umbrella_GDK_UMBREL"><p>&#39;umbrella&#39; / &#39;GDK_UMBRELLA&#39;</p></a>
+<li class="POD_ITEM"><a name="_ur_angle_GDK_UR_ANG"><p>&#39;ur-angle&#39; / &#39;GDK_UR_ANGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_watch_GDK_WATCH_"><p>&#39;watch&#39; / &#39;GDK_WATCH&#39;</p></a>
+<li class="POD_ITEM"><a name="_xterm_GDK_XTERM_"><p>&#39;xterm&#39; / &#39;GDK_XTERM&#39;</p></a>
+<li class="POD_ITEM"><a name="_last_cursor_GDK_LAS"><p>&#39;last-cursor&#39; / &#39;GDK_LAST_CURSOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_cursor_is_pixmap_GD"><p>&#39;cursor-is-pixmap&#39; / &#39;GDK_CURSOR_IS_PIXMAP&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../../Gnome2/Vte.html">Gnome2::Vte</a>, <a class="POD_LINK" href="../../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../../Gtk2/Widget.html">Gtk2::Widget</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2006 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gnome2/Vte.html">Gnome2::Vte</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:35 2009
+</body>
+</html>
+

@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Action</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ActionGroup.html">Next:<br />Gtk2::ActionGroup</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/AccelMap.html">Previous:<br />Gtk2::AccelMap</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Action</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#CONSTRUCTOR">CONSTRUCTOR</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#action_Gtk2_Action_n">action = Gtk2::Action-&gt;<b>new</b> (key=&gt;value,...)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#_action_set_accel_gr">$action-&gt;<b>set_accel_group</b> ($accel_group)</a>
+<li><a class="POD_NAVLINK" href="#string_action_get_ac">string = $action-&gt;<b>get_accel_path</b></a>
+<li><a class="POD_NAVLINK" href="#_action_set_accel_pa">$action-&gt;<b>set_accel_path</b> ($accel_path)</a>
+<li><a class="POD_NAVLINK" href="#_action_activate">$action-&gt;<b>activate</b></a>
+<li><a class="POD_NAVLINK" href="#_action_block_activa">$action-&gt;<b>block_activate_from</b> ($proxy)</a>
+<li><a class="POD_NAVLINK" href="#_action_connect_acce">$action-&gt;<b>connect_accelerator</b></a>
+<li><a class="POD_NAVLINK" href="#_action_connect_prox">$action-&gt;<b>connect_proxy</b> ($proxy)</a>
+<li><a class="POD_NAVLINK" href="#widget_action_create">widget = $action-&gt;<b>create_icon</b> ($icon_size)</a>
+<li><a class="POD_NAVLINK" href="#widget_action_create1">widget = $action-&gt;<b>create_menu</b></a>
+<li><a class="POD_NAVLINK" href="#widget_action_create2">widget = $action-&gt;<b>create_menu_item</b></a>
+<li><a class="POD_NAVLINK" href="#widget_action_create3">widget = $action-&gt;<b>create_tool_item</b></a>
+<li><a class="POD_NAVLINK" href="#_action_disconnect_a">$action-&gt;<b>disconnect_accelerator</b></a>
+<li><a class="POD_NAVLINK" href="#_action_disconnect_p">$action-&gt;<b>disconnect_proxy</b> ($proxy)</a>
+<li><a class="POD_NAVLINK" href="#boolean_action_is_se">boolean = $action-&gt;<b>is_sensitive</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_action_is_vi">boolean = $action-&gt;<b>is_visible</b></a>
+<li><a class="POD_NAVLINK" href="#string_action_get_na">string = $action-&gt;<b>get_name</b></a>
+<li><a class="POD_NAVLINK" href="#list_action_get_prox">list = $action-&gt;<b>get_proxies</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_action_get_s">boolean = $action-&gt;<b>get_sensitive</b></a>
+<li><a class="POD_NAVLINK" href="#_action_set_sensitiv">$action-&gt;<b>set_sensitive</b> ($sensitive)</a>
+<li><a class="POD_NAVLINK" href="#_action_unblock_acti">$action-&gt;<b>unblock_activate_from</b> ($proxy)</a>
+<li><a class="POD_NAVLINK" href="#boolean_action_get_v">boolean = $action-&gt;<b>get_visible</b></a>
+<li><a class="POD_NAVLINK" href="#_action_set_visible_">$action-&gt;<b>set_visible</b> ($visible)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IconSize">enum Gtk2::IconSize</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Action
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::Action
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="CONSTRUCTOR">CONSTRUCTOR</a></h2>
+<h3 class="POD_HEAD2"><a name="action_Gtk2_Action_n">action = Gtk2::Action-&gt;<b>new</b> (key=&gt;value,...)</a></h3>
+<p class="POD_TEXT">
+Create and return a new action object.  Note that this is the <code>new</code>
+of <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, not <code>gtk_action_new</code>.  Eg.
+</p>
+<pre class="POD_VERBATIM">
+    Gtk2::Action-&gt;new (name =&gt; &#39;open-foo&#39;,
+		       stock_id =&gt; &#39;gtk-open&#39;,
+		       tooltip =&gt; &#39;Start a foo&#39;);
+</pre>
+<p class="POD_TEXT">
+The keyword/value style is more flexible and a little clearer than the
+four direct arguments of <code>gtk_action_new</code> (and also works better for
+subclasses).
+</p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="_action_set_accel_gr">$action-&gt;<b>set_accel_group</b> ($accel_group)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_accel_group_Gtk2_Ac"><p>$accel_group (Gtk2::AccelGroup or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_action_get_ac">string = $action-&gt;<b>get_accel_path</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_action_set_accel_pa">$action-&gt;<b>set_accel_path</b> ($accel_path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_accel_path_string_"><p>$accel_path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_action_activate">$action-&gt;<b>activate</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_action_block_activa">$action-&gt;<b>block_activate_from</b> ($proxy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_proxy_Gtk2_Widget_"><p>$proxy (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_action_connect_acce">$action-&gt;<b>connect_accelerator</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_action_connect_prox">$action-&gt;<b>connect_proxy</b> ($proxy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_proxy_Gtk2_Widget_1"><p>$proxy (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_action_create">widget = $action-&gt;<b>create_icon</b> ($icon_size)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_icon_size_Gtk2_Icon"><p>$icon_size (Gtk2::IconSize)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_action_create1">widget = $action-&gt;<b>create_menu</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="widget_action_create2">widget = $action-&gt;<b>create_menu_item</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_action_create3">widget = $action-&gt;<b>create_tool_item</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_action_disconnect_a">$action-&gt;<b>disconnect_accelerator</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_action_disconnect_p">$action-&gt;<b>disconnect_proxy</b> ($proxy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_proxy_Gtk2_Widget_2"><p>$proxy (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_action_is_se">boolean = $action-&gt;<b>is_sensitive</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_action_is_vi">boolean = $action-&gt;<b>is_visible</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_action_get_na">string = $action-&gt;<b>get_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_action_get_prox">list = $action-&gt;<b>get_proxies</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_action_get_s">boolean = $action-&gt;<b>get_sensitive</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_action_set_sensitiv">$action-&gt;<b>set_sensitive</b> ($sensitive)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_sensitive_boolean_"><p>$sensitive (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_action_unblock_acti">$action-&gt;<b>unblock_activate_from</b> ($proxy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_proxy_Gtk2_Widget_3"><p>$proxy (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_action_get_v">boolean = $action-&gt;<b>get_visible</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_action_set_visible_">$action-&gt;<b>set_visible</b> ($visible)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_visible_boolean_"><p>$visible (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_action_group_Gtk2_A">&#39;action-group&#39; (Gtk2::ActionGroup : readable / writable / private)</a>
+<dd>
+The GtkActionGroup this GtkAction is associated with, or NULL (for internal use).
+<dt class="POD_ITEM"><a name="_hide_if_empty_boole">&#39;hide-if-empty&#39; (boolean : readable / writable / private)</a>
+<dd>
+When TRUE, empty menu proxies for this action are hidden.
+<dt class="POD_ITEM"><a name="_icon_name_string_re">&#39;icon-name&#39; (string : readable / writable / private)</a>
+<dd>
+The name of the icon from the icon theme
+<dt class="POD_ITEM"><a name="_is_important_boolea">&#39;is-important&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the action is considered important. When TRUE, toolitem proxies for this action show text in GTK_TOOLBAR_BOTH_HORIZ mode.
+<dt class="POD_ITEM"><a name="_label_string_readab">&#39;label&#39; (string : readable / writable / private)</a>
+<dd>
+The label used for menu items and buttons that activate this action.
+<dt class="POD_ITEM"><a name="_name_string_readabl">&#39;name&#39; (string : readable / writable / construct-only / private)</a>
+<dd>
+A unique name for the action.
+<dt class="POD_ITEM"><a name="_sensitive_boolean_r">&#39;sensitive&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the action is enabled.
+<dt class="POD_ITEM"><a name="_short_label_string_">&#39;short-label&#39; (string : readable / writable / private)</a>
+<dd>
+A shorter label that may be used on toolbar buttons.
+<dt class="POD_ITEM"><a name="_stock_id_string_rea">&#39;stock-id&#39; (string : readable / writable / private)</a>
+<dd>
+The stock icon displayed in widgets representing this action.
+<dt class="POD_ITEM"><a name="_tooltip_string_read">&#39;tooltip&#39; (string : readable / writable / private)</a>
+<dd>
+A tooltip for this action.
+<dt class="POD_ITEM"><a name="_visible_boolean_rea">&#39;visible&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the action is visible.
+<dt class="POD_ITEM"><a name="_visible_horizontal_">&#39;visible-horizontal&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the toolbar item is visible when the toolbar is in a horizontal orientation.
+<dt class="POD_ITEM"><a name="_visible_overflown_b">&#39;visible-overflown&#39; (boolean : readable / writable / private)</a>
+<dd>
+When TRUE, toolitem proxies for this action are represented in the toolbar overflow menu.
+<dt class="POD_ITEM"><a name="_visible_vertical_bo">&#39;visible-vertical&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the toolbar item is visible when the toolbar is in a vertical orientation.
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="activate_Gtk2_Action"><b>activate</b> (Gtk2::Action)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IconSize">enum Gtk2::IconSize</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_invalid_GTK_ICON_SI"><p>&#39;invalid&#39; / &#39;GTK_ICON_SIZE_INVALID&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GTK_ICON_SIZE_"><p>&#39;menu&#39; / &#39;GTK_ICON_SIZE_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_small_toolbar_GTK_I"><p>&#39;small-toolbar&#39; / &#39;GTK_ICON_SIZE_SMALL_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_large_toolbar_GTK_I"><p>&#39;large-toolbar&#39; / &#39;GTK_ICON_SIZE_LARGE_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_GTK_ICON_SIZ"><p>&#39;button&#39; / &#39;GTK_ICON_SIZE_BUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_dnd_GTK_ICON_SIZE_D"><p>&#39;dnd&#39; / &#39;GTK_ICON_SIZE_DND&#39;</p></a>
+<li class="POD_ITEM"><a name="_dialog_GTK_ICON_SIZ"><p>&#39;dialog&#39; / &#39;GTK_ICON_SIZE_DIALOG&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:23 2009
+</body>
+</html>
+

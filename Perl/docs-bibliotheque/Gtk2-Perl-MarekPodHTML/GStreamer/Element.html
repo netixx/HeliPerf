@@ -1,0 +1,308 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>GStreamer::Element</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/ElementFactory.html">Next:<br />GStreamer::ElementFactory</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/ClockID.html">Previous:<br />GStreamer::ClockID</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">GStreamer::Element</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#_element_abort_state">$element-&gt;<b>abort_state</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_element_add_">boolean = $element-&gt;<b>add_pad</b> ($pad)</a>
+<li><a class="POD_NAVLINK" href="#unsigned_integer_ele">unsigned integer = $element-&gt;<b>get_base_time</b></a>
+<li><a class="POD_NAVLINK" href="#_element_set_base_ti">$element-&gt;<b>set_base_time</b> ($time)</a>
+<li><a class="POD_NAVLINK" href="#bus_or_undef_element">bus or undef = $element-&gt;<b>get_bus</b></a>
+<li><a class="POD_NAVLINK" href="#clock_or_undef_eleme">clock or undef = $element-&gt;<b>get_clock</b></a>
+<li><a class="POD_NAVLINK" href="#_element_set_clock_c">$element-&gt;<b>set_clock</b> ($clock)</a>
+<li><a class="POD_NAVLINK" href="#pad_element_get_comp">pad = $element-&gt;<b>get_compatible_pad</b> ($pad, $caps)</a>
+<li><a class="POD_NAVLINK" href="#padtemplate_or_undef">padtemplate or undef = $element-&gt;<b>get_compatible_pad_template</b> ($compattempl)</a>
+<li><a class="POD_NAVLINK" href="#statechangereturn_el">statechangereturn = $element-&gt;<b>continue_state</b> ($ret)</a>
+<li><a class="POD_NAVLINK" href="#elementfactory_eleme">elementfactory = $element-&gt;<b>get_factory</b></a>
+<li><a class="POD_NAVLINK" href="#_element_found_tags_">$element-&gt;<b>found_tags</b> ($tag_list)</a>
+<li><a class="POD_NAVLINK" href="#_element_found_tags_1">$element-&gt;<b>found_tags_for_pad</b> ($pad, $list)</a>
+<li><a class="POD_NAVLINK" href="#index_or_undef_eleme">index or undef = $element-&gt;<b>get_index</b></a>
+<li><a class="POD_NAVLINK" href="#_element_set_index_i">$element-&gt;<b>set_index</b> ($index)</a>
+<li><a class="POD_NAVLINK" href="#boolean_element_is_i">boolean = $element-&gt;<b>is_indexable</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_element_is_l">boolean = $element-&gt;<b>is_locked_state</b></a>
+<li><a class="POD_NAVLINK" href="#iterator_element_ite">iterator = $element-&gt;<b>iterate_pads</b></a>
+<li><a class="POD_NAVLINK" href="#iterator_element_ite1">iterator = $element-&gt;<b>iterate_sink_pads</b></a>
+<li><a class="POD_NAVLINK" href="#iterator_element_ite2">iterator = $element-&gt;<b>iterate_src_pads</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_src_link_des">boolean = $src-&gt;<b>link</b> ($dest, ...)</a>
+<li><a class="POD_NAVLINK" href="#boolean_src_link_fil">boolean = $src-&gt;<b>link_filtered</b> ($dest, $filtercaps)</a>
+<li><a class="POD_NAVLINK" href="#boolean_src_link_pad">boolean = $src-&gt;<b>link_pads</b> ($srcpadname, $dest, $destpadname)</a>
+<li><a class="POD_NAVLINK" href="#boolean_src_link_pad1">boolean = $src-&gt;<b>link_pads_filtered</b> ($srcpadname, $dest, $destpadname, $filtercaps)</a>
+<li><a class="POD_NAVLINK" href="#boolean_element_set_">boolean = $element-&gt;<b>set_locked_state</b> ($locked_state)</a>
+<li><a class="POD_NAVLINK" href="#_element_lost_state">$element-&gt;<b>lost_state</b></a>
+<li><a class="POD_NAVLINK" href="#_element_no_more_pad">$element-&gt;<b>no_more_pads</b></a>
+<li><a class="POD_NAVLINK" href="#pad_or_undef_element">pad or undef = $element-&gt;<b>get_pad</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#boolean_element_post">boolean = $element-&gt;<b>post_message</b> ($message)</a>
+<li><a class="POD_NAVLINK" href="#clock_or_undef_eleme1">clock or undef = $element-&gt;<b>provide_clock</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_element_prov">boolean = $element-&gt;<b>provides_clock</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_element_quer">boolean = $element-&gt;<b>query</b> ($query)</a>
+<li><a class="POD_NAVLINK" href="#list_element_get_que">list = $element-&gt;<b>get_query_types</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_element_remo">boolean = $element-&gt;<b>remove_pad</b> ($pad)</a>
+<li><a class="POD_NAVLINK" href="#pad_or_undef_element1">pad or undef = $element-&gt;<b>get_request_pad</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#boolean_element_requ">boolean = $element-&gt;<b>requires_clock</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_element_seek">boolean = $element-&gt;<b>seek</b> ($rate, $format, $flags, $cur_type, $cur, $stop_type, $stop)</a>
+<li><a class="POD_NAVLINK" href="#boolean_element_send">boolean = $element-&gt;<b>send_event</b> ($event)</a>
+<li><a class="POD_NAVLINK" href="#list_element_get_sta">list = $element-&gt;<b>get_state</b> ($timeout)</a>
+<li><a class="POD_NAVLINK" href="#statechangereturn_el1">statechangereturn = $element-&gt;<b>set_state</b> ($state)</a>
+<li><a class="POD_NAVLINK" href="#pad_or_undef_element2">pad or undef = $element-&gt;<b>get_static_pad</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#boolean_element_sync">boolean = $element-&gt;<b>sync_state_with_parent</b></a>
+<li><a class="POD_NAVLINK" href="#_src_unlink_dest_">$src-&gt;<b>unlink</b> ($dest, ...)</a>
+<li><a class="POD_NAVLINK" href="#_src_unlink_pads_src">$src-&gt;<b>unlink_pads</b> ($srcpadname, $dest, $destpadname)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_GStreamer_Forma">enum GStreamer::Format</a>
+<li><a class="POD_NAVLINK" href="#flags_GStreamer_Seek">flags GStreamer::SeekFlags</a>
+<li><a class="POD_NAVLINK" href="#enum_GStreamer_SeekT">enum GStreamer::SeekType</a>
+<li><a class="POD_NAVLINK" href="#enum_GStreamer_State">enum GStreamer::State</a>
+<li><a class="POD_NAVLINK" href="#enum_GStreamer_State1">enum GStreamer::StateChangeReturn</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+GStreamer::Element
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----GStreamer::Object
+       +----GStreamer::Element
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="_element_abort_state">$element-&gt;<b>abort_state</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_element_add_">boolean = $element-&gt;<b>add_pad</b> ($pad)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pad_GStreamer_Pad_"><p>$pad (GStreamer::Pad)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="unsigned_integer_ele">unsigned integer = $element-&gt;<b>get_base_time</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_element_set_base_ti">$element-&gt;<b>set_base_time</b> ($time)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_time_unsigned_integ"><p>$time (unsigned integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="bus_or_undef_element">bus or undef = $element-&gt;<b>get_bus</b></a></h3>
+<h3 class="POD_HEAD2"><a name="clock_or_undef_eleme">clock or undef = $element-&gt;<b>get_clock</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_element_set_clock_c">$element-&gt;<b>set_clock</b> ($clock)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_clock_GStreamer_Clo"><p>$clock (GStreamer::Clock or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="pad_element_get_comp">pad = $element-&gt;<b>get_compatible_pad</b> ($pad, $caps)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pad_GStreamer_Pad_1"><p>$pad (GStreamer::Pad)</p></a>
+<li class="POD_ITEM"><a name="_caps_GStreamer_Caps"><p>$caps (GStreamer::Caps)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="padtemplate_or_undef">padtemplate or undef = $element-&gt;<b>get_compatible_pad_template</b> ($compattempl)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_compattempl_GStream"><p>$compattempl (GStreamer::PadTemplate)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="statechangereturn_el">statechangereturn = $element-&gt;<b>continue_state</b> ($ret)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ret_GStreamer_State"><p>$ret (GStreamer::StateChangeReturn)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="elementfactory_eleme">elementfactory = $element-&gt;<b>get_factory</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_element_found_tags_">$element-&gt;<b>found_tags</b> ($tag_list)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tag_list_GStreamer_"><p>$tag_list (GStreamer::TagList)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_element_found_tags_1">$element-&gt;<b>found_tags_for_pad</b> ($pad, $list)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pad_GStreamer_Pad_2"><p>$pad (GStreamer::Pad)</p></a>
+<li class="POD_ITEM"><a name="_list_GStreamer_TagL"><p>$list (GStreamer::TagList)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="index_or_undef_eleme">index or undef = $element-&gt;<b>get_index</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_element_set_index_i">$element-&gt;<b>set_index</b> ($index)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_index_GStreamer_Ind"><p>$index (GStreamer::Index)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_element_is_i">boolean = $element-&gt;<b>is_indexable</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_element_is_l">boolean = $element-&gt;<b>is_locked_state</b></a></h3>
+<h3 class="POD_HEAD2"><a name="iterator_element_ite">iterator = $element-&gt;<b>iterate_pads</b></a></h3>
+<h3 class="POD_HEAD2"><a name="iterator_element_ite1">iterator = $element-&gt;<b>iterate_sink_pads</b></a></h3>
+<h3 class="POD_HEAD2"><a name="iterator_element_ite2">iterator = $element-&gt;<b>iterate_src_pads</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_src_link_des">boolean = $src-&gt;<b>link</b> ($dest, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dest_GStreamer_Elem"><p>$dest (GStreamer::Element)</p></a>
+<li class="POD_ITEM"><a name="_list_"><p>... (list)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_src_link_fil">boolean = $src-&gt;<b>link_filtered</b> ($dest, $filtercaps)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dest_GStreamer_Elem1"><p>$dest (GStreamer::Element)</p></a>
+<li class="POD_ITEM"><a name="_filtercaps_GStreame"><p>$filtercaps (GStreamer::Caps or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_src_link_pad">boolean = $src-&gt;<b>link_pads</b> ($srcpadname, $dest, $destpadname)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_srcpadname_string_"><p>$srcpadname (string)</p></a>
+<li class="POD_ITEM"><a name="_dest_GStreamer_Elem2"><p>$dest (GStreamer::Element)</p></a>
+<li class="POD_ITEM"><a name="_destpadname_string_"><p>$destpadname (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_src_link_pad1">boolean = $src-&gt;<b>link_pads_filtered</b> ($srcpadname, $dest, $destpadname, $filtercaps)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_srcpadname_string_1"><p>$srcpadname (string)</p></a>
+<li class="POD_ITEM"><a name="_dest_GStreamer_Elem3"><p>$dest (GStreamer::Element)</p></a>
+<li class="POD_ITEM"><a name="_destpadname_string_1"><p>$destpadname (string)</p></a>
+<li class="POD_ITEM"><a name="_filtercaps_GStreame1"><p>$filtercaps (GStreamer::Caps or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_element_set_">boolean = $element-&gt;<b>set_locked_state</b> ($locked_state)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_locked_state_boolea"><p>$locked_state (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_element_lost_state">$element-&gt;<b>lost_state</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_element_no_more_pad">$element-&gt;<b>no_more_pads</b></a></h3>
+<h3 class="POD_HEAD2"><a name="pad_or_undef_element">pad or undef = $element-&gt;<b>get_pad</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_element_post">boolean = $element-&gt;<b>post_message</b> ($message)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_message_GstMessage_"><p>$message (GstMessage)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="clock_or_undef_eleme1">clock or undef = $element-&gt;<b>provide_clock</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_element_prov">boolean = $element-&gt;<b>provides_clock</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_element_quer">boolean = $element-&gt;<b>query</b> ($query)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_query_GstQuery_"><p>$query (GstQuery)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_element_get_que">list = $element-&gt;<b>get_query_types</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_element_remo">boolean = $element-&gt;<b>remove_pad</b> ($pad)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pad_GStreamer_Pad_3"><p>$pad (GStreamer::Pad)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="pad_or_undef_element1">pad or undef = $element-&gt;<b>get_request_pad</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_1"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_element_requ">boolean = $element-&gt;<b>requires_clock</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_element_seek">boolean = $element-&gt;<b>seek</b> ($rate, $format, $flags, $cur_type, $cur, $stop_type, $stop)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rate_double_"><p>$rate (double)</p></a>
+<li class="POD_ITEM"><a name="_format_GStreamer_Fo"><p>$format (GStreamer::Format)</p></a>
+<li class="POD_ITEM"><a name="_flags_GStreamer_See"><p>$flags (GStreamer::SeekFlags)</p></a>
+<li class="POD_ITEM"><a name="_cur_type_GStreamer_"><p>$cur_type (GStreamer::SeekType)</p></a>
+<li class="POD_ITEM"><a name="_cur_Glib_Int64_"><p>$cur (Glib::Int64)</p></a>
+<li class="POD_ITEM"><a name="_stop_type_GStreamer"><p>$stop_type (GStreamer::SeekType)</p></a>
+<li class="POD_ITEM"><a name="_stop_Glib_Int64_"><p>$stop (Glib::Int64)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_element_send">boolean = $element-&gt;<b>send_event</b> ($event)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_event_GstEvent_"><p>$event (GstEvent)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_element_get_sta">list = $element-&gt;<b>get_state</b> ($timeout)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_timeout_unsigned_in"><p>$timeout (unsigned integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="statechangereturn_el1">statechangereturn = $element-&gt;<b>set_state</b> ($state)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_state_GStreamer_Sta"><p>$state (GStreamer::State)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="pad_or_undef_element2">pad or undef = $element-&gt;<b>get_static_pad</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_2"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_element_sync">boolean = $element-&gt;<b>sync_state_with_parent</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_src_unlink_dest_">$src-&gt;<b>unlink</b> ($dest, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dest_GStreamer_Elem4"><p>$dest (GStreamer::Element)</p></a>
+<li class="POD_ITEM"><a name="_list_1"><p>... (list)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_src_unlink_pads_src">$src-&gt;<b>unlink_pads</b> ($srcpadname, $dest, $destpadname)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_srcpadname_string_2"><p>$srcpadname (string)</p></a>
+<li class="POD_ITEM"><a name="_dest_GStreamer_Elem5"><p>$dest (GStreamer::Element)</p></a>
+<li class="POD_ITEM"><a name="_destpadname_string_2"><p>$destpadname (string)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="pad_added_GStreamer_"><b>pad-added</b> (GStreamer::Element, GStreamer::Pad)</a>
+<dt><a name="pad_removed_GStreame"><b>pad-removed</b> (GStreamer::Element, GStreamer::Pad)</a>
+<dt><a name="no_more_pads_GStream"><b>no-more-pads</b> (GStreamer::Element)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_GStreamer_Forma">enum GStreamer::Format</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_undefined_GST_FORMA"><p>&#39;undefined&#39; / &#39;GST_FORMAT_UNDEFINED&#39;</p></a>
+<li class="POD_ITEM"><a name="_default_GST_FORMAT_"><p>&#39;default&#39; / &#39;GST_FORMAT_DEFAULT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bytes_GST_FORMAT_BY"><p>&#39;bytes&#39; / &#39;GST_FORMAT_BYTES&#39;</p></a>
+<li class="POD_ITEM"><a name="_time_GST_FORMAT_TIM"><p>&#39;time&#39; / &#39;GST_FORMAT_TIME&#39;</p></a>
+<li class="POD_ITEM"><a name="_buffers_GST_FORMAT_"><p>&#39;buffers&#39; / &#39;GST_FORMAT_BUFFERS&#39;</p></a>
+<li class="POD_ITEM"><a name="_percent_GST_FORMAT_"><p>&#39;percent&#39; / &#39;GST_FORMAT_PERCENT&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="flags_GStreamer_Seek">flags GStreamer::SeekFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GST_SEEK_FLAG_"><p>&#39;none&#39; / &#39;GST_SEEK_FLAG_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_flush_GST_SEEK_FLAG"><p>&#39;flush&#39; / &#39;GST_SEEK_FLAG_FLUSH&#39;</p></a>
+<li class="POD_ITEM"><a name="_accurate_GST_SEEK_F"><p>&#39;accurate&#39; / &#39;GST_SEEK_FLAG_ACCURATE&#39;</p></a>
+<li class="POD_ITEM"><a name="_key_unit_GST_SEEK_F"><p>&#39;key-unit&#39; / &#39;GST_SEEK_FLAG_KEY_UNIT&#39;</p></a>
+<li class="POD_ITEM"><a name="_segment_GST_SEEK_FL"><p>&#39;segment&#39; / &#39;GST_SEEK_FLAG_SEGMENT&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_GStreamer_SeekT">enum GStreamer::SeekType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GST_SEEK_TYPE_"><p>&#39;none&#39; / &#39;GST_SEEK_TYPE_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_cur_GST_SEEK_TYPE_C"><p>&#39;cur&#39; / &#39;GST_SEEK_TYPE_CUR&#39;</p></a>
+<li class="POD_ITEM"><a name="_set_GST_SEEK_TYPE_S"><p>&#39;set&#39; / &#39;GST_SEEK_TYPE_SET&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_GST_SEEK_TYPE_E"><p>&#39;end&#39; / &#39;GST_SEEK_TYPE_END&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_GStreamer_State">enum GStreamer::State</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_void_pending_GST_ST"><p>&#39;void-pending&#39; / &#39;GST_STATE_VOID_PENDING&#39;</p></a>
+<li class="POD_ITEM"><a name="_null_GST_STATE_NULL"><p>&#39;null&#39; / &#39;GST_STATE_NULL&#39;</p></a>
+<li class="POD_ITEM"><a name="_ready_GST_STATE_REA"><p>&#39;ready&#39; / &#39;GST_STATE_READY&#39;</p></a>
+<li class="POD_ITEM"><a name="_paused_GST_STATE_PA"><p>&#39;paused&#39; / &#39;GST_STATE_PAUSED&#39;</p></a>
+<li class="POD_ITEM"><a name="_playing_GST_STATE_P"><p>&#39;playing&#39; / &#39;GST_STATE_PLAYING&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_GStreamer_State1">enum GStreamer::StateChangeReturn</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_failure_GST_STATE_C"><p>&#39;failure&#39; / &#39;GST_STATE_CHANGE_FAILURE&#39;</p></a>
+<li class="POD_ITEM"><a name="_success_GST_STATE_C"><p>&#39;success&#39; / &#39;GST_STATE_CHANGE_SUCCESS&#39;</p></a>
+<li class="POD_ITEM"><a name="_async_GST_STATE_CHA"><p>&#39;async&#39; / &#39;GST_STATE_CHANGE_ASYNC&#39;</p></a>
+<li class="POD_ITEM"><a name="_no_preroll_GST_STAT"><p>&#39;no-preroll&#39; / &#39;GST_STATE_CHANGE_NO_PREROLL&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../GStreamer.html">GStreamer</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <a class="POD_LINK" href="../GStreamer/Object.html">GStreamer::Object</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2005-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../GStreamer.html">GStreamer</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:52 2009
+</body>
+</html>
+
