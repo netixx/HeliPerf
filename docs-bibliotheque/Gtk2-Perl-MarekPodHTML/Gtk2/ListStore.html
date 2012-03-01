@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::ListStore</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/main.html">Next:<br />Gtk2::main</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ListItem.html">Previous:<br />Gtk2::ListItem</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::ListStore</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#liststore_Gtk2_ListS">liststore = Gtk2::ListStore-&gt;<b>new</b> (...)</a>
+<li><a class="POD_NAVLINK" href="#treeiter_list_store_">treeiter = $list_store-&gt;<b>append</b></a>
+<li><a class="POD_NAVLINK" href="#_list_store_clear">$list_store-&gt;<b>clear</b></a>
+<li><a class="POD_NAVLINK" href="#_list_store_set_colu">$list_store-&gt;<b>set_column_types</b> (...)</a>
+<li><a class="POD_NAVLINK" href="#_list_store_set_iter">$list_store-&gt;<b>set</b> ($iter, $col1, $val1, ...)</a>
+<li><a class="POD_NAVLINK" href="#treeiter_list_store_1">treeiter = $list_store-&gt;<b>insert</b> ($position)</a>
+<li><a class="POD_NAVLINK" href="#treeiter_list_store_2">treeiter = $list_store-&gt;<b>insert_after</b> ($sibling)</a>
+<li><a class="POD_NAVLINK" href="#treeiter_list_store_3">treeiter = $list_store-&gt;<b>insert_before</b> ($sibling)</a>
+<li><a class="POD_NAVLINK" href="#treeiter_list_store_4">treeiter = $list_store-&gt;<b>insert_with_values</b> ($position, ...)</a>
+<li><a class="POD_NAVLINK" href="#boolean_list_store_i">boolean = $list_store-&gt;<b>iter_is_valid</b> ($iter)</a>
+<li><a class="POD_NAVLINK" href="#_store_move_after_it">$store-&gt;<b>move_after</b> ($iter, $position)</a>
+<li><a class="POD_NAVLINK" href="#_store_move_before_i">$store-&gt;<b>move_before</b> ($iter, $position)</a>
+<li><a class="POD_NAVLINK" href="#treeiter_list_store_5">treeiter = $list_store-&gt;<b>prepend</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_list_store_r">boolean = $list_store-&gt;<b>remove</b> ($iter)</a>
+<li><a class="POD_NAVLINK" href="#_store_reorder_">$store-&gt;<b>reorder</b> (...)</a>
+<li><a class="POD_NAVLINK" href="#_store_swap_a_b_">$store-&gt;<b>swap</b> ($a, $b)</a>
+<li><a class="POD_NAVLINK" href="#_list_store_set_valu">$list_store-&gt;<b>set_value</b> ($iter, $col, $val)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::ListStore
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::ListStore
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Gtk2::Buildable
+  Gtk2::TreeModel
+  Gtk2::TreeDragSource
+  Gtk2::TreeDragDest
+  Gtk2::TreeSortable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="liststore_Gtk2_ListS">liststore = Gtk2::ListStore-&gt;<b>new</b> (...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_of_strings"><p>... (list) of strings</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="treeiter_list_store_">treeiter = $list_store-&gt;<b>append</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_list_store_clear">$list_store-&gt;<b>clear</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_list_store_set_colu">$list_store-&gt;<b>set_column_types</b> (...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_of_strings1"><p>... (list) of strings</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_list_store_set_iter">$list_store-&gt;<b>set</b> ($iter, $col1, $val1, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_"><p>$iter (Gtk2::TreeIter)</p></a>
+<li class="POD_ITEM"><a name="_col1_integer_the_fi"><p>$col1 (integer) the first column number</p></a>
+<li class="POD_ITEM"><a name="_val1_scalar_the_fir"><p>$val1 (scalar) the first value</p></a>
+<li class="POD_ITEM"><a name="_list_pairs_of_colum"><p>... (list) pairs of column numbers and values</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="treeiter_list_store_1">treeiter = $list_store-&gt;<b>insert</b> ($position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_position_integer_"><p>$position (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="treeiter_list_store_2">treeiter = $list_store-&gt;<b>insert_after</b> ($sibling)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_sibling_Gtk2_TreeIt"><p>$sibling (Gtk2::TreeIter or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="treeiter_list_store_3">treeiter = $list_store-&gt;<b>insert_before</b> ($sibling)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_sibling_Gtk2_TreeIt1"><p>$sibling (Gtk2::TreeIter or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="treeiter_list_store_4">treeiter = $list_store-&gt;<b>insert_with_values</b> ($position, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_position_integer_po"><p>$position (integer) position to insert the new row</p></a>
+<li class="POD_ITEM"><a name="_list_pairs_of_colum1"><p>... (list) pairs of column numbers and values</p></a>
+</ul>
+<p class="POD_TEXT">
+Like doing insert followed by set, except that insert_with_values emits only
+the row-inserted signal, rather than row-inserted, row-changed, and, if the
+store is sorted, rows-reordered as in the multiple-operation case.
+Since emitting the rows-reordered signal repeatedly can affect the performance
+of the program, insert_with_values should generally be preferred when
+inserting rows in a sorted list store.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_list_store_i">boolean = $list_store-&gt;<b>iter_is_valid</b> ($iter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_1"><p>$iter (Gtk2::TreeIter)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_store_move_after_it">$store-&gt;<b>move_after</b> ($iter, $position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_2"><p>$iter (Gtk2::TreeIter)</p></a>
+<li class="POD_ITEM"><a name="_position_Gtk2_TreeI"><p>$position (Gtk2::TreeIter or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_store_move_before_i">$store-&gt;<b>move_before</b> ($iter, $position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_3"><p>$iter (Gtk2::TreeIter)</p></a>
+<li class="POD_ITEM"><a name="_position_Gtk2_TreeI1"><p>$position (Gtk2::TreeIter or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="treeiter_list_store_5">treeiter = $list_store-&gt;<b>prepend</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_list_store_r">boolean = $list_store-&gt;<b>remove</b> ($iter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_4"><p>$iter (Gtk2::TreeIter)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_store_reorder_">$store-&gt;<b>reorder</b> (...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_of_integers_th"><p>... (list) of integers the reordered posistions</p></a>
+</ul>
+<p class="POD_TEXT">
+Reorders store to follow the order indicated by new_order. Note that this
+function only works with unsorted stores.
+</p>
+<p class="POD_TEXT">
+A list of position should be passed, one for each item in the list.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_store_swap_a_b_">$store-&gt;<b>swap</b> ($a, $b)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_a_Gtk2_TreeIter_"><p>$a (Gtk2::TreeIter)</p></a>
+<li class="POD_ITEM"><a name="_b_Gtk2_TreeIter_"><p>$b (Gtk2::TreeIter)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_list_store_set_valu">$list_store-&gt;<b>set_value</b> ($iter, $col, $val)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_5"><p>$iter (Gtk2::TreeIter)</p></a>
+<li class="POD_ITEM"><a name="_val_scalar_"><p>$val (scalar)</p></a>
+<li class="POD_ITEM"><a name="_col_integer_"><p>$col (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:02:45 2009
+</body>
+</html>
+

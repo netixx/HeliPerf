@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::ComboBox</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ComboBoxEntry.html">Next:<br />Gtk2::ComboBoxEntry</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Combo.html">Previous:<br />Gtk2::Combo</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::ComboBox</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_ComboBox">widget = Gtk2::ComboBox-&gt;<b>new</b> ($model=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_ComboBox1">widget = Gtk2::ComboBox-&gt;<b>new_text</b></a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_ComboBox2">widget = Gtk2::ComboBox-&gt;<b>new_with_model</b> ($model=undef)</a>
+<li><a class="POD_NAVLINK" href="#integer_combo_box_ge">integer = $combo_box-&gt;<b>get_active</b></a>
+<li><a class="POD_NAVLINK" href="#treeiter_combo_box_g">treeiter = $combo_box-&gt;<b>get_active_iter</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_activ">$combo_box-&gt;<b>set_active_iter</b> ($iter)</a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_activ1">$combo_box-&gt;<b>set_active</b> ($index)</a>
+<li><a class="POD_NAVLINK" href="#string_combo_box_get">string = $combo_box-&gt;<b>get_active_text</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_combo_box_ge">boolean = $combo_box-&gt;<b>get_add_tearoffs</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_add_t">$combo_box-&gt;<b>set_add_tearoffs</b> ($add_tearoffs)</a>
+<li><a class="POD_NAVLINK" href="#_combo_box_append_te">$combo_box-&gt;<b>append_text</b> ($text)</a>
+<li><a class="POD_NAVLINK" href="#integer_combo_box_ge1">integer = $combo_box-&gt;<b>get_column_span_column</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_colum">$combo_box-&gt;<b>set_column_span_column</b> ($column_span)</a>
+<li><a class="POD_NAVLINK" href="#boolean_combo_box_ge1">boolean = $combo_box-&gt;<b>get_focus_on_click</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_focus">$combo_box-&gt;<b>set_focus_on_click</b> ($focus_on_click)</a>
+<li><a class="POD_NAVLINK" href="#_combo_box_insert_te">$combo_box-&gt;<b>insert_text</b> ($position, $text)</a>
+<li><a class="POD_NAVLINK" href="#treemodel_combo_box_">treemodel = $combo_box-&gt;<b>get_model</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_model">$combo_box-&gt;<b>set_model</b> ($model)</a>
+<li><a class="POD_NAVLINK" href="#_combo_box_popdown">$combo_box-&gt;<b>popdown</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_popup">$combo_box-&gt;<b>popup</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_prepend_t">$combo_box-&gt;<b>prepend_text</b> ($text)</a>
+<li><a class="POD_NAVLINK" href="#_combo_box_remove_te">$combo_box-&gt;<b>remove_text</b> ($position)</a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_row_s">$combo_box-&gt;<b>set_row_separator_func</b> ($func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#integer_combo_box_ge2">integer = $combo_box-&gt;<b>get_row_span_column</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_row_s1">$combo_box-&gt;<b>set_row_span_column</b> ($row_span)</a>
+<li><a class="POD_NAVLINK" href="#string_combo_box_get1">string = $combo_box-&gt;<b>get_title</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_title">$combo_box-&gt;<b>set_title</b> ($title)</a>
+<li><a class="POD_NAVLINK" href="#integer_combo_box_ge3">integer = $combo_box-&gt;<b>get_wrap_width</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_box_set_wrap_">$combo_box-&gt;<b>set_wrap_width</b> ($width)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ScrollType">enum Gtk2::ScrollType</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::ComboBox - A widget used to choose from a list of items
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  # the easy way:
+  $combobox = Gtk2::ComboBox-&gt;new_text;
+  foreach (@strings) {
+      $combobox-&gt;append_text ($_);
+  }
+  $combobox-&gt;prepend_text ($another_string);
+  $combobox-&gt;insert_text ($index, $yet_another_string);
+  $combobox-&gt;remove_text ($index);
+  $text = $combobox-&gt;get_active_text;
+</pre>
+<p></p>
+<pre class="POD_VERBATIM">
+  # the full-featured way.  
+  # a combo box that shows stock ids and their images:
+  use constant ID_COLUMN =&gt; 0;
+  $model = Gtk2::ListStore-&gt;new (&#39;Glib::String&#39;);
+  foreach (qw(gtk-ok gtk-cancel gtk-yes gtk-no gtk-save gtk-open)) {
+      $model-&gt;set ($model-&gt;append, ID_COLUMN, $_);
+  }
+  $combo_box = Gtk2::ComboBox-&gt;new ($model);
+  # to display anything, you must pack cell renderers into
+  # the combobox, which implements the Gtk2::CellLayout interface.
+  $renderer = Gtk2::CellRendererPixbuf-&gt;new;
+  $combo_box-&gt;pack_start ($renderer, FALSE);
+  $combo_box-&gt;add_attribute ($renderer, stock_id =&gt; ID_COLUMN);
+  $renderer = Gtk2::CellRendererText-&gt;new;
+  $combo_box-&gt;pack_start ($renderer, TRUE);
+  $combo_box-&gt;add_attribute ($renderer, text =&gt; ID_COLUMN);
+
+  # select by index
+  $combo_box-&gt;set_active ($index);
+  $active_index = $combo_box-&gt;get_active;
+
+  # or by iter
+  $combo_box-&gt;set_active_iter ($iter);
+  $active_iter = $combo_box-&gt;get_active_iter;
+</pre>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+Gtk2::ComboBox is a widget that allows the user to choose from a list of valid
+choices.  The ComboBox displays the selected choice.  When activated, the
+ComboBox displays a popup which allows the user to make a new choice.
+</p>
+<p class="POD_TEXT">
+Unlike its predecessors Gtk2::Combo and Gtk2::OptionMenu, the Gtk2::ComboBox
+uses the model-view pattern; the list of valid choices is specified in the form
+of a tree model, and the display of the choices can be adapted to the data in
+the model by using cell renderers, as you would in a tree view.  This is
+possible since ComboBox implements the Gtk2::CellLayout interface.  The tree
+model holding the valid choices is not restricted to a flat list; it can be a
+real tree, and the popup will reflect the tree structure.
+</p>
+<p class="POD_TEXT">
+In addition to the model-view API, ComboBox offers a simple API which is
+suitable for text-only combo boxes, and hides the complexity of managing the
+data in a model.  It consists of the methods <code>new_text</code>, <code>append_text</code>,
+<code>insert_text</code>, <code>prepend_text</code>, <code>remove_text</code> and <code>get_active_text</code>.
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Bin
+                           +----Gtk2::ComboBox
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+  Gtk2::CellEditable
+  Gtk2::CellLayout
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_ComboBox">widget = Gtk2::ComboBox-&gt;<b>new</b> ($model=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_model_Gtk2_TreeMode"><p>$model (Gtk2::TreeModel)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_ComboBox1">widget = Gtk2::ComboBox-&gt;<b>new_text</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_ComboBox2">widget = Gtk2::ComboBox-&gt;<b>new_with_model</b> ($model=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_model_Gtk2_TreeMode1"><p>$model (Gtk2::TreeModel)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_combo_box_ge">integer = $combo_box-&gt;<b>get_active</b></a></h3>
+<h3 class="POD_HEAD2"><a name="treeiter_combo_box_g">treeiter = $combo_box-&gt;<b>get_active_iter</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_activ">$combo_box-&gt;<b>set_active_iter</b> ($iter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_"><p>$iter (Gtk2::TreeIter)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_activ1">$combo_box-&gt;<b>set_active</b> ($index)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_index_integer_"><p>$index (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_combo_box_get">string = $combo_box-&gt;<b>get_active_text</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_combo_box_ge">boolean = $combo_box-&gt;<b>get_add_tearoffs</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_add_t">$combo_box-&gt;<b>set_add_tearoffs</b> ($add_tearoffs)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_add_tearoffs_boolea"><p>$add_tearoffs (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_combo_box_append_te">$combo_box-&gt;<b>append_text</b> ($text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_string_"><p>$text (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_combo_box_ge1">integer = $combo_box-&gt;<b>get_column_span_column</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_colum">$combo_box-&gt;<b>set_column_span_column</b> ($column_span)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_column_span_integer"><p>$column_span (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_combo_box_ge1">boolean = $combo_box-&gt;<b>get_focus_on_click</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_focus">$combo_box-&gt;<b>set_focus_on_click</b> ($focus_on_click)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_focus_on_click_bool"><p>$focus_on_click (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_combo_box_insert_te">$combo_box-&gt;<b>insert_text</b> ($position, $text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_position_integer_"><p>$position (integer)</p></a>
+<li class="POD_ITEM"><a name="_text_string_1"><p>$text (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="treemodel_combo_box_">treemodel = $combo_box-&gt;<b>get_model</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_model">$combo_box-&gt;<b>set_model</b> ($model)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_model_Gtk2_TreeMode2"><p>$model (Gtk2::TreeModel)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_combo_box_popdown">$combo_box-&gt;<b>popdown</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_combo_box_popup">$combo_box-&gt;<b>popup</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_combo_box_prepend_t">$combo_box-&gt;<b>prepend_text</b> ($text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_string_2"><p>$text (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_combo_box_remove_te">$combo_box-&gt;<b>remove_text</b> ($position)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_position_integer_1"><p>$position (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_row_s">$combo_box-&gt;<b>set_row_separator_func</b> ($func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="integer_combo_box_ge2">integer = $combo_box-&gt;<b>get_row_span_column</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_row_s1">$combo_box-&gt;<b>set_row_span_column</b> ($row_span)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_row_span_integer_"><p>$row_span (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_combo_box_get1">string = $combo_box-&gt;<b>get_title</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_title">$combo_box-&gt;<b>set_title</b> ($title)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_title_string_"><p>$title (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="integer_combo_box_ge3">integer = $combo_box-&gt;<b>get_wrap_width</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_combo_box_set_wrap_">$combo_box-&gt;<b>set_wrap_width</b> ($width)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_width_integer_"><p>$width (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_active_integer_read">&#39;active&#39; (integer : readable / writable / private)</a>
+<dd>
+The item which is currently active
+<dt class="POD_ITEM"><a name="_add_tearoffs_boolea1">&#39;add-tearoffs&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether dropdowns should have a tearoff menu item
+<dt class="POD_ITEM"><a name="_column_span_column_">&#39;column-span-column&#39; (integer : readable / writable / private)</a>
+<dd>
+TreeModel column containing the column span values
+<dt class="POD_ITEM"><a name="_focus_on_click_bool1">&#39;focus-on-click&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the combo box grabs focus when it is clicked with the mouse
+<dt class="POD_ITEM"><a name="_has_frame_boolean_r">&#39;has-frame&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the combo box draws a frame around the child
+<dt class="POD_ITEM"><a name="_model_Gtk2_TreeMode3">&#39;model&#39; (Gtk2::TreeModel : readable / writable / private)</a>
+<dd>
+The model for the combo box
+<dt class="POD_ITEM"><a name="_popup_shown_boolean">&#39;popup-shown&#39; (boolean : readable / private)</a>
+<dd>
+Whether the combo&#39;s dropdown is shown
+<dt class="POD_ITEM"><a name="_row_span_column_int">&#39;row-span-column&#39; (integer : readable / writable / private)</a>
+<dd>
+TreeModel column containing the row span values
+<dt class="POD_ITEM"><a name="_tearoff_title_strin">&#39;tearoff-title&#39; (string : readable / writable / private)</a>
+<dd>
+A title that may be displayed by the window manager when the popup is torn-off
+<dt class="POD_ITEM"><a name="_wrap_width_integer_">&#39;wrap-width&#39; (integer : readable / writable / private)</a>
+<dd>
+Wrap width for laying out the items in a grid
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="changed_Gtk2_ComboBo"><b>changed</b> (Gtk2::ComboBox)</a>
+<dt><a name="popup_Gtk2_ComboBox_"><b>popup</b> (Gtk2::ComboBox)</a>
+<dt><a name="boolean_popdown_Gtk2">boolean = <b>popdown</b> (Gtk2::ComboBox)</a>
+<dt><a name="move_active_Gtk2_Com"><b>move-active</b> (Gtk2::ComboBox, Gtk2::ScrollType)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ScrollType">enum Gtk2::ScrollType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SCROLL_NON"><p>&#39;none&#39; / &#39;GTK_SCROLL_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_jump_GTK_SCROLL_JUM"><p>&#39;jump&#39; / &#39;GTK_SCROLL_JUMP&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_backward_GTK_S"><p>&#39;step-backward&#39; / &#39;GTK_SCROLL_STEP_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_forward_GTK_SC"><p>&#39;step-forward&#39; / &#39;GTK_SCROLL_STEP_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_backward_GTK_S"><p>&#39;page-backward&#39; / &#39;GTK_SCROLL_PAGE_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_forward_GTK_SC"><p>&#39;page-forward&#39; / &#39;GTK_SCROLL_PAGE_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_up_GTK_SCROLL_"><p>&#39;step-up&#39; / &#39;GTK_SCROLL_STEP_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_down_GTK_SCROL"><p>&#39;step-down&#39; / &#39;GTK_SCROLL_STEP_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_up_GTK_SCROLL_"><p>&#39;page-up&#39; / &#39;GTK_SCROLL_PAGE_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_down_GTK_SCROL"><p>&#39;page-down&#39; / &#39;GTK_SCROLL_PAGE_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_left_GTK_SCROL"><p>&#39;step-left&#39; / &#39;GTK_SCROLL_STEP_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_right_GTK_SCRO"><p>&#39;step-right&#39; / &#39;GTK_SCROLL_STEP_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_left_GTK_SCROL"><p>&#39;page-left&#39; / &#39;GTK_SCROLL_PAGE_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_right_GTK_SCRO"><p>&#39;page-right&#39; / &#39;GTK_SCROLL_PAGE_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_start_GTK_SCROLL_ST"><p>&#39;start&#39; / &#39;GTK_SCROLL_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_GTK_SCROLL_END_"><p>&#39;end&#39; / &#39;GTK_SCROLL_END&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Bin.html">Gtk2::Bin</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:53 2009
+</body>
+</html>
+

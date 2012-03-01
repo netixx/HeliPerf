@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::VFS</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/VFS/Address.html">Next:<br />Gnome2::VFS::Address</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Util.html">Previous:<br />Gnome2::Util</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::VFS</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#ABSTRACT">ABSTRACT</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#KNOWN_BUGS">KNOWN BUGS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#AUTHOR">AUTHOR</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::VFS - Perl interface to the 2.x series of the GNOME VFS library
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  use Gnome2::VFS;
+
+  sub die_already {
+    my ($action) = @_;
+    die(&quot;An error occured while $action.\n&quot;);
+  }
+
+  die_already(&quot;initializing GNOME VFS&quot;) unless (Gnome2::VFS -&gt; init());
+
+  my $source = &quot;http://www.perldoc.com/about.html&quot;;
+  my ($result, $handle, $info);
+
+  # Open a connection to Perldoc.
+  ($result, $handle) = Gnome2::VFS -&gt; open($source, &quot;read&quot;);
+  die_already(&quot;opening connection to &#39;$source&#39;&quot;)
+    unless ($result eq &quot;ok&quot;);
+
+  # Get the file information.
+  ($result, $info) = $handle -&gt; get_file_info(&quot;default&quot;);
+  die_already(&quot;retrieving information about &#39;$source&#39;&quot;)
+    unless ($result eq &quot;ok&quot;);
+
+  # Read the content.
+  my $bytes = $info -&gt; { size };
+
+  my $bytes_read = 0;
+  my $buffer = &quot;&quot;;
+
+  do {
+    my ($tmp_buffer, $tmp_bytes_read);
+
+    ($result, $tmp_bytes_read, $tmp_buffer) =
+      $handle -&gt; read($bytes - $bytes_read);
+
+    $buffer .= $tmp_buffer;
+    $bytes_read += $tmp_bytes_read;
+  } while ($result eq &quot;ok&quot; and $bytes_read &lt; $bytes);
+
+  die_already(&quot;reading $bytes bytes from &#39;$source&#39;&quot;)
+    unless ($result eq &quot;ok&quot; &amp;&amp; $bytes_read == $bytes);
+
+  # Close the connection.
+  $result = $handle -&gt; close();
+  die_already(&quot;closing connection to &#39;$source&#39;&quot;)
+    unless ($result eq &quot;ok&quot;);
+
+  # Create and open the target.
+  my $target = &quot;/tmp/&quot; . $info -&gt; { name };
+  my $uri = Gnome2::VFS::URI -&gt; new($target);
+
+  ($result, $handle) = $uri -&gt; create(&quot;write&quot;, 1, 0644);
+  die_already(&quot;creating &#39;$target&#39;&quot;) unless ($result eq &quot;ok&quot;);
+
+  # Write to it.
+  my $bytes_written;
+
+  ($result, $bytes_written) = $handle -&gt; write($buffer, $bytes);
+  die_already(&quot;writing $bytes bytes to &#39;$target&#39;&quot;)
+    unless ($result eq &quot;ok&quot; &amp;&amp; $bytes_written == $bytes);
+
+  # Close the target.
+  $result = $handle -&gt; close();
+  die_already(&quot;closing &#39;$target&#39;&quot;) unless ($result eq &quot;ok&quot;);
+
+  Gnome2::VFS -&gt; shutdown();
+</pre>
+<h2 class="POD_HEAD1"><a name="ABSTRACT">ABSTRACT</a></h2>
+<p class="POD_TEXT">
+This module allows you to interface with the GNOME Virtual File System library.
+It provides the means to transparently access files on all kinds of
+filesystems.
+</p>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+Since this module tries to stick very closely to the C API, the documentation
+found at
+</p>
+<pre class="POD_VERBATIM">
+  L&lt;http://developer.gnome.org/doc/API/2.0/gnome-vfs-2.0/&gt;
+</pre>
+<p class="POD_TEXT">
+is the canonical reference.
+</p>
+<p class="POD_TEXT">
+In addition to that, there&#39;s also the automatically generated API
+documentation: <a class="POD_LINK" href="../Gnome2/VFS/index.html">Gnome2::VFS::index</a>.
+</p>
+<p class="POD_TEXT">
+The mapping described in <a class="POD_LINK" href="../Gtk2/api.html">Gtk2::api</a> also applies to this module.
+</p>
+<p class="POD_TEXT">
+To discuss this module, ask questions and flame/praise the authors, join
+gtk-perl-list@gnome.org at lists.gnome.org.
+</p>
+<h2 class="POD_HEAD1"><a name="KNOWN_BUGS">KNOWN BUGS</a></h2>
+<p class="POD_TEXT">
+There are some memory leaks especially with respect to callbacks.  This mainly
+affects GnomeVFSAsync as well as some parts of GnomeVFSXfer and GnomeVFSOps.
+GnomeVFSMime leaks some list data.
+</p>
+<p class="POD_TEXT">
+GnomeVFSAsync is also known to crash under certain conditions when there are
+many concurrent transfers.
+</p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gnome2/VFS/index.html">Gnome2::VFS::index</a>, <a class="POD_LINK" href="../Glib.html">Glib</a>, <a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Gtk2/api.html">Gtk2::api</a>.
+</p>
+<h2 class="POD_HEAD1"><a name="AUTHOR">AUTHOR</a></h2>
+<p class="POD_TEXT">
+Torsten Schoenfeld &lt;kaffeetisch@web.de&gt;.
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2007 by the gtk2-perl team (see the file AUTHORS)
+</p>
+<p class="POD_TEXT">
+This library is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation; either version 2.1 of the License, or (at your option) any
+later version.
+</p>
+<p class="POD_TEXT">
+This library is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+details.
+</p>
+<p class="POD_TEXT">
+You should have received a copy of the GNU Lesser General Public License along
+with this library; if not, write to the Free Software Foundation, Inc.,
+59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+</p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:08 2009
+</body>
+</html>
+

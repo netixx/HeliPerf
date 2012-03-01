@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Wnck::Pager</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Wnck/Screen.html">Next:<br />Gnome2::Wnck::Screen</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Wnck/main.html">Previous:<br />Gnome2::Wnck::main</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Wnck::Pager</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_Wnck_P">widget = Gnome2::Wnck::Pager-&gt;<b>new</b> ($screen)</a>
+<li><a class="POD_NAVLINK" href="#_pager_set_display_m">$pager-&gt;<b>set_display_mode</b> ($mode)</a>
+<li><a class="POD_NAVLINK" href="#_pager_set_n_rows_n_">$pager-&gt;<b>set_n_rows</b> ($n_rows)</a>
+<li><a class="POD_NAVLINK" href="#boolean_pager_set_or">boolean = $pager-&gt;<b>set_orientation</b> ($orientation)</a>
+<li><a class="POD_NAVLINK" href="#_pager_set_screen_sc">$pager-&gt;<b>set_screen</b> ($screen)</a>
+<li><a class="POD_NAVLINK" href="#_pager_set_shadow_ty">$pager-&gt;<b>set_shadow_type</b> ($shadow_type)</a>
+<li><a class="POD_NAVLINK" href="#_pager_set_show_all_">$pager-&gt;<b>set_show_all</b> ($show_all_workspaces)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gnome2_Wnck_Pag">enum Gnome2::Wnck::PagerDisplayMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Orientatio">enum Gtk2::Orientation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ShadowType">enum Gtk2::ShadowType</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Wnck::Pager
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gnome2::Wnck::Pager
+</pre>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_Wnck_P">widget = Gnome2::Wnck::Pager-&gt;<b>new</b> ($screen)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_screen_Gnome2_Wnck_"><p>$screen (Gnome2::Wnck::Screen)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_pager_set_display_m">$pager-&gt;<b>set_display_mode</b> ($mode)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mode_Gnome2_Wnck_Pa"><p>$mode (Gnome2::Wnck::PagerDisplayMode)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_pager_set_n_rows_n_">$pager-&gt;<b>set_n_rows</b> ($n_rows)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_n_rows_integer_"><p>$n_rows (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_pager_set_or">boolean = $pager-&gt;<b>set_orientation</b> ($orientation)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_orientation_Gtk2_Or"><p>$orientation (Gtk2::Orientation)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_pager_set_screen_sc">$pager-&gt;<b>set_screen</b> ($screen)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_screen_Gnome2_Wnck_1"><p>$screen (Gnome2::Wnck::Screen)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_pager_set_shadow_ty">$pager-&gt;<b>set_shadow_type</b> ($shadow_type)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_shadow_type_Gtk2_Sh"><p>$shadow_type (Gtk2::ShadowType)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_pager_set_show_all_">$pager-&gt;<b>set_show_all</b> ($show_all_workspaces)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_show_all_workspaces"><p>$show_all_workspaces (boolean)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gnome2_Wnck_Pag">enum Gnome2::Wnck::PagerDisplayMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_WNCK_PAGER_DIS"><p>&#39;name&#39; / &#39;WNCK_PAGER_DISPLAY_NAME&#39;</p></a>
+<li class="POD_ITEM"><a name="_content_WNCK_PAGER_"><p>&#39;content&#39; / &#39;WNCK_PAGER_DISPLAY_CONTENT&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Orientatio">enum Gtk2::Orientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_horizontal_GTK_ORIE"><p>&#39;horizontal&#39; / &#39;GTK_ORIENTATION_HORIZONTAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_vertical_GTK_ORIENT"><p>&#39;vertical&#39; / &#39;GTK_ORIENTATION_VERTICAL&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ShadowType">enum Gtk2::ShadowType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SHADOW_NON"><p>&#39;none&#39; / &#39;GTK_SHADOW_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_in_GTK_SHADOW_IN_"><p>&#39;in&#39; / &#39;GTK_SHADOW_IN&#39;</p></a>
+<li class="POD_ITEM"><a name="_out_GTK_SHADOW_OUT_"><p>&#39;out&#39; / &#39;GTK_SHADOW_OUT&#39;</p></a>
+<li class="POD_ITEM"><a name="_etched_in_GTK_SHADO"><p>&#39;etched-in&#39; / &#39;GTK_SHADOW_ETCHED_IN&#39;</p></a>
+<li class="POD_ITEM"><a name="_etched_out_GTK_SHAD"><p>&#39;etched-out&#39; / &#39;GTK_SHADOW_ETCHED_OUT&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../../Gnome2/Wnck.html">Gnome2::Wnck</a>, <a class="POD_LINK" href="../../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../../Gtk2/Widget.html">Gtk2::Widget</a>
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2006 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gnome2/Wnck.html">Gnome2::Wnck</a> for a full
+notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:39 2009
+</body>
+</html>
+

@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::AppHelper</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/AuthenticationManager.html">Next:<br />Gnome2::AuthenticationManager</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/AppBar.html">Previous:<br />Gnome2::AppBar</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::AppHelper</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#GnomeUIInfo">GnomeUIInfo</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#Gnome2_accelerators_">Gnome2-&gt;<b>accelerators_sync</b></a>
+<li><a class="POD_NAVLINK" href="#_menu_shell_fill_men">$menu_shell-&gt;<b>fill_menu</b> ($uiinfo, $accel_group, $uline_accels, $pos)</a>
+<li><a class="POD_NAVLINK" href="#_toolbar_fill_toolba">$toolbar-&gt;<b>fill_toolbar</b> ($uiinfo, $accel_group)</a>
+<li><a class="POD_NAVLINK" href="#list_parent_find_men">list = $parent-&gt;<b>find_menu_pos</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#_bar_install_menu_hi">$bar-&gt;<b>install_menu_hints</b> ($uiinfo)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::AppHelper
+</p>
+<h2 class="POD_HEAD1"><a name="GnomeUIInfo">GnomeUIInfo</a></h2>
+<p class="POD_TEXT">
+In Gnome2 GnomeUIInfo&#39;s are often used as a convenient way to create GUI&#39;s.  In
+Perl, GnomeUIInfo&#39;s are always references to arrays of items.  Items can either
+be references to hashs or references to arrays:
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="Hash_Reference">Hash Reference</a>
+<dd>
+When using hash references, items are specified by giving key-value pairs.  A
+typical example:
+<pre class="POD_VERBATIM">
+  { type =&gt; &quot;item&quot;, label =&gt; &quot;Quit&quot;, callback =&gt; sub { exit(0); } }
+</pre>
+<p class="POD_TEXT">
+For the list of valid keys, see below.
+</p>
+<dt class="POD_ITEM"><a name="Array_References">Array References</a>
+<dd>
+When using array references, items are a list of the following keys, in this
+order:
+<pre class="POD_VERBATIM">
+  type,
+  label,
+  hint,
+  moreinfo,
+  pixmap_type,
+  pixmap_info,
+  accelerator_key and
+  modifiers.
+</pre>
+<p class="POD_TEXT">
+The example from above would become:
+</p>
+<pre class="POD_VERBATIM">
+  [ &quot;item&quot;, &quot;Item&quot;, undef, sub { exit(0); },
+    undef, undef, undef, undef ]
+</pre>
+</dl>
+<p class="POD_TEXT">
+To create multi-level structures, you use the &quot;subtree&quot; type and the &quot;subtree&quot;
+key, as in the following example:
+</p>
+<pre class="POD_VERBATIM">
+  {
+    type =&gt; &quot;subtree&quot;,
+    label =&gt; &quot;Radio Items&quot;,
+    subtree =&gt; [
+      {
+        type =&gt; &quot;radioitems&quot;,
+        moreinfo =&gt; [
+          {
+            type =&gt; &quot;item&quot;,
+            label =&gt; &quot;A&quot;
+          },
+          {
+            type =&gt; &quot;item&quot;,
+            label =&gt; &quot;B&quot;
+          },
+          {
+            type =&gt; &quot;item&quot;,
+            label =&gt; &quot;C&quot;
+          },
+          {
+            type =&gt; &quot;item&quot;,
+            label =&gt; &quot;D&quot;
+          },
+          {
+            type =&gt; &quot;item&quot;,
+            label =&gt; &quot;E&quot;
+          }
+        ]
+      }
+    ]
+  }
+</pre>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="Gnome2_accelerators_">Gnome2-&gt;<b>accelerators_sync</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_menu_shell_fill_men">$menu_shell-&gt;<b>fill_menu</b> ($uiinfo, $accel_group, $uline_accels, $pos)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uiinfo_Gnome2_UIInf"><p>$uiinfo (Gnome2::UIInfo)</p></a>
+<li class="POD_ITEM"><a name="_accel_group_Gtk2_Ac"><p>$accel_group (Gtk2::AccelGroup)</p></a>
+<li class="POD_ITEM"><a name="_uline_accels_boolea"><p>$uline_accels (boolean)</p></a>
+<li class="POD_ITEM"><a name="_pos_integer_"><p>$pos (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_toolbar_fill_toolba">$toolbar-&gt;<b>fill_toolbar</b> ($uiinfo, $accel_group)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uiinfo_Gnome2_UIInf1"><p>$uiinfo (Gnome2::UIInfo)</p></a>
+<li class="POD_ITEM"><a name="_accel_group_Gtk2_Ac1"><p>$accel_group (Gtk2::AccelGroup)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_parent_find_men">list = $parent-&gt;<b>find_menu_pos</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_"><p>$path (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Returns the GtkWidget and the position associated with the path.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_bar_install_menu_hi">$bar-&gt;<b>install_menu_hints</b> ($uiinfo)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uiinfo_Gnome2_UIInf2"><p>$uiinfo (Gnome2::UIInfo)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:57:59 2009
+</body>
+</html>
+

@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Container</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Curve.html">Next:<br />Gtk2::Curve</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ComboBoxEntry.html">Previous:<br />Gtk2::ComboBoxEntry</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Container</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#_container_add_widge">$container-&gt;<b>add</b> ($widget)</a>
+<li><a class="POD_NAVLINK" href="#_container_add_with_">$container-&gt;<b>add_with_properties</b> ($widget, ...)</a>
+<li><a class="POD_NAVLINK" href="#integer_container_ge">integer = $container-&gt;<b>get_border_width</b></a>
+<li><a class="POD_NAVLINK" href="#_container_set_borde">$container-&gt;<b>set_border_width</b> ($border_width)</a>
+<li><a class="POD_NAVLINK" href="#_container_check_res">$container-&gt;<b>check_resize</b></a>
+<li><a class="POD_NAVLINK" href="#list_container_child">list = $container-&gt;<b>child_get</b> ($child, ...)</a>
+<li><a class="POD_NAVLINK" href="#list_container_child1">list = $container-&gt;<b>child_get_property</b> ($child, ...)</a>
+<li><a class="POD_NAVLINK" href="#_container_child_set">$container-&gt;<b>child_set</b> ($child, ...)</a>
+<li><a class="POD_NAVLINK" href="#_container_child_set1">$container-&gt;<b>child_set_property</b> ($child, ...)</a>
+<li><a class="POD_NAVLINK" href="#string_container_chi">string = $container-&gt;<b>child_type</b></a>
+<li><a class="POD_NAVLINK" href="#list_container_get_c">list = $container-&gt;<b>get_children</b></a>
+<li><a class="POD_NAVLINK" href="#list_container_get_f">list = $container-&gt;<b>get_focus_chain</b></a>
+<li><a class="POD_NAVLINK" href="#_container_set_focus">$container-&gt;<b>set_focus_chain</b> (...)</a>
+<li><a class="POD_NAVLINK" href="#_container_set_focus1">$container-&gt;<b>set_focus_child</b> ($child)</a>
+<li><a class="POD_NAVLINK" href="#adjustment_or_undef_">adjustment or undef = $container-&gt;<b>get_focus_hadjustment</b></a>
+<li><a class="POD_NAVLINK" href="#_container_set_focus2">$container-&gt;<b>set_focus_hadjustment</b> ($adjustment)</a>
+<li><a class="POD_NAVLINK" href="#adjustment_or_undef_1">adjustment or undef = $container-&gt;<b>get_focus_vadjustment</b></a>
+<li><a class="POD_NAVLINK" href="#_container_set_focus3">$container-&gt;<b>set_focus_vadjustment</b> ($adjustment)</a>
+<li><a class="POD_NAVLINK" href="#_container_forall_ca">$container-&gt;<b>forall</b> ($callback, $callback_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_container_foreach_c">$container-&gt;<b>foreach</b> ($callback, $callback_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_container_propagate">$container-&gt;<b>propagate_expose</b> ($child, $event)</a>
+<li><a class="POD_NAVLINK" href="#_container_set_reall">$container-&gt;<b>set_reallocate_redraws</b> ($needs_redraws)</a>
+<li><a class="POD_NAVLINK" href="#_container_remove_wi">$container-&gt;<b>remove</b> ($widget)</a>
+<li><a class="POD_NAVLINK" href="#_container_resize_ch">$container-&gt;<b>resize_children</b></a>
+<li><a class="POD_NAVLINK" href="#resizemode_container">resizemode = $container-&gt;<b>get_resize_mode</b></a>
+<li><a class="POD_NAVLINK" href="#_container_set_resiz">$container-&gt;<b>set_resize_mode</b> ($resize_mode)</a>
+<li><a class="POD_NAVLINK" href="#_container_unset_foc">$container-&gt;<b>unset_focus_chain</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ResizeMode">enum Gtk2::ResizeMode</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Container
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="_container_add_widge">$container-&gt;<b>add</b> ($widget)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_"><p>$widget (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_container_add_with_">$container-&gt;<b>add_with_properties</b> ($widget, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_1"><p>$widget (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_list_list_of_proper"><p>... (list) list of property name/value pairs</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="integer_container_ge">integer = $container-&gt;<b>get_border_width</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_container_set_borde">$container-&gt;<b>set_border_width</b> ($border_width)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_border_width_intege"><p>$border_width (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_container_check_res">$container-&gt;<b>check_resize</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_container_child">list = $container-&gt;<b>child_get</b> ($child, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_child_Gtk2_Widget_"><p>$child (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_list_list_of_proper1"><p>... (list) list of property names</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns a list of properties of the child.
+</p>
+<h3 class="POD_HEAD2"><a name="list_container_child1">list = $container-&gt;<b>child_get_property</b> ($child, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_child_Gtk2_Widget_1"><p>$child (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_list_"><p>... (list)</p></a>
+</ul>
+<p class="POD_TEXT">
+Alias for child_get
+</p>
+<h3 class="POD_HEAD2"><a name="_container_child_set">$container-&gt;<b>child_set</b> ($child, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_child_Gtk2_Widget_2"><p>$child (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_list_list_of_proper2"><p>... (list) list of property name/value pairs</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets a list of properties on the child.
+</p>
+<h3 class="POD_HEAD2"><a name="_container_child_set1">$container-&gt;<b>child_set_property</b> ($child, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_child_Gtk2_Widget_3"><p>$child (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_list_1"><p>... (list)</p></a>
+</ul>
+<p class="POD_TEXT">
+Alias for child_set
+</p>
+<h3 class="POD_HEAD2"><a name="string_container_chi">string = $container-&gt;<b>child_type</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_container_get_c">list = $container-&gt;<b>get_children</b></a></h3>
+<p class="POD_TEXT">
+Returns a list of Gtk2::Widget&#39;s, the children of the container.
+</p>
+<h3 class="POD_HEAD2"><a name="list_container_get_f">list = $container-&gt;<b>get_focus_chain</b></a></h3>
+<p class="POD_TEXT">
+Returns a list of Gtk2::Widgets, the focus chain.
+</p>
+<h3 class="POD_HEAD2"><a name="_container_set_focus">$container-&gt;<b>set_focus_chain</b> (...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_of_Gtk2_Widget"><p>... (list) of Gtk2::Widget&#39;s, the focus chain</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets a focus chain, overriding the one computed automatically by GTK+.
+</p>
+<p class="POD_TEXT">
+In principle each widget in the chain should be a descendant of the container,
+but this is not enforced by this method, since it&#39;s allowed to set the focus
+chain before you pack the widgets, or have a widget in the chain that isn&#39;t
+always packed. The necessary checks are done when the focus chain is actually
+traversed.
+</p>
+<h3 class="POD_HEAD2"><a name="_container_set_focus1">$container-&gt;<b>set_focus_child</b> ($child)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_child_Gtk2_Widget_o"><p>$child (Gtk2::Widget or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="adjustment_or_undef_">adjustment or undef = $container-&gt;<b>get_focus_hadjustment</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_container_set_focus2">$container-&gt;<b>set_focus_hadjustment</b> ($adjustment)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_adjustment_Gtk2_Adj"><p>$adjustment (Gtk2::Adjustment or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="adjustment_or_undef_1">adjustment or undef = $container-&gt;<b>get_focus_vadjustment</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_container_set_focus3">$container-&gt;<b>set_focus_vadjustment</b> ($adjustment)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_adjustment_Gtk2_Adj1"><p>$adjustment (Gtk2::Adjustment or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_container_forall_ca">$container-&gt;<b>forall</b> ($callback, $callback_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_callback_subroutine"><p>$callback (subroutine) Code to invoke on each child widget</p></a>
+<li class="POD_ITEM"><a name="_callback_data_scala"><p>$callback_data (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Invoke <i>$callback</i> on each child of <i>$container</i>, including &quot;internal&quot;
+children.  Most applications should not use this function.  Compare
+with <i>Gtk2::Container::foreach</i>.
+</p>
+<h3 class="POD_HEAD2"><a name="_container_foreach_c">$container-&gt;<b>foreach</b> ($callback, $callback_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_callback_subroutine1"><p>$callback (subroutine) Code to invoke on each child widget</p></a>
+<li class="POD_ITEM"><a name="_callback_data_scala1"><p>$callback_data (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Invoke <i>$callback</i> on each child of <i>$container</i>, ignoring &quot;internal&quot;
+children.
+</p>
+<h3 class="POD_HEAD2"><a name="_container_propagate">$container-&gt;<b>propagate_expose</b> ($child, $event)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_child_Gtk2_Widget_4"><p>$child (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_event_Gtk2_Gdk_Even"><p>$event (Gtk2::Gdk::Event)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_container_set_reall">$container-&gt;<b>set_reallocate_redraws</b> ($needs_redraws)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_needs_redraws_boole"><p>$needs_redraws (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_container_remove_wi">$container-&gt;<b>remove</b> ($widget)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_2"><p>$widget (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_container_resize_ch">$container-&gt;<b>resize_children</b></a></h3>
+<h3 class="POD_HEAD2"><a name="resizemode_container">resizemode = $container-&gt;<b>get_resize_mode</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_container_set_resiz">$container-&gt;<b>set_resize_mode</b> ($resize_mode)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_resize_mode_Gtk2_Re"><p>$resize_mode (Gtk2::ResizeMode)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_container_unset_foc">$container-&gt;<b>unset_focus_chain</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_border_width_Glib_U">&#39;border-width&#39; (Glib::UInt : readable / writable / private)</a>
+<dd>
+The width of the empty border outside the containers children
+<dt class="POD_ITEM"><a name="_child_Gtk2_Widget_w">&#39;child&#39; (Gtk2::Widget : writable / private)</a>
+<dd>
+Can be used to add a new child to the container
+<dt class="POD_ITEM"><a name="_resize_mode_Gtk2_Re1">&#39;resize-mode&#39; (Gtk2::ResizeMode : readable / writable / private)</a>
+<dd>
+Specify how resize events are handled
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="add_Gtk2_Container_G"><b>add</b> (Gtk2::Container, Gtk2::Widget)</a>
+<dt><a name="remove_Gtk2_Containe"><b>remove</b> (Gtk2::Container, Gtk2::Widget)</a>
+<dt><a name="check_resize_Gtk2_Co"><b>check-resize</b> (Gtk2::Container)</a>
+<dt><a name="set_focus_child_Gtk2"><b>set-focus-child</b> (Gtk2::Container, Gtk2::Widget)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ResizeMode">enum Gtk2::ResizeMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_parent_GTK_RESIZE_P"><p>&#39;parent&#39; / &#39;GTK_RESIZE_PARENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_queue_GTK_RESIZE_QU"><p>&#39;queue&#39; / &#39;GTK_RESIZE_QUEUE&#39;</p></a>
+<li class="POD_ITEM"><a name="_immediate_GTK_RESIZ"><p>&#39;immediate&#39; / &#39;GTK_RESIZE_IMMEDIATE&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:55 2009
+</body>
+</html>
+

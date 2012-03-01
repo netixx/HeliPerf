@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::TreeSelection</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/TreeSortable.html">Next:<br />Gtk2::TreeSortable</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/TreeRowReference.html">Previous:<br />Gtk2::TreeRowReference</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::TreeSelection</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#integer_selection_co">integer = $selection-&gt;<b>count_selected_rows</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_selection_it">boolean = $selection-&gt;<b>iter_is_selected</b> ($iter)</a>
+<li><a class="POD_NAVLINK" href="#selectionmode_select">selectionmode = $selection-&gt;<b>get_mode</b></a>
+<li><a class="POD_NAVLINK" href="#_selection_set_mode_">$selection-&gt;<b>set_mode</b> ($type)</a>
+<li><a class="POD_NAVLINK" href="#boolean_selection_pa">boolean = $selection-&gt;<b>path_is_selected</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#_selection_select_al">$selection-&gt;<b>select_all</b></a>
+<li><a class="POD_NAVLINK" href="#_selection_set_selec">$selection-&gt;<b>set_select_function</b> ($func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_selection_select_it">$selection-&gt;<b>select_iter</b> ($iter)</a>
+<li><a class="POD_NAVLINK" href="#_selection_select_pa">$selection-&gt;<b>select_path</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#_selection_select_ra">$selection-&gt;<b>select_range</b> ($start_path, $end_path)</a>
+<li><a class="POD_NAVLINK" href="#_selection_selected_">$selection-&gt;<b>selected_foreach</b> ($func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#iter_tree_selection_">iter = $tree_selection-&gt;<b>get_selected</b></a>
+<li><a class="POD_NAVLINK" href="#_model_iter_tree_sel">(model, iter) = $tree_selection-&gt;<b>get_selected</b></a>
+<li><a class="POD_NAVLINK" href="#_paths_selection_get">@paths = $selection-&gt;<b>get_selected_rows</b></a>
+<li><a class="POD_NAVLINK" href="#treeview_selection_g">treeview = $selection-&gt;<b>get_tree_view</b></a>
+<li><a class="POD_NAVLINK" href="#_selection_unselect_">$selection-&gt;<b>unselect_all</b></a>
+<li><a class="POD_NAVLINK" href="#_selection_unselect_1">$selection-&gt;<b>unselect_iter</b> ($iter)</a>
+<li><a class="POD_NAVLINK" href="#_selection_unselect_2">$selection-&gt;<b>unselect_path</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#_selection_unselect_3">$selection-&gt;<b>unselect_range</b> ($start_path, $end_path)</a>
+<li><a class="POD_NAVLINK" href="#scalar_selection_get">scalar = $selection-&gt;<b>get_user_data</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SelectionM">enum Gtk2::SelectionMode</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::TreeSelection
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::TreeSelection
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="integer_selection_co">integer = $selection-&gt;<b>count_selected_rows</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_selection_it">boolean = $selection-&gt;<b>iter_is_selected</b> ($iter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_"><p>$iter (Gtk2::TreeIter)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="selectionmode_select">selectionmode = $selection-&gt;<b>get_mode</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_selection_set_mode_">$selection-&gt;<b>set_mode</b> ($type)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_type_Gtk2_Selection"><p>$type (Gtk2::SelectionMode)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_selection_pa">boolean = $selection-&gt;<b>path_is_selected</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_"><p>$path (Gtk2::TreePath)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selection_select_al">$selection-&gt;<b>select_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_selection_set_selec">$selection-&gt;<b>set_select_function</b> ($func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selection_select_it">$selection-&gt;<b>select_iter</b> ($iter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_1"><p>$iter (Gtk2::TreeIter)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selection_select_pa">$selection-&gt;<b>select_path</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_1"><p>$path (Gtk2::TreePath)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selection_select_ra">$selection-&gt;<b>select_range</b> ($start_path, $end_path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_start_path_Gtk2_Tre"><p>$start_path (Gtk2::TreePath)</p></a>
+<li class="POD_ITEM"><a name="_end_path_Gtk2_TreeP"><p>$end_path (Gtk2::TreePath)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selection_selected_">$selection-&gt;<b>selected_foreach</b> ($func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_subroutine_"><p>$func (subroutine)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_1"><p>$data (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Call <i>$func</i> on every selected row in <i>$selection</i>&#39;s view.
+</p>
+<h3 class="POD_HEAD2"><a name="iter_tree_selection_">iter = $tree_selection-&gt;<b>get_selected</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_model_iter_tree_sel">(model, iter) = $tree_selection-&gt;<b>get_selected</b></a></h3>
+<p class="POD_TEXT">
+Since most of the time you are only interested in the iter, <code>get_selected</code>
+returns only the iter in scalar context.
+</p>
+<h3 class="POD_HEAD2"><a name="_paths_selection_get">@paths = $selection-&gt;<b>get_selected_rows</b></a></h3>
+<p class="POD_TEXT">
+Returns the Gtk2::TreePath of each selected row, or an empty list if no
+rows are selected.  The model is <i>not</i> returned, as documented in the C
+API reference.  To get the model, try
+<code>$selection-&gt;get_tree_view-&gt;get_model</code>.
+</p>
+<h3 class="POD_HEAD2"><a name="treeview_selection_g">treeview = $selection-&gt;<b>get_tree_view</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_selection_unselect_">$selection-&gt;<b>unselect_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_selection_unselect_1">$selection-&gt;<b>unselect_iter</b> ($iter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TreeIter_2"><p>$iter (Gtk2::TreeIter)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selection_unselect_2">$selection-&gt;<b>unselect_path</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_Gtk2_TreePath_2"><p>$path (Gtk2::TreePath)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_selection_unselect_3">$selection-&gt;<b>unselect_range</b> ($start_path, $end_path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_start_path_Gtk2_Tre1"><p>$start_path (Gtk2::TreePath)</p></a>
+<li class="POD_ITEM"><a name="_end_path_Gtk2_TreeP1"><p>$end_path (Gtk2::TreePath)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="scalar_selection_get">scalar = $selection-&gt;<b>get_user_data</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="changed_Gtk2_TreeSel"><b>changed</b> (Gtk2::TreeSelection)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SelectionM">enum Gtk2::SelectionMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SELECTION_"><p>&#39;none&#39; / &#39;GTK_SELECTION_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_single_GTK_SELECTIO"><p>&#39;single&#39; / &#39;GTK_SELECTION_SINGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_browse_GTK_SELECTIO"><p>&#39;browse&#39; / &#39;GTK_SELECTION_BROWSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_multiple_GTK_SELECT"><p>&#39;multiple&#39; / &#39;GTK_SELECTION_MULTIPLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_extended_GTK_SELECT"><p>&#39;extended&#39; / &#39;GTK_SELECTION_EXTENDED&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:04:20 2009
+</body>
+</html>
+

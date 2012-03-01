@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::RecentManager</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Requisition.html">Next:<br />Gtk2::Requisition</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/RecentInfo.html">Previous:<br />Gtk2::RecentInfo</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::RecentManager</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#recentmanager_Gtk2_R">recentmanager = Gtk2::RecentManager-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_manager_add_">boolean = $manager-&gt;<b>add_full</b> ($uri, $data)</a>
+<li><a class="POD_NAVLINK" href="#boolean_manager_add_1">boolean = $manager-&gt;<b>add_item</b> ($uri)</a>
+<li><a class="POD_NAVLINK" href="#recentmanager_Gtk2_R1">recentmanager = Gtk2::RecentManager-&gt;<b>get_default</b></a>
+<li><a class="POD_NAVLINK" href="#recentmanager_Gtk2_R2">recentmanager = Gtk2::RecentManager-&gt;<b>get_for_screen</b> ($screen)</a>
+<li><a class="POD_NAVLINK" href="#boolean_manager_has_">boolean = $manager-&gt;<b>has_item</b> ($uri)</a>
+<li><a class="POD_NAVLINK" href="#_items_manager_get_i">(items) = $manager-&gt;<b>get_items</b></a>
+<li><a class="POD_NAVLINK" href="#integer_manager_get_">integer = $manager-&gt;<b>get_limit</b></a>
+<li><a class="POD_NAVLINK" href="#_manager_set_limit_l">$manager-&gt;<b>set_limit</b> ($limit)</a>
+<li><a class="POD_NAVLINK" href="#recentinfo_manager_l">recentinfo = $manager-&gt;<b>lookup_item</b> ($uri)</a>
+<li><a class="POD_NAVLINK" href="#_manager_move_item_o">$manager-&gt;<b>move_item</b> ($old_uri, $new_uri)</a>
+<li><a class="POD_NAVLINK" href="#integer_manager_purg">integer = $manager-&gt;<b>purge_items</b></a>
+<li><a class="POD_NAVLINK" href="#_manager_remove_item">$manager-&gt;<b>remove_item</b> ($uri)</a>
+<li><a class="POD_NAVLINK" href="#_manager_set_screen_">$manager-&gt;<b>set_screen</b> ($screen)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_GtkRecentManage">enum GtkRecentManagerError</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::RecentManager
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::RecentManager
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="recentmanager_Gtk2_R">recentmanager = Gtk2::RecentManager-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_manager_add_">boolean = $manager-&gt;<b>add_full</b> ($uri, $data)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_string_"><p>$uri (string)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Add <i>$uri</i> to the list of recently used documents.  Instead of letting the
+Gtk2::RecentManager object guess the meta-data, use <i>$data</i> to supply it.
+<i>$data</i> is a hash reference with these keys:
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="display_name">display_name</a>
+<dd>
+The name to be used when displaying the document inside the recently used
+documents list.
+<dt class="POD_ITEM"><a name="description">description</a>
+<dd>
+A short description of the document.
+<dt class="POD_ITEM"><a name="mime_type">mime_type</a>
+<dd>
+The MIME type of the document. [Mandatory]
+<dt class="POD_ITEM"><a name="app_name">app_name</a>
+<dd>
+The name of the application that is registering the document.  You might
+use the same name you used in <u>Glib::set_application_name</u>.
+<dt class="POD_ITEM"><a name="app_exec">app_exec</a>
+<dd>
+The command line needed to launch the application with the document.  You
+can use the variable <code>&quot;%u&quot;</code>, which will be expanded to the document&#39;s URI,
+or the variable <code>&quot;%f&quot;</code> which will be expanded to the document&#39;s canonical
+full path.
+<dt class="POD_ITEM"><a name="groups">groups</a>
+<dd>
+An array reference, containing the group names the document belongs to.
+<dt class="POD_ITEM"><a name="is_private">is_private</a>
+<dd>
+Whether the document should be visible only to the applications and groups
+that have registered it.
+</dl>
+<p></p>
+<h3 class="POD_HEAD2"><a name="boolean_manager_add_1">boolean = $manager-&gt;<b>add_item</b> ($uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_string_1"><p>$uri (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Add <i>$uri</i> to the list of recently used documents.  The Gtk2::RecentManager
+object will try to guess the meta-data of the document from its URI, but if
+you know it you should use <u>Gtk2::RecentManager::add_full</u>.
+</p>
+<h3 class="POD_HEAD2"><a name="recentmanager_Gtk2_R1">recentmanager = Gtk2::RecentManager-&gt;<b>get_default</b></a></h3>
+<h3 class="POD_HEAD2"><a name="recentmanager_Gtk2_R2">recentmanager = Gtk2::RecentManager-&gt;<b>get_for_screen</b> ($screen)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_screen_Gtk2_Gdk_Scr"><p>$screen (Gtk2::Gdk::Screen)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_manager_has_">boolean = $manager-&gt;<b>has_item</b> ($uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_string_2"><p>$uri (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_items_manager_get_i">(items) = $manager-&gt;<b>get_items</b></a></h3>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="integer_manager_get_">integer = $manager-&gt;<b>get_limit</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_manager_set_limit_l">$manager-&gt;<b>set_limit</b> ($limit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_limit_integer_"><p>$limit (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="recentinfo_manager_l">recentinfo = $manager-&gt;<b>lookup_item</b> ($uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_string_3"><p>$uri (string)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_manager_move_item_o">$manager-&gt;<b>move_item</b> ($old_uri, $new_uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_old_uri_string_"><p>$old_uri (string)</p></a>
+<li class="POD_ITEM"><a name="_new_uri_string_or_u"><p>$new_uri (string or undef)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="integer_manager_purg">integer = $manager-&gt;<b>purge_items</b></a></h3>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_manager_remove_item">$manager-&gt;<b>remove_item</b> ($uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_string_4"><p>$uri (string)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_manager_set_screen_">$manager-&gt;<b>set_screen</b> ($screen)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_screen_Gtk2_Gdk_Scr1"><p>$screen (Gtk2::Gdk::Screen)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_filename_string_rea">&#39;filename&#39; (string : readable / writable / construct-only)</a>
+<dd>
+The full path to the file to be used to store and read the list
+<dt class="POD_ITEM"><a name="_limit_integer_reada">&#39;limit&#39; (integer : readable / writable)</a>
+<dd>
+The maximum number of items to be returned by gtk_recent_manager_get_items()
+<dt class="POD_ITEM"><a name="_size_integer_readab">&#39;size&#39; (integer : readable)</a>
+<dd>
+The size of the recently used resources list
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="changed_Gtk2_RecentM"><b>changed</b> (Gtk2::RecentManager)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_GtkRecentManage">enum GtkRecentManagerError</a></h3>
+<p></p>
+<p></p>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_not_found_GTK_RECEN"><p>&#39;not-found&#39; / &#39;GTK_RECENT_MANAGER_ERROR_NOT_FOUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_invalid_uri_GTK_REC"><p>&#39;invalid-uri&#39; / &#39;GTK_RECENT_MANAGER_ERROR_INVALID_URI&#39;</p></a>
+<li class="POD_ITEM"><a name="_invalid_encoding_GT"><p>&#39;invalid-encoding&#39; / &#39;GTK_RECENT_MANAGER_ERROR_INVALID_ENCODING&#39;</p></a>
+<li class="POD_ITEM"><a name="_not_registered_GTK_"><p>&#39;not-registered&#39; / &#39;GTK_RECENT_MANAGER_ERROR_NOT_REGISTERED&#39;</p></a>
+<li class="POD_ITEM"><a name="_read_GTK_RECENT_MAN"><p>&#39;read&#39; / &#39;GTK_RECENT_MANAGER_ERROR_READ&#39;</p></a>
+<li class="POD_ITEM"><a name="_write_GTK_RECENT_MA"><p>&#39;write&#39; / &#39;GTK_RECENT_MANAGER_ERROR_WRITE&#39;</p></a>
+<li class="POD_ITEM"><a name="_unknown_GTK_RECENT_"><p>&#39;unknown&#39; / &#39;GTK_RECENT_MANAGER_ERROR_UNKNOWN&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:30 2009
+</body>
+</html>
+

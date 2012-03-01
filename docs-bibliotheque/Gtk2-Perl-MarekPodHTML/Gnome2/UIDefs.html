@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::UIDefs</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/URL.html">Next:<br />Gnome2::URL</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/ThumbnailFactory.html">Previous:<br />Gnome2::ThumbnailFactory</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::UIDefs</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs">scalar = Gnome2::UIDefs-&gt;<b>key_mod_clear</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs1">scalar = Gnome2::UIDefs-&gt;<b>key_mod_close</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs2">scalar = Gnome2::UIDefs-&gt;<b>key_mod_close_window</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs3">scalar = Gnome2::UIDefs-&gt;<b>key_mod_copy</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs4">scalar = Gnome2::UIDefs-&gt;<b>key_mod_cut</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs5">scalar = Gnome2::UIDefs-&gt;<b>key_mod_find</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs6">scalar = Gnome2::UIDefs-&gt;<b>key_mod_find_again</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs7">scalar = Gnome2::UIDefs-&gt;<b>key_mod_new</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs8">scalar = Gnome2::UIDefs-&gt;<b>key_mod_new_game</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs9">scalar = Gnome2::UIDefs-&gt;<b>key_mod_new_window</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs10">scalar = Gnome2::UIDefs-&gt;<b>key_mod_open</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs11">scalar = Gnome2::UIDefs-&gt;<b>key_mod_paste</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs12">scalar = Gnome2::UIDefs-&gt;<b>key_mod_pause_game</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs13">scalar = Gnome2::UIDefs-&gt;<b>key_mod_print</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs14">scalar = Gnome2::UIDefs-&gt;<b>key_mod_print_setup</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs15">scalar = Gnome2::UIDefs-&gt;<b>key_mod_quit</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs16">scalar = Gnome2::UIDefs-&gt;<b>key_mod_redo</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs17">scalar = Gnome2::UIDefs-&gt;<b>key_mod_redo_move</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs18">scalar = Gnome2::UIDefs-&gt;<b>key_mod_replace</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs19">scalar = Gnome2::UIDefs-&gt;<b>key_mod_save</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs20">scalar = Gnome2::UIDefs-&gt;<b>key_mod_save_as</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs21">scalar = Gnome2::UIDefs-&gt;<b>key_mod_select_all</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs22">scalar = Gnome2::UIDefs-&gt;<b>key_mod_undo</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs23">scalar = Gnome2::UIDefs-&gt;<b>key_mod_undo_move</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs24">scalar = Gnome2::UIDefs-&gt;<b>key_name_clear</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs25">scalar = Gnome2::UIDefs-&gt;<b>key_name_close</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs26">scalar = Gnome2::UIDefs-&gt;<b>key_name_close_window</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs27">scalar = Gnome2::UIDefs-&gt;<b>key_name_copy</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs28">scalar = Gnome2::UIDefs-&gt;<b>key_name_cut</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs29">scalar = Gnome2::UIDefs-&gt;<b>key_name_find</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs30">scalar = Gnome2::UIDefs-&gt;<b>key_name_find_again</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs31">scalar = Gnome2::UIDefs-&gt;<b>key_name_new</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs32">scalar = Gnome2::UIDefs-&gt;<b>key_name_new_game</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs33">scalar = Gnome2::UIDefs-&gt;<b>key_name_new_window</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs34">scalar = Gnome2::UIDefs-&gt;<b>key_name_open</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs35">scalar = Gnome2::UIDefs-&gt;<b>key_name_paste</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs36">scalar = Gnome2::UIDefs-&gt;<b>key_name_pause_game</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs37">scalar = Gnome2::UIDefs-&gt;<b>key_name_print</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs38">scalar = Gnome2::UIDefs-&gt;<b>key_name_print_setup</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs39">scalar = Gnome2::UIDefs-&gt;<b>key_name_quit</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs40">scalar = Gnome2::UIDefs-&gt;<b>key_name_redo</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs41">scalar = Gnome2::UIDefs-&gt;<b>key_name_redo_move</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs42">scalar = Gnome2::UIDefs-&gt;<b>key_name_replace</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs43">scalar = Gnome2::UIDefs-&gt;<b>key_name_save</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs44">scalar = Gnome2::UIDefs-&gt;<b>key_name_save_as</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs45">scalar = Gnome2::UIDefs-&gt;<b>key_name_select_all</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs46">scalar = Gnome2::UIDefs-&gt;<b>key_name_undo</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs47">scalar = Gnome2::UIDefs-&gt;<b>key_name_undo_move</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs48">scalar = Gnome2::UIDefs-&gt;<b>pad</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs49">scalar = Gnome2::UIDefs-&gt;<b>pad_big</b></a>
+<li><a class="POD_NAVLINK" href="#scalar_Gnome2_UIDefs50">scalar = Gnome2::UIDefs-&gt;<b>pad_small</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::UIDefs
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs">scalar = Gnome2::UIDefs-&gt;<b>key_mod_clear</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs1">scalar = Gnome2::UIDefs-&gt;<b>key_mod_close</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs2">scalar = Gnome2::UIDefs-&gt;<b>key_mod_close_window</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs3">scalar = Gnome2::UIDefs-&gt;<b>key_mod_copy</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs4">scalar = Gnome2::UIDefs-&gt;<b>key_mod_cut</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs5">scalar = Gnome2::UIDefs-&gt;<b>key_mod_find</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs6">scalar = Gnome2::UIDefs-&gt;<b>key_mod_find_again</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs7">scalar = Gnome2::UIDefs-&gt;<b>key_mod_new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs8">scalar = Gnome2::UIDefs-&gt;<b>key_mod_new_game</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs9">scalar = Gnome2::UIDefs-&gt;<b>key_mod_new_window</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs10">scalar = Gnome2::UIDefs-&gt;<b>key_mod_open</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs11">scalar = Gnome2::UIDefs-&gt;<b>key_mod_paste</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs12">scalar = Gnome2::UIDefs-&gt;<b>key_mod_pause_game</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs13">scalar = Gnome2::UIDefs-&gt;<b>key_mod_print</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs14">scalar = Gnome2::UIDefs-&gt;<b>key_mod_print_setup</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs15">scalar = Gnome2::UIDefs-&gt;<b>key_mod_quit</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs16">scalar = Gnome2::UIDefs-&gt;<b>key_mod_redo</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs17">scalar = Gnome2::UIDefs-&gt;<b>key_mod_redo_move</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs18">scalar = Gnome2::UIDefs-&gt;<b>key_mod_replace</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs19">scalar = Gnome2::UIDefs-&gt;<b>key_mod_save</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs20">scalar = Gnome2::UIDefs-&gt;<b>key_mod_save_as</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs21">scalar = Gnome2::UIDefs-&gt;<b>key_mod_select_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs22">scalar = Gnome2::UIDefs-&gt;<b>key_mod_undo</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs23">scalar = Gnome2::UIDefs-&gt;<b>key_mod_undo_move</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs24">scalar = Gnome2::UIDefs-&gt;<b>key_name_clear</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs25">scalar = Gnome2::UIDefs-&gt;<b>key_name_close</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs26">scalar = Gnome2::UIDefs-&gt;<b>key_name_close_window</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs27">scalar = Gnome2::UIDefs-&gt;<b>key_name_copy</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs28">scalar = Gnome2::UIDefs-&gt;<b>key_name_cut</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs29">scalar = Gnome2::UIDefs-&gt;<b>key_name_find</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs30">scalar = Gnome2::UIDefs-&gt;<b>key_name_find_again</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs31">scalar = Gnome2::UIDefs-&gt;<b>key_name_new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs32">scalar = Gnome2::UIDefs-&gt;<b>key_name_new_game</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs33">scalar = Gnome2::UIDefs-&gt;<b>key_name_new_window</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs34">scalar = Gnome2::UIDefs-&gt;<b>key_name_open</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs35">scalar = Gnome2::UIDefs-&gt;<b>key_name_paste</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs36">scalar = Gnome2::UIDefs-&gt;<b>key_name_pause_game</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs37">scalar = Gnome2::UIDefs-&gt;<b>key_name_print</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs38">scalar = Gnome2::UIDefs-&gt;<b>key_name_print_setup</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs39">scalar = Gnome2::UIDefs-&gt;<b>key_name_quit</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs40">scalar = Gnome2::UIDefs-&gt;<b>key_name_redo</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs41">scalar = Gnome2::UIDefs-&gt;<b>key_name_redo_move</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs42">scalar = Gnome2::UIDefs-&gt;<b>key_name_replace</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs43">scalar = Gnome2::UIDefs-&gt;<b>key_name_save</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs44">scalar = Gnome2::UIDefs-&gt;<b>key_name_save_as</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs45">scalar = Gnome2::UIDefs-&gt;<b>key_name_select_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs46">scalar = Gnome2::UIDefs-&gt;<b>key_name_undo</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs47">scalar = Gnome2::UIDefs-&gt;<b>key_name_undo_move</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs48">scalar = Gnome2::UIDefs-&gt;<b>pad</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs49">scalar = Gnome2::UIDefs-&gt;<b>pad_big</b></a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_Gnome2_UIDefs50">scalar = Gnome2::UIDefs-&gt;<b>pad_small</b></a></h3>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:07 2009
+</body>
+</html>
+

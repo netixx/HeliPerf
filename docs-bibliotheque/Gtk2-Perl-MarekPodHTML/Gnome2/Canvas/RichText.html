@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Canvas::RichText</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Canvas/Shape.html">Next:<br />Gnome2::Canvas::Shape</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Canvas/Rect.html">Previous:<br />Gnome2::Canvas::Rect</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Canvas::RichText</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#textbuffer_text_get_">textbuffer = $text-&gt;<b>get_buffer</b></a>
+<li><a class="POD_NAVLINK" href="#_text_set_buffer_buf">$text-&gt;<b>set_buffer</b> ($buffer)</a>
+<li><a class="POD_NAVLINK" href="#_text_copy_clipboard">$text-&gt;<b>copy_clipboard</b></a>
+<li><a class="POD_NAVLINK" href="#_text_cut_clipboard">$text-&gt;<b>cut_clipboard</b></a>
+<li><a class="POD_NAVLINK" href="#textiter_text_get_it">textiter = $text-&gt;<b>get_iter_at_location</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#rectangle_text_get_i">rectangle = $text-&gt;<b>get_iter_location</b> ($iter)</a>
+<li><a class="POD_NAVLINK" href="#_text_paste_clipboar">$text-&gt;<b>paste_clipboard</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_AnchorType">enum Gtk2::AnchorType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_DirectionT">enum Gtk2::DirectionType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Justificat">enum Gtk2::Justification</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_WrapMode">enum Gtk2::WrapMode</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Canvas::RichText
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gnome2::Canvas::Item
+                 +----Gnome2::Canvas::RichText
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="textbuffer_text_get_">textbuffer = $text-&gt;<b>get_buffer</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_text_set_buffer_buf">$text-&gt;<b>set_buffer</b> ($buffer)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_buffer_Gtk2_TextBuf"><p>$buffer (Gtk2::TextBuffer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_text_copy_clipboard">$text-&gt;<b>copy_clipboard</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_text_cut_clipboard">$text-&gt;<b>cut_clipboard</b></a></h3>
+<h3 class="POD_HEAD2"><a name="textiter_text_get_it">textiter = $text-&gt;<b>get_iter_at_location</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_"><p>$y (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="rectangle_text_get_i">rectangle = $text-&gt;<b>get_iter_location</b> ($iter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_iter_Gtk2_TextIter_"><p>$iter (Gtk2::TextIter)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_text_paste_clipboar">$text-&gt;<b>paste_clipboard</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_anchor_Gtk2_AnchorT">&#39;anchor&#39; (Gtk2::AnchorType : readable / writable)</a>
+<dd>
+Anchor point for text
+<dt class="POD_ITEM"><a name="_cursor_blink_boolea">&#39;cursor-blink&#39; (boolean : readable / writable)</a>
+<dd>
+Does the cursor blink in this rich text item?
+<dt class="POD_ITEM"><a name="_cursor_visible_bool">&#39;cursor-visible&#39; (boolean : readable / writable)</a>
+<dd>
+Is the cursor visible in this rich text item?
+<dt class="POD_ITEM"><a name="_direction_Gtk2_Dire">&#39;direction&#39; (Gtk2::DirectionType : readable / writable)</a>
+<dd>
+Text direction
+<dt class="POD_ITEM"><a name="_editable_boolean_re">&#39;editable&#39; (boolean : readable / writable)</a>
+<dd>
+Is this rich text item editable?
+<dt class="POD_ITEM"><a name="_grow_height_boolean">&#39;grow-height&#39; (boolean : readable / writable)</a>
+<dd>
+Should the text box height grow if the text does not fit?
+<dt class="POD_ITEM"><a name="_height_double_reada">&#39;height&#39; (double : readable / writable)</a>
+<dd>
+Height for text box
+<dt class="POD_ITEM"><a name="_indent_integer_read">&#39;indent&#39; (integer : readable / writable)</a>
+<dd>
+Number of pixels for indentation
+<dt class="POD_ITEM"><a name="_justification_Gtk2_">&#39;justification&#39; (Gtk2::Justification : readable / writable)</a>
+<dd>
+Justification mode
+<dt class="POD_ITEM"><a name="_left_margin_integer">&#39;left-margin&#39; (integer : readable / writable)</a>
+<dd>
+Number of pixels in the left margin
+<dt class="POD_ITEM"><a name="_pixels_above_lines_">&#39;pixels-above-lines&#39; (integer : readable / writable)</a>
+<dd>
+Number of pixels to put above lines
+<dt class="POD_ITEM"><a name="_pixels_below_lines_">&#39;pixels-below-lines&#39; (integer : readable / writable)</a>
+<dd>
+Number of pixels to put below lines
+<dt class="POD_ITEM"><a name="_pixels_inside_wrap_">&#39;pixels-inside-wrap&#39; (integer : readable / writable)</a>
+<dd>
+Number of pixels to put inside the wrap
+<dt class="POD_ITEM"><a name="_right_margin_intege">&#39;right-margin&#39; (integer : readable / writable)</a>
+<dd>
+Number of pixels in the right margin
+<dt class="POD_ITEM"><a name="_text_string_readabl">&#39;text&#39; (string : readable / writable)</a>
+<dd>
+Text to display
+<dt class="POD_ITEM"><a name="_visible_boolean_rea">&#39;visible&#39; (boolean : readable / writable)</a>
+<dd>
+Is this rich text item visible?
+<dt class="POD_ITEM"><a name="_width_double_readab">&#39;width&#39; (double : readable / writable)</a>
+<dd>
+Width for text box
+<dt class="POD_ITEM"><a name="_wrap_mode_Gtk2_Wrap">&#39;wrap-mode&#39; (Gtk2::WrapMode : readable / writable)</a>
+<dd>
+Wrap mode for multiline text
+<dt class="POD_ITEM"><a name="_x_double_readable_w">&#39;x&#39; (double : readable / writable)</a>
+<dd>
+X position
+<dt class="POD_ITEM"><a name="_y_double_readable_w">&#39;y&#39; (double : readable / writable)</a>
+<dd>
+Y position
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="tag_changed_Gnome2_C"><b>tag-changed</b> (Gnome2::Canvas::RichText, Glib::Object)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_AnchorType">enum Gtk2::AnchorType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_center_GTK_ANCHOR_C"><p>&#39;center&#39; / &#39;GTK_ANCHOR_CENTER&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_GTK_ANCHOR_NO"><p>&#39;north&#39; / &#39;GTK_ANCHOR_NORTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_west_GTK_ANCH"><p>&#39;north-west&#39; / &#39;GTK_ANCHOR_NORTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_east_GTK_ANCH"><p>&#39;north-east&#39; / &#39;GTK_ANCHOR_NORTH_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_GTK_ANCHOR_SO"><p>&#39;south&#39; / &#39;GTK_ANCHOR_SOUTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_west_GTK_ANCH"><p>&#39;south-west&#39; / &#39;GTK_ANCHOR_SOUTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_east_GTK_ANCH"><p>&#39;south-east&#39; / &#39;GTK_ANCHOR_SOUTH_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_west_GTK_ANCHOR_WES"><p>&#39;west&#39; / &#39;GTK_ANCHOR_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_east_GTK_ANCHOR_EAS"><p>&#39;east&#39; / &#39;GTK_ANCHOR_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_n_GTK_ANCHOR_N_"><p>&#39;n&#39; / &#39;GTK_ANCHOR_N&#39;</p></a>
+<li class="POD_ITEM"><a name="_nw_GTK_ANCHOR_NW_"><p>&#39;nw&#39; / &#39;GTK_ANCHOR_NW&#39;</p></a>
+<li class="POD_ITEM"><a name="_ne_GTK_ANCHOR_NE_"><p>&#39;ne&#39; / &#39;GTK_ANCHOR_NE&#39;</p></a>
+<li class="POD_ITEM"><a name="_s_GTK_ANCHOR_S_"><p>&#39;s&#39; / &#39;GTK_ANCHOR_S&#39;</p></a>
+<li class="POD_ITEM"><a name="_sw_GTK_ANCHOR_SW_"><p>&#39;sw&#39; / &#39;GTK_ANCHOR_SW&#39;</p></a>
+<li class="POD_ITEM"><a name="_se_GTK_ANCHOR_SE_"><p>&#39;se&#39; / &#39;GTK_ANCHOR_SE&#39;</p></a>
+<li class="POD_ITEM"><a name="_w_GTK_ANCHOR_W_"><p>&#39;w&#39; / &#39;GTK_ANCHOR_W&#39;</p></a>
+<li class="POD_ITEM"><a name="_e_GTK_ANCHOR_E_"><p>&#39;e&#39; / &#39;GTK_ANCHOR_E&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_DirectionT">enum Gtk2::DirectionType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tab_forward_GTK_DIR"><p>&#39;tab-forward&#39; / &#39;GTK_DIR_TAB_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_tab_backward_GTK_DI"><p>&#39;tab-backward&#39; / &#39;GTK_DIR_TAB_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_up_GTK_DIR_UP_"><p>&#39;up&#39; / &#39;GTK_DIR_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_down_GTK_DIR_DOWN_"><p>&#39;down&#39; / &#39;GTK_DIR_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_GTK_DIR_LEFT_"><p>&#39;left&#39; / &#39;GTK_DIR_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_DIR_RIGHT"><p>&#39;right&#39; / &#39;GTK_DIR_RIGHT&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Justificat">enum Gtk2::Justification</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_left_GTK_JUSTIFY_LE"><p>&#39;left&#39; / &#39;GTK_JUSTIFY_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_JUSTIFY_R"><p>&#39;right&#39; / &#39;GTK_JUSTIFY_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_center_GTK_JUSTIFY_"><p>&#39;center&#39; / &#39;GTK_JUSTIFY_CENTER&#39;</p></a>
+<li class="POD_ITEM"><a name="_fill_GTK_JUSTIFY_FI"><p>&#39;fill&#39; / &#39;GTK_JUSTIFY_FILL&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_WrapMode">enum Gtk2::WrapMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_WRAP_NONE_"><p>&#39;none&#39; / &#39;GTK_WRAP_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_char_GTK_WRAP_CHAR_"><p>&#39;char&#39; / &#39;GTK_WRAP_CHAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_word_GTK_WRAP_WORD_"><p>&#39;word&#39; / &#39;GTK_WRAP_WORD&#39;</p></a>
+<li class="POD_ITEM"><a name="_word_char_GTK_WRAP_"><p>&#39;word-char&#39; / &#39;GTK_WRAP_WORD_CHAR&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../../Gnome2/Canvas.html">Gnome2::Canvas</a>, <a class="POD_LINK" href="../../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../../Gnome2/Canvas/Item.html">Gnome2::Canvas::Item</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the Gtk2-Perl Team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL; see <a class="POD_LINK" href="../../Gnome2/Canvas.html">Gnome2::Canvas</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:10 2009
+</body>
+</html>
+

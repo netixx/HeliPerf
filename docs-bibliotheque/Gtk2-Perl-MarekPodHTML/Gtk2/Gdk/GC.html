@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Gdk::GC</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gtk2/Gdk/Geometry.html">Next:<br />Gtk2::Gdk::Geometry</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gtk2/Gdk/Event/WindowState.html">Previous:<br />Gtk2::Gdk::Event::WindowState</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Gdk::GC</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#gc_Gtk2_Gdk_GC_new_d">gc = Gtk2::Gdk::GC-&gt;<b>new</b> ($drawable, $values=undef)</a>
+<li><a class="POD_NAVLINK" href="#gc_Gtk2_Gdk_GC_new_w">gc = Gtk2::Gdk::GC-&gt;<b>new_with_values</b> ($drawable, $values=undef)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_background_c">$gc-&gt;<b>set_background</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_clip_mask_ma">$gc-&gt;<b>set_clip_mask</b> ($mask)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_clip_origin_">$gc-&gt;<b>set_clip_origin</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_clip_rectang">$gc-&gt;<b>set_clip_rectangle</b> ($rectangle)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_clip_region_">$gc-&gt;<b>set_clip_region</b> ($region)</a>
+<li><a class="POD_NAVLINK" href="#colormap_gc_get_colo">colormap = $gc-&gt;<b>get_colormap</b></a>
+<li><a class="POD_NAVLINK" href="#_gc_set_colormap_col">$gc-&gt;<b>set_colormap</b> ($colormap)</a>
+<li><a class="POD_NAVLINK" href="#_dst_gc_copy_src_gc_">$dst_gc-&gt;<b>copy</b> ($src_gc)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_dashes_dash_">$gc-&gt;<b>set_dashes</b> ($dash_offset, ...)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_exposures_ex">$gc-&gt;<b>set_exposures</b> ($exposures)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_fill_fill_">$gc-&gt;<b>set_fill</b> ($fill)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_font_font_">$gc-&gt;<b>set_font</b> ($font)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_foreground_c">$gc-&gt;<b>set_foreground</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_function_fun">$gc-&gt;<b>set_function</b> ($function)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_line_attribu">$gc-&gt;<b>set_line_attributes</b> ($line_width, $line_style, $cap_style, $join_style)</a>
+<li><a class="POD_NAVLINK" href="#_gc_offset_x_offset_">$gc-&gt;<b>offset</b> ($x_offset, $y_offset)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_rgb_backgrou">$gc-&gt;<b>set_rgb_background</b> ($rgb)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_rgb_bg_color">$gc-&gt;<b>set_rgb_bg_color</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_rgb_fg_color">$gc-&gt;<b>set_rgb_fg_color</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_rgb_foregrou">$gc-&gt;<b>set_rgb_foreground</b> ($rgb)</a>
+<li><a class="POD_NAVLINK" href="#_gc_rgb_gc_set_backg">$gc-&gt;<b>rgb_gc_set_background</b> ($rgb)</a>
+<li><a class="POD_NAVLINK" href="#_gc_rgb_gc_set_foreg">$gc-&gt;<b>rgb_gc_set_foreground</b> ($rgb)</a>
+<li><a class="POD_NAVLINK" href="#screen_gc_get_screen">screen = $gc-&gt;<b>get_screen</b></a>
+<li><a class="POD_NAVLINK" href="#_gc_set_stipple_stip">$gc-&gt;<b>set_stipple</b> ($stipple)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_subwindow_mo">$gc-&gt;<b>set_subwindow</b> ($mode)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_tile_tile_">$gc-&gt;<b>set_tile</b> ($tile)</a>
+<li><a class="POD_NAVLINK" href="#_gc_set_ts_origin_x_">$gc-&gt;<b>set_ts_origin</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#scalar_gc_get_values">scalar = $gc-&gt;<b>get_values</b></a>
+<li><a class="POD_NAVLINK" href="#_gc_set_values_value">$gc-&gt;<b>set_values</b> ($values)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_CapSty">enum Gtk2::Gdk::CapStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Fill">enum Gtk2::Gdk::Fill</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Functi">enum Gtk2::Gdk::Function</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_JoinSt">enum Gtk2::Gdk::JoinStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_LineSt">enum Gtk2::Gdk::LineStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Subwin">enum Gtk2::Gdk::SubwindowMode</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Gdk::GC
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::Gdk::GC
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="gc_Gtk2_Gdk_GC_new_d">gc = Gtk2::Gdk::GC-&gt;<b>new</b> ($drawable, $values=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_drawable_Gtk2_Gdk_D"><p>$drawable (Gtk2::Gdk::Drawable)</p></a>
+<li class="POD_ITEM"><a name="_values_scalar_"><p>$values (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Create and return a new GC.
+</p>
+<p class="POD_TEXT">
+<code>$drawable</code> is used for the depth and the display
+(<code>Gtk2::Gdk::Display</code>) for the GC.  The GC can then be used with any
+drawable of the same depth on that display.
+</p>
+<p class="POD_TEXT">
+<code>$values</code> is a hashref containing some of the following keys,
+</p>
+<pre class="POD_VERBATIM">
+    foreground          Gtk2::Gdk::Color
+    background          Gtk2::Gdk::Color
+    font                Gtk2::Gdk::Font
+    function            Gtk2::Gdk::Function enum
+    fill                Gtk2::Gdk::Fill enum
+    tile                Gtk2::Gdk::Pixmap
+    stipple             Gtk2::Gdk::Pixmap
+    clip_mask           Gtk2::Gdk::Pixmap
+    subwindow_mode      Gtk2::Gdk::SubwindowMode enum
+    ts_x_origin         integer
+    ts_y_origin         integer
+    clip_x_origin       integer
+    clip_y_origin       integer
+    graphics_exposures  boolean integer 1 or 0
+    line_width          integer
+    line_style          Gtk2::Gdk::LineStyle enum
+    cap_style           Gtk2::Gdk::CapStyle enum
+    join_style          Gtk2::Gdk::JoinStyle enum
+</pre>
+<p class="POD_TEXT">
+Keys not given get default values.  For the <code>foreground</code> and
+<code>background</code> colour objects only the <code>pixel</code> field is used; the red,
+green and blue are ignored.  For example
+</p>
+<pre class="POD_VERBATIM">
+    my $pixel = 0x123456;
+    my $color = Gtk2::Gdk::Color-&gt;new (0,0,0, $pixel);
+    my $gc = Gtk2::Gdk::GC-&gt;new_with_values
+      ($win, { foreground =&gt; $color,
+               line_style =&gt; &#39;on_off_dash&#39; });
+</pre>
+<p></p>
+<h3 class="POD_HEAD2"><a name="gc_Gtk2_Gdk_GC_new_w">gc = Gtk2::Gdk::GC-&gt;<b>new_with_values</b> ($drawable, $values=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_drawable_Gtk2_Gdk_D1"><p>$drawable (Gtk2::Gdk::Drawable)</p></a>
+<li class="POD_ITEM"><a name="_values_scalar_1"><p>$values (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_background_c">$gc-&gt;<b>set_background</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_clip_mask_ma">$gc-&gt;<b>set_clip_mask</b> ($mask)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mask_scalar_"><p>$mask (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_clip_origin_">$gc-&gt;<b>set_clip_origin</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_"><p>$y (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_clip_rectang">$gc-&gt;<b>set_clip_rectangle</b> ($rectangle)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rectangle_Gtk2_Gdk_"><p>$rectangle (Gtk2::Gdk::Rectangle or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_clip_region_">$gc-&gt;<b>set_clip_region</b> ($region)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_region_Gtk2_Gdk_Reg"><p>$region (Gtk2::Gdk::Region or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="colormap_gc_get_colo">colormap = $gc-&gt;<b>get_colormap</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_gc_set_colormap_col">$gc-&gt;<b>set_colormap</b> ($colormap)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_colormap_Gtk2_Gdk_C"><p>$colormap (Gtk2::Gdk::Colormap)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_dst_gc_copy_src_gc_">$dst_gc-&gt;<b>copy</b> ($src_gc)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_src_gc_Gtk2_Gdk_GC_"><p>$src_gc (Gtk2::Gdk::GC)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_dashes_dash_">$gc-&gt;<b>set_dashes</b> ($dash_offset, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dash_offset_integer"><p>$dash_offset (integer)</p></a>
+<li class="POD_ITEM"><a name="_list_of_integers_th"><p>... (list) of integers, the length of the dash segments</p></a>
+</ul>
+<p class="POD_TEXT">
+Sets the way dashed-lines are drawn. Lines will be drawn with alternating on
+and off segments of the lengths specified in list of dashes. The manner in
+which the on and off segments are drawn is determined by the line_style value
+of the GC.
+</p>
+<h3 class="POD_HEAD2"><a name="_gc_set_exposures_ex">$gc-&gt;<b>set_exposures</b> ($exposures)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_exposures_boolean_"><p>$exposures (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_fill_fill_">$gc-&gt;<b>set_fill</b> ($fill)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_fill_Gtk2_Gdk_Fill_"><p>$fill (Gtk2::Gdk::Fill)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_font_font_">$gc-&gt;<b>set_font</b> ($font)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_font_Gtk2_Gdk_Font_"><p>$font (Gtk2::Gdk::Font)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_foreground_c">$gc-&gt;<b>set_foreground</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo1"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_function_fun">$gc-&gt;<b>set_function</b> ($function)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_function_Gtk2_Gdk_F"><p>$function (Gtk2::Gdk::Function)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_line_attribu">$gc-&gt;<b>set_line_attributes</b> ($line_width, $line_style, $cap_style, $join_style)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_line_width_integer_"><p>$line_width (integer)</p></a>
+<li class="POD_ITEM"><a name="_line_style_Gtk2_Gdk"><p>$line_style (Gtk2::Gdk::LineStyle)</p></a>
+<li class="POD_ITEM"><a name="_cap_style_Gtk2_Gdk_"><p>$cap_style (Gtk2::Gdk::CapStyle)</p></a>
+<li class="POD_ITEM"><a name="_join_style_Gtk2_Gdk"><p>$join_style (Gtk2::Gdk::JoinStyle)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_offset_x_offset_">$gc-&gt;<b>offset</b> ($x_offset, $y_offset)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_offset_integer_"><p>$x_offset (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_offset_integer_"><p>$y_offset (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_rgb_backgrou">$gc-&gt;<b>set_rgb_background</b> ($rgb)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rgb_unsigned_"><p>$rgb (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_rgb_bg_color">$gc-&gt;<b>set_rgb_bg_color</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo2"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_rgb_fg_color">$gc-&gt;<b>set_rgb_fg_color</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo3"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_rgb_foregrou">$gc-&gt;<b>set_rgb_foreground</b> ($rgb)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rgb_unsigned_1"><p>$rgb (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_rgb_gc_set_backg">$gc-&gt;<b>rgb_gc_set_background</b> ($rgb)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rgb_unsigned_2"><p>$rgb (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_rgb_gc_set_foreg">$gc-&gt;<b>rgb_gc_set_foreground</b> ($rgb)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rgb_unsigned_3"><p>$rgb (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="screen_gc_get_screen">screen = $gc-&gt;<b>get_screen</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_gc_set_stipple_stip">$gc-&gt;<b>set_stipple</b> ($stipple)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_stipple_Gtk2_Gdk_Pi"><p>$stipple (Gtk2::Gdk::Pixmap)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_subwindow_mo">$gc-&gt;<b>set_subwindow</b> ($mode)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mode_Gtk2_Gdk_Subwi"><p>$mode (Gtk2::Gdk::SubwindowMode)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_tile_tile_">$gc-&gt;<b>set_tile</b> ($tile)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tile_Gtk2_Gdk_Pixma"><p>$tile (Gtk2::Gdk::Pixmap)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gc_set_ts_origin_x_">$gc-&gt;<b>set_ts_origin</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_1"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_1"><p>$y (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_gc_get_values">scalar = $gc-&gt;<b>get_values</b></a></h3>
+<p class="POD_TEXT">
+Return the attributes of <code>$gc</code> in the form of a hashref with keys and
+values as described with <code>new</code> above.
+</p>
+<p class="POD_TEXT">
+In the <code>foreground</code> and <code>background</code> colour objects returned only
+the <code>pixel</code> fields are set; the red, green and blue fields are
+garbage.
+</p>
+<h3 class="POD_HEAD2"><a name="_gc_set_values_value">$gc-&gt;<b>set_values</b> ($values)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_values_scalar_2"><p>$values (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Set some of the attributes of <code>$gc</code>.  <code>$values</code> is a hashref of keys
+and values as described for <code>new</code> and <code>new_with_values</code> above.
+Fields not present in <code>$values</code> are left unchanged.
+</p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_CapSty">enum Gtk2::Gdk::CapStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_not_last_GDK_CAP_NO"><p>&#39;not-last&#39; / &#39;GDK_CAP_NOT_LAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_butt_GDK_CAP_BUTT_"><p>&#39;butt&#39; / &#39;GDK_CAP_BUTT&#39;</p></a>
+<li class="POD_ITEM"><a name="_round_GDK_CAP_ROUND"><p>&#39;round&#39; / &#39;GDK_CAP_ROUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_projecting_GDK_CAP_"><p>&#39;projecting&#39; / &#39;GDK_CAP_PROJECTING&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Fill">enum Gtk2::Gdk::Fill</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_solid_GDK_SOLID_"><p>&#39;solid&#39; / &#39;GDK_SOLID&#39;</p></a>
+<li class="POD_ITEM"><a name="_tiled_GDK_TILED_"><p>&#39;tiled&#39; / &#39;GDK_TILED&#39;</p></a>
+<li class="POD_ITEM"><a name="_stippled_GDK_STIPPL"><p>&#39;stippled&#39; / &#39;GDK_STIPPLED&#39;</p></a>
+<li class="POD_ITEM"><a name="_opaque_stippled_GDK"><p>&#39;opaque-stippled&#39; / &#39;GDK_OPAQUE_STIPPLED&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Functi">enum Gtk2::Gdk::Function</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_copy_GDK_COPY_"><p>&#39;copy&#39; / &#39;GDK_COPY&#39;</p></a>
+<li class="POD_ITEM"><a name="_invert_GDK_INVERT_"><p>&#39;invert&#39; / &#39;GDK_INVERT&#39;</p></a>
+<li class="POD_ITEM"><a name="_xor_GDK_XOR_"><p>&#39;xor&#39; / &#39;GDK_XOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_clear_GDK_CLEAR_"><p>&#39;clear&#39; / &#39;GDK_CLEAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_and_GDK_AND_"><p>&#39;and&#39; / &#39;GDK_AND&#39;</p></a>
+<li class="POD_ITEM"><a name="_and_reverse_GDK_AND"><p>&#39;and-reverse&#39; / &#39;GDK_AND_REVERSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_and_invert_GDK_AND_"><p>&#39;and-invert&#39; / &#39;GDK_AND_INVERT&#39;</p></a>
+<li class="POD_ITEM"><a name="_noop_GDK_NOOP_"><p>&#39;noop&#39; / &#39;GDK_NOOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_or_GDK_OR_"><p>&#39;or&#39; / &#39;GDK_OR&#39;</p></a>
+<li class="POD_ITEM"><a name="_equiv_GDK_EQUIV_"><p>&#39;equiv&#39; / &#39;GDK_EQUIV&#39;</p></a>
+<li class="POD_ITEM"><a name="_or_reverse_GDK_OR_R"><p>&#39;or-reverse&#39; / &#39;GDK_OR_REVERSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_copy_invert_GDK_COP"><p>&#39;copy-invert&#39; / &#39;GDK_COPY_INVERT&#39;</p></a>
+<li class="POD_ITEM"><a name="_or_invert_GDK_OR_IN"><p>&#39;or-invert&#39; / &#39;GDK_OR_INVERT&#39;</p></a>
+<li class="POD_ITEM"><a name="_nand_GDK_NAND_"><p>&#39;nand&#39; / &#39;GDK_NAND&#39;</p></a>
+<li class="POD_ITEM"><a name="_nor_GDK_NOR_"><p>&#39;nor&#39; / &#39;GDK_NOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_set_GDK_SET_"><p>&#39;set&#39; / &#39;GDK_SET&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_JoinSt">enum Gtk2::Gdk::JoinStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_miter_GDK_JOIN_MITE"><p>&#39;miter&#39; / &#39;GDK_JOIN_MITER&#39;</p></a>
+<li class="POD_ITEM"><a name="_round_GDK_JOIN_ROUN"><p>&#39;round&#39; / &#39;GDK_JOIN_ROUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_bevel_GDK_JOIN_BEVE"><p>&#39;bevel&#39; / &#39;GDK_JOIN_BEVEL&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_LineSt">enum Gtk2::Gdk::LineStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_solid_GDK_LINE_SOLI"><p>&#39;solid&#39; / &#39;GDK_LINE_SOLID&#39;</p></a>
+<li class="POD_ITEM"><a name="_on_off_dash_GDK_LIN"><p>&#39;on-off-dash&#39; / &#39;GDK_LINE_ON_OFF_DASH&#39;</p></a>
+<li class="POD_ITEM"><a name="_double_dash_GDK_LIN"><p>&#39;double-dash&#39; / &#39;GDK_LINE_DOUBLE_DASH&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Subwin">enum Gtk2::Gdk::SubwindowMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_clip_by_children_GD"><p>&#39;clip-by-children&#39; / &#39;GDK_CLIP_BY_CHILDREN&#39;</p></a>
+<li class="POD_ITEM"><a name="_include_inferiors_G"><p>&#39;include-inferiors&#39; / &#39;GDK_INCLUDE_INFERIORS&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../../Glib/Object.html">Glib::Object</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:01:48 2009
+</body>
+</html>
+

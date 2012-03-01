@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::TrayManager</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/TreeDragDest.html">Next:<br />Gtk2::TreeDragDest</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/TrayIcon.html">Previous:<br />Gtk2::TrayIcon</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::TrayManager</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#ABSTRACT">ABSTRACT</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#AUTHOR">AUTHOR</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::TrayManager - Perl bindings for EggTrayManager
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+	use Gtk2 -init;
+	use Gtk2::TrayManager;
+
+	my $screen = Gtk2::Gdk::Screen-&gt;get_default;
+
+	if (Gtk2::TrayManager-&gt;check_running($screen)) {
+		print STDERR &quot;A tray manager is already running, sorry!\n&quot;;
+		exit 256;
+	}
+
+	my $tray = Gtk2::TrayManager-&gt;new;
+	$tray-&gt;manage_screen($screen);
+	$tray-&gt;set_orientation(&#39;vertical&#39;);
+
+	$tray-&gt;signal_connect(&#39;tray_icon_added&#39;, sub {
+		# $_[1] is a Gtk2::Socket
+	});
+
+	$tray-&gt;signal_connect(&#39;tray_icon_removed&#39;, sub {
+		# $_[1] is a Gtk2::Socket
+	});
+</pre>
+<h2 class="POD_HEAD1"><a name="ABSTRACT">ABSTRACT</a></h2>
+<p class="POD_TEXT">
+The EggTrayManager library is used internally by GNOME to implement the
+server-side of the Notification Area (or system tray) protocol.
+Gtk2::TrayManager allows you to create notification area applications using
+Gtk2-Perl.
+</p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<pre class="POD_VERBATIM">
+	$running = Gtk2::TrayManager-&gt;check_running($screen);
+</pre>
+<p class="POD_TEXT">
+This method returns a boolean value indicating whether another program is
+already managing notifications for the given <a class="POD_LINK" href="../Gtk2/Gdk/Screen.html">Gtk2::Gdk::Screen</a>. If this
+method returns a false value, then you should give way to the application that
+is already running.
+</p>
+<pre class="POD_VERBATIM">
+	$tray = Gtk2::TrayManager-&gt;new;
+</pre>
+<p class="POD_TEXT">
+This creates a tray manager object.
+</p>
+<pre class="POD_VERBATIM">
+	$tray-&gt;manage_screen($screen);
+</pre>
+<p class="POD_TEXT">
+This tells the tray to manage notifications for the <a class="POD_LINK" href="../Gtk2/Gdk/Screen.html">Gtk2::Gdk::Screen</a>
+referenced by <code>$screen</code>.
+</p>
+<pre class="POD_VERBATIM">
+	$tray-&gt;set_orientation($orientation);
+</pre>
+<p class="POD_TEXT">
+This method tells the tray whether icons are to be arranged vertically or
+horizontally. <code>$orientation</code> may be either &#39;<code>vertical</code>&#39; or &#39;<code>horizontal</code>&#39;.
+</p>
+<pre class="POD_VERBATIM">
+	$title = $tray-&gt;get_child_title($child);
+</pre>
+<p class="POD_TEXT">
+This method returns a string containing the title of the icon defined by
+<code>$child</code>.
+</p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="tray_icon_added"><code>tray_icon_added</code></a>
+<dd>
+Emitted when a client plug (eg one created by <a class="POD_LINK" href="../Gtk2/TrayIcon.html">Gtk2::TrayIcon</a>) wants to
+connect. For callbacks connected to this signal, <code>@_</code> will have the form
+<pre class="POD_VERBATIM">
+	@_ = (
+		bless( {}, &#39;Gtk2::TrayManager&#39; ),
+		bless( {}, &#39;Gtk2::Socket&#39; )
+	);
+</pre>
+<dt class="POD_ITEM"><a name="tray_icon_added1"><code>tray_icon_added</code></a>
+<dd>
+Emitted when a client plug has disconnected. For callbacks connected to this
+signal, <code>@_</code> will have the form
+<pre class="POD_VERBATIM">
+	@_ = (
+		bless( {}, &#39;Gtk2::TrayManager&#39; ),
+		bless( {}, &#39;Gtk2::Socket&#39; )
+	);
+</pre>
+<dt class="POD_ITEM"><a name="message_sent_message"><code>message_sent</code>, <code>message_removed</code></a>
+<dd>
+The Freedesktop.org specification includes support for &quot;balloon messages&quot;, but
+these are not currently implemented in EggTrayManager.
+<dt class="POD_ITEM"><a name="lost_selection"><code>lost_selection</code></a>
+<dd>
+As a rule, compliant applications should check to for an already running
+manager, and give way to it if it finds one. However, it is possible that
+your application might have its X selection forcibly removed; this signal
+is emitted if this should happen.
+</dl>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Glib.html">Glib</a>, <u>Gtk</u>, <a class="POD_LINK" href="../Gtk2/TrayIcon.html">Gtk2::TrayIcon</a> and the System Tray spec at <a class="POD_LINK" href="http://www.freedesktop.org/Standards/systemtray-spec">http://www.freedesktop.org/Standards/systemtray-spec</a>.
+</p>
+<h2 class="POD_HEAD1"><a name="AUTHOR">AUTHOR</a></h2>
+<p class="POD_TEXT">
+Christian Borup &lt;borup at cpan dot org&gt;. Nagging and documentation by Gavin Brown &lt;gavin.brown@uk.com&gt;
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a></h2>
+<p class="POD_TEXT">
+Copyright 2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Library General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+</p>
+<p class="POD_TEXT">
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Library General Public License for more details.
+</p>
+<p class="POD_TEXT">
+You should have received a copy of the GNU Library General Public License along with this library; if not, write to the  Free Software Foundation, Inc., 59 Temple Place - Suite 330,  Boston, MA  02111-1307  USA.
+</p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:04:13 2009
+</body>
+</html>
+

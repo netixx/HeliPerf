@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::GConf</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/GConf/ChangeSet.html">Next:<br />Gnome2::GConf::ChangeSet</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/FontPicker.html">Previous:<br />Gnome2::FontPicker</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::GConf</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#ABSTRACT">ABSTRACT</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#DIFFERENT_DATA_TYPES">DIFFERENT DATA TYPES</a>
+<li><a class="POD_NAVLINK" href="#DIFFERENT_CALL_SIGNA">DIFFERENT CALL SIGNATURES</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#AUTHOR">AUTHOR</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::GConf - Perl wrappers for the GConf configuration engine.
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  use Gnome2::GConf;
+
+  my $client = Gnome2::GConf::Client-&gt;get_default;
+  my $app_key = &quot;/apps/myapp/mykey&quot;;
+
+  $client-&gt;add_dir($app_key, &#39;preload-none&#39;);
+
+  # add a notify for the key
+  my $notify_id = $client-&gt;notify_add($app_key, sub {
+      my ($client, $cnxn_id, $entry) = @_;
+      return unless $entry-&gt;{value};
+
+      if ($entry-&gt;{value}-&gt;{type} eq &#39;string&#39;) {
+        printf &quot;key &#39;%s&#39; changed to &#39;%s&#39;\n&quot;,
+	       $entry-&gt;{key},
+	       $entry-&gt;{value}-&gt;{value};
+      }
+    });
+
+  my $string = $client-&gt;get_string($app_key);
+  $string = &#39;some string&#39; unless $string;
+
+  $client-&gt;set($app_key, { type =&gt; &#39;string&#39;, data =&gt; $string });
+
+  # set a schema for the key
+  $client-&gt;set_schema ($app_key,
+      {
+        type =&gt; &#39;string&#39;,
+	locale =&gt; &#39;C&#39;,
+	short_desc =&gt; &#39;Some key.&#39;,
+	long_desc =&gt; &#39;This key does something.&#39;,
+	owner =&gt; &#39;some_program&#39;
+      });
+
+  # remove the notification callback
+  $client-&gt;notify_remove($notify_id);
+</pre>
+<h2 class="POD_HEAD1"><a name="ABSTRACT">ABSTRACT</a></h2>
+<p class="POD_TEXT">
+Perl bindings to the 2.2 series of the GConf configuration engine
+libraries, for use with gtk2-perl.
+</p>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+This module allows you to use the GConf configuration system in order
+to store/retrieve the configuration of an application.  The GConf
+system is a powerful configuration manager based on a user daemon that
+handles a set of key and value pairs, and notifies any changes of the
+value to every program that monitors those keys.  GConf is used
+by GNOME 2.x.
+</p>
+<p class="POD_TEXT">
+To discuss gtk2-perl, ask questions and flame/praise the authors,
+join gtk-perl-list@gnome.org at lists.gnome.org.
+</p>
+<p class="POD_TEXT">
+Find out more about Gnome at http://www.gnome.org.
+</p>
+<h2 class="POD_HEAD1"><a name="DIFFERENT_DATA_TYPES">DIFFERENT DATA TYPES</a></h2>
+<p class="POD_TEXT">
+Some opaque data types in GConf are not registered inside the Glib type
+system.  Thus, they have been implemented in a more perlish way, when
+possible, for the sake of coherency and following the principle of
+least surprise for the perl developer.  These changes try to preserve
+semantics, to add syntactic sugar and to remove the need for accessor
+methods.
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="GConfEntry">GConfEntry</a>
+<dd>
+See <a class="POD_LINK" href="../Gnome2/GConf/Entry.html">Gnome2::GConf::Entry</a>
+<dt class="POD_ITEM"><a name="GConfValue">GConfValue</a>
+<dd>
+See <a class="POD_LINK" href="../Gnome2/GConf/Value.html">Gnome2::GConf::Value</a>
+<dt class="POD_ITEM"><a name="GConfChangeSet">GConfChangeSet</a>
+<dd>
+See <a class="POD_LINK" href="../Gnome2/GConf/ChangeSet.html">Gnome2::GConf::ChangeSet</a>
+<dt class="POD_ITEM"><a name="GConfSchema">GConfSchema</a>
+<dd>
+See <a class="POD_LINK" href="../Gnome2/GConf/Schema.html">Gnome2::GConf::Schema</a>
+</dl>
+<h2 class="POD_HEAD1"><a name="DIFFERENT_CALL_SIGNA">DIFFERENT CALL SIGNATURES</a></h2>
+<p class="POD_TEXT">
+Reflecting the changes operated for the data types, some methods that use
+those type have had the call signature modified.
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="GConfNotifyFunc">GConfNotifyFunc</a>
+<dd>
+In C, the function passed to <code>Gnome2::GConf::notify_add</code> must have the
+following signature:
+<pre class="POD_VERBATIM">
+	void (GConfNotifyFunc *) (GConfClient * client,
+	                          guint cnxn_id,
+	                          GConfEntry * entry);
+</pre>
+<p class="POD_TEXT">
+Where <code>GConfEntry</code> is a container for the key/value pair.  Since in
+perl there&#39;s no <code>GConfEntry</code> (see above), the <code>entry</code> parameter is
+an hashref.
+</p>
+<dt class="POD_ITEM"><a name="GConfClient_get">GConfClient::get</a>
+<dt><a name="GConfClient_set">GConfClient::set</a>
+<dd>
+In C, these accessor methods return/use a <code>GConfValue</code>.  In perl, they
+return/use an hashref.  See <a class="POD_LINK" href="../Gnome2/GConf/Value.html">Gnome2::GConf::Value</a>
+<dt class="POD_ITEM"><a name="GConfClient_get_list">GConfClient::get_list</a>
+<dt><a name="GConfClient_set_list">GConfClient::set_list</a>
+<dd>
+These accessor methods use a string for setting the type of the lists
+(lists may have values of only <b>one</b> type), and an arrayref containing
+the values.
+<dt class="POD_ITEM"><a name="GConfClient_get_pair">GConfClient::get_pair</a>
+<dt><a name="GConfClient_set_pair">GConfClient::set_pair</a>
+<dd>
+These accessor methods use two hashref (representing <code>GConfValue</code>s)
+for the <code>car</code> and the <code>cdr</code> parameters.
+<dt class="POD_ITEM"><a name="GConfClient_get_sche">GConfClient::get_schema</a>
+<dt><a name="GConfClient_set_sche">GConfClient::set_schema</a>
+<dd>
+Similarly to the get/set pair above, these two methods return/use an
+hashref. See <a class="POD_LINK" href="../Gnome2/GConf/Schema.html">Gnome2::GConf::Schema</a>.
+<dt class="POD_ITEM"><a name="GConfClient_commit_c">GConfClient::commit_change_set</a>
+<dd>
+In C, this method return a boolean value (TRUE on success, FALSE on
+failure). On user request (using the boolean parameter
+<code>remove_committed</code>), it also returns the <code>GConfChangeSet</code>, pruned of
+the successfully committed keys.  In perl, this method returns a
+boolean value both in scalar context or if the user sets to FALSE the
+<code>remove_committed</code> parameter; in array context or if the user requests
+the uncommitted keys, returns both the return value and the pruned
+<code>GConfChangeSet</code>.
+</dl>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<u>perl</u>(1), <a class="POD_LINK" href="../Glib.html">Glib</a>(3pm).
+</p>
+<h2 class="POD_HEAD1"><a name="AUTHOR">AUTHOR</a></h2>
+<p class="POD_TEXT">
+Emmanuele Bassi &lt;ebassi@gmail.com&gt;
+</p>
+<p class="POD_TEXT">
+gtk2-perl created by the gtk2-perl team: http://gtk2-perl.sf.net
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a></h2>
+<p class="POD_TEXT">
+Copyright 2003-2006 by Emmanuele Bassi
+</p>
+<p class="POD_TEXT">
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+</p>
+<p class="POD_TEXT">
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+</p>
+<p class="POD_TEXT">
+You should have received a copy of the GNU Library General Public
+License along with this library; if not, write to the 
+Free Software Foundation, Inc., 59 Temple Place - Suite 330, 
+Boston, MA  02111-1307  USA.
+</p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:27 2009
+</body>
+</html>
+

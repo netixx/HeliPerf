@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::RecentFilter</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/RecentInfo.html">Next:<br />Gtk2::RecentInfo</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/RecentChooserWidget.html">Previous:<br />Gtk2::RecentChooserWidget</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::RecentFilter</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#recentfilter_Gtk2_Re">recentfilter = Gtk2::RecentFilter-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#_filter_add_age_days">$filter-&gt;<b>add_age</b> ($days)</a>
+<li><a class="POD_NAVLINK" href="#_filter_add_applicat">$filter-&gt;<b>add_application</b> ($application)</a>
+<li><a class="POD_NAVLINK" href="#_filter_add_custom_n">$filter-&gt;<b>add_custom</b> ($needed, $func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_filter_add_group_gr">$filter-&gt;<b>add_group</b> ($group)</a>
+<li><a class="POD_NAVLINK" href="#_filter_add_mime_typ">$filter-&gt;<b>add_mime_type</b> ($mime_type)</a>
+<li><a class="POD_NAVLINK" href="#_filter_add_pattern_">$filter-&gt;<b>add_pattern</b> ($pattern)</a>
+<li><a class="POD_NAVLINK" href="#_filter_add_pixbuf_f">$filter-&gt;<b>add_pixbuf_formats</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_filter_filte">boolean = $filter-&gt;<b>filter</b> ($filter_info)</a>
+<li><a class="POD_NAVLINK" href="#string_filter_get_na">string = $filter-&gt;<b>get_name</b></a>
+<li><a class="POD_NAVLINK" href="#_filter_set_name_nam">$filter-&gt;<b>set_name</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#recentfilterflags_fi">recentfilterflags = $filter-&gt;<b>get_needed</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_RecentFil">flags Gtk2::RecentFilterFlags</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::RecentFilter
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::RecentFilter
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="recentfilter_Gtk2_Re">recentfilter = Gtk2::RecentFilter-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_filter_add_age_days">$filter-&gt;<b>add_age</b> ($days)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_days_integer_"><p>$days (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_filter_add_applicat">$filter-&gt;<b>add_application</b> ($application)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_application_string_"><p>$application (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_filter_add_custom_n">$filter-&gt;<b>add_custom</b> ($needed, $func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_needed_Gtk2_RecentF"><p>$needed (Gtk2::RecentFilterFlags)</p></a>
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_filter_add_group_gr">$filter-&gt;<b>add_group</b> ($group)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_string_"><p>$group (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_filter_add_mime_typ">$filter-&gt;<b>add_mime_type</b> ($mime_type)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mime_type_string_"><p>$mime_type (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_filter_add_pattern_">$filter-&gt;<b>add_pattern</b> ($pattern)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pattern_string_"><p>$pattern (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_filter_add_pixbuf_f">$filter-&gt;<b>add_pixbuf_formats</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_filter_filte">boolean = $filter-&gt;<b>filter</b> ($filter_info)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filter_info_scalar_"><p>$filter_info (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_filter_get_na">string = $filter-&gt;<b>get_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_filter_set_name_nam">$filter-&gt;<b>set_name</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="recentfilterflags_fi">recentfilterflags = $filter-&gt;<b>get_needed</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_RecentFil">flags Gtk2::RecentFilterFlags</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_GTK_RECENT_FILT"><p>&#39;uri&#39; / &#39;GTK_RECENT_FILTER_URI&#39;</p></a>
+<li class="POD_ITEM"><a name="_display_name_GTK_RE"><p>&#39;display-name&#39; / &#39;GTK_RECENT_FILTER_DISPLAY_NAME&#39;</p></a>
+<li class="POD_ITEM"><a name="_mime_type_GTK_RECEN"><p>&#39;mime-type&#39; / &#39;GTK_RECENT_FILTER_MIME_TYPE&#39;</p></a>
+<li class="POD_ITEM"><a name="_application_GTK_REC"><p>&#39;application&#39; / &#39;GTK_RECENT_FILTER_APPLICATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_group_GTK_RECENT_FI"><p>&#39;group&#39; / &#39;GTK_RECENT_FILTER_GROUP&#39;</p></a>
+<li class="POD_ITEM"><a name="_age_GTK_RECENT_FILT"><p>&#39;age&#39; / &#39;GTK_RECENT_FILTER_AGE&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:28 2009
+</body>
+</html>
+

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>GStreamer::Object</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/Pad.html">Next:<br />GStreamer::Pad</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/MiniObject.html">Previous:<br />GStreamer::MiniObject</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">GStreamer::Object</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#boolean_object_has_a">boolean = $object-&gt;<b>has_ancestor</b> ($ancestor)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_obje">string or undef = $object-&gt;<b>get_name</b></a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_obje1">string or undef = $object-&gt;<b>get_name_prefix</b></a>
+<li><a class="POD_NAVLINK" href="#_object_set_name_pre">$object-&gt;<b>set_name_prefix</b> ($name_prefix)</a>
+<li><a class="POD_NAVLINK" href="#_object_set_name_nam">$object-&gt;<b>set_name</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#object_or_undef_obje">object or undef = $object-&gt;<b>get_parent</b></a>
+<li><a class="POD_NAVLINK" href="#_object_set_parent_p">$object-&gt;<b>set_parent</b> ($parent)</a>
+<li><a class="POD_NAVLINK" href="#string_object_get_pa">string = $object-&gt;<b>get_path_string</b></a>
+<li><a class="POD_NAVLINK" href="#_object_unparent">$object-&gt;<b>unparent</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+GStreamer::Object
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----GStreamer::Object
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="boolean_object_has_a">boolean = $object-&gt;<b>has_ancestor</b> ($ancestor)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ancestor_GStreamer_"><p>$ancestor (GStreamer::Object)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_or_undef_obje">string or undef = $object-&gt;<b>get_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_or_undef_obje1">string or undef = $object-&gt;<b>get_name_prefix</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_object_set_name_pre">$object-&gt;<b>set_name_prefix</b> ($name_prefix)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_prefix_string_"><p>$name_prefix (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_object_set_name_nam">$object-&gt;<b>set_name</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_or_unde"><p>$name (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="object_or_undef_obje">object or undef = $object-&gt;<b>get_parent</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_object_set_parent_p">$object-&gt;<b>set_parent</b> ($parent)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_parent_GStreamer_Ob"><p>$parent (GStreamer::Object)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_object_get_pa">string = $object-&gt;<b>get_path_string</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_object_unparent">$object-&gt;<b>unparent</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_name_string_readabl">&#39;name&#39; (string : readable / writable / construct)</a>
+<dd>
+The name of the object
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="parent_set_GStreamer"><b>parent-set</b> (GStreamer::Object, GStreamer::Object)</a>
+<dt><a name="parent_unset_GStream"><b>parent-unset</b> (GStreamer::Object, GStreamer::Object)</a>
+<dt><a name="object_saved_GStream"><b>object-saved</b> (GStreamer::Object, gpointer)</a>
+<dt><a name="deep_notify_GStreame"><b>deep-notify</b> (GStreamer::Object, GStreamer::Object, Glib::ParamSpec)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../GStreamer.html">GStreamer</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2005-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../GStreamer.html">GStreamer</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:08 2009
+</body>
+</html>
+

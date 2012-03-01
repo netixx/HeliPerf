@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Glib::devel</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/Error.html">Next:<br />Glib::Error</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/CodeGen.html">Previous:<br />Glib::CodeGen</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Glib::devel</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#Basic_Philosophy">Basic Philosophy</a>
+<li><a class="POD_NAVLINK" href="#The_Glib_Module">The Glib Module</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#Wrappers">Wrappers</a>
+<li><a class="POD_NAVLINK" href="#GType_to_Package_Map">GType to Package Mappings</a>
+<li><a class="POD_NAVLINK" href="#GEnums_and_GFlags">GEnums and GFlags</a>
+<li><a class="POD_NAVLINK" href="#GBoxed">GBoxed</a>
+<li><a class="POD_NAVLINK" href="#GObject">GObject</a>
+<li><a class="POD_NAVLINK" href="#GSignal">GSignal</a>
+<li><a class="POD_NAVLINK" href="#GPerlClosure">GPerlClosure</a>
+<li><a class="POD_NAVLINK" href="#GPerlCallback">GPerlCallback</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#AUTHOR">AUTHOR</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Glib::devel - Binding developer&#39;s overview of Glib&#39;s internals
+</p>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+Do you need to know how the gtk2-perl language bindings work, or need to write
+your own language bindings for a Glib/Gtk2-based library?  Then you&#39;ve come to
+the right place.  If you are just a perl developer wanting to write programs
+with Glib or Gtk2, then this is probably way over your head.
+</p>
+<p class="POD_TEXT">
+This document began its life as a post to gtk-perl-list about a redesign of the
+fundamentals of the bindings; today it is the reference documentation for the
+developers of the bindings.
+</p>
+<p class="POD_TEXT">
+To reduce confusion, refer to GLib, the C library, with a capital L, and Glib
+the perl module with a lower-case l.  While the Gtk2 module is the primary
+client of Glib, it is not necessarily the only one; in fact, the perl bindings
+for the GStreamer library build directly atop Glib.  Therefore, this document
+describes just the GLib/Glib basics.  For details on how Gtk2 extends
+upon the concepts presented here, see <a class="POD_LINK" href="../Gtk2/devel.html">Gtk2::devel</a>.
+</p>
+<p class="POD_TEXT">
+In various places, we use the name GPerl to refer to the actual binding
+subsystem.
+</p>
+<p class="POD_TEXT">
+In order to avoid getting very quickly out of date, this document doesn&#39;t go
+into great detail on APIs.  gperl.h is rather heavily commented, and should be
+considered the canonical source of correct API information.
+</p>
+<h2 class="POD_HEAD1"><a name="Basic_Philosophy">Basic Philosophy</a></h2>
+<p class="POD_TEXT">
+GLib is a portability library for C programs, providing a common set of APIs
+and services on various platforms.  Along with that you get libgobject, which
+provides an inheritance-based type system and other spiffy things.
+</p>
+<p class="POD_TEXT">
+Glib, as a perl module, must decide which portions of GLib&#39;s facilities to map
+to perl and which to abstract and encapsulate.
+</p>
+<p class="POD_TEXT">
+In the grand scheme, the bindings have been designed with a few basic tenets in
+mind:
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_">-</a>
+<dd>
+Stick close to the C API, to allow a perl developer to use knowledge from the C
+API and API reference docs with the perl bindings; this is overruled in some
+places by the remaining tenets.
+<dt class="POD_ITEM"><a name="_1">-</a>
+<dd>
+Be perlish.  This is the most important.  The user of the perl bindings should
+not have to worry about memory management, reference counting, freeing objects,
+and all that stuff, else he might as well go write in C instead.
+<dt class="POD_ITEM"><a name="_2">-</a>
+<dd>
+Leave out deprecated functionality.
+<dt class="POD_ITEM"><a name="_3">-</a>
+<dd>
+Don&#39;t add new functionality.  The exceptions to this rule are consolidation of
+methods where default parameters may be used, or where the direct analog from C
+is not practical.
+<dt class="POD_ITEM"><a name="_4">-</a>
+<dd>
+Be lightweight.  As little indirection and bloat as possible.  If possible,
+implement each toplevel module (e.g., Glib, Gtk2, Gnome2, GtkHTML, etc) as one
+.pm and one .so.
+<dt class="POD_ITEM"><a name="_5">-</a>
+<dd>
+Be extensible.  Export header files and typemaps so that other modules can
+easily chain off of our base.  Do not require the entirely of Gtk2 for someone
+who needs only to build atop GObject.
+</dl>
+<h2 class="POD_HEAD1"><a name="The_Glib_Module">The Glib Module</a></h2>
+<p class="POD_TEXT">
+In keeping with the tenet of not requiring the entire car for someone who only
+needs a single wheel, I broke the glib/gobject library family into its own
+module and namespace.  This has proved to be a godsend, as it has made things
+very easy to debug; there&#39;s a clean separation between the base of the type
+system and the stuff on top of it.
+</p>
+<p class="POD_TEXT">
+The Glib module takes care of all the basic types handled by the GObject
+library --- GEnum, GFlags, GBoxed, GObject, GValue, GClosure --- as well has
+signal marshalling and such in GSignal.  I&#39;ll discuss each of these separately.
+</p>
+<p class="POD_TEXT">
+In practice, you will rarely see direct calls to the functions that convert
+objects in and out of perl.  Most code should use the C preprocessor to provide
+easier-to-remember names that follow the perl API style, e.g.,
+newSVGObject(obj) rather than gperl_new_object(type,obj) and SvGObject(sv)
+instead of gperl_get_gobject(type, sv).  The convention used in all of
+gtk2-perl is described in <a class="POD_LINK" href="../Gtk2/devel.html">Gtk2::devel</a>.
+</p>
+<h3 class="POD_HEAD2"><a name="Wrappers">Wrappers</a></h3>
+<p class="POD_TEXT">
+FIXME maybe this section should be rolled into the GBoxed and GObject sections?
+</p>
+<p class="POD_TEXT">
+In order to use the C data structures from Perl, we need to wrap those objects
+up in Perl objects.  In general, a Perl object is simply a blessed reference.
+A typical scheme for representing C objects in perl is bless a reference to a
+scalar holding the C pointer value; perl will destroy the reference-counted
+scalar when there are no more references to it, and one would normally destroy
+the underlying data structure at this point.  However, GLib is a little more
+complex than your typical C library, so this easy, typical setup won&#39;t work for
+us.
+</p>
+<p class="POD_TEXT">
+GBoxed types are opaque wrappers for C structures, providing copy and free
+functions, to allow the types to be used generically.  For the most part we can
+get away with using the typical scheme described above to provide an opaque
+object, but in some instances an opaque object is very alien in perl.  The
+<a class="POD_LINK" href="../Glib/Boxed.html">Glib::Boxed</a> section explains how we get around this.
+</p>
+<p class="POD_TEXT">
+GObject, on the other hand, is a type-aware, reference-counted object with
+lifetime semantics that differ somewhat from perl SVs.  Thus we need something
+a bit more sophisticated than a plain old opaque wrapper; in fact, we use a
+blessed hash reference with the pointer to the C object tucked away in attached
+magic, and a pointer to the SV stored in the GObject&#39;s user data.  The combined
+perl/C object does some nifty reference-count borrowing to ensure that object
+lifetime is managed correctly.
+</p>
+<p class="POD_TEXT">
+If an object is created by a function that returns directly to perl, then the
+wrapper returned by that function should &quot;own&quot; the object.  If no other code
+assumes ownership of that object (by ref&#39;ing a GObject or copying a GBoxed),
+then the object should be destroyed when the perl scalar is destroyed
+(actually, as part of its destruction).
+</p>
+<p class="POD_TEXT">
+If a function returns a preexisting object owned by someone else, then the
+bindings should NOT destroy the object with the perl wrapper.  How we handle
+this for the various types is described below.
+</p>
+<h3 class="POD_HEAD2"><a name="GType_to_Package_Map">GType to Package Mappings</a></h3>
+<p class="POD_TEXT">
+GType is the GObject library&#39;s unique type identifier; this is a runtime
+variable, because GLib types may be loaded dynamically.  The direct analog in
+perl is the package name, which uniquely specifies an object&#39;s class.  Since
+these do about the same thing, we completely replace the GType with the perl
+package.
+</p>
+<p class="POD_TEXT">
+For various reasons, mostly to do with robustness and performance, there is a
+one-to-one mapping between GType classes and perl package names.  These must be
+registered, usually as part of the module initialization process.
+</p>
+<p class="POD_TEXT">
+In addition, the type system tries as hard as it can to recover when things
+don&#39;t go well, using the GType system to its advantage.  If you return a C
+object of a type that is not registered with Gperl, such as MyCustomTypeFoo,
+gperl_new_object (see below) will warn you that it has blessed the unknown
+MyCustomTypeFoo into the first known package in its ancestry, Gtk2::VBox.
+</p>
+<p class="POD_TEXT">
+GBoxed and GObject have distinct mapping registries to avoid cross-pollination
+and mistakes in the type system.  See below.
+</p>
+<p class="POD_TEXT">
+To assist in handling inheritance that isn&#39;t specified directly by the GType
+system, the function gperl_set_isa allows you to add elements to the @ISA for a
+package.  gperl_register_object does this for you, but you may need to add
+additional parents, e.g., for implementing GInterfaces.  (see
+Gtk2/xs/GtkEntry.xs for an example)
+</p>
+<p class="POD_TEXT">
+You may be thinking that we could use substitution rules to map the GObject
+classes to perl packages. In practice, this is a bad idea, fraught with
+problems; the substitution rules are not easily extendable and are easily
+broken by extension packages which don&#39;t follow the naming conventions.
+</p>
+<h3 class="POD_HEAD2"><a name="GEnums_and_GFlags">GEnums and GFlags</a></h3>
+<p class="POD_TEXT">
+GLib provides a mechanism for creating runtime type information about
+enumeration and flag types.  Enumerations are lists of specific values, one of
+which may be used at at time, whereas multiple flag values may be supplied at a
+time.  In C flags are meant to be used with bitfields.  A GType is associated
+with the various valid values for a given GEnum or GFlags type as strings, in
+both full-name and nickname forms.
+</p>
+<p class="POD_TEXT">
+GPerl uses this mechanism to avoid the need to know integer values for enum and
+flag types at the perl level.  An enum value is just a string; a bitfield of
+flag values is represented as a reference to an array of strings.  These
+strings are the GLib-provided nicknames.  For the convenience of a perl
+developer, the bindings treat &#39;-&#39; and &#39;_&#39; as equivalent when looking up the
+corresponding integer values during conversion.
+</p>
+<p class="POD_TEXT">
+A GEnum or GFlags type mapping should be registered with
+</p>
+<pre class="POD_VERBATIM">
+ void gperl_register_fundamental (GType gtype, const char * package);
+</pre>
+<p class="POD_TEXT">
+so that their package names can be used where a GType is required (for example,
+as GObject property types or GtkTreeModel column types).
+</p>
+<p class="POD_TEXT">
+The basic functions for converting between C and perl values are
+</p>
+<pre class="POD_VERBATIM">
+ /* croak if val is not part of type, otherwise return
+  * corresponding value.  this is the general case. */
+ gint gperl_convert_enum (GType type, SV * val);
+
+ /* return a scalar which is the nickname of the enum value
+  * val, or croak if val is not a member of the enum. */
+ SV * gperl_convert_back_enum (GType type, gint val);
+
+ /* collapse a list of strings to an integer with all the
+  * correct bits set, croak if anything is invalid. */
+ gint gperl_convert_flags (GType type, SV * val);
+
+ /* convert a bitfield to a list of strings, or croak. */
+ SV * gperl_convert_back_flags (GType type, gint val);
+</pre>
+<p class="POD_TEXT">
+Other utility functions allow for finer-grained control, such as the ability to
+pass unknown values, which can be necessary in special cases.  In general, each
+of these functions raises an exception when something goes wrong.  To be
+helpful, they croak with a message listing the valid values when they encounter
+invalid input.
+</p>
+<h3 class="POD_HEAD2"><a name="GBoxed">GBoxed</a></h3>
+<p class="POD_TEXT">
+GBoxed provides a way to register functions that create, copy, and destroy
+opaque structures.  For our purposes, we&#39;ll allow any perl package to inherit
+from Glib::Boxed and implement accessors for the struct members, but
+Glib::Boxed will handle the object and wrapper lifetime issues.
+</p>
+<p class="POD_TEXT">
+There are two functions for creating boxed wrappers:
+</p>
+<pre class="POD_VERBATIM">
+ SV * gperl_new_boxed (gpointer boxed, GType gtype, gboolean own);
+ SV * gperl_new_boxed_copy (gpointer boxed, GType gtype);
+</pre>
+<p class="POD_TEXT">
+If own is TRUE, the wrapper returned by gperl_new_boxed will take boxed with it
+when it dies.  In the case of a copy, own is implied, so there&#39;s a separate
+function which doesn&#39;t need the own option.
+</p>
+<p class="POD_TEXT">
+To get a boxed pointer out of a scalar wrapper, you just call
+gperl_get_boxed_check --- this will croak if the sv is undef or not blessed
+into the specified package.
+</p>
+<p class="POD_TEXT">
+When you register a boxed type you get the option of supplying a table of
+function pointers describing how the boxed object should be wrapped, unwrapped,
+and destroyed.  This allows you to decide in the wrapping function what
+subclass of the boxed type&#39;s class the wrapper should actually take (a trick
+used by Gtk2::Gdk::Event), or represent a boxed type as a native perl type
+(such as using array references for Gnome2::Canvas::Point objects).  All of
+this happens automagically, behind the scenes, and most types assume the
+default wrapper class.
+</p>
+<p class="POD_TEXT">
+See the commentary in gperl.h for more information.
+</p>
+<h3 class="POD_HEAD2"><a name="GObject">GObject</a></h3>
+<p class="POD_TEXT">
+The GObject knows its own type.  Thus, we need only one parameter to create a
+GObject wrapper.  In reality, we ask for two:
+</p>
+<pre class="POD_VERBATIM">
+ SV * gperl_new_object (GObject * object, gboolean own);
+</pre>
+<p class="POD_TEXT">
+The wrapper SV will be blessed into the package corresponding to the gtype
+returned by G_OBJECT_TYPE (object), that is, the bottommost type in the
+inheritance chain.  If that bottommost type is not known, the function walks
+back up the tree until it finds one that&#39;s known, blesses the reference into
+that package, and spits out a warning on stderr.  To hush the warning, you need
+merely call
+</p>
+<p class="POD_TEXT">
+In general, this process will claim a reference on the GObject (with
+g_object_ref()), so that the C object stays alive so long as there is a perl
+wrapper for it.  If &lt;i&gt;own&lt;/i&gt; is set to TRUE, the perl wrapper will claim
+ownership of the C object by removing that reference; in theory, for a new
+GObject, fresh from a constructor, this leaves the object with a single
+reference owned by the perl object.  The next question out of your mouth should
+be, &quot;But what about GObject derivatives that require sinking or other strange
+methods to claim ownership?&quot;  For the answer, see the GtkObject section&#39;s
+description of sink functions.
+</p>
+<pre class="POD_VERBATIM">
+ void gperl_register_object (GType gtype, const char * package);
+</pre>
+<p class="POD_TEXT">
+This magical function also sets up the @ISA for the package to point to the
+package corresponding to g_type_parent (gtype).  [Since this requires the
+parent package to be registered, there is a simple deferral mechanism, which
+means your @ISA might not be set until the next call to gperl_register_object.]
+</p>
+<p></p>
+<p class="POD_TEXT">
+There are two ways to get an object out of an SV (though I think only one is
+really needed):
+</p>
+<pre class="POD_VERBATIM">
+ GObject * gperl_get_object (SV * sv);
+ GObject * gperl_get_object_check (SV * sv, GType gtype);
+</pre>
+<p class="POD_TEXT">
+The second one is like the first, but croaks if the object is not derived from
+gtype.
+</p>
+<p class="POD_TEXT">
+You can get and set object data and object parameters just like you&#39;d expect.
+</p>
+<h3 class="POD_HEAD2"><a name="GSignal">GSignal</a></h3>
+<p class="POD_TEXT">
+All of this GObject stuff wouldn&#39;t be very useful if you couldn&#39;t connect
+signals and closures.  I got most of my handling code from gtk2-perl and pygtk,
+and it&#39;s pretty straightforward.  The data member is optional, and must be a
+scalar.
+</p>
+<p class="POD_TEXT">
+To connect perl subroutines to GSignals I use GClosures, which require the
+handling of GValues.
+</p>
+<h3 class="POD_HEAD2"><a name="GPerlClosure">GPerlClosure</a></h3>
+<p class="POD_TEXT">
+Use a GPerlClosure wherever you could use a GClosure and things should work out
+great.  <i>FIXME say more here</i>
+</p>
+<h3 class="POD_HEAD2"><a name="GPerlCallback">GPerlCallback</a></h3>
+<p class="POD_TEXT">
+Function pointers are required in many places throughout gtk+, usually for a
+callback to be used as a &quot;foreach&quot; function or for some other purpose.
+Unfortunately, a majority of these spots aren&#39;t designed to work with GClosures
+(usually by lacking a way to destroy data associated with the callback when it
+is no longer needed).  For this purpose, the GPerlCallback wraps up the
+gruntwork of using perl&#39;s call_sv to use a callback function directly.
+</p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+perl(1), perlxs(1), perlguts(1), perlapi(1), perlxstut(1),
+<a class="POD_LINK" href="../ExtUtils/Depends.html">ExtUtils::Depends</a>(3pm), <a class="POD_LINK" href="../ExtUtils/PkgConfig.html">ExtUtils::PkgConfig</a>(3pm)
+<a class="POD_LINK" href="../Glib.html">Glib</a>(3pm), <a class="POD_LINK" href="../Glib/Object/Subclass.html">Glib::Object::Subclass</a>(3pm), <a class="POD_LINK" href="../Glib/xsapi.html">Glib::xsapi</a>(3pm)
+</p>
+<h2 class="POD_HEAD1"><a name="AUTHOR">AUTHOR</a></h2>
+<p class="POD_TEXT">
+muppet &lt;scott at asofyet.org&gt;
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003 by the gtk2-perl team (see the file AUTHORS for the
+full list)
+</p>
+<p class="POD_TEXT">
+This library is free software; you can redistribute it and/or modify it under
+the terms of the GNU Library General Public License as published by the Free
+Software Foundation; either version 2.1 of the License, or (at your option) any
+later version.
+</p>
+<p class="POD_TEXT">
+This library is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU Library General Public License for more
+details.
+</p>
+<p class="POD_TEXT">
+You should have received a copy of the GNU Library General Public License along
+with this library; if not, write to the Free Software Foundation, Inc., 59
+Temple Place - Suite 330, Boston, MA  02111-1307  USA.
+</p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:57:30 2009
+</body>
+</html>
+

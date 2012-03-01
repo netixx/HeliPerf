@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::PaperSize</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Plug.html">Next:<br />Gtk2::Plug</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Pango/version.html">Previous:<br />Gtk2::Pango::version</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::PaperSize</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#papersize_Gtk2_Paper">papersize = Gtk2::PaperSize-&gt;<b>new</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#papersize_Gtk2_Paper1">papersize = Gtk2::PaperSize-&gt;<b>new_custom</b> ($name, $display_name, $width, $height, $unit)</a>
+<li><a class="POD_NAVLINK" href="#papersize_Gtk2_Paper2">papersize = Gtk2::PaperSize-&gt;<b>new_from_key_file</b> ($key_file, $group_name)</a>
+<li><a class="POD_NAVLINK" href="#papersize_Gtk2_Paper3">papersize = Gtk2::PaperSize-&gt;<b>new_from_ppd</b> ($ppd_name, $ppd_display_name, $width, $height)</a>
+<li><a class="POD_NAVLINK" href="#double_size_get_defa">double = $size-&gt;<b>get_default_bottom_margin</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#string_Gtk2_PaperSiz">string = Gtk2::PaperSize-&gt;<b>get_default</b></a>
+<li><a class="POD_NAVLINK" href="#double_size_get_defa1">double = $size-&gt;<b>get_default_left_margin</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#double_size_get_defa2">double = $size-&gt;<b>get_default_right_margin</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#double_size_get_defa3">double = $size-&gt;<b>get_default_top_margin</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#string_size_get_disp">string = $size-&gt;<b>get_display_name</b></a>
+<li><a class="POD_NAVLINK" href="#double_size_get_heig">double = $size-&gt;<b>get_height</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#boolean_size_is_cust">boolean = $size-&gt;<b>is_custom</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_size1_is_equ">boolean = $size1-&gt;<b>is_equal</b> ($size2)</a>
+<li><a class="POD_NAVLINK" href="#string_size_get_name">string = $size-&gt;<b>get_name</b></a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_PaperSize_">list = Gtk2::PaperSize::get_paper_sizes ($include_custom)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_size">string or undef = $size-&gt;<b>get_ppd_name</b></a>
+<li><a class="POD_NAVLINK" href="#_size_set_size_width">$size-&gt;<b>set_size</b> ($width, $height, $unit)</a>
+<li><a class="POD_NAVLINK" href="#_size_to_key_file_ke">$size-&gt;<b>to_key_file</b> ($key_file, $group_name)</a>
+<li><a class="POD_NAVLINK" href="#double_size_get_widt">double = $size-&gt;<b>get_width</b> ($unit)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Unit">enum Gtk2::Unit</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::PaperSize
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Boxed
+  +----Gtk2::PaperSize
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="papersize_Gtk2_Paper">papersize = Gtk2::PaperSize-&gt;<b>new</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_or_unde"><p>$name (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="papersize_Gtk2_Paper1">papersize = Gtk2::PaperSize-&gt;<b>new_custom</b> ($name, $display_name, $width, $height, $unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+<li class="POD_ITEM"><a name="_display_name_string"><p>$display_name (string)</p></a>
+<li class="POD_ITEM"><a name="_width_double_"><p>$width (double)</p></a>
+<li class="POD_ITEM"><a name="_height_double_"><p>$height (double)</p></a>
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="papersize_Gtk2_Paper2">papersize = Gtk2::PaperSize-&gt;<b>new_from_key_file</b> ($key_file, $group_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_file_Glib_KeyFi"><p>$key_file (Glib::KeyFile)</p></a>
+<li class="POD_ITEM"><a name="_group_name_string_"><p>$group_name (string)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="papersize_Gtk2_Paper3">papersize = Gtk2::PaperSize-&gt;<b>new_from_ppd</b> ($ppd_name, $ppd_display_name, $width, $height)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ppd_name_string_"><p>$ppd_name (string)</p></a>
+<li class="POD_ITEM"><a name="_ppd_display_name_st"><p>$ppd_display_name (string)</p></a>
+<li class="POD_ITEM"><a name="_width_double_1"><p>$width (double)</p></a>
+<li class="POD_ITEM"><a name="_height_double_1"><p>$height (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_size_get_defa">double = $size-&gt;<b>get_default_bottom_margin</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_1"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gtk2_PaperSiz">string = Gtk2::PaperSize-&gt;<b>get_default</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_size_get_defa1">double = $size-&gt;<b>get_default_left_margin</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_2"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_size_get_defa2">double = $size-&gt;<b>get_default_right_margin</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_3"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_size_get_defa3">double = $size-&gt;<b>get_default_top_margin</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_4"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_size_get_disp">string = $size-&gt;<b>get_display_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_size_get_heig">double = $size-&gt;<b>get_height</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_5"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_size_is_cust">boolean = $size-&gt;<b>is_custom</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_size1_is_equ">boolean = $size1-&gt;<b>is_equal</b> ($size2)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_size2_Gtk2_PaperSiz"><p>$size2 (Gtk2::PaperSize)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_size_get_name">string = $size-&gt;<b>get_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_PaperSize_">list = Gtk2::PaperSize::get_paper_sizes ($include_custom)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_include_custom_bool"><p>$include_custom (boolean)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="string_or_undef_size">string or undef = $size-&gt;<b>get_ppd_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_size_set_size_width">$size-&gt;<b>set_size</b> ($width, $height, $unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_width_double_2"><p>$width (double)</p></a>
+<li class="POD_ITEM"><a name="_height_double_2"><p>$height (double)</p></a>
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_6"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_size_to_key_file_ke">$size-&gt;<b>to_key_file</b> ($key_file, $group_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_file_Glib_KeyFi1"><p>$key_file (Glib::KeyFile)</p></a>
+<li class="POD_ITEM"><a name="_group_name_string_1"><p>$group_name (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="double_size_get_widt">double = $size-&gt;<b>get_width</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_7"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Unit">enum Gtk2::Unit</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixel_GTK_UNIT_PIXE"><p>&#39;pixel&#39; / &#39;GTK_UNIT_PIXEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_points_GTK_UNIT_POI"><p>&#39;points&#39; / &#39;GTK_UNIT_POINTS&#39;</p></a>
+<li class="POD_ITEM"><a name="_inch_GTK_UNIT_INCH_"><p>&#39;inch&#39; / &#39;GTK_UNIT_INCH&#39;</p></a>
+<li class="POD_ITEM"><a name="_mm_GTK_UNIT_MM_"><p>&#39;mm&#39; / &#39;GTK_UNIT_MM&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Boxed.html">Glib::Boxed</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:13 2009
+</body>
+</html>
+

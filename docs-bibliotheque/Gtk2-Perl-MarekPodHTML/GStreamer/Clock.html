@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>GStreamer::Clock</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/ClockID.html">Next:<br />GStreamer::ClockID</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/ChildProxy.html">Previous:<br />GStreamer::ChildProxy</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">GStreamer::Clock</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#clockid_clock_new_pe">clockid = $clock-&gt;<b>new_periodic_id</b> ($start_time, $interval)</a>
+<li><a class="POD_NAVLINK" href="#clockid_clock_new_si">clockid = $clock-&gt;<b>new_single_shot_id</b> ($time)</a>
+<li><a class="POD_NAVLINK" href="#list_clock_add_obser">list = $clock-&gt;<b>add_observation</b> ($slave, $master)</a>
+<li><a class="POD_NAVLINK" href="#unsigned_integer_clo">unsigned integer = $clock-&gt;<b>adjust_unlocked</b> ($internal)</a>
+<li><a class="POD_NAVLINK" href="#_internal_external_r">(internal, external, rate_num, rate_denom) = $clock-&gt;<b>get_calibration</b></a>
+<li><a class="POD_NAVLINK" href="#_clock_set_calibrati">$clock-&gt;<b>set_calibration</b> ($internal, $external, $rate_num, $rate_denom)</a>
+<li><a class="POD_NAVLINK" href="#unsigned_integer_clo1">unsigned integer = $clock-&gt;<b>get_internal_time</b></a>
+<li><a class="POD_NAVLINK" href="#clock_or_undef_clock">clock or undef = $clock-&gt;<b>get_master</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_clock_set_ma">boolean = $clock-&gt;<b>set_master</b> ($master)</a>
+<li><a class="POD_NAVLINK" href="#uint64_clock_get_res">uint64 = $clock-&gt;<b>get_resolution</b></a>
+<li><a class="POD_NAVLINK" href="#uint64_clock_set_res">uint64 = $clock-&gt;<b>set_resolution</b> ($resolution)</a>
+<li><a class="POD_NAVLINK" href="#unsigned_integer_clo2">unsigned integer = $clock-&gt;<b>get_time</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+GStreamer::Clock
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----GStreamer::Object
+       +----GStreamer::Clock
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="clockid_clock_new_pe">clockid = $clock-&gt;<b>new_periodic_id</b> ($start_time, $interval)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_start_time_unsigned"><p>$start_time (unsigned integer)</p></a>
+<li class="POD_ITEM"><a name="_interval_unsigned_i"><p>$interval (unsigned integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="clockid_clock_new_si">clockid = $clock-&gt;<b>new_single_shot_id</b> ($time)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_time_unsigned_integ"><p>$time (unsigned integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_clock_add_obser">list = $clock-&gt;<b>add_observation</b> ($slave, $master)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_slave_unsigned_inte"><p>$slave (unsigned integer)</p></a>
+<li class="POD_ITEM"><a name="_master_unsigned_int"><p>$master (unsigned integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="unsigned_integer_clo">unsigned integer = $clock-&gt;<b>adjust_unlocked</b> ($internal)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_internal_unsigned_i"><p>$internal (unsigned integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_internal_external_r">(internal, external, rate_num, rate_denom) = $clock-&gt;<b>get_calibration</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_clock_set_calibrati">$clock-&gt;<b>set_calibration</b> ($internal, $external, $rate_num, $rate_denom)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_internal_unsigned_i1"><p>$internal (unsigned integer)</p></a>
+<li class="POD_ITEM"><a name="_external_unsigned_i"><p>$external (unsigned integer)</p></a>
+<li class="POD_ITEM"><a name="_rate_num_unsigned_i"><p>$rate_num (unsigned integer)</p></a>
+<li class="POD_ITEM"><a name="_rate_denom_unsigned"><p>$rate_denom (unsigned integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="unsigned_integer_clo1">unsigned integer = $clock-&gt;<b>get_internal_time</b></a></h3>
+<h3 class="POD_HEAD2"><a name="clock_or_undef_clock">clock or undef = $clock-&gt;<b>get_master</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_clock_set_ma">boolean = $clock-&gt;<b>set_master</b> ($master)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_master_GStreamer_Cl"><p>$master (GStreamer::Clock)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="uint64_clock_get_res">uint64 = $clock-&gt;<b>get_resolution</b></a></h3>
+<h3 class="POD_HEAD2"><a name="uint64_clock_set_res">uint64 = $clock-&gt;<b>set_resolution</b> ($resolution)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_resolution_Glib_UIn"><p>$resolution (Glib::UInt64)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="unsigned_integer_clo2">unsigned integer = $clock-&gt;<b>get_time</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_stats_boolean_reada">&#39;stats&#39; (boolean : readable / writable)</a>
+<dd>
+Enable clock stats (unimplemented)
+<dt class="POD_ITEM"><a name="_timeout_Glib_UInt64">&#39;timeout&#39; (Glib::UInt64 : readable / writable)</a>
+<dd>
+The amount of time, in nanoseconds, to sample master and slave clocks
+<dt class="POD_ITEM"><a name="_window_size_integer">&#39;window-size&#39; (integer : readable / writable)</a>
+<dd>
+The size of the window used to calculate rate and offset
+<dt class="POD_ITEM"><a name="_window_threshold_in">&#39;window-threshold&#39; (integer : readable / writable)</a>
+<dd>
+The threshold to start calculating rate and offset
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../GStreamer.html">GStreamer</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <a class="POD_LINK" href="../GStreamer/Object.html">GStreamer::Object</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2005-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../GStreamer.html">GStreamer</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:50 2009
+</body>
+</html>
+

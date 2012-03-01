@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Canvas::PathDef</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Canvas/Pixbuf.html">Next:<br />Gnome2::Canvas::Pixbuf</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Canvas/Line.html">Previous:<br />Gnome2::Canvas::Line</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Canvas::PathDef</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#pathdef_Gnome2_Canva">pathdef = Gnome2::Canvas::PathDef-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#pathdef_Gnome2_Canva1">pathdef = Gnome2::Canvas::PathDef-&gt;<b>new_sized</b> ($length)</a>
+<li><a class="POD_NAVLINK" href="#boolean_path_all_clo">boolean = $path-&gt;<b>all_closed</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_path_all_ope">boolean = $path-&gt;<b>all_open</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_path_any_clo">boolean = $path-&gt;<b>any_closed</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_path_any_ope">boolean = $path-&gt;<b>any_open</b></a>
+<li><a class="POD_NAVLINK" href="#pathdef_path_close_a">pathdef = $path-&gt;<b>close_all</b></a>
+<li><a class="POD_NAVLINK" href="#pathdef_path_closed_">pathdef = $path-&gt;<b>closed_parts</b></a>
+<li><a class="POD_NAVLINK" href="#_path_closepath">$path-&gt;<b>closepath</b></a>
+<li><a class="POD_NAVLINK" href="#_path_closepath_curr">$path-&gt;<b>closepath_current</b></a>
+<li><a class="POD_NAVLINK" href="#pathdef_Gnome2_Canva2">pathdef = Gnome2::Canvas::PathDef-&gt;<b>concat</b> (...)</a>
+<li><a class="POD_NAVLINK" href="#_dst_copy_src_">$dst-&gt;<b>copy</b> ($src)</a>
+<li><a class="POD_NAVLINK" href="#_path_curveto_x0_y0_">$path-&gt;<b>curveto</b> ($x0, $y0, $x1, $y1, $x2, $y2)</a>
+<li><a class="POD_NAVLINK" href="#pathdef_path_duplica">pathdef = $path-&gt;<b>duplicate</b></a>
+<li><a class="POD_NAVLINK" href="#_path_ensure_space_s">$path-&gt;<b>ensure_space</b> ($space)</a>
+<li><a class="POD_NAVLINK" href="#_path_finish">$path-&gt;<b>finish</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_path_has_cur">boolean = $path-&gt;<b>has_currentpoint</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_path_is_empt">boolean = $path-&gt;<b>is_empty</b></a>
+<li><a class="POD_NAVLINK" href="#integer_path_length">integer = $path-&gt;<b>length</b></a>
+<li><a class="POD_NAVLINK" href="#_path_lineto_x_y_">$path-&gt;<b>lineto</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_path_lineto_moving_">$path-&gt;<b>lineto_moving</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_path_moveto_x_y_">$path-&gt;<b>moveto</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#pathdef_path_open_pa">pathdef = $path-&gt;<b>open_parts</b></a>
+<li><a class="POD_NAVLINK" href="#_path_reset">$path-&gt;<b>reset</b></a>
+<li><a class="POD_NAVLINK" href="#_pathdefs_path_split">@pathdefs = $path-&gt;<b>split</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Canvas::PathDef
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Boxed
+  +----Gnome2::Canvas::PathDef
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="pathdef_Gnome2_Canva">pathdef = Gnome2::Canvas::PathDef-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="pathdef_Gnome2_Canva1">pathdef = Gnome2::Canvas::PathDef-&gt;<b>new_sized</b> ($length)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_length_integer_"><p>$length (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_path_all_clo">boolean = $path-&gt;<b>all_closed</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_path_all_ope">boolean = $path-&gt;<b>all_open</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_path_any_clo">boolean = $path-&gt;<b>any_closed</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_path_any_ope">boolean = $path-&gt;<b>any_open</b></a></h3>
+<h3 class="POD_HEAD2"><a name="pathdef_path_close_a">pathdef = $path-&gt;<b>close_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="pathdef_path_closed_">pathdef = $path-&gt;<b>closed_parts</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_path_closepath">$path-&gt;<b>closepath</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_path_closepath_curr">$path-&gt;<b>closepath_current</b></a></h3>
+<h3 class="POD_HEAD2"><a name="pathdef_Gnome2_Canva2">pathdef = Gnome2::Canvas::PathDef-&gt;<b>concat</b> (...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_Gnome2_Canvas_"><p>... (list) Gnome2::Canvas::PathDef objects to concatenate</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_dst_copy_src_">$dst-&gt;<b>copy</b> ($src)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_src_Gnome2_Canvas_P"><p>$src (Gnome2::Canvas::PathDef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Copy the path from <i>$src</i> into <i>$dst</i>.
+</p>
+<p class="POD_TEXT">
+Note: this method has very different semantics than the copy provided
+by Glib::Boxed.   <code>duplicate</code> is the analog there.
+</p>
+<h3 class="POD_HEAD2"><a name="_path_curveto_x0_y0_">$path-&gt;<b>curveto</b> ($x0, $y0, $x1, $y1, $x2, $y2)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x0_double_"><p>$x0 (double)</p></a>
+<li class="POD_ITEM"><a name="_y0_double_"><p>$y0 (double)</p></a>
+<li class="POD_ITEM"><a name="_x1_double_"><p>$x1 (double)</p></a>
+<li class="POD_ITEM"><a name="_y1_double_"><p>$y1 (double)</p></a>
+<li class="POD_ITEM"><a name="_x2_double_"><p>$x2 (double)</p></a>
+<li class="POD_ITEM"><a name="_y2_double_"><p>$y2 (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="pathdef_path_duplica">pathdef = $path-&gt;<b>duplicate</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_path_ensure_space_s">$path-&gt;<b>ensure_space</b> ($space)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_space_integer_"><p>$space (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_path_finish">$path-&gt;<b>finish</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_path_has_cur">boolean = $path-&gt;<b>has_currentpoint</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_path_is_empt">boolean = $path-&gt;<b>is_empty</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_path_length">integer = $path-&gt;<b>length</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_path_lineto_x_y_">$path-&gt;<b>lineto</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_double_"><p>$x (double)</p></a>
+<li class="POD_ITEM"><a name="_y_double_"><p>$y (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_path_lineto_moving_">$path-&gt;<b>lineto_moving</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_double_1"><p>$x (double)</p></a>
+<li class="POD_ITEM"><a name="_y_double_1"><p>$y (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_path_moveto_x_y_">$path-&gt;<b>moveto</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_double_2"><p>$x (double)</p></a>
+<li class="POD_ITEM"><a name="_y_double_2"><p>$y (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="pathdef_path_open_pa">pathdef = $path-&gt;<b>open_parts</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_path_reset">$path-&gt;<b>reset</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_pathdefs_path_split">@pathdefs = $path-&gt;<b>split</b></a></h3>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../../Gnome2/Canvas.html">Gnome2::Canvas</a>, <a class="POD_LINK" href="../../Glib/Boxed.html">Glib::Boxed</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the Gtk2-Perl Team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL; see <a class="POD_LINK" href="../../Gnome2/Canvas.html">Gnome2::Canvas</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:07 2009
+</body>
+</html>
+

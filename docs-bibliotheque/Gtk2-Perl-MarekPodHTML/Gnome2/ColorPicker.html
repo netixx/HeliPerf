@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::ColorPicker</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Config.html">Next:<br />Gnome2::Config</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Client.html">Previous:<br />Gnome2::Client</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::ColorPicker</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_ColorP">widget = Gnome2::ColorPicker-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#_r_g_b_a_cp_get_d">(r, g, b, a) = $cp-&gt;<b>get_d</b></a>
+<li><a class="POD_NAVLINK" href="#_cp_set_d_r_g_b_a_">$cp-&gt;<b>set_d</b> ($r, $g, $b, $a)</a>
+<li><a class="POD_NAVLINK" href="#boolean_cp_get_dithe">boolean = $cp-&gt;<b>get_dither</b></a>
+<li><a class="POD_NAVLINK" href="#_cp_set_dither_dithe">$cp-&gt;<b>set_dither</b> ($dither)</a>
+<li><a class="POD_NAVLINK" href="#_r_g_b_a_cp_get_i16">(r, g, b, a) = $cp-&gt;<b>get_i16</b></a>
+<li><a class="POD_NAVLINK" href="#_cp_set_i16_r_g_b_a_">$cp-&gt;<b>set_i16</b> ($r, $g, $b, $a)</a>
+<li><a class="POD_NAVLINK" href="#_r_g_b_a_cp_get_i8">(r, g, b, a) = $cp-&gt;<b>get_i8</b></a>
+<li><a class="POD_NAVLINK" href="#_cp_set_i8_r_g_b_a_">$cp-&gt;<b>set_i8</b> ($r, $g, $b, $a)</a>
+<li><a class="POD_NAVLINK" href="#string_cp_get_title">string = $cp-&gt;<b>get_title</b></a>
+<li><a class="POD_NAVLINK" href="#_cp_set_title_title_">$cp-&gt;<b>set_title</b> ($title)</a>
+<li><a class="POD_NAVLINK" href="#boolean_cp_get_use_a">boolean = $cp-&gt;<b>get_use_alpha</b></a>
+<li><a class="POD_NAVLINK" href="#_cp_set_use_alpha_us">$cp-&gt;<b>set_use_alpha</b> ($use_alpha)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::ColorPicker
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Bin
+                           +----Gtk2::Button
+                                +----Gnome2::ColorPicker
+</pre>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_ColorP">widget = Gnome2::ColorPicker-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_r_g_b_a_cp_get_d">(r, g, b, a) = $cp-&gt;<b>get_d</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_cp_set_d_r_g_b_a_">$cp-&gt;<b>set_d</b> ($r, $g, $b, $a)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_r_double_"><p>$r (double)</p></a>
+<li class="POD_ITEM"><a name="_g_double_"><p>$g (double)</p></a>
+<li class="POD_ITEM"><a name="_b_double_"><p>$b (double)</p></a>
+<li class="POD_ITEM"><a name="_a_double_"><p>$a (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_cp_get_dithe">boolean = $cp-&gt;<b>get_dither</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_cp_set_dither_dithe">$cp-&gt;<b>set_dither</b> ($dither)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dither_boolean_"><p>$dither (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_r_g_b_a_cp_get_i16">(r, g, b, a) = $cp-&gt;<b>get_i16</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_cp_set_i16_r_g_b_a_">$cp-&gt;<b>set_i16</b> ($r, $g, $b, $a)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_r_unsigned_"><p>$r (unsigned)</p></a>
+<li class="POD_ITEM"><a name="_g_unsigned_"><p>$g (unsigned)</p></a>
+<li class="POD_ITEM"><a name="_b_unsigned_"><p>$b (unsigned)</p></a>
+<li class="POD_ITEM"><a name="_a_unsigned_"><p>$a (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_r_g_b_a_cp_get_i8">(r, g, b, a) = $cp-&gt;<b>get_i8</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_cp_set_i8_r_g_b_a_">$cp-&gt;<b>set_i8</b> ($r, $g, $b, $a)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_r_unsigned_1"><p>$r (unsigned)</p></a>
+<li class="POD_ITEM"><a name="_g_unsigned_1"><p>$g (unsigned)</p></a>
+<li class="POD_ITEM"><a name="_b_unsigned_1"><p>$b (unsigned)</p></a>
+<li class="POD_ITEM"><a name="_a_unsigned_1"><p>$a (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_cp_get_title">string = $cp-&gt;<b>get_title</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_cp_set_title_title_">$cp-&gt;<b>set_title</b> ($title)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_title_string_"><p>$title (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_cp_get_use_a">boolean = $cp-&gt;<b>get_use_alpha</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_cp_set_use_alpha_us">$cp-&gt;<b>set_use_alpha</b> ($use_alpha)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_use_alpha_boolean_"><p>$use_alpha (boolean)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_alpha_Glib_UInt_rea">&#39;alpha&#39; (Glib::UInt : readable / writable)</a>
+<dd>
+The alpha value of the chosen color
+<dt class="POD_ITEM"><a name="_blue_Glib_UInt_read">&#39;blue&#39; (Glib::UInt : readable / writable)</a>
+<dd>
+The amount of blue in the chosen color
+<dt class="POD_ITEM"><a name="_dither_boolean_read">&#39;dither&#39; (boolean : readable / writable)</a>
+<dd>
+Whether or not to dither to color
+<dt class="POD_ITEM"><a name="_green_Glib_UInt_rea">&#39;green&#39; (Glib::UInt : readable / writable)</a>
+<dd>
+The amount of green in the chosen color
+<dt class="POD_ITEM"><a name="_red_Glib_UInt_reada">&#39;red&#39; (Glib::UInt : readable / writable)</a>
+<dd>
+The amount of red in the chosen color
+<dt class="POD_ITEM"><a name="_title_string_readab">&#39;title&#39; (string : readable / writable)</a>
+<dd>
+The title to give to the color picker
+<dt class="POD_ITEM"><a name="_use_alpha_boolean_r">&#39;use-alpha&#39; (boolean : readable / writable)</a>
+<dd>
+Whether or not to give the color an alpha value
+</dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="color_set_Gnome2_Col"><b>color-set</b> (Gnome2::ColorPicker, Glib::UInt, Glib::UInt, Glib::UInt, Glib::UInt)</a>
+<dd></dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Bin.html">Gtk2::Bin</a>, <a class="POD_LINK" href="../Gtk2/Button.html">Gtk2::Button</a>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:15 2009
+</body>
+</html>
+

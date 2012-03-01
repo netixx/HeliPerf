@@ -1,0 +1,849 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Gdk::Window</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gtk2/Gdk/X11.html">Next:<br />Gtk2::Gdk::X11</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gtk2/Gdk/Visual.html">Previous:<br />Gtk2::Gdk::Visual</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Gdk::Window</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#window_Gtk2_Gdk_Wind">window = Gtk2::Gdk::Window-&gt;<b>new</b> ($parent, $attributes_ref)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_accept_f">$window-&gt;<b>set_accept_focus</b> ($accept_focus)</a>
+<li><a class="POD_NAVLINK" href="#_window_win_x_win_y_">(window, win_x, win_y) = Gtk2::Gdk::Window-&gt;<b>at_pointer</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_back_pix">$window-&gt;<b>set_back_pixmap</b> ($pixmap, $parent_relative=0)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_backgrou">$window-&gt;<b>set_background</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_window_beep">$window-&gt;<b>beep</b></a>
+<li><a class="POD_NAVLINK" href="#_window_begin_move_d">$window-&gt;<b>begin_move_drag</b> ($button, $root_x, $root_y, $timestamp)</a>
+<li><a class="POD_NAVLINK" href="#_window_begin_paint_">$window-&gt;<b>begin_paint_rect</b> ($rectangle)</a>
+<li><a class="POD_NAVLINK" href="#_window_begin_paint_1">$window-&gt;<b>begin_paint_region</b> ($region)</a>
+<li><a class="POD_NAVLINK" href="#_window_begin_resize">$window-&gt;<b>begin_resize_drag</b> ($edge, $button, $root_x, $root_y, $timestamp)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_child_in">$window-&gt;<b>set_child_input_shapes</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_child_sh">$window-&gt;<b>set_child_shapes</b></a>
+<li><a class="POD_NAVLINK" href="#list_window_get_chil">list = $window-&gt;<b>get_children</b></a>
+<li><a class="POD_NAVLINK" href="#_window_clear">$window-&gt;<b>clear</b></a>
+<li><a class="POD_NAVLINK" href="#_window_clear_area_x">$window-&gt;<b>clear_area</b> ($x, $y, $width, $height)</a>
+<li><a class="POD_NAVLINK" href="#_window_clear_area_e">$window-&gt;<b>clear_area_e</b> ($x, $y, $width, $height)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_composit">$window-&gt;<b>set_composited</b> ($composited)</a>
+<li><a class="POD_NAVLINK" href="#_window_configure_fi">$window-&gt;<b>configure_finished</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_cursor_c">$window-&gt;<b>set_cursor</b> ($cursor)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_Window_set_">Gtk2::Gdk::Window-&gt;<b>set_debug_updates</b> ($enable)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_debug_up">$window-&gt;<b>set_debug_updates</b> ($enable)</a>
+<li><a class="POD_NAVLINK" href="#list_window_get_deco">list = $window-&gt;<b>get_decorations</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_decorati">$window-&gt;<b>set_decorations</b> ($decorations)</a>
+<li><a class="POD_NAVLINK" href="#_window_deiconify">$window-&gt;<b>deiconify</b></a>
+<li><a class="POD_NAVLINK" href="#_window_destroy">$window-&gt;<b>destroy</b></a>
+<li><a class="POD_NAVLINK" href="#_window_enable_synch">$window-&gt;<b>enable_synchronized_configure</b></a>
+<li><a class="POD_NAVLINK" href="#_window_end_paint">$window-&gt;<b>end_paint</b></a>
+<li><a class="POD_NAVLINK" href="#eventmask_window_get">eventmask = $window-&gt;<b>get_events</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_events_e">$window-&gt;<b>set_events</b> ($event_mask)</a>
+<li><a class="POD_NAVLINK" href="#_window_focus_timest">$window-&gt;<b>focus</b> ($timestamp)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_focus_on">$window-&gt;<b>set_focus_on_map</b> ($focus_on_map)</a>
+<li><a class="POD_NAVLINK" href="#window_Gtk2_Gdk_Wind1">window = Gtk2::Gdk::Window-&gt;<b>foreign_new</b> ($anid)</a>
+<li><a class="POD_NAVLINK" href="#window_Gtk2_Gdk_Wind2">window = Gtk2::Gdk::Window-&gt;<b>foreign_new_for_display</b> ($display, $anid)</a>
+<li><a class="POD_NAVLINK" href="#rectangle_window_get">rectangle = $window-&gt;<b>get_frame_extents</b></a>
+<li><a class="POD_NAVLINK" href="#_window_freeze_updat">$window-&gt;<b>freeze_updates</b></a>
+<li><a class="POD_NAVLINK" href="#_window_fullscreen">$window-&gt;<b>fullscreen</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_function">$window-&gt;<b>set_functions</b> ($functions)</a>
+<li><a class="POD_NAVLINK" href="#_sm_client_id_gdk_se">$sm_client_id-&gt;<b>gdk_set_sm_client_id</b></a>
+<li><a class="POD_NAVLINK" href="#_x_y_width_height_de">(x, y, width, height, depth) = $window-&gt;<b>get_geometry</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_geometry">$window-&gt;<b>set_geometry_hints</b> ($geometry)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_geometry1">$window-&gt;<b>set_geometry_hints</b> ($geometry, $geom_mask)</a>
+<li><a class="POD_NAVLINK" href="#window_window_get_gr">window = $window-&gt;<b>get_group</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_group_le">$window-&gt;<b>set_group</b> ($leader)</a>
+<li><a class="POD_NAVLINK" href="#_window_hide">$window-&gt;<b>hide</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_icon_lis">$window-&gt;<b>set_icon_list</b> (...)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_icon_nam">$window-&gt;<b>set_icon_name</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_icon_ico">$window-&gt;<b>set_icon</b> ($icon_window, $pixmap, $mask)</a>
+<li><a class="POD_NAVLINK" href="#_window_iconify">$window-&gt;<b>iconify</b></a>
+<li><a class="POD_NAVLINK" href="#_window_input_shape_">$window-&gt;<b>input_shape_combine_mask</b> ($mask, $x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_window_input_shape_1">$window-&gt;<b>input_shape_combine_region</b> ($shape, $offset_x, $offset_y)</a>
+<li><a class="POD_NAVLINK" href="#list_window_get_inte">list = $window-&gt;<b>get_internal_paint_info</b></a>
+<li><a class="POD_NAVLINK" href="#_window_invalidate_m">$window-&gt;<b>invalidate_maybe_recurse</b> ($region, $func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_window_invalidate_r">$window-&gt;<b>invalidate_rect</b> ($rectangle, $invalidate_children)</a>
+<li><a class="POD_NAVLINK" href="#_window_invalidate_r1">$window-&gt;<b>invalidate_region</b> ($region, $invalidate_children)</a>
+<li><a class="POD_NAVLINK" href="#boolean_window_is_vi">boolean = $window-&gt;<b>is_viewable</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_window_is_vi1">boolean = $window-&gt;<b>is_visible</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_keep_abo">$window-&gt;<b>set_keep_above</b> ($setting)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_keep_bel">$window-&gt;<b>set_keep_below</b> ($setting)</a>
+<li><a class="POD_NAVLINK" href="#window_Gtk2_Gdk_Wind3">window = Gtk2::Gdk::Window-&gt;<b>lookup</b> ($anid)</a>
+<li><a class="POD_NAVLINK" href="#window_Gtk2_Gdk_Wind4">window = Gtk2::Gdk::Window-&gt;<b>lookup_for_display</b> ($display, $anid)</a>
+<li><a class="POD_NAVLINK" href="#_window_lower">$window-&gt;<b>lower</b></a>
+<li><a class="POD_NAVLINK" href="#_window_maximize">$window-&gt;<b>maximize</b></a>
+<li><a class="POD_NAVLINK" href="#_window_merge_child_">$window-&gt;<b>merge_child_input_shapes</b></a>
+<li><a class="POD_NAVLINK" href="#_window_merge_child_1">$window-&gt;<b>merge_child_shapes</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_modal_hi">$window-&gt;<b>set_modal_hint</b> ($modal)</a>
+<li><a class="POD_NAVLINK" href="#_window_move_x_y_">$window-&gt;<b>move</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_window_move_region_">$window-&gt;<b>move_region</b> ($region, $dx, $dy)</a>
+<li><a class="POD_NAVLINK" href="#_window_move_resize_">$window-&gt;<b>move_resize</b> ($x, $y, $width, $height)</a>
+<li><a class="POD_NAVLINK" href="#_window_move_to_curr">$window-&gt;<b>move_to_current_desktop</b></a>
+<li><a class="POD_NAVLINK" href="#_x_y_window_get_orig">(x, y) = $window-&gt;<b>get_origin</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_override">$window-&gt;<b>set_override_redirect</b> ($override_redirect)</a>
+<li><a class="POD_NAVLINK" href="#window_window_get_pa">window = $window-&gt;<b>get_parent</b></a>
+<li><a class="POD_NAVLINK" href="#list_window_peek_chi">list = $window-&gt;<b>peek_children</b></a>
+<li><a class="POD_NAVLINK" href="#_window_at_pointer_x">(window_at_pointer, x, y, mask) = $window-&gt;<b>get_pointer</b></a>
+<li><a class="POD_NAVLINK" href="#_x_y_window_get_posi">(x, y) = $window-&gt;<b>get_position</b></a>
+<li><a class="POD_NAVLINK" href="#Gtk2_Gdk_Window_proc">Gtk2::Gdk::Window-&gt;<b>process_all_updates</b></a>
+<li><a class="POD_NAVLINK" href="#_window_process_all_">$window-&gt;<b>process_all_updates</b></a>
+<li><a class="POD_NAVLINK" href="#_window_process_upda">$window-&gt;<b>process_updates</b> ($update_children)</a>
+<li><a class="POD_NAVLINK" href="#_window_property_cha">$window-&gt;<b>property_change</b> ($property, $type, $format, $mode, ...)</a>
+<li><a class="POD_NAVLINK" href="#_window_property_del">$window-&gt;<b>property_delete</b> ($property)</a>
+<li><a class="POD_NAVLINK" href="#_property_type_forma">(property_type, format, data) = $window-&gt;<b>property_get</b> ($property, $type, $offset, $length, $pdelete)</a>
+<li><a class="POD_NAVLINK" href="#_window_raise">$window-&gt;<b>raise</b></a>
+<li><a class="POD_NAVLINK" href="#_window_register_dnd">$window-&gt;<b>register_dnd</b></a>
+<li><a class="POD_NAVLINK" href="#_window_reparent_new">$window-&gt;<b>reparent</b> ($new_parent, $x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_window_resize_width">$window-&gt;<b>resize</b> ($width, $height)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_role_rol">$window-&gt;<b>set_role</b> ($role)</a>
+<li><a class="POD_NAVLINK" href="#_x_y_window_get_root">(x, y) = $window-&gt;<b>get_root_origin</b></a>
+<li><a class="POD_NAVLINK" href="#_window_scroll_dx_dy">$window-&gt;<b>scroll</b> ($dx, $dy)</a>
+<li><a class="POD_NAVLINK" href="#_window_shape_combin">$window-&gt;<b>shape_combine_mask</b> ($mask, $x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_window_shape_combin1">$window-&gt;<b>shape_combine_region</b> ($shape_region, $offset_x, $offset_y)</a>
+<li><a class="POD_NAVLINK" href="#_window_show">$window-&gt;<b>show</b></a>
+<li><a class="POD_NAVLINK" href="#_window_show_unraise">$window-&gt;<b>show_unraised</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_skip_pag">$window-&gt;<b>set_skip_pager_hint</b> ($skips_pager)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_skip_tas">$window-&gt;<b>set_skip_taskbar_hint</b> ($skips_taskbar)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_startup_">$window-&gt;<b>set_startup_id</b> ($startup_id)</a>
+<li><a class="POD_NAVLINK" href="#windowstate_window_g">windowstate = $window-&gt;<b>get_state</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_window_set_s">boolean = $window-&gt;<b>set_static_gravities</b> ($use_static)</a>
+<li><a class="POD_NAVLINK" href="#_window_stick">$window-&gt;<b>stick</b></a>
+<li><a class="POD_NAVLINK" href="#_window_thaw_updates">$window-&gt;<b>thaw_updates</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_title_ti">$window-&gt;<b>set_title</b> ($title)</a>
+<li><a class="POD_NAVLINK" href="#window_window_get_to">window = $window-&gt;<b>get_toplevel</b></a>
+<li><a class="POD_NAVLINK" href="#list_Gtk2_Gdk_Window">list = Gtk2::Gdk::Window-&gt;<b>get_toplevels</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_transien">$window-&gt;<b>set_transient_for</b> ($parent)</a>
+<li><a class="POD_NAVLINK" href="#windowtypehint_windo">windowtypehint = $window-&gt;<b>get_type_hint</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_type_hin">$window-&gt;<b>set_type_hint</b> ($hint)</a>
+<li><a class="POD_NAVLINK" href="#_window_unfullscreen">$window-&gt;<b>unfullscreen</b></a>
+<li><a class="POD_NAVLINK" href="#_window_unmaximize">$window-&gt;<b>unmaximize</b></a>
+<li><a class="POD_NAVLINK" href="#_window_unstick">$window-&gt;<b>unstick</b></a>
+<li><a class="POD_NAVLINK" href="#region_or_undef_wind">region or undef = $window-&gt;<b>get_update_area</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_urgency_">$window-&gt;<b>set_urgency_hint</b> ($urgent)</a>
+<li><a class="POD_NAVLINK" href="#unsigned_window_get_">unsigned = $window-&gt;<b>get_user_data</b></a>
+<li><a class="POD_NAVLINK" href="#_window_set_user_dat">$window-&gt;<b>set_user_data</b> ($user_data)</a>
+<li><a class="POD_NAVLINK" href="#_window_set_user_tim">$window-&gt;<b>set_user_time</b> ($timestamp)</a>
+<li><a class="POD_NAVLINK" href="#windowtype_window_ge">windowtype = $window-&gt;<b>get_window_type</b></a>
+<li><a class="POD_NAVLINK" href="#_window_withdraw">$window-&gt;<b>withdraw</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Event">flags Gtk2::Gdk::EventMask</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_PropMo">enum Gtk2::Gdk::PropMode</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_WMDec">flags Gtk2::Gdk::WMDecoration</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_WMFun">flags Gtk2::Gdk::WMFunction</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Window">enum Gtk2::Gdk::WindowEdge</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Windo">flags Gtk2::Gdk::WindowHints</a>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_Gdk_Windo1">flags Gtk2::Gdk::WindowState</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Window1">enum Gtk2::Gdk::WindowType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Gdk_Window2">enum Gtk2::Gdk::WindowTypeHint</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Gdk::Window
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::Gdk::Drawable
+       +----Gtk2::Gdk::Window
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="window_Gtk2_Gdk_Wind">window = Gtk2::Gdk::Window-&gt;<b>new</b> ($parent, $attributes_ref)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_parent_Gtk2_Gdk_Win"><p>$parent (Gtk2::Gdk::Window or undef)</p></a>
+<li class="POD_ITEM"><a name="_attributes_ref_scal"><p>$attributes_ref (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Create and return a new window.  parent can be undef to mean the root
+window of the default screen.  attributes_ref is a hashref containing
+some of the following keys,
+</p>
+<pre class="POD_VERBATIM">
+    title              string
+    event_mask         Gtk2::Gdk::EventMask flags
+    x                  integer
+    y                  integer
+    width              integer
+    height             integer
+    wclass             Gtk2::Gdk::WindowClass enum
+    visual             Gtk2::Gdk::Visual
+    colormap           Gtk2::Gdk::Colormap
+    window_type        Gtk2::Gdk::WindowType enum
+    cursor             Gtk2::Gdk::Cursor
+    wmclass_name       string
+    wmclass_class      string
+    override_redirect  boolean (integer 0 or 1)
+</pre>
+<p class="POD_TEXT">
+window_type is mandatory because it defaults to &quot;root&quot; but of course
+it&#39;s not possible to create a new root window.  The other fields get default
+values zero, empty, unset, etc.
+</p>
+<pre class="POD_VERBATIM">
+    my $win = Gtk2::Gdk::Window-&gt;new
+                (undef, { window_type =&gt; &#39;toplevel,
+                          wclass =&gt; &#39;GDK_INPUT_OUTPUT&#39;,
+                          x =&gt; 0,
+                          y =&gt; 0,
+                          width =&gt; 200,
+                          height =&gt; 100 });
+</pre>
+<p class="POD_TEXT">
+Incidentally, the nicknames for wclass Gtk2::Gdk::WindowClass really
+are &quot;output&quot; for input-output and &quot;only&quot; for input-only.  Those names
+are a bit odd, but that&#39;s what Gtk has.  You can, as for any enum,
+give the full names like &quot;GDK_INPUT_OUTPUT&quot; if desired, for some
+clarity.
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_accept_f">$window-&gt;<b>set_accept_focus</b> ($accept_focus)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_accept_focus_boolea"><p>$accept_focus (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="_window_win_x_win_y_">(window, win_x, win_y) = Gtk2::Gdk::Window-&gt;<b>at_pointer</b></a></h3>
+<p class="POD_TEXT">
+Returns window, a Gtk2::Gdk::Window and win_x and win_y, integers.
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_back_pix">$window-&gt;<b>set_back_pixmap</b> ($pixmap, $parent_relative=0)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixmap_Gtk2_Gdk_Pix"><p>$pixmap (Gtk2::Gdk::Pixmap or undef)</p></a>
+<li class="POD_ITEM"><a name="_parent_relative_boo"><p>$parent_relative (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_set_backgrou">$window-&gt;<b>set_background</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_beep">$window-&gt;<b>beep</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_window_begin_move_d">$window-&gt;<b>begin_move_drag</b> ($button, $root_x, $root_y, $timestamp)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_button_integer_"><p>$button (integer)</p></a>
+<li class="POD_ITEM"><a name="_root_x_integer_"><p>$root_x (integer)</p></a>
+<li class="POD_ITEM"><a name="_root_y_integer_"><p>$root_y (integer)</p></a>
+<li class="POD_ITEM"><a name="_timestamp_unsigned_"><p>$timestamp (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_begin_paint_">$window-&gt;<b>begin_paint_rect</b> ($rectangle)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rectangle_Gtk2_Gdk_"><p>$rectangle (Gtk2::Gdk::Rectangle)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_begin_paint_1">$window-&gt;<b>begin_paint_region</b> ($region)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_region_Gtk2_Gdk_Reg"><p>$region (Gtk2::Gdk::Region)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_begin_resize">$window-&gt;<b>begin_resize_drag</b> ($edge, $button, $root_x, $root_y, $timestamp)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_edge_Gtk2_Gdk_Windo"><p>$edge (Gtk2::Gdk::WindowEdge)</p></a>
+<li class="POD_ITEM"><a name="_button_integer_1"><p>$button (integer)</p></a>
+<li class="POD_ITEM"><a name="_root_x_integer_1"><p>$root_x (integer)</p></a>
+<li class="POD_ITEM"><a name="_root_y_integer_1"><p>$root_y (integer)</p></a>
+<li class="POD_ITEM"><a name="_timestamp_unsigned_1"><p>$timestamp (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_set_child_in">$window-&gt;<b>set_child_input_shapes</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_child_sh">$window-&gt;<b>set_child_shapes</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_window_get_chil">list = $window-&gt;<b>get_children</b></a></h3>
+<p class="POD_TEXT">
+Returns the list of children (Gtk2::Gdk::Window&#39;s) known to gdk.
+</p>
+<h3 class="POD_HEAD2"><a name="_window_clear">$window-&gt;<b>clear</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_clear_area_x">$window-&gt;<b>clear_area</b> ($x, $y, $width, $height)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_"><p>$y (integer)</p></a>
+<li class="POD_ITEM"><a name="_width_integer_"><p>$width (integer)</p></a>
+<li class="POD_ITEM"><a name="_height_integer_"><p>$height (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_clear_area_e">$window-&gt;<b>clear_area_e</b> ($x, $y, $width, $height)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_1"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_1"><p>$y (integer)</p></a>
+<li class="POD_ITEM"><a name="_width_integer_1"><p>$width (integer)</p></a>
+<li class="POD_ITEM"><a name="_height_integer_1"><p>$height (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_set_composit">$window-&gt;<b>set_composited</b> ($composited)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_composited_boolean_"><p>$composited (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_window_configure_fi">$window-&gt;<b>configure_finished</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_cursor_c">$window-&gt;<b>set_cursor</b> ($cursor)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cursor_Gtk2_Gdk_Cur"><p>$cursor (Gtk2::Gdk::Cursor or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_Window_set_">Gtk2::Gdk::Window-&gt;<b>set_debug_updates</b> ($enable)</a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_debug_up">$window-&gt;<b>set_debug_updates</b> ($enable)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_enable_boolean_"><p>$enable (boolean)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_window_get_deco">list = $window-&gt;<b>get_decorations</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_decorati">$window-&gt;<b>set_decorations</b> ($decorations)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_decorations_Gtk2_Gd"><p>$decorations (Gtk2::Gdk::WMDecoration)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_deiconify">$window-&gt;<b>deiconify</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_destroy">$window-&gt;<b>destroy</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_enable_synch">$window-&gt;<b>enable_synchronized_configure</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_window_end_paint">$window-&gt;<b>end_paint</b></a></h3>
+<h3 class="POD_HEAD2"><a name="eventmask_window_get">eventmask = $window-&gt;<b>get_events</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_events_e">$window-&gt;<b>set_events</b> ($event_mask)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_event_mask_Gtk2_Gdk"><p>$event_mask (Gtk2::Gdk::EventMask)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_focus_timest">$window-&gt;<b>focus</b> ($timestamp)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_timestamp_unsigned_2"><p>$timestamp (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_set_focus_on">$window-&gt;<b>set_focus_on_map</b> ($focus_on_map)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_focus_on_map_boolea"><p>$focus_on_map (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="window_Gtk2_Gdk_Wind1">window = Gtk2::Gdk::Window-&gt;<b>foreign_new</b> ($anid)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_anid_Gtk2_Gdk_Nativ"><p>$anid (Gtk2::Gdk::NativeWindow)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="window_Gtk2_Gdk_Wind2">window = Gtk2::Gdk::Window-&gt;<b>foreign_new_for_display</b> ($display, $anid)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_display_Gtk2_Gdk_Di"><p>$display (Gtk2::Gdk::Display)</p></a>
+<li class="POD_ITEM"><a name="_anid_Gtk2_Gdk_Nativ1"><p>$anid (Gtk2::Gdk::NativeWindow)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="rectangle_window_get">rectangle = $window-&gt;<b>get_frame_extents</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_freeze_updat">$window-&gt;<b>freeze_updates</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_fullscreen">$window-&gt;<b>fullscreen</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_function">$window-&gt;<b>set_functions</b> ($functions)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_functions_Gtk2_Gdk_"><p>$functions (Gtk2::Gdk::WMFunction)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_sm_client_id_gdk_se">$sm_client_id-&gt;<b>gdk_set_sm_client_id</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_x_y_width_height_de">(x, y, width, height, depth) = $window-&gt;<b>get_geometry</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_geometry">$window-&gt;<b>set_geometry_hints</b> ($geometry)</a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_geometry1">$window-&gt;<b>set_geometry_hints</b> ($geometry, $geom_mask)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_geom_mask_Gtk2_Gdk_"><p>$geom_mask (Gtk2::Gdk::WindowHints) optional, usually inferred from <i>$geometry</i></p></a>
+<li class="POD_ITEM"><a name="_geometry_scalar_Gtk"><p>$geometry (scalar) Gtk2::Gdk::Geometry or hashref</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+$geometry is either a <a class="POD_LINK" href="../../Gtk2/Gdk/Geometry.html"><code>Gtk2::Gdk::Geometry</code></a>
+object, or a hashref with the following keys and values,
+</p>
+<pre class="POD_VERBATIM">
+    min_width     integer \ &#39;min-size&#39; mask
+    min_height    integer /
+    max_width     integer \ &#39;max-size&#39; mask
+    max_height    integer /
+    base_width    integer \ &#39;base-size&#39; mask
+    base_height   integer /
+    width_inc     integer \ &#39;resize-inc&#39; mask
+    height_inc    integer /
+    min_aspect    float   \ &#39;aspect&#39; mask
+    max_aspect    float   /
+    win_gravity   Gtk2::Gdk::Gravity enum, &#39;win-gravity&#39; mask
+</pre>
+<p class="POD_TEXT">
+Optional $geom_mask is which fields of $geometry are used.  If
+$geometry is a hashref then $geom_mask defaults to the keys supplied
+in the hash, so for example
+</p>
+<pre class="POD_VERBATIM">
+    $win-&gt;set_geometry_hints ({ min_width =&gt; 20, min_height =&gt; 10});
+</pre>
+<p class="POD_TEXT">
+If $geometry is a <code>Gtk2::Gdk::Geometry</code> object then you must give
+$geom_mask explicitly.
+</p>
+<p class="POD_TEXT">
+The &#39;pos&#39;, &#39;user-pos&#39; and &#39;user-size&#39; flags in $geom_mask have no data
+fields, so cannot be inferred from a $geometry hashref.  If you want
+those flags you must pass $geom_mask explicitly.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="window_window_get_gr">window = $window-&gt;<b>get_group</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_group_le">$window-&gt;<b>set_group</b> ($leader)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_leader_Gtk2_Gdk_Win"><p>$leader (Gtk2::Gdk::Window)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_hide">$window-&gt;<b>hide</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_icon_lis">$window-&gt;<b>set_icon_list</b> (...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_of_GdkPixbuf_s"><p>... (list) of GdkPixbuf&#39;s</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_window_set_icon_nam">$window-&gt;<b>set_icon_name</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_set_icon_ico">$window-&gt;<b>set_icon</b> ($icon_window, $pixmap, $mask)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_icon_window_Gtk2_Gd"><p>$icon_window (Gtk2::Gdk::Window or undef)</p></a>
+<li class="POD_ITEM"><a name="_pixmap_Gtk2_Gdk_Pix1"><p>$pixmap (Gtk2::Gdk::Pixmap or undef)</p></a>
+<li class="POD_ITEM"><a name="_mask_Gtk2_Gdk_Bitma"><p>$mask (Gtk2::Gdk::Bitmap or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_iconify">$window-&gt;<b>iconify</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_input_shape_">$window-&gt;<b>input_shape_combine_mask</b> ($mask, $x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mask_Gtk2_Gdk_Bitma1"><p>$mask (Gtk2::Gdk::Bitmap)</p></a>
+<li class="POD_ITEM"><a name="_x_integer_2"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_2"><p>$y (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="_window_input_shape_1">$window-&gt;<b>input_shape_combine_region</b> ($shape, $offset_x, $offset_y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_shape_Gtk2_Gdk_Regi"><p>$shape (Gtk2::Gdk::Region)</p></a>
+<li class="POD_ITEM"><a name="_offset_x_integer_"><p>$offset_x (integer)</p></a>
+<li class="POD_ITEM"><a name="_offset_y_integer_"><p>$offset_y (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="list_window_get_inte">list = $window-&gt;<b>get_internal_paint_info</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_invalidate_m">$window-&gt;<b>invalidate_maybe_recurse</b> ($region, $func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_region_Gtk2_Gdk_Reg1"><p>$region (Gtk2::Gdk::Region)</p></a>
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_invalidate_r">$window-&gt;<b>invalidate_rect</b> ($rectangle, $invalidate_children)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rectangle_Gtk2_Gdk_1"><p>$rectangle (Gtk2::Gdk::Rectangle)</p></a>
+<li class="POD_ITEM"><a name="_invalidate_children"><p>$invalidate_children (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_invalidate_r1">$window-&gt;<b>invalidate_region</b> ($region, $invalidate_children)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_region_Gtk2_Gdk_Reg2"><p>$region (Gtk2::Gdk::Region)</p></a>
+<li class="POD_ITEM"><a name="_invalidate_children1"><p>$invalidate_children (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_window_is_vi">boolean = $window-&gt;<b>is_viewable</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_window_is_vi1">boolean = $window-&gt;<b>is_visible</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_keep_abo">$window-&gt;<b>set_keep_above</b> ($setting)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_setting_boolean_"><p>$setting (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_keep_bel">$window-&gt;<b>set_keep_below</b> ($setting)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_setting_boolean_1"><p>$setting (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.4
+</p>
+<h3 class="POD_HEAD2"><a name="window_Gtk2_Gdk_Wind3">window = Gtk2::Gdk::Window-&gt;<b>lookup</b> ($anid)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_anid_Gtk2_Gdk_Nativ2"><p>$anid (Gtk2::Gdk::NativeWindow)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="window_Gtk2_Gdk_Wind4">window = Gtk2::Gdk::Window-&gt;<b>lookup_for_display</b> ($display, $anid)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_display_Gtk2_Gdk_Di1"><p>$display (Gtk2::Gdk::Display)</p></a>
+<li class="POD_ITEM"><a name="_anid_Gtk2_Gdk_Nativ3"><p>$anid (Gtk2::Gdk::NativeWindow)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_window_lower">$window-&gt;<b>lower</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_maximize">$window-&gt;<b>maximize</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_merge_child_">$window-&gt;<b>merge_child_input_shapes</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="_window_merge_child_1">$window-&gt;<b>merge_child_shapes</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_modal_hi">$window-&gt;<b>set_modal_hint</b> ($modal)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_modal_boolean_"><p>$modal (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_move_x_y_">$window-&gt;<b>move</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_3"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_3"><p>$y (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_move_region_">$window-&gt;<b>move_region</b> ($region, $dx, $dy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_region_Gtk2_Gdk_Reg3"><p>$region (Gtk2::Gdk::Region)</p></a>
+<li class="POD_ITEM"><a name="_dx_integer_"><p>$dx (integer)</p></a>
+<li class="POD_ITEM"><a name="_dy_integer_"><p>$dy (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_window_move_resize_">$window-&gt;<b>move_resize</b> ($x, $y, $width, $height)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_4"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_4"><p>$y (integer)</p></a>
+<li class="POD_ITEM"><a name="_width_integer_2"><p>$width (integer)</p></a>
+<li class="POD_ITEM"><a name="_height_integer_2"><p>$height (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_move_to_curr">$window-&gt;<b>move_to_current_desktop</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_x_y_window_get_orig">(x, y) = $window-&gt;<b>get_origin</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_override">$window-&gt;<b>set_override_redirect</b> ($override_redirect)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_override_redirect_b"><p>$override_redirect (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="window_window_get_pa">window = $window-&gt;<b>get_parent</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_window_peek_chi">list = $window-&gt;<b>peek_children</b></a></h3>
+<p class="POD_TEXT">
+An alias for get_children
+</p>
+<h3 class="POD_HEAD2"><a name="_window_at_pointer_x">(window_at_pointer, x, y, mask) = $window-&gt;<b>get_pointer</b></a></h3>
+<p class="POD_TEXT">
+Returns window_at_pointer, a Gtk2::Gdk::Window or undef, x and y, integers, and
+mask, a Gtk2::Gdk::ModifierType.
+</p>
+<h3 class="POD_HEAD2"><a name="_x_y_window_get_posi">(x, y) = $window-&gt;<b>get_position</b></a></h3>
+<h3 class="POD_HEAD2"><a name="Gtk2_Gdk_Window_proc">Gtk2::Gdk::Window-&gt;<b>process_all_updates</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_process_all_">$window-&gt;<b>process_all_updates</b></a></h3>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_window_process_upda">$window-&gt;<b>process_updates</b> ($update_children)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_update_children_boo"><p>$update_children (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_property_cha">$window-&gt;<b>property_change</b> ($property, $type, $format, $mode, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_property_Gtk2_Gdk_A"><p>$property (Gtk2::Gdk::Atom)</p></a>
+<li class="POD_ITEM"><a name="_type_Gtk2_Gdk_Atom_"><p>$type (Gtk2::Gdk::Atom)</p></a>
+<li class="POD_ITEM"><a name="_format_integer_"><p>$format (integer)</p></a>
+<li class="POD_ITEM"><a name="_mode_Gtk2_Gdk_PropM"><p>$mode (Gtk2::Gdk::PropMode)</p></a>
+<li class="POD_ITEM"><a name="_list_property_value"><p>... (list) property value(s)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+Depending on the value of <i>format</i>, the property value(s) can be:
+</p>
+<pre class="POD_VERBATIM">
+  +--------------------+------------------------------------+
+  |      format        |                value               |
+  +--------------------+------------------------------------+
+  | Gtk2::Gdk::CHARS   | a string                           |
+  | Gtk2::Gdk::USHORTS | one or more unsigned short numbers |
+  | Gtk2::Gdk::ULONGS  | one or more unsigned long numbers  |
+  +--------------------+------------------------------------+
+</pre>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_window_property_del">$window-&gt;<b>property_delete</b> ($property)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_property_Gtk2_Gdk_A1"><p>$property (Gtk2::Gdk::Atom)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_property_type_forma">(property_type, format, data) = $window-&gt;<b>property_get</b> ($property, $type, $offset, $length, $pdelete)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_property_Gtk2_Gdk_A2"><p>$property (Gtk2::Gdk::Atom)</p></a>
+<li class="POD_ITEM"><a name="_type_Gtk2_Gdk_Atom_1"><p>$type (Gtk2::Gdk::Atom)</p></a>
+<li class="POD_ITEM"><a name="_offset_unsigned_"><p>$offset (unsigned)</p></a>
+<li class="POD_ITEM"><a name="_length_unsigned_"><p>$length (unsigned)</p></a>
+<li class="POD_ITEM"><a name="_pdelete_integer_"><p>$pdelete (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+See <i>property_change</i> for an explanation of the meaning of <i>format</i>.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_window_raise">$window-&gt;<b>raise</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_register_dnd">$window-&gt;<b>register_dnd</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_reparent_new">$window-&gt;<b>reparent</b> ($new_parent, $x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_new_parent_Gtk2_Gdk"><p>$new_parent (Gtk2::Gdk::Window)</p></a>
+<li class="POD_ITEM"><a name="_x_integer_5"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_5"><p>$y (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_resize_width">$window-&gt;<b>resize</b> ($width, $height)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_width_integer_3"><p>$width (integer)</p></a>
+<li class="POD_ITEM"><a name="_height_integer_3"><p>$height (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_set_role_rol">$window-&gt;<b>set_role</b> ($role)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_role_string_"><p>$role (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_x_y_window_get_root">(x, y) = $window-&gt;<b>get_root_origin</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_scroll_dx_dy">$window-&gt;<b>scroll</b> ($dx, $dy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_dx_integer_1"><p>$dx (integer)</p></a>
+<li class="POD_ITEM"><a name="_dy_integer_1"><p>$dy (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_shape_combin">$window-&gt;<b>shape_combine_mask</b> ($mask, $x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mask_Gtk2_Gdk_Bitma2"><p>$mask (Gtk2::Gdk::Bitmap)</p></a>
+<li class="POD_ITEM"><a name="_x_integer_6"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_6"><p>$y (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_shape_combin1">$window-&gt;<b>shape_combine_region</b> ($shape_region, $offset_x, $offset_y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_shape_region_Gtk2_G"><p>$shape_region (Gtk2::Gdk::Region)</p></a>
+<li class="POD_ITEM"><a name="_offset_x_integer_1"><p>$offset_x (integer)</p></a>
+<li class="POD_ITEM"><a name="_offset_y_integer_1"><p>$offset_y (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_show">$window-&gt;<b>show</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_show_unraise">$window-&gt;<b>show_unraised</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_skip_pag">$window-&gt;<b>set_skip_pager_hint</b> ($skips_pager)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_skips_pager_boolean"><p>$skips_pager (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_skip_tas">$window-&gt;<b>set_skip_taskbar_hint</b> ($skips_taskbar)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_skips_taskbar_boole"><p>$skips_taskbar (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_startup_">$window-&gt;<b>set_startup_id</b> ($startup_id)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_startup_id_string_"><p>$startup_id (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="windowstate_window_g">windowstate = $window-&gt;<b>get_state</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_window_set_s">boolean = $window-&gt;<b>set_static_gravities</b> ($use_static)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_use_static_boolean_"><p>$use_static (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_stick">$window-&gt;<b>stick</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_thaw_updates">$window-&gt;<b>thaw_updates</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_title_ti">$window-&gt;<b>set_title</b> ($title)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_title_string_"><p>$title (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="window_window_get_to">window = $window-&gt;<b>get_toplevel</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_Gtk2_Gdk_Window">list = Gtk2::Gdk::Window-&gt;<b>get_toplevels</b></a></h3>
+<p class="POD_TEXT">
+Returns a list of top level windows (Gtk2::Gdk::Window&#39;s) known to gdk, on the 
+default screen. A toplevel window is a child of the root window.
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_transien">$window-&gt;<b>set_transient_for</b> ($parent)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_parent_Gtk2_Gdk_Win1"><p>$parent (Gtk2::Gdk::Window)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="windowtypehint_windo">windowtypehint = $window-&gt;<b>get_type_hint</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="_window_set_type_hin">$window-&gt;<b>set_type_hint</b> ($hint)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_hint_Gtk2_Gdk_Windo"><p>$hint (Gtk2::Gdk::WindowTypeHint)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_unfullscreen">$window-&gt;<b>unfullscreen</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="_window_unmaximize">$window-&gt;<b>unmaximize</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_unstick">$window-&gt;<b>unstick</b></a></h3>
+<h3 class="POD_HEAD2"><a name="region_or_undef_wind">region or undef = $window-&gt;<b>get_update_area</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_urgency_">$window-&gt;<b>set_urgency_hint</b> ($urgent)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_urgent_boolean_"><p>$urgent (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="unsigned_window_get_">unsigned = $window-&gt;<b>get_user_data</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_set_user_dat">$window-&gt;<b>set_user_data</b> ($user_data)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_user_data_unsigned_"><p>$user_data (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_window_set_user_tim">$window-&gt;<b>set_user_time</b> ($timestamp)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_timestamp_unsigned_3"><p>$timestamp (unsigned)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="windowtype_window_ge">windowtype = $window-&gt;<b>get_window_type</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_window_withdraw">$window-&gt;<b>withdraw</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Event">flags Gtk2::Gdk::EventMask</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_exposure_mask_GDK_E"><p>&#39;exposure-mask&#39; / &#39;GDK_EXPOSURE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_pointer_motion_mask"><p>&#39;pointer-motion-mask&#39; / &#39;GDK_POINTER_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_pointer_motion_hint"><p>&#39;pointer-motion-hint-mask&#39; / &#39;GDK_POINTER_MOTION_HINT_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_motion_mask_"><p>&#39;button-motion-mask&#39; / &#39;GDK_BUTTON_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button1_motion_mask"><p>&#39;button1-motion-mask&#39; / &#39;GDK_BUTTON1_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button2_motion_mask"><p>&#39;button2-motion-mask&#39; / &#39;GDK_BUTTON2_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button3_motion_mask"><p>&#39;button3-motion-mask&#39; / &#39;GDK_BUTTON3_MOTION_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_press_mask_G"><p>&#39;button-press-mask&#39; / &#39;GDK_BUTTON_PRESS_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_release_mask"><p>&#39;button-release-mask&#39; / &#39;GDK_BUTTON_RELEASE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_key_press_mask_GDK_"><p>&#39;key-press-mask&#39; / &#39;GDK_KEY_PRESS_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_key_release_mask_GD"><p>&#39;key-release-mask&#39; / &#39;GDK_KEY_RELEASE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_enter_notify_mask_G"><p>&#39;enter-notify-mask&#39; / &#39;GDK_ENTER_NOTIFY_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_leave_notify_mask_G"><p>&#39;leave-notify-mask&#39; / &#39;GDK_LEAVE_NOTIFY_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_focus_change_mask_G"><p>&#39;focus-change-mask&#39; / &#39;GDK_FOCUS_CHANGE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_structure_mask_GDK_"><p>&#39;structure-mask&#39; / &#39;GDK_STRUCTURE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_property_change_mas"><p>&#39;property-change-mask&#39; / &#39;GDK_PROPERTY_CHANGE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_visibility_notify_m"><p>&#39;visibility-notify-mask&#39; / &#39;GDK_VISIBILITY_NOTIFY_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_proximity_in_mask_G"><p>&#39;proximity-in-mask&#39; / &#39;GDK_PROXIMITY_IN_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_proximity_out_mask_"><p>&#39;proximity-out-mask&#39; / &#39;GDK_PROXIMITY_OUT_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_substructure_mask_G"><p>&#39;substructure-mask&#39; / &#39;GDK_SUBSTRUCTURE_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_scroll_mask_GDK_SCR"><p>&#39;scroll-mask&#39; / &#39;GDK_SCROLL_MASK&#39;</p></a>
+<li class="POD_ITEM"><a name="_all_events_mask_GDK"><p>&#39;all-events-mask&#39; / &#39;GDK_ALL_EVENTS_MASK&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_PropMo">enum Gtk2::Gdk::PropMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_replace_GDK_PROP_MO"><p>&#39;replace&#39; / &#39;GDK_PROP_MODE_REPLACE&#39;</p></a>
+<li class="POD_ITEM"><a name="_prepend_GDK_PROP_MO"><p>&#39;prepend&#39; / &#39;GDK_PROP_MODE_PREPEND&#39;</p></a>
+<li class="POD_ITEM"><a name="_append_GDK_PROP_MOD"><p>&#39;append&#39; / &#39;GDK_PROP_MODE_APPEND&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_WMDec">flags Gtk2::Gdk::WMDecoration</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_all_GDK_DECOR_ALL_"><p>&#39;all&#39; / &#39;GDK_DECOR_ALL&#39;</p></a>
+<li class="POD_ITEM"><a name="_border_GDK_DECOR_BO"><p>&#39;border&#39; / &#39;GDK_DECOR_BORDER&#39;</p></a>
+<li class="POD_ITEM"><a name="_resizeh_GDK_DECOR_R"><p>&#39;resizeh&#39; / &#39;GDK_DECOR_RESIZEH&#39;</p></a>
+<li class="POD_ITEM"><a name="_title_GDK_DECOR_TIT"><p>&#39;title&#39; / &#39;GDK_DECOR_TITLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GDK_DECOR_MENU"><p>&#39;menu&#39; / &#39;GDK_DECOR_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_minimize_GDK_DECOR_"><p>&#39;minimize&#39; / &#39;GDK_DECOR_MINIMIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_maximize_GDK_DECOR_"><p>&#39;maximize&#39; / &#39;GDK_DECOR_MAXIMIZE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_WMFun">flags Gtk2::Gdk::WMFunction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_all_GDK_FUNC_ALL_"><p>&#39;all&#39; / &#39;GDK_FUNC_ALL&#39;</p></a>
+<li class="POD_ITEM"><a name="_resize_GDK_FUNC_RES"><p>&#39;resize&#39; / &#39;GDK_FUNC_RESIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_move_GDK_FUNC_MOVE_"><p>&#39;move&#39; / &#39;GDK_FUNC_MOVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_minimize_GDK_FUNC_M"><p>&#39;minimize&#39; / &#39;GDK_FUNC_MINIMIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_maximize_GDK_FUNC_M"><p>&#39;maximize&#39; / &#39;GDK_FUNC_MAXIMIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_close_GDK_FUNC_CLOS"><p>&#39;close&#39; / &#39;GDK_FUNC_CLOSE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Window">enum Gtk2::Gdk::WindowEdge</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_north_west_GDK_WIND"><p>&#39;north-west&#39; / &#39;GDK_WINDOW_EDGE_NORTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_GDK_WINDOW_ED"><p>&#39;north&#39; / &#39;GDK_WINDOW_EDGE_NORTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_east_GDK_WIND"><p>&#39;north-east&#39; / &#39;GDK_WINDOW_EDGE_NORTH_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_west_GDK_WINDOW_EDG"><p>&#39;west&#39; / &#39;GDK_WINDOW_EDGE_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_east_GDK_WINDOW_EDG"><p>&#39;east&#39; / &#39;GDK_WINDOW_EDGE_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_west_GDK_WIND"><p>&#39;south-west&#39; / &#39;GDK_WINDOW_EDGE_SOUTH_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_GDK_WINDOW_ED"><p>&#39;south&#39; / &#39;GDK_WINDOW_EDGE_SOUTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_south_east_GDK_WIND"><p>&#39;south-east&#39; / &#39;GDK_WINDOW_EDGE_SOUTH_EAST&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Windo">flags Gtk2::Gdk::WindowHints</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pos_GDK_HINT_POS_"><p>&#39;pos&#39; / &#39;GDK_HINT_POS&#39;</p></a>
+<li class="POD_ITEM"><a name="_min_size_GDK_HINT_M"><p>&#39;min-size&#39; / &#39;GDK_HINT_MIN_SIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_max_size_GDK_HINT_M"><p>&#39;max-size&#39; / &#39;GDK_HINT_MAX_SIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_base_size_GDK_HINT_"><p>&#39;base-size&#39; / &#39;GDK_HINT_BASE_SIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_aspect_GDK_HINT_ASP"><p>&#39;aspect&#39; / &#39;GDK_HINT_ASPECT&#39;</p></a>
+<li class="POD_ITEM"><a name="_resize_inc_GDK_HINT"><p>&#39;resize-inc&#39; / &#39;GDK_HINT_RESIZE_INC&#39;</p></a>
+<li class="POD_ITEM"><a name="_win_gravity_GDK_HIN"><p>&#39;win-gravity&#39; / &#39;GDK_HINT_WIN_GRAVITY&#39;</p></a>
+<li class="POD_ITEM"><a name="_user_pos_GDK_HINT_U"><p>&#39;user-pos&#39; / &#39;GDK_HINT_USER_POS&#39;</p></a>
+<li class="POD_ITEM"><a name="_user_size_GDK_HINT_"><p>&#39;user-size&#39; / &#39;GDK_HINT_USER_SIZE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_Gdk_Windo1">flags Gtk2::Gdk::WindowState</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_withdrawn_GDK_WINDO"><p>&#39;withdrawn&#39; / &#39;GDK_WINDOW_STATE_WITHDRAWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_iconified_GDK_WINDO"><p>&#39;iconified&#39; / &#39;GDK_WINDOW_STATE_ICONIFIED&#39;</p></a>
+<li class="POD_ITEM"><a name="_maximized_GDK_WINDO"><p>&#39;maximized&#39; / &#39;GDK_WINDOW_STATE_MAXIMIZED&#39;</p></a>
+<li class="POD_ITEM"><a name="_sticky_GDK_WINDOW_S"><p>&#39;sticky&#39; / &#39;GDK_WINDOW_STATE_STICKY&#39;</p></a>
+<li class="POD_ITEM"><a name="_fullscreen_GDK_WIND"><p>&#39;fullscreen&#39; / &#39;GDK_WINDOW_STATE_FULLSCREEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_above_GDK_WINDOW_ST"><p>&#39;above&#39; / &#39;GDK_WINDOW_STATE_ABOVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_below_GDK_WINDOW_ST"><p>&#39;below&#39; / &#39;GDK_WINDOW_STATE_BELOW&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Window1">enum Gtk2::Gdk::WindowType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_root_GDK_WINDOW_ROO"><p>&#39;root&#39; / &#39;GDK_WINDOW_ROOT&#39;</p></a>
+<li class="POD_ITEM"><a name="_toplevel_GDK_WINDOW"><p>&#39;toplevel&#39; / &#39;GDK_WINDOW_TOPLEVEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_child_GDK_WINDOW_CH"><p>&#39;child&#39; / &#39;GDK_WINDOW_CHILD&#39;</p></a>
+<li class="POD_ITEM"><a name="_dialog_GDK_WINDOW_D"><p>&#39;dialog&#39; / &#39;GDK_WINDOW_DIALOG&#39;</p></a>
+<li class="POD_ITEM"><a name="_temp_GDK_WINDOW_TEM"><p>&#39;temp&#39; / &#39;GDK_WINDOW_TEMP&#39;</p></a>
+<li class="POD_ITEM"><a name="_foreign_GDK_WINDOW_"><p>&#39;foreign&#39; / &#39;GDK_WINDOW_FOREIGN&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Gdk_Window2">enum Gtk2::Gdk::WindowTypeHint</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_normal_GDK_WINDOW_T"><p>&#39;normal&#39; / &#39;GDK_WINDOW_TYPE_HINT_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_dialog_GDK_WINDOW_T"><p>&#39;dialog&#39; / &#39;GDK_WINDOW_TYPE_HINT_DIALOG&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GDK_WINDOW_TYP"><p>&#39;menu&#39; / &#39;GDK_WINDOW_TYPE_HINT_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_toolbar_GDK_WINDOW_"><p>&#39;toolbar&#39; / &#39;GDK_WINDOW_TYPE_HINT_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_splashscreen_GDK_WI"><p>&#39;splashscreen&#39; / &#39;GDK_WINDOW_TYPE_HINT_SPLASHSCREEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_utility_GDK_WINDOW_"><p>&#39;utility&#39; / &#39;GDK_WINDOW_TYPE_HINT_UTILITY&#39;</p></a>
+<li class="POD_ITEM"><a name="_dock_GDK_WINDOW_TYP"><p>&#39;dock&#39; / &#39;GDK_WINDOW_TYPE_HINT_DOCK&#39;</p></a>
+<li class="POD_ITEM"><a name="_desktop_GDK_WINDOW_"><p>&#39;desktop&#39; / &#39;GDK_WINDOW_TYPE_HINT_DESKTOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_dropdown_menu_GDK_W"><p>&#39;dropdown-menu&#39; / &#39;GDK_WINDOW_TYPE_HINT_DROPDOWN_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_popup_menu_GDK_WIND"><p>&#39;popup-menu&#39; / &#39;GDK_WINDOW_TYPE_HINT_POPUP_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_tooltip_GDK_WINDOW_"><p>&#39;tooltip&#39; / &#39;GDK_WINDOW_TYPE_HINT_TOOLTIP&#39;</p></a>
+<li class="POD_ITEM"><a name="_notification_GDK_WI"><p>&#39;notification&#39; / &#39;GDK_WINDOW_TYPE_HINT_NOTIFICATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_combo_GDK_WINDOW_TY"><p>&#39;combo&#39; / &#39;GDK_WINDOW_TYPE_HINT_COMBO&#39;</p></a>
+<li class="POD_ITEM"><a name="_dnd_GDK_WINDOW_TYPE"><p>&#39;dnd&#39; / &#39;GDK_WINDOW_TYPE_HINT_DND&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../../Glib/Object.html">Glib::Object</a>, <a class="POD_LINK" href="../../Gtk2/Gdk/Drawable.html">Gtk2::Gdk::Drawable</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:02:07 2009
+</body>
+</html>
+

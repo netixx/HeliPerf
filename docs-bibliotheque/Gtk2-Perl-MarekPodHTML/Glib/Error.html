@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Glib::Error</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/Flags.html">Next:<br />Glib::Flags</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/devel.html">Previous:<br />Glib::devel</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Glib::Error</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#scalar_Glib_Error_ne">scalar = Glib::Error::new ($class, $code, $message)</a>
+<li><a class="POD_NAVLINK" href="#scalar_class_new_cod">scalar = $class-&gt;<b>new</b> ($code, $message)</a>
+<li><a class="POD_NAVLINK" href="#integer_error_code">integer = $error-&gt;<b>code</b></a>
+<li><a class="POD_NAVLINK" href="#string_error_domain">string = $error-&gt;<b>domain</b></a>
+<li><a class="POD_NAVLINK" href="#string_error_locatio">string = $error-&gt;<b>location</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_error_matche">boolean = $error-&gt;<b>matches</b> ($domain, $code)</a>
+<li><a class="POD_NAVLINK" href="#string_error_message">string = $error-&gt;<b>message</b></a>
+<li><a class="POD_NAVLINK" href="#Glib_Error_register_">Glib::Error::register ($package, $enum_package)</a>
+<li><a class="POD_NAVLINK" href="#scalar_Glib_Error_th">scalar = Glib::Error::throw ($class, $code, $message)</a>
+<li><a class="POD_NAVLINK" href="#scalar_class_throw_c">scalar = $class-&gt;<b>throw</b> ($code, $message)</a>
+<li><a class="POD_NAVLINK" href="#string_error_value">string = $error-&gt;<b>value</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Glib::Error -  Exception Objects based on GError
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  eval {
+     my $pixbuf = Gtk2::Gdk::Pixbuf-&gt;new_from_file ($filename);
+     $image-&gt;set_from_pixbuf ($pixbuf);
+  };
+  if ($@) {
+     print &quot;$@\n&quot;;
+     if (Glib::Error::matches ($@, &#39;Gtk2::Gdk::Pixbuf::Error&#39;,
+                                   &#39;unknown-format&#39;)) {
+        change_format_and_try_again ();
+     } elsif (Glib::Error::matches ($@, &#39;Glib::File::Error&#39;, &#39;noent&#39;)) {
+        change_source_dir_and_try_again ();
+     } else {
+        # don&#39;t know how to handle this
+        die $@;
+     }
+  }
+</pre>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+Gtk2-Perl translates GLib&#39;s GError runtime errors into Perl exceptions, by
+creating exception objects based on Glib::Error.  Glib::Error overloads the
+stringification operator, so a Glib::Error object will act like a string if
+used with print() or warn(), so most code using $@ will not even know the
+difference.
+</p>
+<p class="POD_TEXT">
+The point of having exception objects, however, is that the error messages
+in GErrors are often localized with NLS translation.  Thus, it&#39;s not good
+for your code to attempt to handle errors by string matching on the the 
+error message.  Glib::Error provides a way to get to the deterministic
+error code.
+</p>
+<p class="POD_TEXT">
+You will typically deal with objects that inherit from Glib::Error, such as
+Glib::Convert::Error, Glib::File::Error, Gtk2::Gdk::Pixbuf::Error, etc; these
+classes are provided by the libraries that define the error domains.  However,
+it is possible to get a base Glib::Error when the bindings encounter an unknown
+or unbound error domain.  The interface used here degrades nicely in such a
+situation, but in general you should submit a bug report to the binding
+maintainer if you get such an exception.
+</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="scalar_Glib_Error_ne">scalar = Glib::Error::new ($class, $code, $message)</a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_class_new_cod">scalar = $class-&gt;<b>new</b> ($code, $message)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_code_Glib_Enum_an_e"><p>$code (Glib::Enum) an enumeration value, depends on <i>$class</i></p></a>
+<li class="POD_ITEM"><a name="_message_string_"><p>$message (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Create a new exception object of type <i>$class</i>, where <i>$class</i> is associated
+with a GError domain.  <i>$code</i> should be a value from the enumeration type
+associated with this error domain.  <i>$message</i> can be anything you like, but
+should explain what happened from the point of view of a user.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="integer_error_code">integer = $error-&gt;<b>code</b></a></h3>
+<p></p>
+<p class="POD_TEXT">
+This is the numeric error code.  Normally, you&#39;ll want to use <code>value</code> instead,
+for readability.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="string_error_domain">string = $error-&gt;<b>domain</b></a></h3>
+<p></p>
+<p class="POD_TEXT">
+The error domain.  You normally do not need this, as the object will be blessed
+into a corresponding class.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="string_error_locatio">string = $error-&gt;<b>location</b></a></h3>
+<p></p>
+<p class="POD_TEXT">
+The source line and file closest to the emission of the exception, in the same
+format that you&#39;d get from croak() or die().
+</p>
+<p class="POD_TEXT">
+If there&#39;s non-ascii characters in the filename Perl leaves them as
+raw bytes, so you may have to put the string through
+Glib::filename_display_name for a wide-char form.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="boolean_error_matche">boolean = $error-&gt;<b>matches</b> ($domain, $code)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_"><p>$domain (string)</p></a>
+<li class="POD_ITEM"><a name="_code_scalar_"><p>$code (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns true if the exception in <i>$error</i> matches the given <i>$domain</i> and
+<i>$code</i>.  <i>$domain</i> may be a class name or domain quark (that is, the real
+string used in C).  <i>$code</i> may be an integer value or an enum nickname;
+the enum type depends on the value of <i>$domain</i>.
+</p>
+<h3 class="POD_HEAD2"><a name="string_error_message">string = $error-&gt;<b>message</b></a></h3>
+<p></p>
+<p class="POD_TEXT">
+The error message.  This may be localized, as it is intended to be shown to a
+user.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Glib_Error_register_">Glib::Error::register ($package, $enum_package)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_package_string_clas"><p>$package (string) class name to register as a Glib::Error.</p></a>
+<li class="POD_ITEM"><a name="_enum_package_string"><p>$enum_package (string) class name of the enum type to use for this domain&#39;s error codes.</p></a>
+</ul>
+<p class="POD_TEXT">
+Register a new error domain.  Glib::Error will be added @<i>package</i>::ISA for
+you.  <i>enum_package</i> must be a valid Glib::Enum type, either from a C library
+or registered with <code>Glib::Type::register_enum</code>.  After registering an
+error domain, you can create or throw exceptions of this type.
+</p>
+<h3 class="POD_HEAD2"><a name="scalar_Glib_Error_th">scalar = Glib::Error::throw ($class, $code, $message)</a></h3>
+<h3 class="POD_HEAD2"><a name="scalar_class_throw_c">scalar = $class-&gt;<b>throw</b> ($code, $message)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_code_Glib_Enum_an_e1"><p>$code (Glib::Enum) an enumeration value, depends on <i>$class</i></p></a>
+<li class="POD_ITEM"><a name="_message_string_1"><p>$message (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Throw an exception with a Glib::Error exception object.
+Equivalent to <code>croak (Glib::Error::new ($class, $code, $message));</code>.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="string_error_value">string = $error-&gt;<b>value</b></a></h3>
+<p></p>
+<p class="POD_TEXT">
+The enumeration value nickname of the integer value in <code>$error-&gt;code</code>, 
+according to this error domain.  This will not be available if the error
+object is a base Glib::Error, because the bindings will have no idea how to
+get to the correct nickname.
+</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Glib.html">Glib</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2009 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Glib.html">Glib</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:57:31 2009
+</body>
+</html>
+

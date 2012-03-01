@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Pango::AttrIterator</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Pango/AttrLanguage.html">Next:<br />Pango::AttrLanguage</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Pango/AttrInt.html">Previous:<br />Pango::AttrInt</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Pango::AttrIterator</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#list_iterator_get_at">list = $iterator-&gt;<b>get_attrs</b></a>
+<li><a class="POD_NAVLINK" href="#_desc_lang_extra_att">($desc, $lang, $extra_attrs) = $iterator-&gt;<b>get_font</b></a>
+<li><a class="POD_NAVLINK" href="#attribute_or_undef_i">attribute or undef = $iterator-&gt;<b>get</b> ($type)</a>
+<li><a class="POD_NAVLINK" href="#boolean_iterator_nex">boolean = $iterator-&gt;<b>next</b></a>
+<li><a class="POD_NAVLINK" href="#_start_end_iterator_">(start, end) = $iterator-&gt;<b>range</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Pango_AttrType">enum Pango::AttrType</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Pango::AttrIterator
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Boxed
+  +----Pango::AttrIterator
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="list_iterator_get_at">list = $iterator-&gt;<b>get_attrs</b></a></h3>
+<p class="POD_TEXT">
+Since: pango 1.2
+</p>
+<h3 class="POD_HEAD2"><a name="_desc_lang_extra_att">($desc, $lang, $extra_attrs) = $iterator-&gt;<b>get_font</b></a></h3>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="attribute_or_undef_i">attribute or undef = $iterator-&gt;<b>get</b> ($type)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_type_Pango_AttrType"><p>$type (Pango::AttrType)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_iterator_nex">boolean = $iterator-&gt;<b>next</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_start_end_iterator_">(start, end) = $iterator-&gt;<b>range</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Pango_AttrType">enum Pango::AttrType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_invalid_PANGO_ATTR_"><p>&#39;invalid&#39; / &#39;PANGO_ATTR_INVALID&#39;</p></a>
+<li class="POD_ITEM"><a name="_language_PANGO_ATTR"><p>&#39;language&#39; / &#39;PANGO_ATTR_LANGUAGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_family_PANGO_ATTR_F"><p>&#39;family&#39; / &#39;PANGO_ATTR_FAMILY&#39;</p></a>
+<li class="POD_ITEM"><a name="_style_PANGO_ATTR_ST"><p>&#39;style&#39; / &#39;PANGO_ATTR_STYLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_weight_PANGO_ATTR_W"><p>&#39;weight&#39; / &#39;PANGO_ATTR_WEIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_variant_PANGO_ATTR_"><p>&#39;variant&#39; / &#39;PANGO_ATTR_VARIANT&#39;</p></a>
+<li class="POD_ITEM"><a name="_stretch_PANGO_ATTR_"><p>&#39;stretch&#39; / &#39;PANGO_ATTR_STRETCH&#39;</p></a>
+<li class="POD_ITEM"><a name="_size_PANGO_ATTR_SIZ"><p>&#39;size&#39; / &#39;PANGO_ATTR_SIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_font_desc_PANGO_ATT"><p>&#39;font-desc&#39; / &#39;PANGO_ATTR_FONT_DESC&#39;</p></a>
+<li class="POD_ITEM"><a name="_foreground_PANGO_AT"><p>&#39;foreground&#39; / &#39;PANGO_ATTR_FOREGROUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_background_PANGO_AT"><p>&#39;background&#39; / &#39;PANGO_ATTR_BACKGROUND&#39;</p></a>
+<li class="POD_ITEM"><a name="_underline_PANGO_ATT"><p>&#39;underline&#39; / &#39;PANGO_ATTR_UNDERLINE&#39;</p></a>
+<li class="POD_ITEM"><a name="_strikethrough_PANGO"><p>&#39;strikethrough&#39; / &#39;PANGO_ATTR_STRIKETHROUGH&#39;</p></a>
+<li class="POD_ITEM"><a name="_rise_PANGO_ATTR_RIS"><p>&#39;rise&#39; / &#39;PANGO_ATTR_RISE&#39;</p></a>
+<li class="POD_ITEM"><a name="_shape_PANGO_ATTR_SH"><p>&#39;shape&#39; / &#39;PANGO_ATTR_SHAPE&#39;</p></a>
+<li class="POD_ITEM"><a name="_scale_PANGO_ATTR_SC"><p>&#39;scale&#39; / &#39;PANGO_ATTR_SCALE&#39;</p></a>
+<li class="POD_ITEM"><a name="_fallback_PANGO_ATTR"><p>&#39;fallback&#39; / &#39;PANGO_ATTR_FALLBACK&#39;</p></a>
+<li class="POD_ITEM"><a name="_letter_spacing_PANG"><p>&#39;letter-spacing&#39; / &#39;PANGO_ATTR_LETTER_SPACING&#39;</p></a>
+<li class="POD_ITEM"><a name="_underline_color_PAN"><p>&#39;underline-color&#39; / &#39;PANGO_ATTR_UNDERLINE_COLOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_strikethrough_color"><p>&#39;strikethrough-color&#39; / &#39;PANGO_ATTR_STRIKETHROUGH_COLOR&#39;</p></a>
+<li class="POD_ITEM"><a name="_absolute_size_PANGO"><p>&#39;absolute-size&#39; / &#39;PANGO_ATTR_ABSOLUTE_SIZE&#39;</p></a>
+<li class="POD_ITEM"><a name="_gravity_PANGO_ATTR_"><p>&#39;gravity&#39; / &#39;PANGO_ATTR_GRAVITY&#39;</p></a>
+<li class="POD_ITEM"><a name="_gravity_hint_PANGO_"><p>&#39;gravity-hint&#39; / &#39;PANGO_ATTR_GRAVITY_HINT&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Pango.html">Pango</a>, <a class="POD_LINK" href="../Glib/Boxed.html">Glib::Boxed</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2009 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Pango.html">Pango</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:04:54 2009
+</body>
+</html>
+

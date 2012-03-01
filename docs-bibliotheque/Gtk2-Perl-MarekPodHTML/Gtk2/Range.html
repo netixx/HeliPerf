@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Range</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Rc.html">Next:<br />Gtk2::Rc</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/RadioToolButton.html">Previous:<br />Gtk2::RadioToolButton</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Range</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#adjustment_range_get">adjustment = $range-&gt;<b>get_adjustment</b></a>
+<li><a class="POD_NAVLINK" href="#_range_set_adjustmen">$range-&gt;<b>set_adjustment</b> ($adjustment)</a>
+<li><a class="POD_NAVLINK" href="#double_range_get_fil">double = $range-&gt;<b>get_fill_level</b></a>
+<li><a class="POD_NAVLINK" href="#_range_set_fill_leve">$range-&gt;<b>set_fill_level</b> ($fill_level)</a>
+<li><a class="POD_NAVLINK" href="#_range_set_increment">$range-&gt;<b>set_increments</b> ($step, $page)</a>
+<li><a class="POD_NAVLINK" href="#boolean_range_get_in">boolean = $range-&gt;<b>get_inverted</b></a>
+<li><a class="POD_NAVLINK" href="#_range_set_inverted_">$range-&gt;<b>set_inverted</b> ($setting)</a>
+<li><a class="POD_NAVLINK" href="#sensitivitytype_rang">sensitivitytype = $range-&gt;<b>get_lower_stepper_sensitivity</b></a>
+<li><a class="POD_NAVLINK" href="#_range_set_lower_ste">$range-&gt;<b>set_lower_stepper_sensitivity</b> ($sensitivity)</a>
+<li><a class="POD_NAVLINK" href="#_range_set_range_min">$range-&gt;<b>set_range</b> ($min, $max)</a>
+<li><a class="POD_NAVLINK" href="#boolean_range_get_re">boolean = $range-&gt;<b>get_restrict_to_fill_level</b></a>
+<li><a class="POD_NAVLINK" href="#_range_set_restrict_">$range-&gt;<b>set_restrict_to_fill_level</b> ($restrict_to_fill_level)</a>
+<li><a class="POD_NAVLINK" href="#boolean_range_get_sh">boolean = $range-&gt;<b>get_show_fill_level</b></a>
+<li><a class="POD_NAVLINK" href="#_range_set_show_fill">$range-&gt;<b>set_show_fill_level</b> ($show_fill_level)</a>
+<li><a class="POD_NAVLINK" href="#updatetype_range_get">updatetype = $range-&gt;<b>get_update_policy</b></a>
+<li><a class="POD_NAVLINK" href="#_range_set_update_po">$range-&gt;<b>set_update_policy</b> ($policy)</a>
+<li><a class="POD_NAVLINK" href="#sensitivitytype_rang1">sensitivitytype = $range-&gt;<b>get_upper_stepper_sensitivity</b></a>
+<li><a class="POD_NAVLINK" href="#_range_set_upper_ste">$range-&gt;<b>set_upper_stepper_sensitivity</b> ($sensitivity)</a>
+<li><a class="POD_NAVLINK" href="#double_range_get_val">double = $range-&gt;<b>get_value</b></a>
+<li><a class="POD_NAVLINK" href="#_range_set_value_val">$range-&gt;<b>set_value</b> ($value)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ScrollType">enum Gtk2::ScrollType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Sensitivit">enum Gtk2::SensitivityType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_UpdateType">enum Gtk2::UpdateType</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Range
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Range
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="adjustment_range_get">adjustment = $range-&gt;<b>get_adjustment</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_range_set_adjustmen">$range-&gt;<b>set_adjustment</b> ($adjustment)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_adjustment_Gtk2_Adj"><p>$adjustment (Gtk2::Adjustment)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_range_get_fil">double = $range-&gt;<b>get_fill_level</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_range_set_fill_leve">$range-&gt;<b>set_fill_level</b> ($fill_level)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_fill_level_double_"><p>$fill_level (double)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_range_set_increment">$range-&gt;<b>set_increments</b> ($step, $page)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_step_double_"><p>$step (double)</p></a>
+<li class="POD_ITEM"><a name="_page_double_"><p>$page (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_range_get_in">boolean = $range-&gt;<b>get_inverted</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_range_set_inverted_">$range-&gt;<b>set_inverted</b> ($setting)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_setting_boolean_"><p>$setting (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="sensitivitytype_rang">sensitivitytype = $range-&gt;<b>get_lower_stepper_sensitivity</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="_range_set_lower_ste">$range-&gt;<b>set_lower_stepper_sensitivity</b> ($sensitivity)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_sensitivity_Gtk2_Se"><p>$sensitivity (Gtk2::SensitivityType)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="_range_set_range_min">$range-&gt;<b>set_range</b> ($min, $max)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_min_double_"><p>$min (double)</p></a>
+<li class="POD_ITEM"><a name="_max_double_"><p>$max (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_range_get_re">boolean = $range-&gt;<b>get_restrict_to_fill_level</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_range_set_restrict_">$range-&gt;<b>set_restrict_to_fill_level</b> ($restrict_to_fill_level)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_restrict_to_fill_le"><p>$restrict_to_fill_level (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_range_get_sh">boolean = $range-&gt;<b>get_show_fill_level</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_range_set_show_fill">$range-&gt;<b>set_show_fill_level</b> ($show_fill_level)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_show_fill_level_boo"><p>$show_fill_level (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="updatetype_range_get">updatetype = $range-&gt;<b>get_update_policy</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_range_set_update_po">$range-&gt;<b>set_update_policy</b> ($policy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_policy_Gtk2_UpdateT"><p>$policy (Gtk2::UpdateType)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="sensitivitytype_rang1">sensitivitytype = $range-&gt;<b>get_upper_stepper_sensitivity</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="_range_set_upper_ste">$range-&gt;<b>set_upper_stepper_sensitivity</b> ($sensitivity)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_sensitivity_Gtk2_Se1"><p>$sensitivity (Gtk2::SensitivityType)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.10
+</p>
+<h3 class="POD_HEAD2"><a name="double_range_get_val">double = $range-&gt;<b>get_value</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_range_set_value_val">$range-&gt;<b>set_value</b> ($value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_value_double_"><p>$value (double)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_adjustment_Gtk2_Adj1">&#39;adjustment&#39; (Gtk2::Adjustment : readable / writable / construct / private)</a>
+<dd>
+The GtkAdjustment that contains the current value of this range object
+<dt class="POD_ITEM"><a name="_fill_level_double_r">&#39;fill-level&#39; (double : readable / writable / private)</a>
+<dd>
+The fill level.
+<dt class="POD_ITEM"><a name="_inverted_boolean_re">&#39;inverted&#39; (boolean : readable / writable / private)</a>
+<dd>
+Invert direction slider moves to increase range value
+<dt class="POD_ITEM"><a name="_lower_stepper_sensi">&#39;lower-stepper-sensitivity&#39; (Gtk2::SensitivityType : readable / writable / private)</a>
+<dd>
+The sensitivity policy for the stepper that points to the adjustment&#39;s lower side
+<dt class="POD_ITEM"><a name="_restrict_to_fill_le1">&#39;restrict-to-fill-level&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether to restrict the upper boundary to the fill level.
+<dt class="POD_ITEM"><a name="_show_fill_level_boo1">&#39;show-fill-level&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether to display a fill level indicator graphics on trough.
+<dt class="POD_ITEM"><a name="_update_policy_Gtk2_">&#39;update-policy&#39; (Gtk2::UpdateType : readable / writable / private)</a>
+<dd>
+How the range should be updated on the screen
+<dt class="POD_ITEM"><a name="_upper_stepper_sensi">&#39;upper-stepper-sensitivity&#39; (Gtk2::SensitivityType : readable / writable / private)</a>
+<dd>
+The sensitivity policy for the stepper that points to the adjustment&#39;s upper side
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="value_changed_Gtk2_R"><b>value-changed</b> (Gtk2::Range)</a>
+<dt><a name="adjust_bounds_Gtk2_R"><b>adjust-bounds</b> (Gtk2::Range, double)</a>
+<dt><a name="move_slider_Gtk2_Ran"><b>move-slider</b> (Gtk2::Range, Gtk2::ScrollType)</a>
+<dt><a name="boolean_change_value">boolean = <b>change-value</b> (Gtk2::Range, Gtk2::ScrollType, double)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ScrollType">enum Gtk2::ScrollType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SCROLL_NON"><p>&#39;none&#39; / &#39;GTK_SCROLL_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_jump_GTK_SCROLL_JUM"><p>&#39;jump&#39; / &#39;GTK_SCROLL_JUMP&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_backward_GTK_S"><p>&#39;step-backward&#39; / &#39;GTK_SCROLL_STEP_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_forward_GTK_SC"><p>&#39;step-forward&#39; / &#39;GTK_SCROLL_STEP_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_backward_GTK_S"><p>&#39;page-backward&#39; / &#39;GTK_SCROLL_PAGE_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_forward_GTK_SC"><p>&#39;page-forward&#39; / &#39;GTK_SCROLL_PAGE_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_up_GTK_SCROLL_"><p>&#39;step-up&#39; / &#39;GTK_SCROLL_STEP_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_down_GTK_SCROL"><p>&#39;step-down&#39; / &#39;GTK_SCROLL_STEP_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_up_GTK_SCROLL_"><p>&#39;page-up&#39; / &#39;GTK_SCROLL_PAGE_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_down_GTK_SCROL"><p>&#39;page-down&#39; / &#39;GTK_SCROLL_PAGE_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_left_GTK_SCROL"><p>&#39;step-left&#39; / &#39;GTK_SCROLL_STEP_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_right_GTK_SCRO"><p>&#39;step-right&#39; / &#39;GTK_SCROLL_STEP_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_left_GTK_SCROL"><p>&#39;page-left&#39; / &#39;GTK_SCROLL_PAGE_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_right_GTK_SCRO"><p>&#39;page-right&#39; / &#39;GTK_SCROLL_PAGE_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_start_GTK_SCROLL_ST"><p>&#39;start&#39; / &#39;GTK_SCROLL_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_GTK_SCROLL_END_"><p>&#39;end&#39; / &#39;GTK_SCROLL_END&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Sensitivit">enum Gtk2::SensitivityType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_auto_GTK_SENSITIVIT"><p>&#39;auto&#39; / &#39;GTK_SENSITIVITY_AUTO&#39;</p></a>
+<li class="POD_ITEM"><a name="_on_GTK_SENSITIVITY_"><p>&#39;on&#39; / &#39;GTK_SENSITIVITY_ON&#39;</p></a>
+<li class="POD_ITEM"><a name="_off_GTK_SENSITIVITY"><p>&#39;off&#39; / &#39;GTK_SENSITIVITY_OFF&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_UpdateType">enum Gtk2::UpdateType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_continuous_GTK_UPDA"><p>&#39;continuous&#39; / &#39;GTK_UPDATE_CONTINUOUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_discontinuous_GTK_U"><p>&#39;discontinuous&#39; / &#39;GTK_UPDATE_DISCONTINUOUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_delayed_GTK_UPDATE_"><p>&#39;delayed&#39; / &#39;GTK_UPDATE_DELAYED&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:22 2009
+</body>
+</html>
+

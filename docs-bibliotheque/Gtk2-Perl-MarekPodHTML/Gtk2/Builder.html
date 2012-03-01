@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Builder</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Button.html">Next:<br />Gtk2::Button</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Buildable/ParseContext.html">Previous:<br />Gtk2::Buildable::ParseContext</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Builder</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#builder_Gtk2_Builder">builder = Gtk2::Builder-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#integer_builder_add_">integer = $builder-&gt;<b>add_from_file</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#integer_builder_add_1">integer = $builder-&gt;<b>add_from_string</b> ($buffer)</a>
+<li><a class="POD_NAVLINK" href="#_builder_connect_sig">$builder-&gt;<b>connect_signals</b> ($user_data)</a>
+<li><a class="POD_NAVLINK" href="#_builder_connect_sig1">$builder-&gt;<b>connect_signals</b> ($user_data, $package)</a>
+<li><a class="POD_NAVLINK" href="#_builder_connect_sig2">$builder-&gt;<b>connect_signals</b> ($user_data, %handlers)</a>
+<li><a class="POD_NAVLINK" href="#_builder_connect_sig7">$builder-&gt;<b>connect_signals_full</b> ($func, $user_data=undef)</a>
+<li><a class="POD_NAVLINK" href="#object_builder_get_o">object = $builder-&gt;<b>get_object</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#list_builder_get_obj">list = $builder-&gt;<b>get_objects</b></a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_buil">string or undef = $builder-&gt;<b>get_translation_domain</b></a>
+<li><a class="POD_NAVLINK" href="#_builder_set_transla">$builder-&gt;<b>set_translation_domain</b> ($domain)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Builder
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::Builder
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="builder_Gtk2_Builder">builder = Gtk2::Builder-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_builder_add_">integer = $builder-&gt;<b>add_from_file</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_localized_"><p>$filename (localized file name)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="integer_builder_add_1">integer = $builder-&gt;<b>add_from_string</b> ($buffer)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_buffer_string_"><p>$buffer (string)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<h3 class="POD_HEAD2"><a name="_builder_connect_sig">$builder-&gt;<b>connect_signals</b> ($user_data)</a></h3>
+<h3 class="POD_HEAD2"><a name="_builder_connect_sig1">$builder-&gt;<b>connect_signals</b> ($user_data, $package)</a></h3>
+<h3 class="POD_HEAD2"><a name="_builder_connect_sig2">$builder-&gt;<b>connect_signals</b> ($user_data, %handlers)</a></h3>
+<p></p>
+<p class="POD_TEXT">
+There are four ways to let Gtk2::Builder do the signal connecting work for you:
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_builder_connect_sig3"><code>$builder-&gt;connect_signals ($user_data)</code></a>
+<dd>
+When invoked like this, Gtk2::Builder will connect signals to functions in the
+calling package.  The callback names are specified in the UI description.
+<dt class="POD_ITEM"><a name="_builder_connect_sig4"><code>$builder-&gt;connect_signals ($user_data, $package)</code></a>
+<dd>
+When invoked like this, Gtk2::Builder will connect signals to functions in the
+package <i>$package</i>.
+<dt class="POD_ITEM"><a name="_builder_connect_sig5"><code>$builder-&gt;connect_signals ($user_data, $object)</code></a>
+<dd>
+When invoked like this, Gtk2::Builder will connect signals to method calls
+against the object $object.
+<dt class="POD_ITEM"><a name="_builder_connect_sig6"><code>$builder-&gt;connect_signals ($user_data, %handlers)</code></a>
+<dd>
+When invoked like this, <i>%handlers</i> is used as a mapping from handler names to
+code references.
+</dl>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_builder_connect_sig7">$builder-&gt;<b>connect_signals_full</b> ($func, $user_data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_user_data_scalar_"><p>$user_data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="object_builder_get_o">object = $builder-&gt;<b>get_object</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_builder_get_obj">list = $builder-&gt;<b>get_objects</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_or_undef_buil">string or undef = $builder-&gt;<b>get_translation_domain</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_builder_set_transla">$builder-&gt;<b>set_translation_domain</b> ($domain)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_domain_string_or_un"><p>$domain (string or undef)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_translation_domain_">&#39;translation-domain&#39; (string : readable / writable / private)</a>
+<dd>
+The translation domain used by gettext
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:34 2009
+</body>
+</html>
+

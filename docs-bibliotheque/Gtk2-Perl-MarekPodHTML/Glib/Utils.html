@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Glib::Utils</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/version.html">Next:<br />Glib::version</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/Type.html">Previous:<br />Glib::Type</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Glib::Utils</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#string_Glib_get_appl">string = Glib::get_application_name</a>
+<li><a class="POD_NAVLINK" href="#Glib_set_application">Glib::set_application_name ($application_name)</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_get_home">string = Glib::get_home_dir</a>
+<li><a class="POD_NAVLINK" href="#list_Glib_get_langua">list = Glib::get_language_names</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_get_real">string = Glib::get_real_name</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_strerror">string = Glib::strerror ($err)</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_strsigna">string = Glib::strsignal ($signum)</a>
+<li><a class="POD_NAVLINK" href="#list_Glib_get_system">list = Glib::get_system_config_dirs</a>
+<li><a class="POD_NAVLINK" href="#list_Glib_get_system1">list = Glib::get_system_data_dirs</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_get_tmp_">string = Glib::get_tmp_dir</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_get_user">string = Glib::get_user_cache_dir</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_get_user1">string = Glib::get_user_config_dir</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_get_user2">string = Glib::get_user_data_dir</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_get_user3">string = Glib::get_user_name</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_get_user4">string = Glib::get_user_special_dir ($directory)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Glib_UserDirect">enum Glib::UserDirectory</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Glib::Utils -  Miscellaneous utility functions
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  use Glib;
+  Glib::set_application_name (Glib::get_real_name.&quot;&#39;s Cool Program&quot;);
+
+  print &quot;app name is &quot;.Glib::get_application_name().&quot;\n&quot;;
+</pre>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+Here are some useful miscellaneous utilities.
+GLib is a portability library, providing portable utility functions for
+C programs.  As such, most of these functions seem to violate the Glib
+binding principle of not duplicating functionality that Perl already
+provides, but there&#39;s a distinction for each one, i swear.  The functions
+for dealing with user information are provided on all GLib-supported
+platforms, not just where POSIX (which provides similar information) is
+available, and even work on platforms where %ENV may not include the
+expected information.  Also, the &quot;application name&quot; referred to by
+(set|get)_application_name is a human readable name, distinct from the
+actual program name provided by Perl&#39;s own $0.
+</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="string_Glib_get_appl">string = Glib::get_application_name</a></h3>
+<p class="POD_TEXT">
+Get the human-readable application name set by <code>set_application_name</code>.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="Glib_set_application">Glib::set_application_name ($application_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_application_name_st"><p>$application_name (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Set the human-readable application name.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.2
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_get_home">string = Glib::get_home_dir</a></h3>
+<p class="POD_TEXT">
+Find the current user&#39;s home directory, by system-dependent/appropriate
+means.
+</p>
+<h3 class="POD_HEAD2"><a name="list_Glib_get_langua">list = Glib::get_language_names</a></h3>
+<p class="POD_TEXT">
+Computes a list of applicable locale names, which can be used to e.g. construct
+locale-dependent filenames or search paths. The returned list is sorted from
+most desirable to least desirable and always contains the default locale &quot;C&quot;.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_get_real">string = Glib::get_real_name</a></h3>
+<p class="POD_TEXT">
+Get the current user&#39;s real name.
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_strerror">string = Glib::strerror ($err)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_err_integer_"><p>$err (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Return a string describing the given errno value, like &quot;No such file
+or directory&quot; for ENOENT.  This is translated into the user&#39;s
+preferred language and is a utf8 wide-char string (unlike a $!
+string (<u>perlvar</u>) or POSIX::strerror (<u>POSIX</u>) which are locale
+codeset bytes).
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_strsigna">string = Glib::strsignal ($signum)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_signum_integer_"><p>$signum (integer)</p></a>
+</ul>
+<p class="POD_TEXT">
+Return a string describing the given signal number, like &quot;Segmentation
+violation&quot; for SIGSEGV.  This is translated into the user&#39;s preferred
+language and is a utf8 wide-char string.
+</p>
+<h3 class="POD_HEAD2"><a name="list_Glib_get_system">list = Glib::get_system_config_dirs</a></h3>
+<p class="POD_TEXT">
+Returns an ordered list of base directories in which to access system-wide
+configuration information.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="list_Glib_get_system1">list = Glib::get_system_data_dirs</a></h3>
+<p class="POD_TEXT">
+Returns an ordered list of base directories in which to access system-wide
+application data.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_get_tmp_">string = Glib::get_tmp_dir</a></h3>
+<p class="POD_TEXT">
+Get the temp dir as appropriate for the current system.  See the GLib docs
+for info on how it works.
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_get_user">string = Glib::get_user_cache_dir</a></h3>
+<p class="POD_TEXT">
+Gets the base directory in which to store non-essential, cached data specific
+to particular user.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_get_user1">string = Glib::get_user_config_dir</a></h3>
+<p class="POD_TEXT">
+Gets the base directory in which to store user-specific application
+configuration information such as user preferences and settings.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_get_user2">string = Glib::get_user_data_dir</a></h3>
+<p class="POD_TEXT">
+Get the base directory for application data such as icons that is customized
+for a particular user.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_get_user3">string = Glib::get_user_name</a></h3>
+<p class="POD_TEXT">
+Get the current user&#39;s name by whatever system-dependent means necessary.
+</p>
+<h3 class="POD_HEAD2"><a name="string_Glib_get_user4">string = Glib::get_user_special_dir ($directory)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_directory_Glib_User"><p>$directory (Glib::UserDirectory)</p></a>
+</ul>
+<p class="POD_TEXT">
+Returns the full path of a special directory using its logical id.
+</p>
+<p class="POD_TEXT">
+Since: glib 2.14
+</p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Glib_UserDirect">enum Glib::UserDirectory</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_desktop_G_USER_DIRE"><p>&#39;desktop&#39; / &#39;G_USER_DIRECTORY_DESKTOP&#39;</p></a>
+<li class="POD_ITEM"><a name="_documents_G_USER_DI"><p>&#39;documents&#39; / &#39;G_USER_DIRECTORY_DOCUMENTS&#39;</p></a>
+<li class="POD_ITEM"><a name="_download_G_USER_DIR"><p>&#39;download&#39; / &#39;G_USER_DIRECTORY_DOWNLOAD&#39;</p></a>
+<li class="POD_ITEM"><a name="_music_G_USER_DIRECT"><p>&#39;music&#39; / &#39;G_USER_DIRECTORY_MUSIC&#39;</p></a>
+<li class="POD_ITEM"><a name="_pictures_G_USER_DIR"><p>&#39;pictures&#39; / &#39;G_USER_DIRECTORY_PICTURES&#39;</p></a>
+<li class="POD_ITEM"><a name="_public_share_G_USER"><p>&#39;public-share&#39; / &#39;G_USER_DIRECTORY_PUBLIC_SHARE&#39;</p></a>
+<li class="POD_ITEM"><a name="_templates_G_USER_DI"><p>&#39;templates&#39; / &#39;G_USER_DIRECTORY_TEMPLATES&#39;</p></a>
+<li class="POD_ITEM"><a name="_videos_G_USER_DIREC"><p>&#39;videos&#39; / &#39;G_USER_DIRECTORY_VIDEOS&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Glib.html">Glib</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2009 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Glib.html">Glib</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:57:51 2009
+</body>
+</html>
+
