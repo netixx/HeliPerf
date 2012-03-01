@@ -1,1 +1,0 @@
-Représentations internes des données
