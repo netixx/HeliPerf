@@ -1,0 +1,1 @@
+Dans ce répertoire, tout ce qui est commun aux fenêtres Editeurs et principales
