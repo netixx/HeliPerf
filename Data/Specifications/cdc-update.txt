@@ -13,4 +13,17 @@ Il existe une base de donnée des pilotes (editable par le menu administration)
 
 Choix de l'hélico apres le clique sur les boutons d'administration qui touchent à un seul hélico
 
+lors du processus de création est rappelé en bas la masse de l'hélico correspondant à l'action effectuée:
+-si c'est la configuration de la config de base alors on note la masse à vide équipée par exemple
+
+Mise en place de la gestion du Fret (les charges)
+
+Correction de la version actuelle:
+-erreur lors de la création d'un nouvel hélico à partir de rien
+-changement d'hélico: gestion si choix identique d'hélico
+-possibilité de modifier la configuration d'un hélicoptère en le choisissant dans une liste
+-créer un carré pour les optionnels sans image (cairo)
+-définition des onglets : Profil | Optionnel | siege
+-possibilité de clique droit sur un siege pour ajouter un personnel (avec une liste déroulante)
+
 
