@@ -1,9 +1,16 @@
 package common::widgets::Onglets;
 =pod
-Ce module crée les onglets de matos équippable.
+Cette classe crée les onglets de matos équippable.
 
-init($notebook) : à l'issue, le module travaillera sur le GtkNoteBook donné en paramètre
-new($base) : Crée les onglets correspondant à la base de données $base (cf plus bas) 
+new($notebook) : à l'issue, l'objet travaillera sur le GtkNoteBook donné en paramètre
+#new($base) : Crée les onglets correspondant à la base de données $base (cf plus bas) 
+append_buttons_page($boutons, $nom) 
+clear : enlève tous les onglet
+append_categories($categories) : renvoie un tableau de tableau de boutons associés
+
+Méthode statique :
+	createButton($lbl) : renvoie un GtkButton avec le bon label et le bon tooltip en fction de TAILLE_MAX
+	
 =cut
 
 use strict;
@@ -31,6 +38,8 @@ sub get_notebook {
 }
 
 =pod
+!!! Commentaires pas à jour
+
 Pour créer les onglets, new attends en paramètre une référence vers un tableau d'objets catégorie présentant les méthodes
 $cat->titre : titre de la catégorie (nom de l'onglet)
 $cat->get_items : tableau des différents objets item
