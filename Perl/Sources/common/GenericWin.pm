@@ -22,7 +22,7 @@ sub init {
 	le texte entré et 1 si l'utilisateur appuie sur ok (ou enter)
 	(undef,0) sinon (annuler)
 @requires
-  administration::AdminWin::adminwin
+  administration::adminWin::Controller::adminwin
 =cut
 sub entreetext {
 	my $content = shift;
@@ -161,8 +161,7 @@ sub filechooser {
 =cut
 sub info {
     my $content = shift;
-	my $var = '';
-	$var = shift;
+	my $var = shift || '';
 #recuperation du titre et du message eventuel
 	my $titrewin = main::get_string([$content->[0][0],$content->[0][1]]);
 	my $titre = main::get_string([$content->[1][0],$content->[1][1]]);
