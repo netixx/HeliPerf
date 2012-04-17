@@ -1,6 +1,7 @@
-package administration::ajouterWin::AjouterAssistPage;
+#package administration::ajouterWin::AjouterAssistPage;
 
 use strict;
+use Data::Dumper;
 
 use utf8;
 
@@ -17,22 +18,10 @@ sub init {
 =cut
 sub intro_page {
   my $lab = Gtk2::Label->new("<big><b>\tBienvenue dans l'assistant 'ajout d'un hélicoptère</b></big>\n\tCliquez sur suivant pour continuer\n");#création du label
-	$lab->set_justify('center');#texte centré
+  $lab->set_justify('center');#texte centré
   $lab->set_line_wrap(1);#retour à la ligne possible
   $lab->set_use_markup(1);#marquage pango possible
-  my $oLabEdition = Gtk2::Label->new("Pour éditer un appareil éxistant, cliquez sur le bouton :");
-  $oLabEdition->set_justify('left');
-  $oLabEdition->set_line_wrap(1);
-  my $oBoutonEditer = Gtk2::Button->new_with_label("Édition d'un appareil");
-  $oBoutonEditer->signal_connect('clicked' => sub { administration::modifierWin::Controller::init() } );
-
-  my $box = Gtk2::VBox->new(0,2);
-  $box->pack_start($lab,1,0,1);
-  my $box2 = Gtk2::HBox->new(0,2);
-  $box2->pack_start($oLabEdition, 1, 0, 1);
-  $box2->pack_start($oBoutonEditer, 1, 0, 1);
-  $box->pack_start($box2, 1, 0, 1);
-  return $box;
+  return $lab;
 }
 =pod
 @description
@@ -99,20 +88,18 @@ sub nom_page {
   return ($vbox,$combo,$entry);
 }
 
+#page de confirmation
+sub confirm_page {
+  #label
+  my $lab = Gtk2::Label->new();
+  return $lab;
+}
+#page de résumé
+sub resume_page {
+  #label
+  my $lab = Gtk2::Label->new();
+  return $lab;
+}
 
-#
-##page de confirmation
-#sub confirm_page {
-#  #label
-#  my $lab = Gtk2::Label->new();
-#  return $lab;
-#}
-##page de résumé
-#sub resume_page {
-#  #label
-#  my $lab = Gtk2::Label->new();
-#  return $lab;
-#}
-#
 
 1;
