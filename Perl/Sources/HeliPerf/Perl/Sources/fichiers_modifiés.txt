@@ -1,4 +1,0 @@
-fichiersModif.pl
-administration/importWin/Import.pm
-administration/ajouterWin/AjouterAssist.pm
-check.pl

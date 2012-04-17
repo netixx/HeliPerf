@@ -1,1 +1,0 @@
-Tout ce qui est indépendant du projet

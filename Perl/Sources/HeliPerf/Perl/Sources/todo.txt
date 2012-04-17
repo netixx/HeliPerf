@@ -1,6 +1,0 @@
-mettre l'echelle sur le graphe
-rappeler les coordonnées du point sur le graphe
-
-Problemes et bugs
-editeur:
-on peut créer une regrouppement sans nom

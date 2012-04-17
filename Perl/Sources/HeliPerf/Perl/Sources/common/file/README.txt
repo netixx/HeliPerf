@@ -1,1 +1,0 @@
-Je mets dans ce répertoire tous les modules qui chargent un fichier .dat
