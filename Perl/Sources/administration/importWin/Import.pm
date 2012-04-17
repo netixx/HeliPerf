@@ -34,7 +34,7 @@ return
 	1 si tout c'est bien passé
 	0 sinon
 requires
-	administration::AdminWin
+	administration::adminWin::Controller
 =cut
 sub importer {
     my $path = undef;

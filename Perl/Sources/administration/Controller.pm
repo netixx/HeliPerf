@@ -3,8 +3,8 @@ package administration::Controller;
 use strict;
 use GenericWin;
 use ManageList;
-use administration::AdminWin;
-use administration::ajouterWin::SupprHeli;
+use administration::adminWin::Controller;
+use administration::supprWin::Controller;
 use administration::ajouterWin::AjouterAssist;
 use administration::exportWin::Export;
 use administration::importWin::Import;
@@ -18,7 +18,7 @@ my $base_dir = main::get_base_dir;
 generate_zipzip();
 
 sub admin {
-  my ($auth,$super) = administration::AdminWin::adminwin();
+  my ($auth,$super) = administration::adminWin::Controller::adminwin();
   if ( $auth && $super eq 'admin') {
     OpenandCloseWin::construct_and_display(administration::ControllerInit::MODULEADMINWIN_NAME);
     OpenandCloseWin::construct_and_hide(administration::ControllerInit::COURBESBUT_NAME);
@@ -31,7 +31,7 @@ sub admin {
 
 sub set_helidir_current {
   $heli_dir = shift;
-  administration::ajouterWin::SupprHeli::init($base_dir);
+  administration::supprWin::Controller::init($base_dir);
   administration::exportWin::Export::init($heli_dir,$base_dir);
   administration::importWin::Import::init($heli_dir,$base_dir);
 }
@@ -56,14 +56,14 @@ sub ajouter_helico {
   administration::ajouterWin::AjouterAssist::assist();
 }
 sub supprimer_helico_load {
-  administration::ajouterWin::SupprHeli::supprimer_helico_load();
+  administration::supprWin::Controller::supprimer_helico_load();
 }
 
 sub select_helico {
-  administration::ajouterWin::SupprHeli::select(shift);#transmission de l'id active
+  administration::supprWin::Controller::select(shift);#transmission de l'id active
 }
 sub supprimer_helico {
-  administration::ajouterWin::SupprHeli::supprimer_helico();
+  administration::supprWin::Controller::supprimer_helico();
 }
 sub edit_profil {
 	# 1 = true

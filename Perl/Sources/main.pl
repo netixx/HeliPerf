@@ -35,7 +35,7 @@ use aideWin::ControllerInit;
 use administration::ControllerInit;
 use administration::editWin::ControllerInit;
 use mainWin::ControllerInit;
-use heliChange::Controller;
+use changeWin::Controller;
 
 
 #my $strings = get_strings();

@@ -5,7 +5,6 @@ use utf8;
 use File::Spec;
 use IO::Uncompress::Unzip qw(unzip $UnzipError);
 
-use Data::Dumper;
 use administration::ajouterWin::AjouterAssistPage;
 
 my $listetypeheli;
@@ -57,19 +56,22 @@ sub assist {
   $asswin->set_page_type($nom_page,'content');
   $asswin->set_page_complete($nom_page,0);
 
-  #troisième page
-  $confirm_page = administration::ajouterWin::AjouterAssistPage::confirm_page();
-  $asswin->append_page($confirm_page);
-  $asswin->set_page_title($confirm_page,"Confirmation");
-  $asswin->set_page_type($confirm_page,'confirm');#page de confirmation
-  $asswin->set_page_complete($confirm_page,0);
 
-  #quatrième page
-  $resume_page = administration::ajouterWin::AjouterAssistPage::resume_page();
-  $asswin->append_page($resume_page);
-  $asswin->set_page_title($resume_page,"Résumé");
-  $asswin->set_page_type($resume_page,'summary');#resumé des actions effectuées
-  $asswin->set_page_complete($resume_page,0);
+  
+  #
+  ##troisième page
+  #$confirm_page = administration::ajouterWin::AjouterAssistPage::confirm_page();
+  #$asswin->append_page($confirm_page);
+  #$asswin->set_page_title($confirm_page,"Confirmation");
+  #$asswin->set_page_type($confirm_page,'confirm');#page de confirmation
+  #$asswin->set_page_complete($confirm_page,0);
+  #
+  ##quatrième page
+  #$resume_page = administration::ajouterWin::AjouterAssistPage::resume_page();
+  #$asswin->append_page($resume_page);
+  #$asswin->set_page_title($resume_page,"Résumé");
+  #$asswin->set_page_type($resume_page,'summary');#resumé des actions effectuées
+  #$asswin->set_page_complete($resume_page,0);
 
   $asswin->show_all();
 }
@@ -235,7 +237,7 @@ sub create_heli {
 	  }
 	}
 	my $typeheli = $heli->{type};#sauvegarde du type
-	$heli->{type} = $heli_type_dos;#on remplace pour l'extraction
+	$heli->{dossier} = $heli_type_dos;#on remplace pour l'extraction
 	if (!$import){
 	  $heli->{generic} = 1;
 	}
