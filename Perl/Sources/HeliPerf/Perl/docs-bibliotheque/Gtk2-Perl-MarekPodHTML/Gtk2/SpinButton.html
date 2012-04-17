@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::SpinButton</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Statusbar.html">Next:<br />Gtk2::Statusbar</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Socket.html">Previous:<br />Gtk2::Socket</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::SpinButton</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_SpinButt">widget = Gtk2::SpinButton-&gt;<b>new</b> ($adjustment, $climb_rate, $digits)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_SpinButt1">widget = Gtk2::SpinButton-&gt;<b>new_with_range</b> ($min, $max, $step)</a>
+<li><a class="POD_NAVLINK" href="#adjustment_spin_butt">adjustment = $spin_button-&gt;<b>get_adjustment</b></a>
+<li><a class="POD_NAVLINK" href="#_spin_button_set_adj">$spin_button-&gt;<b>set_adjustment</b> ($adjustment)</a>
+<li><a class="POD_NAVLINK" href="#_spin_button_configu">$spin_button-&gt;<b>configure</b> ($adjustment, $climb_rate, $digits)</a>
+<li><a class="POD_NAVLINK" href="#integer_spin_button_">integer = $spin_button-&gt;<b>get_digits</b></a>
+<li><a class="POD_NAVLINK" href="#_spin_button_set_dig">$spin_button-&gt;<b>set_digits</b> ($digits)</a>
+<li><a class="POD_NAVLINK" href="#_step_page_spin_butt">(step, page) = $spin_button-&gt;<b>get_increments</b></a>
+<li><a class="POD_NAVLINK" href="#_spin_button_set_inc">$spin_button-&gt;<b>set_increments</b> ($step, $page)</a>
+<li><a class="POD_NAVLINK" href="#boolean_spin_button_">boolean = $spin_button-&gt;<b>get_numeric</b></a>
+<li><a class="POD_NAVLINK" href="#_spin_button_set_num">$spin_button-&gt;<b>set_numeric</b> ($numeric)</a>
+<li><a class="POD_NAVLINK" href="#_min_max_spin_button">(min, max) = $spin_button-&gt;<b>get_range</b></a>
+<li><a class="POD_NAVLINK" href="#_spin_button_set_ran">$spin_button-&gt;<b>set_range</b> ($min, $max)</a>
+<li><a class="POD_NAVLINK" href="#boolean_spin_button_1">boolean = $spin_button-&gt;<b>get_snap_to_ticks</b></a>
+<li><a class="POD_NAVLINK" href="#_spin_button_set_sna">$spin_button-&gt;<b>set_snap_to_ticks</b> ($snap_to_ticks)</a>
+<li><a class="POD_NAVLINK" href="#_spin_button_spin_di">$spin_button-&gt;<b>spin</b> ($direction, $increment)</a>
+<li><a class="POD_NAVLINK" href="#_spin_button_update">$spin_button-&gt;<b>update</b></a>
+<li><a class="POD_NAVLINK" href="#spinbuttonupdatepoli">spinbuttonupdatepolicy = $spin_button-&gt;<b>get_update_policy</b></a>
+<li><a class="POD_NAVLINK" href="#_spin_button_set_upd">$spin_button-&gt;<b>set_update_policy</b> ($policy)</a>
+<li><a class="POD_NAVLINK" href="#integer_spin_button_1">integer = $spin_button-&gt;<b>get_value_as_int</b></a>
+<li><a class="POD_NAVLINK" href="#double_spin_button_g">double = $spin_button-&gt;<b>get_value</b></a>
+<li><a class="POD_NAVLINK" href="#_spin_button_set_val">$spin_button-&gt;<b>set_value</b> ($value)</a>
+<li><a class="POD_NAVLINK" href="#boolean_spin_button_2">boolean = $spin_button-&gt;<b>get_wrap</b></a>
+<li><a class="POD_NAVLINK" href="#_spin_button_set_wra">$spin_button-&gt;<b>set_wrap</b> ($wrap)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ScrollType">enum Gtk2::ScrollType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SpinButton">enum Gtk2::SpinButtonUpdatePolicy</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SpinType">enum Gtk2::SpinType</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::SpinButton
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Entry
+                      +----Gtk2::SpinButton
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+  Gtk2::CellEditable
+  Gtk2::Editable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_SpinButt">widget = Gtk2::SpinButton-&gt;<b>new</b> ($adjustment, $climb_rate, $digits)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_adjustment_Gtk2_Adj"><p>$adjustment (Gtk2::Adjustment)</p></a>
+<li class="POD_ITEM"><a name="_climb_rate_double_"><p>$climb_rate (double)</p></a>
+<li class="POD_ITEM"><a name="_digits_integer_"><p>$digits (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_SpinButt1">widget = Gtk2::SpinButton-&gt;<b>new_with_range</b> ($min, $max, $step)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_min_double_"><p>$min (double)</p></a>
+<li class="POD_ITEM"><a name="_max_double_"><p>$max (double)</p></a>
+<li class="POD_ITEM"><a name="_step_double_"><p>$step (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="adjustment_spin_butt">adjustment = $spin_button-&gt;<b>get_adjustment</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_spin_button_set_adj">$spin_button-&gt;<b>set_adjustment</b> ($adjustment)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_adjustment_Gtk2_Adj1"><p>$adjustment (Gtk2::Adjustment)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_spin_button_configu">$spin_button-&gt;<b>configure</b> ($adjustment, $climb_rate, $digits)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_adjustment_Gtk2_Adj2"><p>$adjustment (Gtk2::Adjustment)</p></a>
+<li class="POD_ITEM"><a name="_climb_rate_double_1"><p>$climb_rate (double)</p></a>
+<li class="POD_ITEM"><a name="_digits_integer_1"><p>$digits (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_spin_button_">integer = $spin_button-&gt;<b>get_digits</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_spin_button_set_dig">$spin_button-&gt;<b>set_digits</b> ($digits)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_digits_integer_2"><p>$digits (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_step_page_spin_butt">(step, page) = $spin_button-&gt;<b>get_increments</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_spin_button_set_inc">$spin_button-&gt;<b>set_increments</b> ($step, $page)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_step_double_1"><p>$step (double)</p></a>
+<li class="POD_ITEM"><a name="_page_double_"><p>$page (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_spin_button_">boolean = $spin_button-&gt;<b>get_numeric</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_spin_button_set_num">$spin_button-&gt;<b>set_numeric</b> ($numeric)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_numeric_boolean_"><p>$numeric (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_min_max_spin_button">(min, max) = $spin_button-&gt;<b>get_range</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_spin_button_set_ran">$spin_button-&gt;<b>set_range</b> ($min, $max)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_min_double_1"><p>$min (double)</p></a>
+<li class="POD_ITEM"><a name="_max_double_1"><p>$max (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_spin_button_1">boolean = $spin_button-&gt;<b>get_snap_to_ticks</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_spin_button_set_sna">$spin_button-&gt;<b>set_snap_to_ticks</b> ($snap_to_ticks)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_snap_to_ticks_boole"><p>$snap_to_ticks (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_spin_button_spin_di">$spin_button-&gt;<b>spin</b> ($direction, $increment)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_direction_Gtk2_Spin"><p>$direction (Gtk2::SpinType)</p></a>
+<li class="POD_ITEM"><a name="_increment_double_"><p>$increment (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_spin_button_update">$spin_button-&gt;<b>update</b></a></h3>
+<h3 class="POD_HEAD2"><a name="spinbuttonupdatepoli">spinbuttonupdatepolicy = $spin_button-&gt;<b>get_update_policy</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_spin_button_set_upd">$spin_button-&gt;<b>set_update_policy</b> ($policy)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_policy_Gtk2_SpinBut"><p>$policy (Gtk2::SpinButtonUpdatePolicy)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_spin_button_1">integer = $spin_button-&gt;<b>get_value_as_int</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_spin_button_g">double = $spin_button-&gt;<b>get_value</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_spin_button_set_val">$spin_button-&gt;<b>set_value</b> ($value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_value_double_"><p>$value (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_spin_button_2">boolean = $spin_button-&gt;<b>get_wrap</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_spin_button_set_wra">$spin_button-&gt;<b>set_wrap</b> ($wrap)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_wrap_boolean_"><p>$wrap (boolean)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_adjustment_Gtk2_Adj3">&#39;adjustment&#39; (Gtk2::Adjustment : readable / writable / private)</a>
+<dd>
+The adjustment that holds the value of the spinbutton
+<dt class="POD_ITEM"><a name="_climb_rate_double_r">&#39;climb-rate&#39; (double : readable / writable / private)</a>
+<dd>
+The acceleration rate when you hold down a button
+<dt class="POD_ITEM"><a name="_digits_Glib_UInt_re">&#39;digits&#39; (Glib::UInt : readable / writable / private)</a>
+<dd>
+The number of decimal places to display
+<dt class="POD_ITEM"><a name="_numeric_boolean_rea">&#39;numeric&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether non-numeric characters should be ignored
+<dt class="POD_ITEM"><a name="_snap_to_ticks_boole1">&#39;snap-to-ticks&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether erroneous values are automatically changed to a spin button&#39;s nearest step increment
+<dt class="POD_ITEM"><a name="_update_policy_Gtk2_">&#39;update-policy&#39; (Gtk2::SpinButtonUpdatePolicy : readable / writable / private)</a>
+<dd>
+Whether the spin button should update always, or only when the value is legal
+<dt class="POD_ITEM"><a name="_value_double_readab">&#39;value&#39; (double : readable / writable / private)</a>
+<dd>
+Reads the current value, or sets a new value
+<dt class="POD_ITEM"><a name="_wrap_boolean_readab">&#39;wrap&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether a spin button should wrap upon reaching its limits
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="value_changed_Gtk2_S"><b>value-changed</b> (Gtk2::SpinButton)</a>
+<dt><a name="change_value_Gtk2_Sp"><b>change-value</b> (Gtk2::SpinButton, Gtk2::ScrollType)</a>
+<dt><a name="integer_input_Gtk2_S">integer = <b>input</b> (Gtk2::SpinButton, gpointer)</a>
+<dt><a name="boolean_output_Gtk2_">boolean = <b>output</b> (Gtk2::SpinButton)</a>
+<dt><a name="wrapped_Gtk2_SpinBut"><b>wrapped</b> (Gtk2::SpinButton)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ScrollType">enum Gtk2::ScrollType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SCROLL_NON"><p>&#39;none&#39; / &#39;GTK_SCROLL_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_jump_GTK_SCROLL_JUM"><p>&#39;jump&#39; / &#39;GTK_SCROLL_JUMP&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_backward_GTK_S"><p>&#39;step-backward&#39; / &#39;GTK_SCROLL_STEP_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_forward_GTK_SC"><p>&#39;step-forward&#39; / &#39;GTK_SCROLL_STEP_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_backward_GTK_S"><p>&#39;page-backward&#39; / &#39;GTK_SCROLL_PAGE_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_forward_GTK_SC"><p>&#39;page-forward&#39; / &#39;GTK_SCROLL_PAGE_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_up_GTK_SCROLL_"><p>&#39;step-up&#39; / &#39;GTK_SCROLL_STEP_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_down_GTK_SCROL"><p>&#39;step-down&#39; / &#39;GTK_SCROLL_STEP_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_up_GTK_SCROLL_"><p>&#39;page-up&#39; / &#39;GTK_SCROLL_PAGE_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_down_GTK_SCROL"><p>&#39;page-down&#39; / &#39;GTK_SCROLL_PAGE_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_left_GTK_SCROL"><p>&#39;step-left&#39; / &#39;GTK_SCROLL_STEP_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_right_GTK_SCRO"><p>&#39;step-right&#39; / &#39;GTK_SCROLL_STEP_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_left_GTK_SCROL"><p>&#39;page-left&#39; / &#39;GTK_SCROLL_PAGE_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_right_GTK_SCRO"><p>&#39;page-right&#39; / &#39;GTK_SCROLL_PAGE_RIGHT&#39;</p></a>
+<li class="POD_ITEM"><a name="_start_GTK_SCROLL_ST"><p>&#39;start&#39; / &#39;GTK_SCROLL_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_GTK_SCROLL_END_"><p>&#39;end&#39; / &#39;GTK_SCROLL_END&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SpinButton">enum Gtk2::SpinButtonUpdatePolicy</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_always_GTK_UPDATE_A"><p>&#39;always&#39; / &#39;GTK_UPDATE_ALWAYS&#39;</p></a>
+<li class="POD_ITEM"><a name="_if_valid_GTK_UPDATE"><p>&#39;if-valid&#39; / &#39;GTK_UPDATE_IF_VALID&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SpinType">enum Gtk2::SpinType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_step_forward_GTK_SP"><p>&#39;step-forward&#39; / &#39;GTK_SPIN_STEP_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_backward_GTK_S1"><p>&#39;step-backward&#39; / &#39;GTK_SPIN_STEP_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_forward_GTK_SP"><p>&#39;page-forward&#39; / &#39;GTK_SPIN_PAGE_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_page_backward_GTK_S1"><p>&#39;page-backward&#39; / &#39;GTK_SPIN_PAGE_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_home_GTK_SPIN_HOME_"><p>&#39;home&#39; / &#39;GTK_SPIN_HOME&#39;</p></a>
+<li class="POD_ITEM"><a name="_end_GTK_SPIN_END_"><p>&#39;end&#39; / &#39;GTK_SPIN_END&#39;</p></a>
+<li class="POD_ITEM"><a name="_user_defined_GTK_SP"><p>&#39;user-defined&#39; / &#39;GTK_SPIN_USER_DEFINED&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Entry.html">Gtk2::Entry</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:41 2009
+</body>
+</html>
+

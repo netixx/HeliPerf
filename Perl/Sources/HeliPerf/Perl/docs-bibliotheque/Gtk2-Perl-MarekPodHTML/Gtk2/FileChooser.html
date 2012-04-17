@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::FileChooser</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/FileChooserButton.html">Next:<br />Gtk2::FileChooserButton</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Expander.html">Previous:<br />Gtk2::Expander</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::FileChooser</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#filechooseraction_ch">filechooseraction = $chooser-&gt;<b>get_action</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_action_">$chooser-&gt;<b>set_action</b> ($action)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_add_filter_">$chooser-&gt;<b>add_filter</b> ($filter)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_add_shortcu">$chooser-&gt;<b>add_shortcut_folder</b> ($folder)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_add_shortcu1">$chooser-&gt;<b>add_shortcut_folder_uri</b> ($folder)</a>
+<li><a class="POD_NAVLINK" href="#string_chooser_get_c">string = $chooser-&gt;<b>get_current_folder</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_set_">boolean = $chooser-&gt;<b>set_current_folder</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#string_chooser_get_c1">string = $chooser-&gt;<b>get_current_folder_uri</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_set_1">boolean = $chooser-&gt;<b>set_current_folder_uri</b> ($uri)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_current">$chooser-&gt;<b>set_current_name</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_get_">boolean = $chooser-&gt;<b>get_do_overwrite_confirmation</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_do_over">$chooser-&gt;<b>set_do_overwrite_confirmation</b> ($do_overwrite_confirmation)</a>
+<li><a class="POD_NAVLINK" href="#widget_chooser_get_e">widget = $chooser-&gt;<b>get_extra_widget</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_extra_w">$chooser-&gt;<b>set_extra_widget</b> ($extra_widget)</a>
+<li><a class="POD_NAVLINK" href="#string_chooser_get_f">string = $chooser-&gt;<b>get_filename</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_set_2">boolean = $chooser-&gt;<b>set_filename</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#list_chooser_get_fil">list = $chooser-&gt;<b>get_filenames</b></a>
+<li><a class="POD_NAVLINK" href="#filefilter_chooser_g">filefilter = $chooser-&gt;<b>get_filter</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_filter_">$chooser-&gt;<b>set_filter</b> ($filter)</a>
+<li><a class="POD_NAVLINK" href="#list_chooser_list_fi">list = $chooser-&gt;<b>list_filters</b></a>
+<li><a class="POD_NAVLINK" href="#list_chooser_list_sh">list = $chooser-&gt;<b>list_shortcut_folder_uris</b></a>
+<li><a class="POD_NAVLINK" href="#list_chooser_list_sh1">list = $chooser-&gt;<b>list_shortcut_folders</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_get_1">boolean = $chooser-&gt;<b>get_local_only</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_local_o">$chooser-&gt;<b>set_local_only</b> ($files_only)</a>
+<li><a class="POD_NAVLINK" href="#localized_file_name_">localized file name = $file_chooser-&gt;<b>get_preview_filename</b></a>
+<li><a class="POD_NAVLINK" href="#string_file_chooser_">string = $file_chooser-&gt;<b>get_preview_uri</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_get_2">boolean = $chooser-&gt;<b>get_preview_widget_active</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_preview">$chooser-&gt;<b>set_preview_widget_active</b> ($active)</a>
+<li><a class="POD_NAVLINK" href="#widget_chooser_get_p">widget = $chooser-&gt;<b>get_preview_widget</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_preview1">$chooser-&gt;<b>set_preview_widget</b> ($preview_widget)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_remove_filt">$chooser-&gt;<b>remove_filter</b> ($filter)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_remove_shor">$chooser-&gt;<b>remove_shortcut_folder</b> ($folder)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_remove_shor1">$chooser-&gt;<b>remove_shortcut_folder_uri</b> ($folder)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_select_all">$chooser-&gt;<b>select_all</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_sele">boolean = $chooser-&gt;<b>select_filename</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_get_3">boolean = $chooser-&gt;<b>get_select_multiple</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_select_">$chooser-&gt;<b>set_select_multiple</b> ($select_multiple)</a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_sele1">boolean = $chooser-&gt;<b>select_uri</b> ($uri)</a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_get_4">boolean = $chooser-&gt;<b>get_show_hidden</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_show_hi">$chooser-&gt;<b>set_show_hidden</b> ($show_hidden)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_unselect_al">$chooser-&gt;<b>unselect_all</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_unselect_fi">$chooser-&gt;<b>unselect_filename</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#_chooser_unselect_ur">$chooser-&gt;<b>unselect_uri</b> ($uri)</a>
+<li><a class="POD_NAVLINK" href="#string_chooser_get_u">string = $chooser-&gt;<b>get_uri</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_set_3">boolean = $chooser-&gt;<b>set_uri</b> ($uri)</a>
+<li><a class="POD_NAVLINK" href="#list_chooser_get_uri">list = $chooser-&gt;<b>get_uris</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_chooser_get_5">boolean = $chooser-&gt;<b>get_use_preview_label</b></a>
+<li><a class="POD_NAVLINK" href="#_chooser_set_use_pre">$chooser-&gt;<b>set_use_preview_label</b> ($use_label)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_FileChoose">enum Gtk2::FileChooserAction</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_FileChoose1">enum Gtk2::FileChooserError</a>
+<li><a class="POD_NAVLINK" href="#enum_GtkFileChooserC">enum GtkFileChooserConfirmation</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::FileChooser
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Interface
+  +----Gtk2::FileChooser
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="filechooseraction_ch">filechooseraction = $chooser-&gt;<b>get_action</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_chooser_set_action_">$chooser-&gt;<b>set_action</b> ($action)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_action_Gtk2_FileCho"><p>$action (Gtk2::FileChooserAction)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_chooser_add_filter_">$chooser-&gt;<b>add_filter</b> ($filter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filter_Gtk2_FileFil"><p>$filter (Gtk2::FileFilter)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_chooser_add_shortcu">$chooser-&gt;<b>add_shortcut_folder</b> ($folder)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_folder_string_"><p>$folder (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_chooser_add_shortcu1">$chooser-&gt;<b>add_shortcut_folder_uri</b> ($folder)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_folder_string_1"><p>$folder (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_chooser_get_c">string = $chooser-&gt;<b>get_current_folder</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_set_">boolean = $chooser-&gt;<b>set_current_folder</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_"><p>$filename (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_chooser_get_c1">string = $chooser-&gt;<b>get_current_folder_uri</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_set_1">boolean = $chooser-&gt;<b>set_current_folder_uri</b> ($uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_string_"><p>$uri (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_chooser_set_current">$chooser-&gt;<b>set_current_name</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_"><p>$name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_get_">boolean = $chooser-&gt;<b>get_do_overwrite_confirmation</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_chooser_set_do_over">$chooser-&gt;<b>set_do_overwrite_confirmation</b> ($do_overwrite_confirmation)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_do_overwrite_confir"><p>$do_overwrite_confirmation (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="widget_chooser_get_e">widget = $chooser-&gt;<b>get_extra_widget</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_chooser_set_extra_w">$chooser-&gt;<b>set_extra_widget</b> ($extra_widget)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_extra_widget_Gtk2_W"><p>$extra_widget (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_chooser_get_f">string = $chooser-&gt;<b>get_filename</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_set_2">boolean = $chooser-&gt;<b>set_filename</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_1"><p>$filename (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_chooser_get_fil">list = $chooser-&gt;<b>get_filenames</b></a></h3>
+<h3 class="POD_HEAD2"><a name="filefilter_chooser_g">filefilter = $chooser-&gt;<b>get_filter</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_chooser_set_filter_">$chooser-&gt;<b>set_filter</b> ($filter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filter_Gtk2_FileFil1"><p>$filter (Gtk2::FileFilter)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_chooser_list_fi">list = $chooser-&gt;<b>list_filters</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_chooser_list_sh">list = $chooser-&gt;<b>list_shortcut_folder_uris</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_chooser_list_sh1">list = $chooser-&gt;<b>list_shortcut_folders</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_get_1">boolean = $chooser-&gt;<b>get_local_only</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_chooser_set_local_o">$chooser-&gt;<b>set_local_only</b> ($files_only)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_files_only_boolean_"><p>$files_only (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="localized_file_name_">localized file name = $file_chooser-&gt;<b>get_preview_filename</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_file_chooser_">string = $file_chooser-&gt;<b>get_preview_uri</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_get_2">boolean = $chooser-&gt;<b>get_preview_widget_active</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_chooser_set_preview">$chooser-&gt;<b>set_preview_widget_active</b> ($active)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_active_boolean_"><p>$active (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_chooser_get_p">widget = $chooser-&gt;<b>get_preview_widget</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_chooser_set_preview1">$chooser-&gt;<b>set_preview_widget</b> ($preview_widget)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_preview_widget_Gtk2"><p>$preview_widget (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_chooser_remove_filt">$chooser-&gt;<b>remove_filter</b> ($filter)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filter_Gtk2_FileFil2"><p>$filter (Gtk2::FileFilter)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_chooser_remove_shor">$chooser-&gt;<b>remove_shortcut_folder</b> ($folder)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_folder_string_2"><p>$folder (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_chooser_remove_shor1">$chooser-&gt;<b>remove_shortcut_folder_uri</b> ($folder)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_folder_string_3"><p>$folder (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_chooser_select_all">$chooser-&gt;<b>select_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_sele">boolean = $chooser-&gt;<b>select_filename</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_2"><p>$filename (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_get_3">boolean = $chooser-&gt;<b>get_select_multiple</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_chooser_set_select_">$chooser-&gt;<b>set_select_multiple</b> ($select_multiple)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_select_multiple_boo"><p>$select_multiple (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_sele1">boolean = $chooser-&gt;<b>select_uri</b> ($uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_string_1"><p>$uri (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_get_4">boolean = $chooser-&gt;<b>get_show_hidden</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_chooser_set_show_hi">$chooser-&gt;<b>set_show_hidden</b> ($show_hidden)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_show_hidden_boolean"><p>$show_hidden (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="_chooser_unselect_al">$chooser-&gt;<b>unselect_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_chooser_unselect_fi">$chooser-&gt;<b>unselect_filename</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_3"><p>$filename (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_chooser_unselect_ur">$chooser-&gt;<b>unselect_uri</b> ($uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_string_2"><p>$uri (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_chooser_get_u">string = $chooser-&gt;<b>get_uri</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_set_3">boolean = $chooser-&gt;<b>set_uri</b> ($uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_uri_string_3"><p>$uri (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_chooser_get_uri">list = $chooser-&gt;<b>get_uris</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_chooser_get_5">boolean = $chooser-&gt;<b>get_use_preview_label</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_chooser_set_use_pre">$chooser-&gt;<b>set_use_preview_label</b> ($use_label)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_use_label_boolean_"><p>$use_label (boolean)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_action_Gtk2_FileCho1">&#39;action&#39; (Gtk2::FileChooserAction : readable / writable / private)</a>
+<dd>
+The type of operation that the file selector is performing
+<dt class="POD_ITEM"><a name="_do_overwrite_confir1">&#39;do-overwrite-confirmation&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether a file chooser in save mode will present an overwrite confirmation dialog if necessary.
+<dt class="POD_ITEM"><a name="_extra_widget_Gtk2_W1">&#39;extra-widget&#39; (Gtk2::Widget : readable / writable / private)</a>
+<dd>
+Application supplied widget for extra options.
+<dt class="POD_ITEM"><a name="_file_system_backend">&#39;file-system-backend&#39; (string : writable / construct-only / private)</a>
+<dd>
+Name of file system backend to use
+<dt class="POD_ITEM"><a name="_filter_Gtk2_FileFil3">&#39;filter&#39; (Gtk2::FileFilter : readable / writable / private)</a>
+<dd>
+The current filter for selecting which files are displayed
+<dt class="POD_ITEM"><a name="_local_only_boolean_">&#39;local-only&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the selected file(s) should be limited to local file: URLs
+<dt class="POD_ITEM"><a name="_preview_widget_Gtk21">&#39;preview-widget&#39; (Gtk2::Widget : readable / writable / private)</a>
+<dd>
+Application supplied widget for custom previews.
+<dt class="POD_ITEM"><a name="_preview_widget_acti">&#39;preview-widget-active&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the application supplied widget for custom previews should be shown.
+<dt class="POD_ITEM"><a name="_select_multiple_boo1">&#39;select-multiple&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether to allow multiple files to be selected
+<dt class="POD_ITEM"><a name="_show_hidden_boolean1">&#39;show-hidden&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the hidden files and folders should be displayed
+<dt class="POD_ITEM"><a name="_use_preview_label_b">&#39;use-preview-label&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether to display a stock label with the name of the previewed file.
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="selection_changed_Gt"><b>selection-changed</b> (Gtk2::FileChooser)</a>
+<dt><a name="current_folder_chang"><b>current-folder-changed</b> (Gtk2::FileChooser)</a>
+<dt><a name="update_preview_Gtk2_"><b>update-preview</b> (Gtk2::FileChooser)</a>
+<dt><a name="file_activated_Gtk2_"><b>file-activated</b> (Gtk2::FileChooser)</a>
+<dt><a name="GtkFileChooserConfir">GtkFileChooserConfirmation = <b>confirm-overwrite</b> (Gtk2::FileChooser)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_FileChoose">enum Gtk2::FileChooserAction</a></h3>
+<p></p>
+<p></p>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_open_GTK_FILE_CHOOS"><p>&#39;open&#39; / &#39;GTK_FILE_CHOOSER_ACTION_OPEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_save_GTK_FILE_CHOOS"><p>&#39;save&#39; / &#39;GTK_FILE_CHOOSER_ACTION_SAVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_select_folder_GTK_F"><p>&#39;select-folder&#39; / &#39;GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER&#39;</p></a>
+<li class="POD_ITEM"><a name="_create_folder_GTK_F"><p>&#39;create-folder&#39; / &#39;GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_FileChoose1">enum Gtk2::FileChooserError</a></h3>
+<p></p>
+<p></p>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_nonexistent_GTK_FIL"><p>&#39;nonexistent&#39; / &#39;GTK_FILE_CHOOSER_ERROR_NONEXISTENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_bad_filename_GTK_FI"><p>&#39;bad-filename&#39; / &#39;GTK_FILE_CHOOSER_ERROR_BAD_FILENAME&#39;</p></a>
+<li class="POD_ITEM"><a name="_already_exists_GTK_"><p>&#39;already-exists&#39; / &#39;GTK_FILE_CHOOSER_ERROR_ALREADY_EXISTS&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_GtkFileChooserC">enum GtkFileChooserConfirmation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_confirm_GTK_FILE_CH"><p>&#39;confirm&#39; / &#39;GTK_FILE_CHOOSER_CONFIRMATION_CONFIRM&#39;</p></a>
+<li class="POD_ITEM"><a name="_accept_filename_GTK"><p>&#39;accept-filename&#39; / &#39;GTK_FILE_CHOOSER_CONFIRMATION_ACCEPT_FILENAME&#39;</p></a>
+<li class="POD_ITEM"><a name="_select_again_GTK_FI"><p>&#39;select-again&#39; / &#39;GTK_FILE_CHOOSER_CONFIRMATION_SELECT_AGAIN&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <u>Glib::Interface</u>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:01:16 2009
+</body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::VFS::Mime</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/VFS/Mime/Application.html">Next:<br />Gnome2::VFS::Mime::Application</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/VFS/main.html">Previous:<br />Gnome2::VFS::main</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::VFS::Mime</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#boolean_Gnome2_VFS_M">boolean = Gnome2::VFS::Mime-&gt;<b>id_in_application_list</b> ($id, ...)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_VFS_Mime">list = Gnome2::VFS::Mime-&gt;<b>id_list_from_application_list</b> (...)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_VFS_ge">string = Gnome2::VFS-&gt;<b>get_mime_type_for_data</b> ($data)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_VFS_ge1">string = Gnome2::VFS-&gt;<b>get_mime_type_for_name_and_data</b> ($filename, $data)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_VFS_ge2">string = Gnome2::VFS-&gt;<b>get_mime_type_for_name</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_VFS_ge3">string = Gnome2::VFS-&gt;<b>get_mime_type</b> ($text_uri)</a>
+<li><a class="POD_NAVLINK" href="#list_Gnome2_VFS_Mime1">list = Gnome2::VFS::Mime-&gt;<b>remove_application_from_list</b> ($application_id, ...)</a>
+<li><a class="POD_NAVLINK" href="#string_Gnome2_VFS_ge4">string = Gnome2::VFS-&gt;<b>get_slow_mime_type</b> ($text_uri)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::VFS::Mime
+</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="boolean_Gnome2_VFS_M">boolean = Gnome2::VFS::Mime-&gt;<b>id_in_application_list</b> ($id, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_id_string_"><p>$id (string)</p></a>
+<li class="POD_ITEM"><a name="_list_of_GnomeVFSMim"><p>... (list) of GnomeVFSMimeApplication&#39;s</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_VFS_Mime">list = Gnome2::VFS::Mime-&gt;<b>id_list_from_application_list</b> (...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_of_GnomeVFSMim1"><p>... (list) of GnomeVFSMimeApplication&#39;s</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+Returns a list of application id&#39;s.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_VFS_ge">string = Gnome2::VFS-&gt;<b>get_mime_type_for_data</b> ($data)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_VFS_ge1">string = Gnome2::VFS-&gt;<b>get_mime_type_for_name_and_data</b> ($filename, $data)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_"><p>$filename (string)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_1"><p>$data (scalar)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vfs 2.14
+</p>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_VFS_ge2">string = Gnome2::VFS-&gt;<b>get_mime_type_for_name</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_1"><p>$filename (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vfs 2.14
+</p>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_VFS_ge3">string = Gnome2::VFS-&gt;<b>get_mime_type</b> ($text_uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_uri_string_"><p>$text_uri (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_Gnome2_VFS_Mime1">list = Gnome2::VFS::Mime-&gt;<b>remove_application_from_list</b> ($application_id, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_application_id_stri"><p>$application_id (string)</p></a>
+<li class="POD_ITEM"><a name="_list_of_GnomeVFSMim2"><p>... (list) of GnomeVFSMimeApplication&#39;s</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+Returns a boolean indicating whether anything was removed and the resulting
+list of GnomeVFSMimeApplication&#39;s.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="string_Gnome2_VFS_ge4">string = Gnome2::VFS-&gt;<b>get_slow_mime_type</b> ($text_uri)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_uri_string_1"><p>$text_uri (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: vfs 2.14
+</p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../../Gnome2/VFS.html">Gnome2::VFS</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2007 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gnome2/VFS.html">Gnome2::VFS</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:22 2009
+</body>
+</html>
+

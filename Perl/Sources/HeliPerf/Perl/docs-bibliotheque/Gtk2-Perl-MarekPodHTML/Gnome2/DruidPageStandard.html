@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::DruidPageStandard</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Entry.html">Next:<br />Gnome2::Entry</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/DruidPageEdge.html">Previous:<br />Gnome2::DruidPageEdge</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::DruidPageStandard</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_DruidP">widget = Gnome2::DruidPageStandard-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_DruidP1">widget = Gnome2::DruidPageStandard-&gt;<b>new_with_vals</b> ($title, $logo=undef, $top_watermark=undef)</a>
+<li><a class="POD_NAVLINK" href="#_druid_page_standard">$druid_page_standard-&gt;<b>append_item</b> ($question, $item, $additional_info)</a>
+<li><a class="POD_NAVLINK" href="#_druid_page_standard1">$druid_page_standard-&gt;<b>set_background</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_druid_page_standard2">$druid_page_standard-&gt;<b>set_contents_background</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_druid_page_standard3">$druid_page_standard-&gt;<b>set_logo_background</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_druid_page_standard4">$druid_page_standard-&gt;<b>set_logo</b> ($logo_image)</a>
+<li><a class="POD_NAVLINK" href="#_druid_page_standard5">$druid_page_standard-&gt;<b>set_title_foreground</b> ($color)</a>
+<li><a class="POD_NAVLINK" href="#_druid_page_standard6">$druid_page_standard-&gt;<b>set_title</b> ($title)</a>
+<li><a class="POD_NAVLINK" href="#_druid_page_standard7">$druid_page_standard-&gt;<b>set_top_watermark</b> ($top_watermark_image)</a>
+<li><a class="POD_NAVLINK" href="#widget_druid_page_st">widget = $druid_page_standard-&gt;<b>vbox</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::DruidPageStandard
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Bin
+                           +----Gnome2::DruidPage
+                                +----Gnome2::DruidPageStandard
+</pre>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_DruidP">widget = Gnome2::DruidPageStandard-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_DruidP1">widget = Gnome2::DruidPageStandard-&gt;<b>new_with_vals</b> ($title, $logo=undef, $top_watermark=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_title_string_"><p>$title (string)</p></a>
+<li class="POD_ITEM"><a name="_logo_Gtk2_Gdk_Pixbu"><p>$logo (Gtk2::Gdk::Pixbuf or undef)</p></a>
+<li class="POD_ITEM"><a name="_top_watermark_Gtk2_"><p>$top_watermark (Gtk2::Gdk::Pixbuf or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_druid_page_standard">$druid_page_standard-&gt;<b>append_item</b> ($question, $item, $additional_info)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_question_string_"><p>$question (string)</p></a>
+<li class="POD_ITEM"><a name="_item_Gtk2_Widget_"><p>$item (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_additional_info_str"><p>$additional_info (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_druid_page_standard1">$druid_page_standard-&gt;<b>set_background</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_druid_page_standard2">$druid_page_standard-&gt;<b>set_contents_background</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo1"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_druid_page_standard3">$druid_page_standard-&gt;<b>set_logo_background</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo2"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_druid_page_standard4">$druid_page_standard-&gt;<b>set_logo</b> ($logo_image)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_logo_image_Gtk2_Gdk"><p>$logo_image (Gtk2::Gdk::Pixbuf or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_druid_page_standard5">$druid_page_standard-&gt;<b>set_title_foreground</b> ($color)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_color_Gtk2_Gdk_Colo3"><p>$color (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_druid_page_standard6">$druid_page_standard-&gt;<b>set_title</b> ($title)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_title_string_1"><p>$title (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_druid_page_standard7">$druid_page_standard-&gt;<b>set_top_watermark</b> ($top_watermark_image)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_top_watermark_image"><p>$top_watermark_image (Gtk2::Gdk::Pixbuf or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_druid_page_st">widget = $druid_page_standard-&gt;<b>vbox</b></a></h3>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_background_string_w">&#39;background&#39; (string : writable)</a>
+<dd>
+Background color
+<dt class="POD_ITEM"><a name="_background_gdk_Gtk2">&#39;background-gdk&#39; (Gtk2::Gdk::Color : readable / writable)</a>
+<dd>
+Background color as a GdkColor
+<dt class="POD_ITEM"><a name="_background_set_bool">&#39;background-set&#39; (boolean : readable / writable)</a>
+<dd>
+Background color is set
+<dt class="POD_ITEM"><a name="_contents_background">&#39;contents-background&#39; (string : writable)</a>
+<dd>
+Contents Background color
+<dt class="POD_ITEM"><a name="_contents_background1">&#39;contents-background-gdk&#39; (Gtk2::Gdk::Color : readable / writable)</a>
+<dd>
+Contents Background color as a GdkColor
+<dt class="POD_ITEM"><a name="_contents_background2">&#39;contents-background-set&#39; (boolean : readable / writable)</a>
+<dd>
+Contents Background color is set
+<dt class="POD_ITEM"><a name="_logo_Gtk2_Gdk_Pixbu1">&#39;logo&#39; (Gtk2::Gdk::Pixbuf : readable / writable)</a>
+<dd>
+Logo image
+<dt class="POD_ITEM"><a name="_logo_background_str">&#39;logo-background&#39; (string : writable)</a>
+<dd>
+Logo Background color
+<dt class="POD_ITEM"><a name="_logo_background_gdk">&#39;logo-background-gdk&#39; (Gtk2::Gdk::Color : readable / writable)</a>
+<dd>
+Logo Background color as a GdkColor
+<dt class="POD_ITEM"><a name="_logo_background_set">&#39;logo-background-set&#39; (boolean : readable / writable)</a>
+<dd>
+Logo Background color is set
+<dt class="POD_ITEM"><a name="_title_string_readab">&#39;title&#39; (string : readable / writable)</a>
+<dd>
+Title of the druid
+<dt class="POD_ITEM"><a name="_title_foreground_st">&#39;title-foreground&#39; (string : writable)</a>
+<dd>
+Foreground color of the title
+<dt class="POD_ITEM"><a name="_title_foreground_gd">&#39;title-foreground-gdk&#39; (Gtk2::Gdk::Color : readable / writable)</a>
+<dd>
+Foreground color of the title as a GdkColor
+<dt class="POD_ITEM"><a name="_title_foreground_se">&#39;title-foreground-set&#39; (boolean : readable / writable)</a>
+<dd>
+Foreground color of the title is set
+<dt class="POD_ITEM"><a name="_top_watermark_Gtk2_1">&#39;top-watermark&#39; (Gtk2::Gdk::Pixbuf : readable / writable)</a>
+<dd>
+Watermark image for the top
+</dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Bin.html">Gtk2::Bin</a>, <a class="POD_LINK" href="../Gnome2/DruidPage.html">Gnome2::DruidPage</a>
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:22 2009
+</body>
+</html>
+

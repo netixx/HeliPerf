@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::FileChooserWidget</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/FileFilter.html">Next:<br />Gtk2::FileFilter</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/FileChooserDialog.html">Previous:<br />Gtk2::FileChooserDialog</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::FileChooserWidget</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_FileChoo">widget = Gtk2::FileChooserWidget-&gt;<b>new</b> ($action)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_FileChoo1">widget = Gtk2::FileChooserWidget-&gt;<b>new_with_backend</b> ($action, $backend)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_FileChoose">enum Gtk2::FileChooserAction</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::FileChooserWidget
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Box
+                           +----Gtk2::VBox
+                                +----Gtk2::FileChooserWidget
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+  Gtk2::FileChooser
+  Glib::Object::_Unregistered::GtkFileChooserEmbed
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_FileChoo">widget = Gtk2::FileChooserWidget-&gt;<b>new</b> ($action)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_action_Gtk2_FileCho"><p>$action (Gtk2::FileChooserAction)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_FileChoo1">widget = Gtk2::FileChooserWidget-&gt;<b>new_with_backend</b> ($action, $backend)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_action_Gtk2_FileCho1"><p>$action (Gtk2::FileChooserAction)</p></a>
+<li class="POD_ITEM"><a name="_backend_string_"><p>$backend (string)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_FileChoose">enum Gtk2::FileChooserAction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_open_GTK_FILE_CHOOS"><p>&#39;open&#39; / &#39;GTK_FILE_CHOOSER_ACTION_OPEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_save_GTK_FILE_CHOOS"><p>&#39;save&#39; / &#39;GTK_FILE_CHOOSER_ACTION_SAVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_select_folder_GTK_F"><p>&#39;select-folder&#39; / &#39;GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER&#39;</p></a>
+<li class="POD_ITEM"><a name="_create_folder_GTK_F"><p>&#39;create-folder&#39; / &#39;GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Box.html">Gtk2::Box</a>, <a class="POD_LINK" href="../Gtk2/VBox.html">Gtk2::VBox</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:01:19 2009
+</body>
+</html>
+

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Scores</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Sound.html">Next:<br />Gnome2::Sound</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/Score.html">Previous:<br />Gnome2::Score</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Scores</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_Scores">widget = Gnome2::Scores-&gt;<b>new</b> ($names, $scores, $times, $clear)</a>
+<li><a class="POD_NAVLINK" href="#_gs_set_color_n_col_">$gs-&gt;<b>set_color</b> ($n, $col)</a>
+<li><a class="POD_NAVLINK" href="#_gs_set_colors_col_">$gs-&gt;<b>set_colors</b> ($col)</a>
+<li><a class="POD_NAVLINK" href="#_gs_set_current_play">$gs-&gt;<b>set_current_player</b> ($i)</a>
+<li><a class="POD_NAVLINK" href="#_gs_set_def_color_co">$gs-&gt;<b>set_def_color</b> ($col)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_Scores1">widget = Gnome2::Scores-&gt;<b>display</b> ($title, $app_name, $level, $pos)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_Scores2">widget = Gnome2::Scores-&gt;<b>display_with_pixmap</b> ($pixmap_logo, $app_name, $level, $pos)</a>
+<li><a class="POD_NAVLINK" href="#_gs_set_logo_label_t">$gs-&gt;<b>set_logo_label</b> ($txt, $font, $col)</a>
+<li><a class="POD_NAVLINK" href="#_gs_set_logo_label_t1">$gs-&gt;<b>set_logo_label_title</b> ($txt)</a>
+<li><a class="POD_NAVLINK" href="#_gs_set_logo_pixmap_">$gs-&gt;<b>set_logo_pixmap</b> ($pix_name)</a>
+<li><a class="POD_NAVLINK" href="#_gs_set_logo_widget_">$gs-&gt;<b>set_logo_widget</b> ($w)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Scores
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Bin
+                           +----Gtk2::Window
+                                +----Gtk2::Dialog
+                                     +----Gnome2::Scores
+</pre>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_Scores">widget = Gnome2::Scores-&gt;<b>new</b> ($names, $scores, $times, $clear)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_names_scalar_refere"><p>$names (scalar) - reference to an array</p></a>
+<li class="POD_ITEM"><a name="_scores_scalar_refer"><p>$scores (scalar) - reference to an array</p></a>
+<li class="POD_ITEM"><a name="_times_scalar_refere"><p>$times (scalar) - reference to an array</p></a>
+<li class="POD_ITEM"><a name="_clear_boolean_"><p>$clear (boolean)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_gs_set_color_n_col_">$gs-&gt;<b>set_color</b> ($n, $col)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_n_integer_"><p>$n (integer)</p></a>
+<li class="POD_ITEM"><a name="_col_Gtk2_Gdk_Color_"><p>$col (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gs_set_colors_col_">$gs-&gt;<b>set_colors</b> ($col)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_col_Gtk2_Gdk_Color_1"><p>$col (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gs_set_current_play">$gs-&gt;<b>set_current_player</b> ($i)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_i_integer_"><p>$i (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gs_set_def_color_co">$gs-&gt;<b>set_def_color</b> ($col)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_col_Gtk2_Gdk_Color_2"><p>$col (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_Scores1">widget = Gnome2::Scores-&gt;<b>display</b> ($title, $app_name, $level, $pos)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_title_string_"><p>$title (string)</p></a>
+<li class="POD_ITEM"><a name="_app_name_string_"><p>$app_name (string)</p></a>
+<li class="POD_ITEM"><a name="_level_string_"><p>$level (string)</p></a>
+<li class="POD_ITEM"><a name="_pos_integer_"><p>$pos (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_Scores2">widget = Gnome2::Scores-&gt;<b>display_with_pixmap</b> ($pixmap_logo, $app_name, $level, $pos)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixmap_logo_string_"><p>$pixmap_logo (string)</p></a>
+<li class="POD_ITEM"><a name="_app_name_string_1"><p>$app_name (string)</p></a>
+<li class="POD_ITEM"><a name="_level_string_1"><p>$level (string)</p></a>
+<li class="POD_ITEM"><a name="_pos_integer_1"><p>$pos (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gs_set_logo_label_t">$gs-&gt;<b>set_logo_label</b> ($txt, $font, $col)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_txt_string_"><p>$txt (string)</p></a>
+<li class="POD_ITEM"><a name="_font_string_"><p>$font (string)</p></a>
+<li class="POD_ITEM"><a name="_col_Gtk2_Gdk_Color_3"><p>$col (Gtk2::Gdk::Color)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gs_set_logo_label_t1">$gs-&gt;<b>set_logo_label_title</b> ($txt)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_txt_string_1"><p>$txt (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gs_set_logo_pixmap_">$gs-&gt;<b>set_logo_pixmap</b> ($pix_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pix_name_string_"><p>$pix_name (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gs_set_logo_widget_">$gs-&gt;<b>set_logo_widget</b> ($w)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_w_Gtk2_Widget_"><p>$w (Gtk2::Widget)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Bin.html">Gtk2::Bin</a>, <a class="POD_LINK" href="../Gtk2/Window.html">Gtk2::Window</a>, <a class="POD_LINK" href="../Gtk2/Dialog.html">Gtk2::Dialog</a>
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:04 2009
+</body>
+</html>
+

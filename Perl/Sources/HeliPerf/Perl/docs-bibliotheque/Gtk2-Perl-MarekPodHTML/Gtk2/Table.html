@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Table</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/TargetEntry.html">Next:<br />Gtk2::TargetEntry</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Style.html">Previous:<br />Gtk2::Style</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Table</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_Table_ne">widget = Gtk2::Table-&gt;<b>new</b> ($rows, $columns, $homogeneous=FALSE)</a>
+<li><a class="POD_NAVLINK" href="#_table_attach_child_">$table-&gt;<b>attach</b> ($child, $left_attach, $right_attach, $top_attach, $bottom_attach, $xoptions, $yoptions, $xpadding, $ypadding)</a>
+<li><a class="POD_NAVLINK" href="#_table_attach_defaul">$table-&gt;<b>attach_defaults</b> ($widget, $left_attach, $right_attach, $top_attach, $bottom_attach)</a>
+<li><a class="POD_NAVLINK" href="#integer_table_get_co">integer = $table-&gt;<b>get_col_spacing</b> ($column)</a>
+<li><a class="POD_NAVLINK" href="#_table_set_col_spaci">$table-&gt;<b>set_col_spacing</b> ($column, $spacing)</a>
+<li><a class="POD_NAVLINK" href="#_table_set_col_spaci1">$table-&gt;<b>set_col_spacings</b> ($spacing)</a>
+<li><a class="POD_NAVLINK" href="#integer_table_get_de">integer = $table-&gt;<b>get_default_col_spacing</b></a>
+<li><a class="POD_NAVLINK" href="#integer_table_get_de1">integer = $table-&gt;<b>get_default_row_spacing</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_table_get_ho">boolean = $table-&gt;<b>get_homogeneous</b></a>
+<li><a class="POD_NAVLINK" href="#_table_set_homogeneo">$table-&gt;<b>set_homogeneous</b> ($homogeneous)</a>
+<li><a class="POD_NAVLINK" href="#_table_resize_rows_c">$table-&gt;<b>resize</b> ($rows, $columns)</a>
+<li><a class="POD_NAVLINK" href="#integer_table_get_ro">integer = $table-&gt;<b>get_row_spacing</b> ($row)</a>
+<li><a class="POD_NAVLINK" href="#_table_set_row_spaci">$table-&gt;<b>set_row_spacing</b> ($row, $spacing)</a>
+<li><a class="POD_NAVLINK" href="#_table_set_row_spaci1">$table-&gt;<b>set_row_spacings</b> ($spacing)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#flags_Gtk2_AttachOpt">flags Gtk2::AttachOptions</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Table
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Table
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_Table_ne">widget = Gtk2::Table-&gt;<b>new</b> ($rows, $columns, $homogeneous=FALSE)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rows_integer_"><p>$rows (integer)</p></a>
+<li class="POD_ITEM"><a name="_columns_integer_"><p>$columns (integer)</p></a>
+<li class="POD_ITEM"><a name="_homogeneous_boolean"><p>$homogeneous (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_table_attach_child_">$table-&gt;<b>attach</b> ($child, $left_attach, $right_attach, $top_attach, $bottom_attach, $xoptions, $yoptions, $xpadding, $ypadding)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_child_Gtk2_Widget_"><p>$child (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_left_attach_integer"><p>$left_attach (integer)</p></a>
+<li class="POD_ITEM"><a name="_right_attach_intege"><p>$right_attach (integer)</p></a>
+<li class="POD_ITEM"><a name="_top_attach_integer_"><p>$top_attach (integer)</p></a>
+<li class="POD_ITEM"><a name="_bottom_attach_integ"><p>$bottom_attach (integer)</p></a>
+<li class="POD_ITEM"><a name="_xoptions_Gtk2_Attac"><p>$xoptions (Gtk2::AttachOptions)</p></a>
+<li class="POD_ITEM"><a name="_yoptions_Gtk2_Attac"><p>$yoptions (Gtk2::AttachOptions)</p></a>
+<li class="POD_ITEM"><a name="_xpadding_integer_"><p>$xpadding (integer)</p></a>
+<li class="POD_ITEM"><a name="_ypadding_integer_"><p>$ypadding (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_table_attach_defaul">$table-&gt;<b>attach_defaults</b> ($widget, $left_attach, $right_attach, $top_attach, $bottom_attach)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_widget_Gtk2_Widget_"><p>$widget (Gtk2::Widget)</p></a>
+<li class="POD_ITEM"><a name="_left_attach_integer1"><p>$left_attach (integer)</p></a>
+<li class="POD_ITEM"><a name="_right_attach_intege1"><p>$right_attach (integer)</p></a>
+<li class="POD_ITEM"><a name="_top_attach_integer_1"><p>$top_attach (integer)</p></a>
+<li class="POD_ITEM"><a name="_bottom_attach_integ1"><p>$bottom_attach (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_table_get_co">integer = $table-&gt;<b>get_col_spacing</b> ($column)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_column_integer_"><p>$column (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_table_set_col_spaci">$table-&gt;<b>set_col_spacing</b> ($column, $spacing)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_column_integer_1"><p>$column (integer)</p></a>
+<li class="POD_ITEM"><a name="_spacing_integer_"><p>$spacing (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_table_set_col_spaci1">$table-&gt;<b>set_col_spacings</b> ($spacing)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_spacing_integer_1"><p>$spacing (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_table_get_de">integer = $table-&gt;<b>get_default_col_spacing</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_table_get_de1">integer = $table-&gt;<b>get_default_row_spacing</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_table_get_ho">boolean = $table-&gt;<b>get_homogeneous</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_table_set_homogeneo">$table-&gt;<b>set_homogeneous</b> ($homogeneous)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_homogeneous_boolean1"><p>$homogeneous (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_table_resize_rows_c">$table-&gt;<b>resize</b> ($rows, $columns)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_rows_integer_1"><p>$rows (integer)</p></a>
+<li class="POD_ITEM"><a name="_columns_integer_1"><p>$columns (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_table_get_ro">integer = $table-&gt;<b>get_row_spacing</b> ($row)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_row_integer_"><p>$row (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_table_set_row_spaci">$table-&gt;<b>set_row_spacing</b> ($row, $spacing)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_row_integer_1"><p>$row (integer)</p></a>
+<li class="POD_ITEM"><a name="_spacing_integer_2"><p>$spacing (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_table_set_row_spaci1">$table-&gt;<b>set_row_spacings</b> ($spacing)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_spacing_integer_3"><p>$spacing (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_column_spacing_Glib">&#39;column-spacing&#39; (Glib::UInt : readable / writable / private)</a>
+<dd>
+The amount of space between two consecutive columns
+<dt class="POD_ITEM"><a name="_homogeneous_boolean2">&#39;homogeneous&#39; (boolean : readable / writable / private)</a>
+<dd>
+If TRUE, the table cells are all the same width/height
+<dt class="POD_ITEM"><a name="_n_columns_Glib_UInt">&#39;n-columns&#39; (Glib::UInt : readable / writable / private)</a>
+<dd>
+The number of columns in the table
+<dt class="POD_ITEM"><a name="_n_rows_Glib_UInt_re">&#39;n-rows&#39; (Glib::UInt : readable / writable / private)</a>
+<dd>
+The number of rows in the table
+<dt class="POD_ITEM"><a name="_row_spacing_Glib_UI">&#39;row-spacing&#39; (Glib::UInt : readable / writable / private)</a>
+<dd>
+The amount of space between two consecutive rows
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="flags_Gtk2_AttachOpt">flags Gtk2::AttachOptions</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_expand_GTK_EXPAND_"><p>&#39;expand&#39; / &#39;GTK_EXPAND&#39;</p></a>
+<li class="POD_ITEM"><a name="_shrink_GTK_SHRINK_"><p>&#39;shrink&#39; / &#39;GTK_SHRINK&#39;</p></a>
+<li class="POD_ITEM"><a name="_fill_GTK_FILL_"><p>&#39;fill&#39; / &#39;GTK_FILL&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:50 2009
+</body>
+</html>
+

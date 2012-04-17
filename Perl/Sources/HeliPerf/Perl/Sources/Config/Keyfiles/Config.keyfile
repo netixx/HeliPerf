@@ -1,0 +1,26 @@
+#les types d'hélicos de l'application
+
+[typehelicos]
+EC 135=EC135
+EC 145=EC145
+AS 350 BA=AS350BA
+AS 350 B1=AS350B1
+AS 350 B2=AS350B2
+
+#la liste des hélicos de l'application
+[helicos]
+2014=EC 135
+2031=EC 145
+5392=AS 350 BA
+
+2321=AS 350 B1
+
+22809=AS 350 B1
+
+9999=EC 145
+
+1231=AS 350 BA
+
+[mdp]
+admin=86f7e437faa5a7fce15d1ddcb9eaeaea377667b8
+super=6c80db3d2911af587bca8ddb4eac7787b37d4d29

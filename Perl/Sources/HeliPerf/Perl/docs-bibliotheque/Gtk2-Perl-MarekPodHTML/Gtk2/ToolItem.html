@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::ToolItem</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Tooltip.html">Next:<br />Gtk2::Tooltip</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ToolButton.html">Previous:<br />Gtk2::ToolButton</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::ToolItem</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#toolitem_Gtk2_ToolIt">toolitem = Gtk2::ToolItem-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_tool_item_ge">boolean = $tool_item-&gt;<b>get_expand</b></a>
+<li><a class="POD_NAVLINK" href="#_tool_item_set_expan">$tool_item-&gt;<b>set_expand</b> ($expand)</a>
+<li><a class="POD_NAVLINK" href="#boolean_tool_item_ge1">boolean = $tool_item-&gt;<b>get_homogeneous</b></a>
+<li><a class="POD_NAVLINK" href="#_tool_item_set_homog">$tool_item-&gt;<b>set_homogeneous</b> ($homogeneous)</a>
+<li><a class="POD_NAVLINK" href="#iconsize_tool_item_g">iconsize = $tool_item-&gt;<b>get_icon_size</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_tool_item_ge2">boolean = $tool_item-&gt;<b>get_is_important</b></a>
+<li><a class="POD_NAVLINK" href="#_tool_item_set_is_im">$tool_item-&gt;<b>set_is_important</b> ($is_important)</a>
+<li><a class="POD_NAVLINK" href="#orientation_tool_ite">orientation = $tool_item-&gt;<b>get_orientation</b></a>
+<li><a class="POD_NAVLINK" href="#widget_tool_item_get">widget = $tool_item-&gt;<b>get_proxy_menu_item</b> ($menu_item_id)</a>
+<li><a class="POD_NAVLINK" href="#_tool_item_set_proxy">$tool_item-&gt;<b>set_proxy_menu_item</b> ($menu_item_id, $menu_item)</a>
+<li><a class="POD_NAVLINK" href="#_tool_item_rebuild_m">$tool_item-&gt;<b>rebuild_menu</b></a>
+<li><a class="POD_NAVLINK" href="#reliefstyle_tool_ite">reliefstyle = $tool_item-&gt;<b>get_relief_style</b></a>
+<li><a class="POD_NAVLINK" href="#widget_tool_item_ret">widget = $tool_item-&gt;<b>retrieve_proxy_menu_item</b></a>
+<li><a class="POD_NAVLINK" href="#toolbarstyle_tool_it">toolbarstyle = $tool_item-&gt;<b>get_toolbar_style</b></a>
+<li><a class="POD_NAVLINK" href="#_tool_item_set_toolt">$tool_item-&gt;<b>set_tooltip_markup</b> ($markup)</a>
+<li><a class="POD_NAVLINK" href="#_tool_item_set_toolt1">$tool_item-&gt;<b>set_tooltip</b> ($tooltips, $tip_text, $tip_private)</a>
+<li><a class="POD_NAVLINK" href="#_tool_item_set_toolt2">$tool_item-&gt;<b>set_tooltip_text</b> ($text)</a>
+<li><a class="POD_NAVLINK" href="#boolean_toolitem_get">boolean = $toolitem-&gt;<b>get_use_drag_window</b></a>
+<li><a class="POD_NAVLINK" href="#_toolitem_set_use_dr">$toolitem-&gt;<b>set_use_drag_window</b> ($use_drag_window)</a>
+<li><a class="POD_NAVLINK" href="#boolean_toolitem_get1">boolean = $toolitem-&gt;<b>get_visible_horizontal</b></a>
+<li><a class="POD_NAVLINK" href="#_toolitem_set_visibl">$toolitem-&gt;<b>set_visible_horizontal</b> ($visible_horizontal)</a>
+<li><a class="POD_NAVLINK" href="#boolean_toolitem_get2">boolean = $toolitem-&gt;<b>get_visible_vertical</b></a>
+<li><a class="POD_NAVLINK" href="#_toolitem_set_visibl1">$toolitem-&gt;<b>set_visible_vertical</b> ($visible_vertical)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_IconSize">enum Gtk2::IconSize</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Orientatio">enum Gtk2::Orientation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ReliefStyl">enum Gtk2::ReliefStyle</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_ToolbarSty">enum Gtk2::ToolbarStyle</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::ToolItem
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Bin
+                           +----Gtk2::ToolItem
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="toolitem_Gtk2_ToolIt">toolitem = Gtk2::ToolItem-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_tool_item_ge">boolean = $tool_item-&gt;<b>get_expand</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_tool_item_set_expan">$tool_item-&gt;<b>set_expand</b> ($expand)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_expand_boolean_"><p>$expand (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_tool_item_ge1">boolean = $tool_item-&gt;<b>get_homogeneous</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_tool_item_set_homog">$tool_item-&gt;<b>set_homogeneous</b> ($homogeneous)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_homogeneous_boolean"><p>$homogeneous (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="iconsize_tool_item_g">iconsize = $tool_item-&gt;<b>get_icon_size</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_tool_item_ge2">boolean = $tool_item-&gt;<b>get_is_important</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_tool_item_set_is_im">$tool_item-&gt;<b>set_is_important</b> ($is_important)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_is_important_boolea"><p>$is_important (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="orientation_tool_ite">orientation = $tool_item-&gt;<b>get_orientation</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_tool_item_get">widget = $tool_item-&gt;<b>get_proxy_menu_item</b> ($menu_item_id)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_menu_item_id_string"><p>$menu_item_id (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_tool_item_set_proxy">$tool_item-&gt;<b>set_proxy_menu_item</b> ($menu_item_id, $menu_item)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_menu_item_id_string1"><p>$menu_item_id (string)</p></a>
+<li class="POD_ITEM"><a name="_menu_item_Gtk2_Widg"><p>$menu_item (Gtk2::Widget)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_tool_item_rebuild_m">$tool_item-&gt;<b>rebuild_menu</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.6
+</p>
+<h3 class="POD_HEAD2"><a name="reliefstyle_tool_ite">reliefstyle = $tool_item-&gt;<b>get_relief_style</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_tool_item_ret">widget = $tool_item-&gt;<b>retrieve_proxy_menu_item</b></a></h3>
+<h3 class="POD_HEAD2"><a name="toolbarstyle_tool_it">toolbarstyle = $tool_item-&gt;<b>get_toolbar_style</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_tool_item_set_toolt">$tool_item-&gt;<b>set_tooltip_markup</b> ($markup)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_markup_string_or_un"><p>$markup (string or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_tool_item_set_toolt1">$tool_item-&gt;<b>set_tooltip</b> ($tooltips, $tip_text, $tip_private)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tooltips_Gtk2_Toolt"><p>$tooltips (Gtk2::Tooltips)</p></a>
+<li class="POD_ITEM"><a name="_tip_text_string_"><p>$tip_text (string)</p></a>
+<li class="POD_ITEM"><a name="_tip_private_string_"><p>$tip_private (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_tool_item_set_toolt2">$tool_item-&gt;<b>set_tooltip_text</b> ($text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_text_string_or_unde"><p>$text (string or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="boolean_toolitem_get">boolean = $toolitem-&gt;<b>get_use_drag_window</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolitem_set_use_dr">$toolitem-&gt;<b>set_use_drag_window</b> ($use_drag_window)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_use_drag_window_boo"><p>$use_drag_window (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_toolitem_get1">boolean = $toolitem-&gt;<b>get_visible_horizontal</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolitem_set_visibl">$toolitem-&gt;<b>set_visible_horizontal</b> ($visible_horizontal)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_visible_horizontal_"><p>$visible_horizontal (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_toolitem_get2">boolean = $toolitem-&gt;<b>get_visible_vertical</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toolitem_set_visibl1">$toolitem-&gt;<b>set_visible_vertical</b> ($visible_vertical)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_visible_vertical_bo"><p>$visible_vertical (boolean)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_is_important_boolea1">&#39;is-important&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the toolbar item is considered important. When TRUE, toolbar buttons show text in GTK_TOOLBAR_BOTH_HORIZ mode
+<dt class="POD_ITEM"><a name="_visible_horizontal_1">&#39;visible-horizontal&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the toolbar item is visible when the toolbar is in a horizontal orientation.
+<dt class="POD_ITEM"><a name="_visible_vertical_bo1">&#39;visible-vertical&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the toolbar item is visible when the toolbar is in a vertical orientation.
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="boolean_create_menu_">boolean = <b>create-menu-proxy</b> (Gtk2::ToolItem)</a>
+<dt><a name="toolbar_reconfigured"><b>toolbar-reconfigured</b> (Gtk2::ToolItem)</a>
+<dt><a name="boolean_set_tooltip_">boolean = <b>set-tooltip</b> (Gtk2::ToolItem, Gtk2::Tooltips, string, string)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_IconSize">enum Gtk2::IconSize</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_invalid_GTK_ICON_SI"><p>&#39;invalid&#39; / &#39;GTK_ICON_SIZE_INVALID&#39;</p></a>
+<li class="POD_ITEM"><a name="_menu_GTK_ICON_SIZE_"><p>&#39;menu&#39; / &#39;GTK_ICON_SIZE_MENU&#39;</p></a>
+<li class="POD_ITEM"><a name="_small_toolbar_GTK_I"><p>&#39;small-toolbar&#39; / &#39;GTK_ICON_SIZE_SMALL_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_large_toolbar_GTK_I"><p>&#39;large-toolbar&#39; / &#39;GTK_ICON_SIZE_LARGE_TOOLBAR&#39;</p></a>
+<li class="POD_ITEM"><a name="_button_GTK_ICON_SIZ"><p>&#39;button&#39; / &#39;GTK_ICON_SIZE_BUTTON&#39;</p></a>
+<li class="POD_ITEM"><a name="_dnd_GTK_ICON_SIZE_D"><p>&#39;dnd&#39; / &#39;GTK_ICON_SIZE_DND&#39;</p></a>
+<li class="POD_ITEM"><a name="_dialog_GTK_ICON_SIZ"><p>&#39;dialog&#39; / &#39;GTK_ICON_SIZE_DIALOG&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Orientatio">enum Gtk2::Orientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_horizontal_GTK_ORIE"><p>&#39;horizontal&#39; / &#39;GTK_ORIENTATION_HORIZONTAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_vertical_GTK_ORIENT"><p>&#39;vertical&#39; / &#39;GTK_ORIENTATION_VERTICAL&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ReliefStyl">enum Gtk2::ReliefStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_normal_GTK_RELIEF_N"><p>&#39;normal&#39; / &#39;GTK_RELIEF_NORMAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_half_GTK_RELIEF_HAL"><p>&#39;half&#39; / &#39;GTK_RELIEF_HALF&#39;</p></a>
+<li class="POD_ITEM"><a name="_none_GTK_RELIEF_NON"><p>&#39;none&#39; / &#39;GTK_RELIEF_NONE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_ToolbarSty">enum Gtk2::ToolbarStyle</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_icons_GTK_TOOLBAR_I"><p>&#39;icons&#39; / &#39;GTK_TOOLBAR_ICONS&#39;</p></a>
+<li class="POD_ITEM"><a name="_text_GTK_TOOLBAR_TE"><p>&#39;text&#39; / &#39;GTK_TOOLBAR_TEXT&#39;</p></a>
+<li class="POD_ITEM"><a name="_both_GTK_TOOLBAR_BO"><p>&#39;both&#39; / &#39;GTK_TOOLBAR_BOTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_both_horiz_GTK_TOOL"><p>&#39;both-horiz&#39; / &#39;GTK_TOOLBAR_BOTH_HORIZ&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Bin.html">Gtk2::Bin</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:04:11 2009
+</body>
+</html>
+

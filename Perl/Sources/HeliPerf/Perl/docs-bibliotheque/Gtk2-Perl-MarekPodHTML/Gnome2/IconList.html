@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::IconList</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/IconSelection.html">Next:<br />Gnome2::IconSelection</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/IconEntry.html">Previous:<br />Gnome2::IconEntry</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::IconList</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_IconLi">widget = Gnome2::IconList-&gt;<b>new</b> ($icon_width, $adj, $flags)</a>
+<li><a class="POD_NAVLINK" href="#integer_gil_append_i">integer = $gil-&gt;<b>append</b> ($icon_filename, $text)</a>
+<li><a class="POD_NAVLINK" href="#integer_gil_append_p">integer = $gil-&gt;<b>append_pixbuf</b> ($im, $icon_filename, $text)</a>
+<li><a class="POD_NAVLINK" href="#_gil_clear">$gil-&gt;<b>clear</b></a>
+<li><a class="POD_NAVLINK" href="#_gil_set_col_spacing">$gil-&gt;<b>set_col_spacing</b> ($pixels)</a>
+<li><a class="POD_NAVLINK" href="#integer_gil_find_ico">integer = $gil-&gt;<b>find_icon_from_filename</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#_gil_focus_icon_idx_">$gil-&gt;<b>focus_icon</b> ($idx)</a>
+<li><a class="POD_NAVLINK" href="#_gil_freeze">$gil-&gt;<b>freeze</b></a>
+<li><a class="POD_NAVLINK" href="#_gil_set_hadjustment">$gil-&gt;<b>set_hadjustment</b> ($hadj)</a>
+<li><a class="POD_NAVLINK" href="#integer_gil_get_icon">integer = $gil-&gt;<b>get_icon_at</b> ($x, $y)</a>
+<li><a class="POD_NAVLINK" href="#_gil_set_icon_border">$gil-&gt;<b>set_icon_border</b> ($pixels)</a>
+<li><a class="POD_NAVLINK" href="#string_gil_get_icon_">string = $gil-&gt;<b>get_icon_filename</b> ($idx)</a>
+<li><a class="POD_NAVLINK" href="#visibility_gil_icon_">visibility = $gil-&gt;<b>icon_is_visible</b> ($pos)</a>
+<li><a class="POD_NAVLINK" href="#object_gil_get_icon_">object = $gil-&gt;<b>get_icon_pixbuf_item</b> ($idx)</a>
+<li><a class="POD_NAVLINK" href="#icontextitem_gil_get">icontextitem = $gil-&gt;<b>get_icon_text_item</b> ($idx)</a>
+<li><a class="POD_NAVLINK" href="#_gil_set_icon_width_">$gil-&gt;<b>set_icon_width</b> ($w)</a>
+<li><a class="POD_NAVLINK" href="#_gil_insert_pos_icon">$gil-&gt;<b>insert</b> ($pos, $icon_filename, $text)</a>
+<li><a class="POD_NAVLINK" href="#_gil_insert_pixbuf_p">$gil-&gt;<b>insert_pixbuf</b> ($pos, $im, $icon_filename, $text)</a>
+<li><a class="POD_NAVLINK" href="#integer_gil_get_item">integer = $gil-&gt;<b>get_items_per_line</b></a>
+<li><a class="POD_NAVLINK" href="#_gil_moveto_pos_yali">$gil-&gt;<b>moveto</b> ($pos, $yalign)</a>
+<li><a class="POD_NAVLINK" href="#integer_gil_get_num_">integer = $gil-&gt;<b>get_num_icons</b></a>
+<li><a class="POD_NAVLINK" href="#_gil_remove_pos_">$gil-&gt;<b>remove</b> ($pos)</a>
+<li><a class="POD_NAVLINK" href="#_gil_set_row_spacing">$gil-&gt;<b>set_row_spacing</b> ($pixels)</a>
+<li><a class="POD_NAVLINK" href="#_gil_select_all">$gil-&gt;<b>select_all</b></a>
+<li><a class="POD_NAVLINK" href="#_gil_select_icon_pos">$gil-&gt;<b>select_icon</b> ($pos)</a>
+<li><a class="POD_NAVLINK" href="#list_gil_get_selecti">list = $gil-&gt;<b>get_selection</b></a>
+<li><a class="POD_NAVLINK" href="#selectionmode_gil_ge">selectionmode = $gil-&gt;<b>get_selection_mode</b></a>
+<li><a class="POD_NAVLINK" href="#_gil_set_selection_m">$gil-&gt;<b>set_selection_mode</b> ($mode)</a>
+<li><a class="POD_NAVLINK" href="#_gil_set_separators_">$gil-&gt;<b>set_separators</b> ($sep)</a>
+<li><a class="POD_NAVLINK" href="#_gil_set_text_spacin">$gil-&gt;<b>set_text_spacing</b> ($pixels)</a>
+<li><a class="POD_NAVLINK" href="#_gil_thaw">$gil-&gt;<b>thaw</b></a>
+<li><a class="POD_NAVLINK" href="#integer_gil_unselect">integer = $gil-&gt;<b>unselect_all</b></a>
+<li><a class="POD_NAVLINK" href="#_gil_unselect_icon_p">$gil-&gt;<b>unselect_icon</b> ($pos)</a>
+<li><a class="POD_NAVLINK" href="#_gil_set_vadjustment">$gil-&gt;<b>set_vadjustment</b> ($vadj)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_DirectionT">enum Gtk2::DirectionType</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_SelectionM">enum Gtk2::SelectionMode</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Visibility">enum Gtk2::Visibility</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::IconList
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Layout
+                           +----Gnome2::Canvas
+                                +----Gnome2::IconList
+</pre>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_IconLi">widget = Gnome2::IconList-&gt;<b>new</b> ($icon_width, $adj, $flags)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_icon_width_integer_"><p>$icon_width (integer)</p></a>
+<li class="POD_ITEM"><a name="_adj_Gtk2_Adjustment"><p>$adj (Gtk2::Adjustment)</p></a>
+<li class="POD_ITEM"><a name="_flags_Gnome2_IconLi"><p>$flags (Gnome2::IconListFlags)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_gil_append_i">integer = $gil-&gt;<b>append</b> ($icon_filename, $text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_icon_filename_strin"><p>$icon_filename (string)</p></a>
+<li class="POD_ITEM"><a name="_text_string_"><p>$text (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_gil_append_p">integer = $gil-&gt;<b>append_pixbuf</b> ($im, $icon_filename, $text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_im_Gtk2_Gdk_Pixbuf_"><p>$im (Gtk2::Gdk::Pixbuf)</p></a>
+<li class="POD_ITEM"><a name="_icon_filename_strin1"><p>$icon_filename (string)</p></a>
+<li class="POD_ITEM"><a name="_text_string_1"><p>$text (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_clear">$gil-&gt;<b>clear</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_gil_set_col_spacing">$gil-&gt;<b>set_col_spacing</b> ($pixels)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixels_integer_"><p>$pixels (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_gil_find_ico">integer = $gil-&gt;<b>find_icon_from_filename</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_"><p>$filename (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_focus_icon_idx_">$gil-&gt;<b>focus_icon</b> ($idx)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_idx_integer_"><p>$idx (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_freeze">$gil-&gt;<b>freeze</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_gil_set_hadjustment">$gil-&gt;<b>set_hadjustment</b> ($hadj)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_hadj_Gtk2_Adjustmen"><p>$hadj (Gtk2::Adjustment)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_gil_get_icon">integer = $gil-&gt;<b>get_icon_at</b> ($x, $y)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_x_integer_"><p>$x (integer)</p></a>
+<li class="POD_ITEM"><a name="_y_integer_"><p>$y (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_set_icon_border">$gil-&gt;<b>set_icon_border</b> ($pixels)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixels_integer_1"><p>$pixels (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_gil_get_icon_">string = $gil-&gt;<b>get_icon_filename</b> ($idx)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_idx_integer_1"><p>$idx (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="visibility_gil_icon_">visibility = $gil-&gt;<b>icon_is_visible</b> ($pos)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pos_integer_"><p>$pos (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="object_gil_get_icon_">object = $gil-&gt;<b>get_icon_pixbuf_item</b> ($idx)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_idx_integer_2"><p>$idx (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="icontextitem_gil_get">icontextitem = $gil-&gt;<b>get_icon_text_item</b> ($idx)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_idx_integer_3"><p>$idx (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_set_icon_width_">$gil-&gt;<b>set_icon_width</b> ($w)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_w_integer_"><p>$w (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_insert_pos_icon">$gil-&gt;<b>insert</b> ($pos, $icon_filename, $text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pos_integer_1"><p>$pos (integer)</p></a>
+<li class="POD_ITEM"><a name="_icon_filename_strin2"><p>$icon_filename (string)</p></a>
+<li class="POD_ITEM"><a name="_text_string_2"><p>$text (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_insert_pixbuf_p">$gil-&gt;<b>insert_pixbuf</b> ($pos, $im, $icon_filename, $text)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pos_integer_2"><p>$pos (integer)</p></a>
+<li class="POD_ITEM"><a name="_im_Gtk2_Gdk_Pixbuf_1"><p>$im (Gtk2::Gdk::Pixbuf)</p></a>
+<li class="POD_ITEM"><a name="_icon_filename_strin3"><p>$icon_filename (string)</p></a>
+<li class="POD_ITEM"><a name="_text_string_3"><p>$text (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_gil_get_item">integer = $gil-&gt;<b>get_items_per_line</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_gil_moveto_pos_yali">$gil-&gt;<b>moveto</b> ($pos, $yalign)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pos_integer_3"><p>$pos (integer)</p></a>
+<li class="POD_ITEM"><a name="_yalign_double_"><p>$yalign (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="integer_gil_get_num_">integer = $gil-&gt;<b>get_num_icons</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_gil_remove_pos_">$gil-&gt;<b>remove</b> ($pos)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pos_integer_4"><p>$pos (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_set_row_spacing">$gil-&gt;<b>set_row_spacing</b> ($pixels)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixels_integer_2"><p>$pixels (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_select_all">$gil-&gt;<b>select_all</b></a></h3>
+<p class="POD_TEXT">
+Since: libgnomeui 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_gil_select_icon_pos">$gil-&gt;<b>select_icon</b> ($pos)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pos_integer_5"><p>$pos (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_gil_get_selecti">list = $gil-&gt;<b>get_selection</b></a></h3>
+<p></p>
+<p class="POD_TEXT">
+Returns a list of integers.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="selectionmode_gil_ge">selectionmode = $gil-&gt;<b>get_selection_mode</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_gil_set_selection_m">$gil-&gt;<b>set_selection_mode</b> ($mode)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_mode_Gtk2_Selection"><p>$mode (Gtk2::SelectionMode)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_set_separators_">$gil-&gt;<b>set_separators</b> ($sep)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_sep_string_"><p>$sep (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_set_text_spacin">$gil-&gt;<b>set_text_spacing</b> ($pixels)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixels_integer_3"><p>$pixels (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_thaw">$gil-&gt;<b>thaw</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_gil_unselect">integer = $gil-&gt;<b>unselect_all</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_gil_unselect_icon_p">$gil-&gt;<b>unselect_icon</b> ($pos)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pos_integer_6"><p>$pos (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_gil_set_vadjustment">$gil-&gt;<b>set_vadjustment</b> ($vadj)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_vadj_Gtk2_Adjustmen"><p>$vadj (Gtk2::Adjustment)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="select_icon_Gnome2_I"><b>select-icon</b> (Gnome2::IconList, integer, Gtk2::Gdk::Event)</a>
+<dt><a name="unselect_icon_Gnome2"><b>unselect-icon</b> (Gnome2::IconList, integer, Gtk2::Gdk::Event)</a>
+<dt><a name="focus_icon_Gnome2_Ic"><b>focus-icon</b> (Gnome2::IconList, integer)</a>
+<dt><a name="boolean_text_changed">boolean = <b>text-changed</b> (Gnome2::IconList, integer, string)</a>
+<dt><a name="move_cursor_Gnome2_I"><b>move-cursor</b> (Gnome2::IconList, Gtk2::DirectionType, boolean)</a>
+<dt><a name="toggle_cursor_select"><b>toggle-cursor-selection</b> (Gnome2::IconList)</a>
+<dd></dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_DirectionT">enum Gtk2::DirectionType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_tab_forward_GTK_DIR"><p>&#39;tab-forward&#39; / &#39;GTK_DIR_TAB_FORWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_tab_backward_GTK_DI"><p>&#39;tab-backward&#39; / &#39;GTK_DIR_TAB_BACKWARD&#39;</p></a>
+<li class="POD_ITEM"><a name="_up_GTK_DIR_UP_"><p>&#39;up&#39; / &#39;GTK_DIR_UP&#39;</p></a>
+<li class="POD_ITEM"><a name="_down_GTK_DIR_DOWN_"><p>&#39;down&#39; / &#39;GTK_DIR_DOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_left_GTK_DIR_LEFT_"><p>&#39;left&#39; / &#39;GTK_DIR_LEFT&#39;</p></a>
+<li class="POD_ITEM"><a name="_right_GTK_DIR_RIGHT"><p>&#39;right&#39; / &#39;GTK_DIR_RIGHT&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_SelectionM">enum Gtk2::SelectionMode</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_SELECTION_"><p>&#39;none&#39; / &#39;GTK_SELECTION_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_single_GTK_SELECTIO"><p>&#39;single&#39; / &#39;GTK_SELECTION_SINGLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_browse_GTK_SELECTIO"><p>&#39;browse&#39; / &#39;GTK_SELECTION_BROWSE&#39;</p></a>
+<li class="POD_ITEM"><a name="_multiple_GTK_SELECT"><p>&#39;multiple&#39; / &#39;GTK_SELECTION_MULTIPLE&#39;</p></a>
+<li class="POD_ITEM"><a name="_extended_GTK_SELECT"><p>&#39;extended&#39; / &#39;GTK_SELECTION_EXTENDED&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Visibility">enum Gtk2::Visibility</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_none_GTK_VISIBILITY"><p>&#39;none&#39; / &#39;GTK_VISIBILITY_NONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_partial_GTK_VISIBIL"><p>&#39;partial&#39; / &#39;GTK_VISIBILITY_PARTIAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_full_GTK_VISIBILITY"><p>&#39;full&#39; / &#39;GTK_VISIBILITY_FULL&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Layout.html">Gtk2::Layout</a>, <a class="POD_LINK" href="../Gnome2/Canvas.html">Gnome2::Canvas</a>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:37 2009
+</body>
+</html>
+

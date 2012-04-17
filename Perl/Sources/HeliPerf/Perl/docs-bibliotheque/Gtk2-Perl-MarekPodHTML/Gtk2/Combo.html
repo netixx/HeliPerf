@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Combo</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ComboBox.html">Next:<br />Gtk2::ComboBox</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ColorSelectionDialog.html">Previous:<br />Gtk2::ColorSelectionDialog</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Combo</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#DEPRECATION_WARNING">DEPRECATION WARNING</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_Combo_ne">widget = Gtk2::Combo-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_set_case_sens">$combo-&gt;<b>set_case_sensitive</b> ($val)</a>
+<li><a class="POD_NAVLINK" href="#_combo_disable_activ">$combo-&gt;<b>disable_activate</b></a>
+<li><a class="POD_NAVLINK" href="#widget_combo_entry">widget = $combo-&gt;<b>entry</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_set_item_stri">$combo-&gt;<b>set_item_string</b> ($item, $item_value)</a>
+<li><a class="POD_NAVLINK" href="#widget_combo_list">widget = $combo-&gt;<b>list</b></a>
+<li><a class="POD_NAVLINK" href="#_combo_set_popdown_s">$combo-&gt;<b>set_popdown_strings</b> (...)</a>
+<li><a class="POD_NAVLINK" href="#_combo_set_use_arrow">$combo-&gt;<b>set_use_arrows_always</b> ($val)</a>
+<li><a class="POD_NAVLINK" href="#_combo_set_use_arrow1">$combo-&gt;<b>set_use_arrows</b> ($val)</a>
+<li><a class="POD_NAVLINK" href="#_combo_set_value_in_">$combo-&gt;<b>set_value_in_list</b> ($val, $ok_if_empty)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Combo
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Box
+                           +----Gtk2::HBox
+                                +----Gtk2::Combo
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="DEPRECATION_WARNING">DEPRECATION WARNING</a></h2>
+<p class="POD_TEXT">
+Gtk2::Combo has been marked as deprecated, and should not be used in newly written code.
+</p>
+<p class="POD_TEXT">
+You should use <a class="POD_LINK" href="../Gtk2/ComboBox.html">Gtk2::ComboBox</a> instead of Gtk2::Combo.
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_Combo_ne">widget = Gtk2::Combo-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_combo_set_case_sens">$combo-&gt;<b>set_case_sensitive</b> ($val)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_val_boolean_"><p>$val (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_combo_disable_activ">$combo-&gt;<b>disable_activate</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_combo_entry">widget = $combo-&gt;<b>entry</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_combo_set_item_stri">$combo-&gt;<b>set_item_string</b> ($item, $item_value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_item_Gtk2_Item_"><p>$item (Gtk2::Item)</p></a>
+<li class="POD_ITEM"><a name="_item_value_string_"><p>$item_value (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_combo_list">widget = $combo-&gt;<b>list</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_combo_set_popdown_s">$combo-&gt;<b>set_popdown_strings</b> (...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_list_of_strings"><p>... (list) of strings</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_combo_set_use_arrow">$combo-&gt;<b>set_use_arrows_always</b> ($val)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_val_boolean_1"><p>$val (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_combo_set_use_arrow1">$combo-&gt;<b>set_use_arrows</b> ($val)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_val_boolean_2"><p>$val (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_combo_set_value_in_">$combo-&gt;<b>set_value_in_list</b> ($val, $ok_if_empty)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_val_boolean_3"><p>$val (boolean)</p></a>
+<li class="POD_ITEM"><a name="_ok_if_empty_boolean"><p>$ok_if_empty (boolean)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_allow_empty_boolean">&#39;allow-empty&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether an empty value may be entered in this field
+<dt class="POD_ITEM"><a name="_case_sensitive_bool">&#39;case-sensitive&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether list item matching is case sensitive
+<dt class="POD_ITEM"><a name="_enable_arrow_keys_b">&#39;enable-arrow-keys&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether the arrow keys move through the list of items
+<dt class="POD_ITEM"><a name="_enable_arrows_alway">&#39;enable-arrows-always&#39; (boolean : readable / writable / private)</a>
+<dd>
+Obsolete property, ignored
+<dt class="POD_ITEM"><a name="_value_in_list_boole">&#39;value-in-list&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether entered values must already be present in the list
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Box.html">Gtk2::Box</a>, <a class="POD_LINK" href="../Gtk2/HBox.html">Gtk2::HBox</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:51 2009
+</body>
+</html>
+

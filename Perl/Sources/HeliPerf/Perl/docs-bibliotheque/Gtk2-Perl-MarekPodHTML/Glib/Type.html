@@ -1,0 +1,374 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Glib::Type</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/Utils.html">Next:<br />Glib::Utils</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Glib/Signal.html">Previous:<br />Glib::Signal</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Glib::Type</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#list_Glib_Type_list_">list = Glib::Type-&gt;<b>list_ancestors</b> ($package)</a>
+<li><a class="POD_NAVLINK" href="#list_Glib_Type_list_1">list = Glib::Type-&gt;<b>list_interfaces</b> ($package)</a>
+<li><a class="POD_NAVLINK" href="#list_Glib_Type_list_2">list = Glib::Type-&gt;<b>list_signals</b> ($package)</a>
+<li><a class="POD_NAVLINK" href="#list_Glib_Type_list_3">list = Glib::Type-&gt;<b>list_values</b> ($package)</a>
+<li><a class="POD_NAVLINK" href="#string_Glib_Type_pac">string = Glib::Type-&gt;<b>package_from_cname</b> ($cname)</a>
+<li><a class="POD_NAVLINK" href="#Glib_Type_register_p">Glib::Type-&gt;<b>register</b> ($parent_class, $new_class, ...)</a>
+<li><a class="POD_NAVLINK" href="#Glib_Type_register_e">Glib::Type-&gt;<b>register_enum</b> ($name, ...)</a>
+<li><a class="POD_NAVLINK" href="#Glib_Type_register_f">Glib::Type-&gt;<b>register_flags</b> ($name, ...)</a>
+<li><a class="POD_NAVLINK" href="#Glib_Type_register_o">Glib::Type-&gt;<b>register_object</b> ($parent_package, $new_package, ...)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Glib::Type -  Utilities for dealing with the GLib Type system
+</p>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+This package defines several utilities for dealing with the GLib type system
+from Perl.  Because of some fundamental differences in how the GLib and Perl
+type systems work, a fair amount of the binding magic leaks out, and you can
+find most of that in the <code>Glib::Type::register*</code> functions, which register
+new types with the GLib type system.
+</p>
+<p class="POD_TEXT">
+Most of the rest of the functions provide introspection functionality, such as
+listing properties and values and other cool stuff that is used mainly by
+Glib&#39;s reference documentation generator (see <a class="POD_LINK" href="../Glib/GenPod.html">Glib::GenPod</a>).
+</p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="list_Glib_Type_list_">list = Glib::Type-&gt;<b>list_ancestors</b> ($package)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_package_string_"><p>$package (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+List the ancestry of <i>package</i>, as seen by the GLib type system.  The
+important difference is that GLib&#39;s type system implements only single
+inheritance, whereas Perl&#39;s @ISA allows multiple inheritance.
+</p>
+<p class="POD_TEXT">
+This returns the package names of the ancestral types in reverse order, with
+the root of the tree at the end of the list.
+</p>
+<p class="POD_TEXT">
+See also <a class="POD_LINK" href="#list_Glib_Type_list_1">list_interfaces ()</a>.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_Glib_Type_list_1">list = Glib::Type-&gt;<b>list_interfaces</b> ($package)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_package_string_1"><p>$package (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+List the GInterfaces implemented by the type associated with <i>package</i>.
+The interfaces are returned as package names.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_Glib_Type_list_2">list = Glib::Type-&gt;<b>list_signals</b> ($package)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_package_string_2"><p>$package (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+List the signals associated with <i>package</i>.  This lists only the signals
+for <i>package</i>, not any of its parents.  The signals are returned as a list
+of anonymous hashes which mirror the GSignalQuery structure defined in the
+C API reference.
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_signal_id">- signal_id</a>
+<dd>
+Numeric id of a signal.  It&#39;s rare that you&#39;ll need this in Gtk2-Perl.
+<dt class="POD_ITEM"><a name="_signal_name">- signal_name</a>
+<dd>
+Name of the signal, such as what you&#39;d pass to <code>signal_connect</code>.
+<dt class="POD_ITEM"><a name="_itype">- itype</a>
+<dd>
+The <i>i</i>nstance <i>type</i> for which this signal is defined.
+<dt class="POD_ITEM"><a name="_signal_flags">- signal_flags</a>
+<dd>
+GSignalFlags describing this signal.
+<dt class="POD_ITEM"><a name="_return_type">- return_type</a>
+<dd>
+The return type expected from handlers for this signal.  If undef or not
+present, then no return is expected.  The type name is mapped to the 
+corresponding Perl package name if it is known, otherwise you get the
+raw C name straight from GLib.
+<dt class="POD_ITEM"><a name="_param_types">- param_types</a>
+<dd>
+The types of the parameters passed to any callbacks connected to the emission
+of this signal.  The list does not include the instance, which is always
+first, and the user data from <code>signal_connect</code>, which is always last (unless
+the signal was connected with &quot;swap&quot;, which swaps the instance and the data,
+but you get the point).
+</dl>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_Glib_Type_list_3">list = Glib::Type-&gt;<b>list_values</b> ($package)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_package_string_3"><p>$package (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+List the legal values for the GEnum or GFlags type <i>$package</i>.  If <i>$package</i>
+is not a package name registered with the bindings, this name is passed on to
+g_type_from_name() to see if it&#39;s a registered flags or enum type that just
+hasn&#39;t been registered with the bindings by <code>gperl_register_fundamental()</code>
+(see Glib::xsapi).  If <i>$package</i> is not the name of an enum or flags type,
+this function will croak.
+</p>
+<p class="POD_TEXT">
+Returns the values as a list of hashes, one hash for each value, containing
+the value, name and nickname, eg. for Glib::SignalFlags
+</p>
+<pre class="POD_VERBATIM">
+    { value =&gt; 8,
+      name  =&gt; &#39;G_SIGNAL_NO_RECURSE&#39;,
+      nick  =&gt; &#39;no-recurse&#39;
+    }
+</pre>
+<p></p>
+<h3 class="POD_HEAD2"><a name="string_Glib_Type_pac">string = Glib::Type-&gt;<b>package_from_cname</b> ($cname)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_cname_string_"><p>$cname (string)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Convert a C type name to the corresponding Perl package name.  If no package
+is registered to that type, returns <i>$cname</i>.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Glib_Type_register_p">Glib::Type-&gt;<b>register</b> ($parent_class, $new_class, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_parent_class_packag"><p>$parent_class (package) type from which to derive</p></a>
+<li class="POD_ITEM"><a name="_new_class_package_n"><p>$new_class (package) name of new type</p></a>
+<li class="POD_ITEM"><a name="_list_arguments_for_"><p>... (list) arguments for creation</p></a>
+</ul>
+<p class="POD_TEXT">
+Register a new type with the GLib type system.
+</p>
+<p class="POD_TEXT">
+This is a traffic-cop function.  If <i>$parent_type</i> derives from Glib::Object,
+this passes the arguments through to <code>register_object</code>.  If <i>$parent_type</i>
+is Glib::Flags or Glib::Enum, this strips <i>$parent_type</i> and passes the
+remaining args on to <code>register_enum</code> or <code>register_flags</code>.  See those
+functions&#39; documentation for more information.
+</p>
+<h3 class="POD_HEAD2"><a name="Glib_Type_register_e">Glib::Type-&gt;<b>register_enum</b> ($name, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_package"><p>$name (string) package name for new enum type</p></a>
+<li class="POD_ITEM"><a name="_list_new_enum_s_val"><p>... (list) new enum&#39;s values; see description.</p></a>
+</ul>
+<p class="POD_TEXT">
+Register and initialize a new Glib::Enum type with the provided &quot;values&quot;.
+This creates a type properly registered GLib so that it can be used for
+property and signal parameter or return types created with
+<code>Glib::Type-&gt;register</code> or <code>Glib::Object::Subclass</code>.
+</p>
+<p class="POD_TEXT">
+The list of values is used to create the &quot;nicknames&quot; that are used in general
+Perl code; the actual numeric values used at the C level are automatically
+assigned, starting with 1.  If you need to specify a particular numeric value
+for a nick, use an array reference containing the nickname and the numeric
+value, instead.  You may mix and match the two styles.
+</p>
+<pre class="POD_VERBATIM">
+  Glib::Type-&gt;register_enum (&#39;MyFoo::Bar&#39;,
+          &#39;value-one&#39;,            # assigned 1
+          &#39;value-two&#39;,            # assigned 2
+          [&#39;value-three&#39; =&gt; 15 ], # explicit 15
+          [&#39;value-four&#39; =&gt; 35 ],  # explicit 35
+          &#39;value-five&#39;,           # assigned 5
+  );
+</pre>
+<p class="POD_TEXT">
+If you use the array-ref form, beware: the code performs no validation
+for unique values.
+</p>
+<h3 class="POD_HEAD2"><a name="Glib_Type_register_f">Glib::Type-&gt;<b>register_flags</b> ($name, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_package1"><p>$name (string) package name of new flags type</p></a>
+<li class="POD_ITEM"><a name="_list_flag_values_se"><p>... (list) flag values, see discussion.</p></a>
+</ul>
+<p class="POD_TEXT">
+Register and initialize a new Glib::Flags type with the provided &quot;values&quot;.
+This creates a type properly registered GLib so that it can be used for
+property and signal parameter or return types created with
+<code>Glib::Type-&gt;register</code> or <code>Glib::Object::Subclass</code>.
+</p>
+<p class="POD_TEXT">
+The list of values is used to create the &quot;nicknames&quot; that are used in general
+Perl code; the actual numeric values used at the C level are automatically
+assigned, of the form 1&lt;&lt;i, starting with i = 0.  If you need to specify a
+particular numeric value for a nick, use an array reference containing the
+nickname and the numeric value, instead.  You may mix and match the two styles.
+</p>
+<pre class="POD_VERBATIM">
+  Glib::Type-&gt;register_flags (&#39;MyFoo::Baz&#39;,
+           &#39;value-one&#39;,               # assigned 1&lt;&lt;0
+           &#39;value-two&#39;,               # assigned 1&lt;&lt;1
+           [&#39;value-three&#39; =&gt; 1&lt;&lt;10 ], # explicit 1&lt;&lt;10
+           [&#39;value-four&#39; =&gt; 0x0f ],   # explicit 0x0f
+           &#39;value-five&#39;,              # assigned 1&lt;&lt;4
+  );
+</pre>
+<p class="POD_TEXT">
+If you use the array-ref form, beware: the code performs no validation
+for unique values.
+</p>
+<h3 class="POD_HEAD2"><a name="Glib_Type_register_o">Glib::Type-&gt;<b>register_object</b> ($parent_package, $new_package, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_parent_package_stri"><p>$parent_package (string) name of the parent package, which must be a derivative of Glib::Object.</p></a>
+<li class="POD_ITEM"><a name="_new_package_string_"><p>$new_package (string) usually __PACKAGE__.</p></a>
+<li class="POD_ITEM"><a name="_list_key_value_pair"><p>... (list) key/value pairs controlling how the class is created.</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+Register <i>new_package</i> as an officially GLib-sanctioned derivative of
+the (GObject derivative) <i>parent_package</i>.  This automatically sets up
+an @ISA entry for you, and creates a new GObjectClass under the hood.
+</p>
+<p class="POD_TEXT">
+The <i>...</i> parameters are key/value pairs, currently supporting:
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="signals_HASHREF">signals =&gt; HASHREF</a>
+<dd>
+The <code>signals</code> key contains a hash, keyed by signal names, which describes
+how to set up the signals for <i>new_package</i>.
+<p class="POD_TEXT">
+If the value is a code reference, the named signal must exist somewhere in
+<i>parent_package</i> or its ancestry; the code reference will be used to 
+override the class closure for that signal.  This is the officially sanctioned
+way to override virtual methods on Glib::Objects.  The value may be a string
+rather than a code reference, in which case the sub with that name in 
+<i>new_package</i> will be used.  (The function should not be inherited.)
+</p>
+<p class="POD_TEXT">
+If the value is a hash reference, the key will be the name of a new signal
+created with the properties defined in the hash.  All of the properties
+are optional, with defaults provided:
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="class_closure_subrou">class_closure =&gt; subroutine or undef</a>
+<dd>
+Use this code reference (or sub name) as the class closure (that is, the 
+default handler for the signal).  If not specified, &quot;do_<i>signal_name</i>&quot;,
+in the current package, is used.
+<dt class="POD_ITEM"><a name="return_type_package_">return_type =&gt; package name or undef</a>
+<dd>
+Return type for the signal.  If not specified, then the signal has void return.
+<dt class="POD_ITEM"><a name="param_types_ARRAYREF">param_types =&gt; ARRAYREF</a>
+<dd>
+Reference to a list of parameter types (package names), <i>omitting the instance
+and user data</i>.  Callbacks connected to this signal will receive the instance
+object as the first argument, followed by arguments with the types listed here,
+and finally by any user data that was supplied when the callback was connected.
+Not specifying this key is equivalent to supplying an empty list, which
+actually means instance and maybe data.
+<dt class="POD_ITEM"><a name="flags_Glib_SignalFla">flags =&gt; Glib::SignalFlags</a>
+<dd>
+Flags describing this signal&#39;s properties. See the GObject C API reference&#39;
+description of GSignalFlags for a complete description.
+<dt class="POD_ITEM"><a name="accumulator_subrouti">accumulator =&gt; subroutine or undef</a>
+<dd>
+The signal accumulator is a special callback that can be used to collect return
+values of the various callbacks that are called during a signal emission.
+Generally, you can omit this parameter; custom accumulators are used to do
+things like stopping signal propagation by return value or creating a list of
+returns, etc.
+</dl>
+<dt class="POD_ITEM"><a name="properties_ARRAYREF">properties =&gt; ARRAYREF</a>
+<dd>
+Array of Glib::ParamSpec objects, each describing an object property to add
+to the new type.  These properties are available for use by all code that
+can access the object, regardless of implementation language.  See
+<a class="POD_LINK" href="../Glib/ParamSpec.html">Glib::ParamSpec</a>.  This list may be empty; if it is not, the functions
+<code>GET_PROPERTY</code> and <code>SET_PROPERTY</code> in <i>$new_package</i> will be called to
+get and set the values.  Note that an object property is just a mechanism
+for getting and setting a value -- it implies no storage.  As a convenience,
+however, Glib::Object provides fallbacks for GET_PROPERTY and SET_PROPERTY
+which use the property nicknames as hash keys in the object variable for
+storage.
+<p class="POD_TEXT">
+Additionally, you may specify ParamSpecs as a describing hash instead of
+as an object; this form allows you to supply explicit getter and setter
+methods which override GET_PROPERY and SET_PROPERTY.  The getter and setter
+are both optional in the hash form.  For example:
+</p>
+<pre class="POD_VERBATIM">
+   Glib::Type-&gt;register_object (&#39;Glib::Object&#39;, &#39;Foo&#39;,
+      properties =&gt; [
+         # specified normally
+         Glib::ParamSpec-&gt;string (...),
+         # specified explicitly
+         {
+            pspec =&gt; Glib::ParamSpec-&gt;int (...),
+            set =&gt; sub {
+               my ($object, $newval) = @_;
+               ...
+            },
+            get =&gt; sub {
+               my ($object) = @_;
+               ...
+               return $val;
+            },
+         },
+      ]
+   );
+</pre>
+<p class="POD_TEXT">
+You can mix the two declaration styles as you like.
+</p>
+<dt class="POD_ITEM"><a name="interfaces_ARRAYREF">interfaces =&gt; ARRAYREF</a>
+<dd>
+Array of interface package names that the new object implements.  Interfaces
+are the GObject way of doing multiple inheritance, thus, in Perl, the package
+names will be prepended to @ISA and certain inheritable and overrideable
+ALLCAPS methods will automatically be called whenever needed.  Which methods
+exactly depends on the interface -- Gtk2::CellEditable for example uses
+START_EDITING, EDITING_DONE, and REMOVE_WIDGET.
+</dl>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Glib.html">Glib</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2009 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Glib.html">Glib</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:57:50 2009
+</body>
+</html>
+

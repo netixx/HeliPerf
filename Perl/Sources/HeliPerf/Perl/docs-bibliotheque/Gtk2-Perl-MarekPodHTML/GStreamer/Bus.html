@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>GStreamer::Bus</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/Caps.html">Next:<br />GStreamer::Caps</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/Buffer.html">Previous:<br />GStreamer::Buffer</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">GStreamer::Bus</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#bus_GStreamer_Bus_ne">bus = GStreamer::Bus-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#_bus_add_signal_watc">$bus-&gt;<b>add_signal_watch</b></a>
+<li><a class="POD_NAVLINK" href="#integer_bus_add_watc">integer = $bus-&gt;<b>add_watch</b> ($func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#_bus_set_flushing_fl">$bus-&gt;<b>set_flushing</b> ($flushing)</a>
+<li><a class="POD_NAVLINK" href="#boolean_bus_have_pen">boolean = $bus-&gt;<b>have_pending</b></a>
+<li><a class="POD_NAVLINK" href="#GstMessage_or_undef_">GstMessage or undef = $bus-&gt;<b>peek</b></a>
+<li><a class="POD_NAVLINK" href="#GstMessage_or_undef_1">GstMessage or undef = $bus-&gt;<b>poll</b> ($events, $timeout)</a>
+<li><a class="POD_NAVLINK" href="#GstMessage_or_undef_2">GstMessage or undef = $bus-&gt;<b>pop</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_bus_post_mes">boolean = $bus-&gt;<b>post</b> ($message)</a>
+<li><a class="POD_NAVLINK" href="#_bus_remove_signal_w">$bus-&gt;<b>remove_signal_watch</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#flags_GStreamer_Mess">flags GStreamer::MessageType</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+GStreamer::Bus
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----GStreamer::Object
+       +----GStreamer::Bus
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="bus_GStreamer_Bus_ne">bus = GStreamer::Bus-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_bus_add_signal_watc">$bus-&gt;<b>add_signal_watch</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_bus_add_watc">integer = $bus-&gt;<b>add_watch</b> ($func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_bus_set_flushing_fl">$bus-&gt;<b>set_flushing</b> ($flushing)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_flushing_boolean_"><p>$flushing (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_bus_have_pen">boolean = $bus-&gt;<b>have_pending</b></a></h3>
+<h3 class="POD_HEAD2"><a name="GstMessage_or_undef_">GstMessage or undef = $bus-&gt;<b>peek</b></a></h3>
+<h3 class="POD_HEAD2"><a name="GstMessage_or_undef_1">GstMessage or undef = $bus-&gt;<b>poll</b> ($events, $timeout)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_events_GStreamer_Me"><p>$events (GStreamer::MessageType)</p></a>
+<li class="POD_ITEM"><a name="_timeout_integer_"><p>$timeout (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="GstMessage_or_undef_2">GstMessage or undef = $bus-&gt;<b>pop</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_bus_post_mes">boolean = $bus-&gt;<b>post</b> ($message)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_message_GstMessage_"><p>$message (GstMessage)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_bus_remove_signal_w">$bus-&gt;<b>remove_signal_watch</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="sync_message_GStream"><b>sync-message</b> (GStreamer::Bus, GstMessage)</a>
+<dt><a name="message_GStreamer_Bu"><b>message</b> (GStreamer::Bus, GstMessage)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="flags_GStreamer_Mess">flags GStreamer::MessageType</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unknown_GST_MESSAGE"><p>&#39;unknown&#39; / &#39;GST_MESSAGE_UNKNOWN&#39;</p></a>
+<li class="POD_ITEM"><a name="_eos_GST_MESSAGE_EOS"><p>&#39;eos&#39; / &#39;GST_MESSAGE_EOS&#39;</p></a>
+<li class="POD_ITEM"><a name="_error_GST_MESSAGE_E"><p>&#39;error&#39; / &#39;GST_MESSAGE_ERROR&#39;</p></a>
+<li class="POD_ITEM"><a name="_warning_GST_MESSAGE"><p>&#39;warning&#39; / &#39;GST_MESSAGE_WARNING&#39;</p></a>
+<li class="POD_ITEM"><a name="_info_GST_MESSAGE_IN"><p>&#39;info&#39; / &#39;GST_MESSAGE_INFO&#39;</p></a>
+<li class="POD_ITEM"><a name="_tag_GST_MESSAGE_TAG"><p>&#39;tag&#39; / &#39;GST_MESSAGE_TAG&#39;</p></a>
+<li class="POD_ITEM"><a name="_buffering_GST_MESSA"><p>&#39;buffering&#39; / &#39;GST_MESSAGE_BUFFERING&#39;</p></a>
+<li class="POD_ITEM"><a name="_state_changed_GST_M"><p>&#39;state-changed&#39; / &#39;GST_MESSAGE_STATE_CHANGED&#39;</p></a>
+<li class="POD_ITEM"><a name="_state_dirty_GST_MES"><p>&#39;state-dirty&#39; / &#39;GST_MESSAGE_STATE_DIRTY&#39;</p></a>
+<li class="POD_ITEM"><a name="_step_done_GST_MESSA"><p>&#39;step-done&#39; / &#39;GST_MESSAGE_STEP_DONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_clock_provide_GST_M"><p>&#39;clock-provide&#39; / &#39;GST_MESSAGE_CLOCK_PROVIDE&#39;</p></a>
+<li class="POD_ITEM"><a name="_clock_lost_GST_MESS"><p>&#39;clock-lost&#39; / &#39;GST_MESSAGE_CLOCK_LOST&#39;</p></a>
+<li class="POD_ITEM"><a name="_new_clock_GST_MESSA"><p>&#39;new-clock&#39; / &#39;GST_MESSAGE_NEW_CLOCK&#39;</p></a>
+<li class="POD_ITEM"><a name="_structure_change_GS"><p>&#39;structure-change&#39; / &#39;GST_MESSAGE_STRUCTURE_CHANGE&#39;</p></a>
+<li class="POD_ITEM"><a name="_stream_status_GST_M"><p>&#39;stream-status&#39; / &#39;GST_MESSAGE_STREAM_STATUS&#39;</p></a>
+<li class="POD_ITEM"><a name="_application_GST_MES"><p>&#39;application&#39; / &#39;GST_MESSAGE_APPLICATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_element_GST_MESSAGE"><p>&#39;element&#39; / &#39;GST_MESSAGE_ELEMENT&#39;</p></a>
+<li class="POD_ITEM"><a name="_segment_start_GST_M"><p>&#39;segment-start&#39; / &#39;GST_MESSAGE_SEGMENT_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_segment_done_GST_ME"><p>&#39;segment-done&#39; / &#39;GST_MESSAGE_SEGMENT_DONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_duration_GST_MESSAG"><p>&#39;duration&#39; / &#39;GST_MESSAGE_DURATION&#39;</p></a>
+<li class="POD_ITEM"><a name="_latency_GST_MESSAGE"><p>&#39;latency&#39; / &#39;GST_MESSAGE_LATENCY&#39;</p></a>
+<li class="POD_ITEM"><a name="_async_start_GST_MES"><p>&#39;async-start&#39; / &#39;GST_MESSAGE_ASYNC_START&#39;</p></a>
+<li class="POD_ITEM"><a name="_async_done_GST_MESS"><p>&#39;async-done&#39; / &#39;GST_MESSAGE_ASYNC_DONE&#39;</p></a>
+<li class="POD_ITEM"><a name="_any_GST_MESSAGE_ANY"><p>&#39;any&#39; / &#39;GST_MESSAGE_ANY&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../GStreamer.html">GStreamer</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <a class="POD_LINK" href="../GStreamer/Object.html">GStreamer::Object</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2005-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../GStreamer.html">GStreamer</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:47 2009
+</body>
+</html>
+

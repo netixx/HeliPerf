@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::FileSelection</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Fixed.html">Next:<br />Gtk2::Fixed</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/FileFilter.html">Previous:<br />Gtk2::FileFilter</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::FileSelection</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#DEPRECATION_WARNING">DEPRECATION WARNING</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_FileSele">widget = Gtk2::FileSelection-&gt;<b>new</b> ($title)</a>
+<li><a class="POD_NAVLINK" href="#widget_fs_action_are">widget = $fs-&gt;<b>action_area</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_button_are">widget = $fs-&gt;<b>button_area</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_cancel_but">widget = $fs-&gt;<b>cancel_button</b></a>
+<li><a class="POD_NAVLINK" href="#_filesel_complete_pa">$filesel-&gt;<b>complete</b> ($pattern)</a>
+<li><a class="POD_NAVLINK" href="#widget_fs_dir_list">widget = $fs-&gt;<b>dir_list</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_file_list">widget = $fs-&gt;<b>file_list</b></a>
+<li><a class="POD_NAVLINK" href="#localized_file_name_">localized file name = $filesel-&gt;<b>get_filename</b></a>
+<li><a class="POD_NAVLINK" href="#_filesel_set_filenam">$filesel-&gt;<b>set_filename</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#widget_fs_fileop_c_d">widget = $fs-&gt;<b>fileop_c_dir</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_fileop_del">widget = $fs-&gt;<b>fileop_del_file</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_fileop_dia">widget = $fs-&gt;<b>fileop_dialog</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_fileop_ent">widget = $fs-&gt;<b>fileop_entry</b></a>
+<li><a class="POD_NAVLINK" href="#string_fs_fileop_fil">string = $fs-&gt;<b>fileop_file</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_fileop_ren">widget = $fs-&gt;<b>fileop_ren_file</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_help_butto">widget = $fs-&gt;<b>help_button</b></a>
+<li><a class="POD_NAVLINK" href="#_filesel_hide_fileop">$filesel-&gt;<b>hide_fileop_buttons</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_history_me">widget = $fs-&gt;<b>history_menu</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_history_pu">widget = $fs-&gt;<b>history_pulldown</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_main_vbox">widget = $fs-&gt;<b>main_vbox</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_ok_button">widget = $fs-&gt;<b>ok_button</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_filesel_get_">boolean = $filesel-&gt;<b>get_select_multiple</b></a>
+<li><a class="POD_NAVLINK" href="#_filesel_set_select_">$filesel-&gt;<b>set_select_multiple</b> ($select_multiple)</a>
+<li><a class="POD_NAVLINK" href="#widget_fs_selection_">widget = $fs-&gt;<b>selection_entry</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fs_selection_1">widget = $fs-&gt;<b>selection_text</b></a>
+<li><a class="POD_NAVLINK" href="#list_filesel_get_sel">list = $filesel-&gt;<b>get_selections</b></a>
+<li><a class="POD_NAVLINK" href="#_filesel_show_fileop">$filesel-&gt;<b>show_fileop_buttons</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::FileSelection
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Bin
+                           +----Gtk2::Window
+                                +----Gtk2::Dialog
+                                     +----Gtk2::FileSelection
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="DEPRECATION_WARNING">DEPRECATION WARNING</a></h2>
+<p class="POD_TEXT">
+Gtk2::FileSelection has been marked as deprecated, and should not be used in newly written code.
+</p>
+<p class="POD_TEXT">
+You should use <a class="POD_LINK" href="../Gtk2/FileChooserDialog.html">Gtk2::FileChooserDialog</a> instead of Gtk2::FileSelection.
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_FileSele">widget = Gtk2::FileSelection-&gt;<b>new</b> ($title)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_title_string_"><p>$title (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_fs_action_are">widget = $fs-&gt;<b>action_area</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_button_are">widget = $fs-&gt;<b>button_area</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_cancel_but">widget = $fs-&gt;<b>cancel_button</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_filesel_complete_pa">$filesel-&gt;<b>complete</b> ($pattern)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pattern_string_"><p>$pattern (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_fs_dir_list">widget = $fs-&gt;<b>dir_list</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_file_list">widget = $fs-&gt;<b>file_list</b></a></h3>
+<h3 class="POD_HEAD2"><a name="localized_file_name_">localized file name = $filesel-&gt;<b>get_filename</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_filesel_set_filenam">$filesel-&gt;<b>set_filename</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_localized_"><p>$filename (localized file name)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_fs_fileop_c_d">widget = $fs-&gt;<b>fileop_c_dir</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_fileop_del">widget = $fs-&gt;<b>fileop_del_file</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_fileop_dia">widget = $fs-&gt;<b>fileop_dialog</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_fileop_ent">widget = $fs-&gt;<b>fileop_entry</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_fs_fileop_fil">string = $fs-&gt;<b>fileop_file</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_fileop_ren">widget = $fs-&gt;<b>fileop_ren_file</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_help_butto">widget = $fs-&gt;<b>help_button</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_filesel_hide_fileop">$filesel-&gt;<b>hide_fileop_buttons</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_history_me">widget = $fs-&gt;<b>history_menu</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_history_pu">widget = $fs-&gt;<b>history_pulldown</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_main_vbox">widget = $fs-&gt;<b>main_vbox</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_ok_button">widget = $fs-&gt;<b>ok_button</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_filesel_get_">boolean = $filesel-&gt;<b>get_select_multiple</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_filesel_set_select_">$filesel-&gt;<b>set_select_multiple</b> ($select_multiple)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_select_multiple_boo"><p>$select_multiple (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_fs_selection_">widget = $fs-&gt;<b>selection_entry</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fs_selection_1">widget = $fs-&gt;<b>selection_text</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_filesel_get_sel">list = $filesel-&gt;<b>get_selections</b></a></h3>
+<p class="POD_TEXT">
+Returns the list of file name(s) selected.
+</p>
+<h3 class="POD_HEAD2"><a name="_filesel_show_fileop">$filesel-&gt;<b>show_fileop_buttons</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_filename_string_rea">&#39;filename&#39; (string : readable / writable / private)</a>
+<dd>
+The currently selected filename
+<dt class="POD_ITEM"><a name="_select_multiple_boo1">&#39;select-multiple&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether to allow multiple files to be selected
+<dt class="POD_ITEM"><a name="_show_fileops_boolea">&#39;show-fileops&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether buttons for creating/manipulating files should be displayed
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Bin.html">Gtk2::Bin</a>, <a class="POD_LINK" href="../Gtk2/Window.html">Gtk2::Window</a>, <a class="POD_LINK" href="../Gtk2/Dialog.html">Gtk2::Dialog</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:01:20 2009
+</body>
+</html>
+

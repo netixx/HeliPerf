@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::CodeGen</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ColorButton.html">Next:<br />Gtk2::ColorButton</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Clipboard.html">Previous:<br />Gtk2::Clipboard</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::CodeGen</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#AUTHOR">AUTHOR</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::CodeGen - code generation utilities for Glib-based bindings.
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+ # usually in Makefile.PL
+ use Gtk2::CodeGen;
+
+ # most common, use all defaults
+ Gtk2::CodeGen-&gt;parse_maps (&#39;myprefix&#39;);
+ Gtk2::CodeGen-&gt;write_boot;
+
+ # more exotic, change everything
+ Gtk2::CodeGen-&gt;parse_maps (&#39;foo&#39;,
+                            input =&gt; &#39;foo.maps&#39;,
+                            header =&gt; &#39;foo-autogen.h&#39;,
+                            typemap =&gt; &#39;foo.typemap&#39;,
+                            register =&gt; &#39;register-foo.xsh&#39;);
+ Gtk2::CodeGen-&gt;write_boot (filename =&gt; &#39;bootfoo.xsh&#39;,
+                            glob =&gt; &#39;Foo*.xs&#39;,
+                            ignore =&gt; &#39;^(Foo|Foo::Bar)$&#39;);
+</pre>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+This module packages some of the boilerplate code needed for performing code
+generation typically used by perl bindings for gobject-based libraries, using
+the Glib module as a base.
+</p>
+<p class="POD_TEXT">
+The default output filenames are in the subdirectory &#39;build&#39;, which usually
+will be present if you are using ExtUtils::Depends (as most Glib-based
+extensions probably should).
+</p>
+<h3 class="POD_HEAD2"><a name="METHODS">METHODS</a></h3>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="Gtk2_CodeGen_write_b">Gtk2::CodeGen-&gt;write_boot;</a>
+<dt><a name="Gtk2_CodeGen_write_b1">Gtk2::CodeGen-&gt;write_boot (KEY =&gt; VAL, ...)</a>
+<dd>
+Many GObject-based libraries to be bound to perl will be too large to put in
+a single XS file; however, a single PM file typically only bootstraps one
+XS file&#39;s code.  <code>write_boot</code> generates an XSH file to be included from
+the BOOT section of that one bootstrapped module, calling the boot code for
+all the other XS files in the project.
+<p class="POD_TEXT">
+Options are passed to the function in a set of key/val pairs, and all options
+may default.
+</p>
+<pre class="POD_VERBATIM">
+  filename     the name of the output file to be created.
+               the default is &#39;build/boot.xsh&#39;.
+
+  glob         a glob pattern that specifies the names of
+               the xs files to scan for MODULE lines.
+               the default is &#39;xs/*.xs&#39;.
+
+  xs_files     use this to supply an explicit list of file
+               names (as an array reference) to use instead
+               of a glob pattern.  the default is to use
+               the glob pattern.
+
+  ignore       regular expression matching any and all 
+               module names which should be ignored, i.e.
+               NOT included in the list of symbols to boot.
+               this parameter is extremely important for
+               avoiding infinite loops at startup; see the
+               discussion for an explanation and rationale.
+               the default is &#39;^[^:]+$&#39;, or, any name that
+               contains no colons, i.e., any toplevel
+               package name.
+</pre>
+<p></p>
+<p class="POD_TEXT">
+This function performs a glob (using perl&#39;s builtin glob operator) on the
+pattern specified by the &#39;glob&#39; option to retrieve a list of file names.
+It then scans each file in that list for lines matching the pattern
+&quot;^MODULE&quot; -- that is, the MODULE directive in an XS file.  The module
+name is pulled out and matched against the regular expression specified
+by the ignore parameter.  If this module is not to be ignored, we next
+check to see if the name has been seen.  If not, the name will be converted
+to a boot symbol (basically, s/:/_/ and prepend &quot;boot_&quot;) and this symbol
+will be added to a call to GPERL_CALL_BOOT in the generated file; it is then
+marked as seen so we don&#39;t call it again.
+</p>
+<p></p>
+<p class="POD_TEXT">
+What is this all about, you ask?  In order to bind an XSub to perl, the C
+function must be registered with the interpreter.  This is the function of the
+&quot;boot&quot; code, which is typically called in the bootstrapping process.  However,
+when multiple XS files are used with only one PM file, some other mechanism
+must call the boot code from each XS file before any of the function therein
+will be available.
+</p>
+<p class="POD_TEXT">
+A typical setup for a multiple-XS, single-PM module will be to call the 
+various bits of boot code from the BOOT: section of the toplevel module&#39;s
+XS file.
+</p>
+<p class="POD_TEXT">
+To use Gtk2 as an example, when you do &#39;use Gtk2&#39;, Gtk2.pm calls bootstrap
+on Gtk2, which calls the C function boot_Gtk2.  This function calls the
+boot symbols for all the other xs files in the module.  The distinction
+is that the toplevel module, Gtk2, has no colons in its name.
+</p>
+<p></p>
+<p class="POD_TEXT">
+<code>xsubpp</code> generates the boot function&#39;s name by replacing the 
+colons in the MODULE name with underscores and prepending &quot;boot_&quot;.
+We need to be careful not to include the boot code for the bootstrapped module,
+(say Toplevel, or Gtk2, or whatever) because the bootstrap code in 
+Toplevel.pm will call boot_Toplevel when loaded, and boot_Toplevel
+should actually include the file we are creating here.
+</p>
+<p class="POD_TEXT">
+The default value for the ignore parameter ignores any name not containing
+colons, because it is assumed that this will be a toplevel module, and any
+other packages/modules it boots will be <i>below</i> this namespace, i.e., they
+will contain colons.  This assumption holds true for Gtk2 and Gnome2, but
+obviously fails for something like Gnome2::Canvas.  To boot that module
+properly, you must use a regular expression such as &quot;^Gnome2::Canvas$&quot;.
+</p>
+<p class="POD_TEXT">
+Note that you can, of course, match more than just one name, e.g.
+&quot;^(Foo|Foo::Bar)$&quot;, if you wanted to have Foo::Bar be included in the same
+dynamically loaded object but only be booted when absolutely necessary.
+(If you get that to work, more power to you.)
+</p>
+<p class="POD_TEXT">
+Also, since this code scans for ^MODULE, you must comment the MODULE section
+out with leading # marks if you want to hide it from <code>write_boot</code>.
+</p>
+<dt class="POD_ITEM"><a name="Gtk2_CodeGen_parse_m">Gtk2::CodeGen-&gt;parse_maps (PREFIX, [KEY =&gt; VAL, ...])</a>
+<dd>
+Convention within Glib/Gtk2 and friends is to use preprocessor macros in the
+style of SvMyType and newSVMyType to get values in and out of perl, and to
+use those same macros from both hand-written code as well as the typemaps.
+However, if you have a lot of types in your library (such as the nearly 200
+types in Gtk+ 2.x), then writing those macros becomes incredibly tedious, 
+especially so when you factor in all of the variants and such.
+<p class="POD_TEXT">
+So, this function can turn a flat file containing terse descriptions of the
+types into a header containing all the cast macros, a typemap file using them,
+and an XSH file containing the proper code to register each of those types
+(to be included by your module&#39;s BOOT code).
+</p>
+<p class="POD_TEXT">
+The <i>PREFIX</i> is mandatory, and is used in some of the resulting filenames,
+You can also override the defaults by providing key=&gt;val pairs:
+</p>
+<pre class="POD_VERBATIM">
+  input    input file name.  default is &#39;maps&#39;.  if this
+           key&#39;s value is an array reference, all the
+           filenames in the array will be scanned.
+  header   name of the header file to create, default is
+           build/$prefix-autogen.h
+  typemap  name of the typemap file to create, default is
+           build/$prefix.typemap
+  register name of the xsh file to contain all of the 
+           type registrations, default is build/register.xsh
+</pre>
+<p class="POD_TEXT">
+the maps file is a table of type descriptions, one per line, with fields
+separated by whitespace.  the fields should be:
+</p>
+<pre class="POD_VERBATIM">
+  TYPE macro    e.g., GTK_TYPE_WIDGET 
+  class name    e.g. GtkWidget, name of the C type
+  base type     one of GObject, GBoxed, GEnum, GFlags.
+                GtkObject is also supported, but the
+                distinction is no longer necessary as
+                of Glib 0.26.
+  package       name of the perl package to which this
+                class name should be mapped, e.g.
+                Gtk2::Widget
+</pre>
+<p class="POD_TEXT">
+As a special case, you can also use this same format to register error
+domains; in this case two of the four columns take on slightly different
+meanings:
+</p>
+<pre class="POD_VERBATIM">
+  domain macro     e.g., GDK_PIXBUF_ERROR
+  enum type macro  e.g., GDK_TYPE_PIXBUF_ERROR
+  base type        GError
+  package          name of the Perl package to which this
+                   class name should be mapped, e.g.,
+                   Gtk2::Gdk::Pixbuf::Error.
+</pre>
+<dt class="POD_ITEM"><a name="Gtk2_CodeGen_generat">Gtk2::CodeGen-&gt;generate_constants_wrappers (KEY =&gt; VAL, ...)</a>
+<dd>
+Generates an XS file with XSUB wrappers for C constants.  The key-value pairs
+may contain one or more of the following keys:
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="prefix_Specifies_the"><i>prefix</i>: Specifies the package name the functions should be put into.</a>
+<dt><a name="lists_Reference_to_a"><i>lists</i>: Reference to an array of filenames which specify the constants
+that should be wrapped.</a>
+<dt><a name="xs_file_The_name_of_"><i>xs_file</i>: The name of the XS file that should be created.</a>
+<dt><a name="header_The_name_of_t"><i>header</i>: The name of the header file that should be included in the
+generated XS file.</a>
+<dt><a name="export_tag_The_name_"><i>export_tag</i>: The name of the <u>Exporter</u> tag that should be used for
+the constants wrappers.</a>
+<dd></dl>
+
+All of the keys have mostly sane defaults.
+<p class="POD_TEXT">
+Don&#39;t forget to add the generated XS file to the list of XS files to be
+compiled.
+</p>
+<p class="POD_TEXT">
+The lists describing the constants to be wrapped should have the following
+format:
+</p>
+<pre class="POD_VERBATIM">
+  CONSTANT_NAME [ \t+ CONSTANT_CONVERTER ]
+</pre>
+<p class="POD_TEXT">
+That is, the constant&#39;s name optionally followed by a tab and the converter
+that is to be used to convert the constant to a Perl scalar.  If
+CONSTANT_CONVERTER is a simple string like &#39;newSViv&#39; it will be used as follows
+to get a Perl scalar: CONSTANT_CONVERTER (CONSTANT_NAME).  If it contains
+&#39;$var&#39;, as in &#39;newSVpv ($var, PL_na)&#39;, then &#39;$var&#39; will be replaced with
+CONSTANT_NAME and the resulting string will be used for conversion.
+</p>
+<p class="POD_TEXT">
+The default for CONSTANT_CONVERTER is &#39;newSViv&#39;.
+</p>
+</dl>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Glib/CodeGen.html">Glib::CodeGen</a> does the actual work; Gtk2::CodeGen is now just a wrapper
+which adds support for gtk-specific types.
+</p>
+<h2 class="POD_HEAD1"><a name="AUTHOR">AUTHOR</a></h2>
+<p class="POD_TEXT">
+muppet &lt;scott at asofyet dot org&gt;
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2005 by the gtk2-perl team (see the file AUTHORS for the
+full list)
+</p>
+<p class="POD_TEXT">
+This library is free software; you can redistribute it and/or modify it under
+the terms of the GNU Library General Public License as published by the Free
+Software Foundation; either version 2.1 of the License, or (at your option)
+any later version.
+</p>
+<p class="POD_TEXT">
+This library is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU Library General Public License for
+more details.
+</p>
+<p class="POD_TEXT">
+You should have received a copy of the GNU Library General Public License
+along with this library; if not, write to the Free Software Foundation, Inc.,
+59 Temple Place - Suite 330, Boston, MA  02111-1307  USA.
+</p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:48 2009
+</body>
+</html>
+

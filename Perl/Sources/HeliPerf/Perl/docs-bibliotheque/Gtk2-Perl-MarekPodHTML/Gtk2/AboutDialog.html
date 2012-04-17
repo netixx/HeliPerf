@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::AboutDialog</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Accelerator.html">Next:<br />Gtk2::Accelerator</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2.html">Previous:<br />Gtk2</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::AboutDialog</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_AboutDia">widget = Gtk2::AboutDialog-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#list_about_get_artis">list = $about-&gt;<b>get_artists</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_artists_a">$about-&gt;<b>set_artists</b> ($artist1, ...)</a>
+<li><a class="POD_NAVLINK" href="#list_about_get_autho">list = $about-&gt;<b>get_authors</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_authors_a">$about-&gt;<b>set_authors</b> ($author1, ...)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_abou">string or undef = $about-&gt;<b>get_comments</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_comments_">$about-&gt;<b>set_comments</b> ($comments)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_abou1">string or undef = $about-&gt;<b>get_copyright</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_copyright">$about-&gt;<b>set_copyright</b> ($copyright)</a>
+<li><a class="POD_NAVLINK" href="#list_about_get_docum">list = $about-&gt;<b>get_documenters</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_documente">$about-&gt;<b>set_documenters</b> ($documenter1, ...)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_AboutDialog_set">Gtk2::AboutDialog-&gt;<b>set_email_hook</b> ($func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_abou2">string or undef = $about-&gt;<b>get_license</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_license_l">$about-&gt;<b>set_license</b> ($license)</a>
+<li><a class="POD_NAVLINK" href="#pixbuf_or_undef_abou">pixbuf or undef = $about-&gt;<b>get_logo</b></a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_abou3">string or undef = $about-&gt;<b>get_logo_icon_name</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_logo_icon">$about-&gt;<b>set_logo_icon_name</b> ($icon_name)</a>
+<li><a class="POD_NAVLINK" href="#_about_set_logo_logo">$about-&gt;<b>set_logo</b> ($logo)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_abou4">string or undef = $about-&gt;<b>get_program_name</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_program_n">$about-&gt;<b>set_program_name</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_show_about_dial">Gtk2-&gt;<b>show_about_dialog</b> ($parent, $first_property_name, ...)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_abou5">string or undef = $about-&gt;<b>get_translator_credits</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_translato">$about-&gt;<b>set_translator_credits</b> ($translator_credits)</a>
+<li><a class="POD_NAVLINK" href="#Gtk2_AboutDialog_set1">Gtk2::AboutDialog-&gt;<b>set_url_hook</b> ($func, $data=undef)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_abou6">string or undef = $about-&gt;<b>get_version</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_version_v">$about-&gt;<b>set_version</b> ($version)</a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_abou7">string or undef = $about-&gt;<b>get_website</b></a>
+<li><a class="POD_NAVLINK" href="#string_or_undef_abou8">string or undef = $about-&gt;<b>get_website_label</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_website_l">$about-&gt;<b>set_website_label</b> ($website_label)</a>
+<li><a class="POD_NAVLINK" href="#_about_set_website_w">$about-&gt;<b>set_website</b> ($website)</a>
+<li><a class="POD_NAVLINK" href="#boolean_about_get_wr">boolean = $about-&gt;<b>get_wrap_license</b></a>
+<li><a class="POD_NAVLINK" href="#_about_set_wrap_lice">$about-&gt;<b>set_wrap_license</b> ($wrap_license)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#URL_AND_EMAIL_HOOKS">URL AND EMAIL HOOKS</a>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::AboutDialog
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Bin
+                           +----Gtk2::Window
+                                +----Gtk2::Dialog
+                                     +----Gtk2::AboutDialog
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_AboutDia">widget = Gtk2::AboutDialog-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="list_about_get_artis">list = $about-&gt;<b>get_artists</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_artists_a">$about-&gt;<b>set_artists</b> ($artist1, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_artist1_string_"><p>$artist1 (string)</p></a>
+<li class="POD_ITEM"><a name="_list_"><p>... (list)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="list_about_get_autho">list = $about-&gt;<b>get_authors</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_authors_a">$about-&gt;<b>set_authors</b> ($author1, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_author1_string_"><p>$author1 (string)</p></a>
+<li class="POD_ITEM"><a name="_list_1"><p>... (list)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="string_or_undef_abou">string or undef = $about-&gt;<b>get_comments</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_comments_">$about-&gt;<b>set_comments</b> ($comments)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_comments_string_or_"><p>$comments (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_or_undef_abou1">string or undef = $about-&gt;<b>get_copyright</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_copyright">$about-&gt;<b>set_copyright</b> ($copyright)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_copyright_string_or"><p>$copyright (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="list_about_get_docum">list = $about-&gt;<b>get_documenters</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_documente">$about-&gt;<b>set_documenters</b> ($documenter1, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_documenter1_string_"><p>$documenter1 (string)</p></a>
+<li class="POD_ITEM"><a name="_list_2"><p>... (list)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="Gtk2_AboutDialog_set">Gtk2::AboutDialog-&gt;<b>set_email_hook</b> ($func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_or_undef_abou2">string or undef = $about-&gt;<b>get_license</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_license_l">$about-&gt;<b>set_license</b> ($license)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_license_string_or_u"><p>$license (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="pixbuf_or_undef_abou">pixbuf or undef = $about-&gt;<b>get_logo</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_or_undef_abou3">string or undef = $about-&gt;<b>get_logo_icon_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_logo_icon">$about-&gt;<b>set_logo_icon_name</b> ($icon_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_icon_name_string_or"><p>$icon_name (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_about_set_logo_logo">$about-&gt;<b>set_logo</b> ($logo)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_logo_Gtk2_Gdk_Pixbu"><p>$logo (Gtk2::Gdk::Pixbuf or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_or_undef_abou4">string or undef = $about-&gt;<b>get_program_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_program_n">$about-&gt;<b>set_program_name</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_string_or_unde"><p>$name (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gtk2_show_about_dial">Gtk2-&gt;<b>show_about_dialog</b> ($parent, $first_property_name, ...)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_parent_Gtk2_Window_"><p>$parent (Gtk2::Window or undef)</p></a>
+<li class="POD_ITEM"><a name="_first_property_name"><p>$first_property_name (string)</p></a>
+<li class="POD_ITEM"><a name="_list_the_rest_of_a_"><p>... (list) the rest of a list of name=&gt;property value pairs.</p></a>
+</ul>
+<p class="POD_TEXT">
+This is a convenience function for showing an application&#39;s about box. The
+constructed dialog is associated with the parent window and reused for
+future invocations of this function.
+</p>
+<p class="POD_TEXT">
+The dialog is shown nonmodally, and will be hidden by any response.
+</p>
+<h3 class="POD_HEAD2"><a name="string_or_undef_abou5">string or undef = $about-&gt;<b>get_translator_credits</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_translato">$about-&gt;<b>set_translator_credits</b> ($translator_credits)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_translator_credits_"><p>$translator_credits (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="Gtk2_AboutDialog_set1">Gtk2::AboutDialog-&gt;<b>set_url_hook</b> ($func, $data=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_func_scalar_1"><p>$func (scalar)</p></a>
+<li class="POD_ITEM"><a name="_data_scalar_1"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_or_undef_abou6">string or undef = $about-&gt;<b>get_version</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_version_v">$about-&gt;<b>set_version</b> ($version)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_version_string_or_u"><p>$version (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_or_undef_abou7">string or undef = $about-&gt;<b>get_website</b></a></h3>
+<h3 class="POD_HEAD2"><a name="string_or_undef_abou8">string or undef = $about-&gt;<b>get_website_label</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_about_set_website_l">$about-&gt;<b>set_website_label</b> ($website_label)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_website_label_strin"><p>$website_label (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_about_set_website_w">$about-&gt;<b>set_website</b> ($website)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_website_string_or_u"><p>$website (string or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_about_get_wr">boolean = $about-&gt;<b>get_wrap_license</b></a></h3>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<h3 class="POD_HEAD2"><a name="_about_set_wrap_lice">$about-&gt;<b>set_wrap_license</b> ($wrap_license)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_wrap_license_boolea"><p>$wrap_license (boolean)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.8
+</p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="URL_AND_EMAIL_HOOKS">URL AND EMAIL HOOKS</a></h2>
+<p class="POD_TEXT">
+When setting the website and email hooks for the Gtk2::AboutDialog widget, you
+should remember that the order is important: you should set the hook functions
+<b>before</b> setting the website and email URL properties, like this:
+</p>
+<pre class="POD_VERBATIM">
+  $about_dialog-&gt;set_url_hook(\&amp;launch_web_browser);
+  $about_dialog-&gt;set_website($app_website);
+</pre>
+<p class="POD_TEXT">
+otherwise the AboutDialog will not display the website and the email addresses
+as clickable.
+</p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_artists_Glib_Strv_r">&#39;artists&#39; (Glib::Strv : readable / writable / private)</a>
+<dd>
+List of people who have contributed artwork to the program
+<dt class="POD_ITEM"><a name="_authors_Glib_Strv_r">&#39;authors&#39; (Glib::Strv : readable / writable / private)</a>
+<dd>
+List of authors of the program
+<dt class="POD_ITEM"><a name="_comments_string_rea">&#39;comments&#39; (string : readable / writable / private)</a>
+<dd>
+Comments about the program
+<dt class="POD_ITEM"><a name="_copyright_string_re">&#39;copyright&#39; (string : readable / writable / private)</a>
+<dd>
+Copyright information for the program
+<dt class="POD_ITEM"><a name="_documenters_Glib_St">&#39;documenters&#39; (Glib::Strv : readable / writable / private)</a>
+<dd>
+List of people documenting the program
+<dt class="POD_ITEM"><a name="_license_string_read">&#39;license&#39; (string : readable / writable / private)</a>
+<dd>
+The license of the program
+<dt class="POD_ITEM"><a name="_logo_Gtk2_Gdk_Pixbu1">&#39;logo&#39; (Gtk2::Gdk::Pixbuf : readable / writable / private)</a>
+<dd>
+A logo for the about box. If this is not set, it defaults to gtk_window_get_default_icon_list()
+<dt class="POD_ITEM"><a name="_logo_icon_name_stri">&#39;logo-icon-name&#39; (string : readable / writable / private)</a>
+<dd>
+A named icon to use as the logo for the about box.
+<dt class="POD_ITEM"><a name="_program_name_string">&#39;program-name&#39; (string : readable / writable / private)</a>
+<dd>
+The name of the program. If this is not set, it defaults to g_get_application_name()
+<dt class="POD_ITEM"><a name="_translator_credits_1">&#39;translator-credits&#39; (string : readable / writable / private)</a>
+<dd>
+Credits to the translators. This string should be marked as translatable
+<dt class="POD_ITEM"><a name="_version_string_read">&#39;version&#39; (string : readable / writable / private)</a>
+<dd>
+The version of the program
+<dt class="POD_ITEM"><a name="_website_string_read">&#39;website&#39; (string : readable / writable / private)</a>
+<dd>
+The URL for the link to the website of the program
+<dt class="POD_ITEM"><a name="_website_label_strin1">&#39;website-label&#39; (string : readable / writable / private)</a>
+<dd>
+The label for the link to the website of the program. If this is not set, it defaults to the URL
+<dt class="POD_ITEM"><a name="_wrap_license_boolea1">&#39;wrap-license&#39; (boolean : readable / writable / private)</a>
+<dd>
+Whether to wrap the license text.
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Bin.html">Gtk2::Bin</a>, <a class="POD_LINK" href="../Gtk2/Window.html">Gtk2::Window</a>, <a class="POD_LINK" href="../Gtk2/Dialog.html">Gtk2::Dialog</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:18 2009
+</body>
+</html>
+

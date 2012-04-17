@@ -1,0 +1,32 @@
+[helico]
+1864	4580.29345493562	EC135_schema_small.png
+EC135_mini.png
+[graphcoord]
+4227.3	2910
+4369	2910
+4570	1500
+4180	1840
+[taillegraph]
+1	0.075
+1	0.0575
+1150
+210
+[configbase]
+Manuel de vol “Basic”	100	2200	1
+Manuel de vol “Equipement”	1	2200	1
+Kit de premiers secours	2	5730	1
+Cover ELT?	0	2390	0
+2ième extincteur à main	2	3722	0
+Adaptateur Treuil gauche	0	4565	0
+Treuil extèrieur ext	0	3965	0
+Tissus anti-reflet droit	0	2400	0
+Tissus anti-reflet gauche	0	2400	0
+Coupe cable	1	2911	0
+Coupe cable essuie Glace	0	1290	0
+Coupe cable Haut	2	2550	0
+Coupe cable Bas	2	1590	0
+Lampe torche Pilote	0	2482	0
+Lampe torche Copilote	0	2421	0
+Boitier de commande SX-16	10	2003	0
+[pesee]
+2171	4377

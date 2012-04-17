@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::ToggleButton</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ToggleToolButton.html">Next:<br />Gtk2::ToggleToolButton</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ToggleAction.html">Previous:<br />Gtk2::ToggleAction</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::ToggleButton</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_ToggleBu">widget = Gtk2::ToggleButton-&gt;<b>new</b> ($label=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_ToggleBu1">widget = Gtk2::ToggleButton-&gt;<b>new_with_label</b> ($label=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_ToggleBu2">widget = Gtk2::ToggleButton-&gt;<b>new_with_mnemonic</b> ($label=undef)</a>
+<li><a class="POD_NAVLINK" href="#boolean_toggle_butto">boolean = $toggle_button-&gt;<b>get_active</b></a>
+<li><a class="POD_NAVLINK" href="#_toggle_button_set_a">$toggle_button-&gt;<b>set_active</b> ($is_active)</a>
+<li><a class="POD_NAVLINK" href="#boolean_toggle_butto1">boolean = $toggle_button-&gt;<b>get_inconsistent</b></a>
+<li><a class="POD_NAVLINK" href="#_toggle_button_set_i">$toggle_button-&gt;<b>set_inconsistent</b> ($setting)</a>
+<li><a class="POD_NAVLINK" href="#boolean_toggle_butto2">boolean = $toggle_button-&gt;<b>get_mode</b></a>
+<li><a class="POD_NAVLINK" href="#_toggle_button_set_m">$toggle_button-&gt;<b>set_mode</b> ($draw_indicator)</a>
+<li><a class="POD_NAVLINK" href="#_toggle_button_toggl">$toggle_button-&gt;<b>toggled</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::ToggleButton
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Bin
+                           +----Gtk2::Button
+                                +----Gtk2::ToggleButton
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_ToggleBu">widget = Gtk2::ToggleButton-&gt;<b>new</b> ($label=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_label_string_"><p>$label (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_ToggleBu1">widget = Gtk2::ToggleButton-&gt;<b>new_with_label</b> ($label=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_label_string_1"><p>$label (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_ToggleBu2">widget = Gtk2::ToggleButton-&gt;<b>new_with_mnemonic</b> ($label=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_label_string_2"><p>$label (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_toggle_butto">boolean = $toggle_button-&gt;<b>get_active</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toggle_button_set_a">$toggle_button-&gt;<b>set_active</b> ($is_active)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_is_active_boolean_"><p>$is_active (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_toggle_butto1">boolean = $toggle_button-&gt;<b>get_inconsistent</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toggle_button_set_i">$toggle_button-&gt;<b>set_inconsistent</b> ($setting)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_setting_boolean_"><p>$setting (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_toggle_butto2">boolean = $toggle_button-&gt;<b>get_mode</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_toggle_button_set_m">$toggle_button-&gt;<b>set_mode</b> ($draw_indicator)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_draw_indicator_bool"><p>$draw_indicator (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_toggle_button_toggl">$toggle_button-&gt;<b>toggled</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_active_boolean_read">&#39;active&#39; (boolean : readable / writable / private)</a>
+<dd>
+If the toggle button should be pressed in or not
+<dt class="POD_ITEM"><a name="_draw_indicator_bool1">&#39;draw-indicator&#39; (boolean : readable / writable / private)</a>
+<dd>
+If the toggle part of the button is displayed
+<dt class="POD_ITEM"><a name="_inconsistent_boolea">&#39;inconsistent&#39; (boolean : readable / writable / private)</a>
+<dd>
+If the toggle button is in an &quot;in between&quot; state
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="toggled_Gtk2_ToggleB"><b>toggled</b> (Gtk2::ToggleButton)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Bin.html">Gtk2::Bin</a>, <a class="POD_LINK" href="../Gtk2/Button.html">Gtk2::Button</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:04:06 2009
+</body>
+</html>
+

@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="Gtk2/AboutDialog.html">Next:<br />Gtk2::AboutDialog</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="GStreamer/TypeFindFactory.html">Previous:<br />GStreamer::TypeFindFactory</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#ABSTRACT">ABSTRACT</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#INITIALIZATION">INITIALIZATION</a>
+<li><a class="POD_NAVLINK" href="#EXPORTS">EXPORTS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#AUTHORS">AUTHORS</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2 - Perl interface to the 2.x series of the Gimp Toolkit library
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  use Gtk2 -init;
+  # Gtk2-&gt;init; works if you didn&#39;t use -init on use
+  my $window = Gtk2::Window-&gt;new (&#39;toplevel&#39;);
+  my $button = Gtk2::Button-&gt;new (&#39;Quit&#39;);
+  $button-&gt;signal_connect (clicked =&gt; sub { Gtk2-&gt;main_quit });
+  $window-&gt;add ($button);
+  $window-&gt;show_all;
+  Gtk2-&gt;main;
+</pre>
+<h2 class="POD_HEAD1"><a name="ABSTRACT">ABSTRACT</a></h2>
+<p class="POD_TEXT">
+Perl bindings to the 2.x series of the Gtk+ widget set.  This module
+allows you to write graphical user interfaces in a Perlish and
+object-oriented way, freeing you from the casting and memory management
+in C, yet remaining very close in spirit to original API.
+</p>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+The Gtk2 module allows a Perl developer to use the Gtk+ graphical user
+interface library.  Find out more about Gtk+ at http://www.gtk.org.
+</p>
+<p class="POD_TEXT">
+The GTK+ Reference Manual is also a handy companion when writing Gtk
+programs in any language.  http://developer.gnome.org/doc/API/2.0/gtk/
+The Perl bindings follow the C API very closely, and the C reference
+documentation should be considered the canonical source.
+</p>
+<p class="POD_TEXT">
+To discuss gtk2-perl, ask questions and flame/praise the authors,
+join gtk-perl-list@gnome.org at lists.gnome.org.
+</p>
+<p class="POD_TEXT">
+Also have a look at the gtk2-perl website and sourceforge project page,
+http://gtk2-perl.sourceforge.net
+</p>
+<h2 class="POD_HEAD1"><a name="INITIALIZATION">INITIALIZATION</a></h2>
+<pre class="POD_VERBATIM">
+  use Gtk2 qw/-init/;
+  use Gtk2 qw/-init -threads-init/;
+</pre>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_init">-init</a>
+<dd>
+Equivalent to Gtk2-&gt;init, called to initialize GLIB and GTK+. Just about every
+Gtk2-Perl script should do &quot;use Gtk2 -init&quot;; This initialization should take
+place before using any other Gtk2 functions in your GUI applications. It will
+initialize everything needed to operate the toolkit and parses some standard
+command line options. @ARGV is adjusted accordingly so your own code will never
+see those standard arguments.
+<dt class="POD_ITEM"><a name="_threads_init">-threads-init</a>
+<dd>
+Equivalent to Gtk2::Gdk::Threads-&gt;init, called to initialze/enable gdk&#39;s thread
+safety mechanisms so that gdk can be accessed from multiple threads when used
+in conjunction with Gtk2::Gdk::Threads-&gt;enter and Gtk2::Gdk::Threads-&gt;leave. If
+invoked as Gtk2::Gdk::Threads-&gt;init it should be done before Gtk2-&gt;init is
+called, if done by &quot;use Gtk2 -init -threads-init&quot; order does not matter.
+</dl>
+<h2 class="POD_HEAD1"><a name="EXPORTS">EXPORTS</a></h2>
+<p class="POD_TEXT">
+Gtk2 exports nothing by default, but some constants are available upon request.
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="Tag_constants">Tag: constants</a>
+<dd><pre class="POD_VERBATIM">
+  GTK_PRIORITY_RESIZE
+
+  GTK_PATH_PRIO_LOWEST
+  GTK_PATH_PRIO_GTK
+  GTK_PATH_PRIO_APPLICATION
+  GTK_PATH_PRIO_THEME
+  GTK_PATH_PRIO_RC
+  GTK_PATH_PRIO_HIGHEST
+
+  GDK_PRIORITY_EVENTS
+  GDK_PRIORITY_REDRAW
+  GDK_CURRENT_TIME
+</pre>
+</dl>
+
+See <a class="POD_LINK" href="Glib.html">Glib</a> for other standard priority levels.
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<u>perl</u>(1), <a class="POD_LINK" href="Glib.html">Glib</a>(3pm), <a class="POD_LINK" href="Pango.html">Pango</a>(3pm).
+</p>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="Gtk2/Gdk/Keysyms.html">Gtk2::Gdk::Keysyms</a>(3pm) contains a hash of key codes, culled from
+gdk/gdkkeysyms.h
+</p>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="Gtk2/api.html">Gtk2::api</a>(3pm) describes how to map the C API into Perl, and some of the
+important differences in the Perl bindings.
+</p>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="Gtk2/Helper.html">Gtk2::Helper</a>(3pm) contains stuff that makes writing Gtk2 programs
+a little easier.
+</p>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="Gtk2/SimpleList.html">Gtk2::SimpleList</a>(3pm) makes the GtkListStore and GtkTreeModel a <i>lot</i>
+easier to use.
+</p>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="Gtk2/Pango.html">Gtk2::Pango</a>(3pm) exports various little-used but important constants you
+may need to work with pango directly.
+</p>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="Gtk2/index.html">Gtk2::index</a>(3pm) lists the autogenerated api documentation pod files
+for Gtk2.
+</p>
+<p class="POD_TEXT">
+Gtk2 also provides code to make it relatively painless to create Perl
+wrappers for other GLib/Gtk-based libraries.  See <a class="POD_LINK" href="Gtk2/CodeGen.html">Gtk2::CodeGen</a>,
+<a class="POD_LINK" href="ExtUtils/PkgConfig.html">ExtUtils::PkgConfig</a>, and <a class="POD_LINK" href="ExtUtils/Depends.html">ExtUtils::Depends</a>.  If you&#39;re writing bindings,
+you&#39;ll probably also be interested in <a class="POD_LINK" href="Gtk2/devel.html">Gtk2::devel</a>, which is a supplement
+to <a class="POD_LINK" href="Glib/devel.html">Glib::devel</a> and <a class="POD_LINK" href="Glib/xsapi.html">Glib::xsapi</a>.  The Binding Howto, at
+http://gtk2-perl.sourceforge.net/doc/binding_howto.pod.html, ties it all
+together.
+</p>
+<h2 class="POD_HEAD1"><a name="AUTHORS">AUTHORS</a></h2>
+<p class="POD_TEXT">
+The gtk2-perl team:
+</p>
+<pre class="POD_VERBATIM">
+ muppet &lt;scott at asofyet dot org&gt;
+ Ross McFarland &lt;rwmcfa1 at neces dot com&gt;
+ Torsten Schoenfeld &lt;kaffeetisch at web dot de&gt;
+ Marc Lehmann &lt;pcg at goof dot com&gt;
+ G&Atilde;&para;ran Thyni &lt;gthyni at kirra dot net&gt;
+ J&Atilde;&para;rn Reder &lt;joern at zyn dot de&gt;
+ Chas Owens &lt;alas at wilma dot widomaker dot com&gt;
+ Guillaume Cottenceau &lt;gc at mandrakesoft dot com&gt;
+</pre>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT_AND_LICENS">COPYRIGHT AND LICENSE</a></h2>
+<p class="POD_TEXT">
+Copyright 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+</p>
+<p class="POD_TEXT">
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+</p>
+<p class="POD_TEXT">
+You should have received a copy of the GNU Library General Public
+License along with this library; if not, write to the
+Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA  02111-1307  USA.
+</p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:17 2009
+</body>
+</html>
+

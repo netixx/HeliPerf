@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Pango::Context</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Pango/Font.html">Next:<br />Pango::Font</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Pango/Color.html">Previous:<br />Pango::Color</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Pango::Context</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#direction_context_ge">direction = $context-&gt;<b>get_base_dir</b></a>
+<li><a class="POD_NAVLINK" href="#_context_set_base_di">$context-&gt;<b>set_base_dir</b> ($direction)</a>
+<li><a class="POD_NAVLINK" href="#gravity_context_get_">gravity = $context-&gt;<b>get_base_gravity</b></a>
+<li><a class="POD_NAVLINK" href="#_context_set_base_gr">$context-&gt;<b>set_base_gravity</b> ($gravity)</a>
+<li><a class="POD_NAVLINK" href="#fontdescription_cont">fontdescription = $context-&gt;<b>get_font_description</b></a>
+<li><a class="POD_NAVLINK" href="#_context_set_font_de">$context-&gt;<b>set_font_description</b> ($desc)</a>
+<li><a class="POD_NAVLINK" href="#fontmap_context_get_">fontmap = $context-&gt;<b>get_font_map</b></a>
+<li><a class="POD_NAVLINK" href="#gravity_context_get_1">gravity = $context-&gt;<b>get_gravity</b></a>
+<li><a class="POD_NAVLINK" href="#gravityhint_context_">gravityhint = $context-&gt;<b>get_gravity_hint</b></a>
+<li><a class="POD_NAVLINK" href="#_context_set_gravity">$context-&gt;<b>set_gravity_hint</b> ($hint)</a>
+<li><a class="POD_NAVLINK" href="#language_context_get">language = $context-&gt;<b>get_language</b></a>
+<li><a class="POD_NAVLINK" href="#_context_set_languag">$context-&gt;<b>set_language</b> ($language)</a>
+<li><a class="POD_NAVLINK" href="#_families_context_li">@families = $context-&gt;<b>list_families</b></a>
+<li><a class="POD_NAVLINK" href="#font_context_load_fo">font = $context-&gt;<b>load_font</b> ($desc)</a>
+<li><a class="POD_NAVLINK" href="#fontset_context_load">fontset = $context-&gt;<b>load_fontset</b> ($desc, $language)</a>
+<li><a class="POD_NAVLINK" href="#matrix_or_undef_cont">matrix or undef = $context-&gt;<b>get_matrix</b></a>
+<li><a class="POD_NAVLINK" href="#_context_set_matrix_">$context-&gt;<b>set_matrix</b> ($matrix)</a>
+<li><a class="POD_NAVLINK" href="#fontmetrics_context_">fontmetrics = $context-&gt;<b>get_metrics</b> ($desc, $language)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Pango_Direction">enum Pango::Direction</a>
+<li><a class="POD_NAVLINK" href="#enum_Pango_Gravity">enum Pango::Gravity</a>
+<li><a class="POD_NAVLINK" href="#enum_Pango_GravityHi">enum Pango::GravityHint</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Pango::Context
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Pango::Context
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="direction_context_ge">direction = $context-&gt;<b>get_base_dir</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_context_set_base_di">$context-&gt;<b>set_base_dir</b> ($direction)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_direction_Pango_Dir"><p>$direction (Pango::Direction)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="gravity_context_get_">gravity = $context-&gt;<b>get_base_gravity</b></a></h3>
+<p class="POD_TEXT">
+Since: pango 1.16
+</p>
+<h3 class="POD_HEAD2"><a name="_context_set_base_gr">$context-&gt;<b>set_base_gravity</b> ($gravity)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_gravity_Pango_Gravi"><p>$gravity (Pango::Gravity)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: pango 1.16
+</p>
+<h3 class="POD_HEAD2"><a name="fontdescription_cont">fontdescription = $context-&gt;<b>get_font_description</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_context_set_font_de">$context-&gt;<b>set_font_description</b> ($desc)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_desc_Pango_FontDesc"><p>$desc (Pango::FontDescription)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="fontmap_context_get_">fontmap = $context-&gt;<b>get_font_map</b></a></h3>
+<p class="POD_TEXT">
+Since: pango 1.6
+</p>
+<h3 class="POD_HEAD2"><a name="gravity_context_get_1">gravity = $context-&gt;<b>get_gravity</b></a></h3>
+<p class="POD_TEXT">
+Since: pango 1.16
+</p>
+<h3 class="POD_HEAD2"><a name="gravityhint_context_">gravityhint = $context-&gt;<b>get_gravity_hint</b></a></h3>
+<p class="POD_TEXT">
+Since: pango 1.16
+</p>
+<h3 class="POD_HEAD2"><a name="_context_set_gravity">$context-&gt;<b>set_gravity_hint</b> ($hint)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_hint_Pango_GravityH"><p>$hint (Pango::GravityHint)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: pango 1.16
+</p>
+<h3 class="POD_HEAD2"><a name="language_context_get">language = $context-&gt;<b>get_language</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_context_set_languag">$context-&gt;<b>set_language</b> ($language)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_language_Pango_Lang"><p>$language (Pango::Language)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_families_context_li">@families = $context-&gt;<b>list_families</b></a></h3>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="font_context_load_fo">font = $context-&gt;<b>load_font</b> ($desc)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_desc_Pango_FontDesc1"><p>$desc (Pango::FontDescription or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="fontset_context_load">fontset = $context-&gt;<b>load_fontset</b> ($desc, $language)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_desc_Pango_FontDesc2"><p>$desc (Pango::FontDescription)</p></a>
+<li class="POD_ITEM"><a name="_language_Pango_Lang1"><p>$language (Pango::Language or undef)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="matrix_or_undef_cont">matrix or undef = $context-&gt;<b>get_matrix</b></a></h3>
+<p class="POD_TEXT">
+Since: pango 1.6
+</p>
+<h3 class="POD_HEAD2"><a name="_context_set_matrix_">$context-&gt;<b>set_matrix</b> ($matrix)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_matrix_Pango_Matrix"><p>$matrix (Pango::Matrix or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: pango 1.6
+</p>
+<h3 class="POD_HEAD2"><a name="fontmetrics_context_">fontmetrics = $context-&gt;<b>get_metrics</b> ($desc, $language)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_desc_Pango_FontDesc3"><p>$desc (Pango::FontDescription)</p></a>
+<li class="POD_ITEM"><a name="_language_Pango_Lang2"><p>$language (Pango::Language or undef)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Pango_Direction">enum Pango::Direction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_ltr_PANGO_DIRECTION"><p>&#39;ltr&#39; / &#39;PANGO_DIRECTION_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_rtl_PANGO_DIRECTION"><p>&#39;rtl&#39; / &#39;PANGO_DIRECTION_RTL&#39;</p></a>
+<li class="POD_ITEM"><a name="_ttb_ltr_PANGO_DIREC"><p>&#39;ttb-ltr&#39; / &#39;PANGO_DIRECTION_TTB_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_ttb_rtl_PANGO_DIREC"><p>&#39;ttb-rtl&#39; / &#39;PANGO_DIRECTION_TTB_RTL&#39;</p></a>
+<li class="POD_ITEM"><a name="_weak_ltr_PANGO_DIRE"><p>&#39;weak-ltr&#39; / &#39;PANGO_DIRECTION_WEAK_LTR&#39;</p></a>
+<li class="POD_ITEM"><a name="_weak_rtl_PANGO_DIRE"><p>&#39;weak-rtl&#39; / &#39;PANGO_DIRECTION_WEAK_RTL&#39;</p></a>
+<li class="POD_ITEM"><a name="_neutral_PANGO_DIREC"><p>&#39;neutral&#39; / &#39;PANGO_DIRECTION_NEUTRAL&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Pango_Gravity">enum Pango::Gravity</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_south_PANGO_GRAVITY"><p>&#39;south&#39; / &#39;PANGO_GRAVITY_SOUTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_east_PANGO_GRAVITY_"><p>&#39;east&#39; / &#39;PANGO_GRAVITY_EAST&#39;</p></a>
+<li class="POD_ITEM"><a name="_north_PANGO_GRAVITY"><p>&#39;north&#39; / &#39;PANGO_GRAVITY_NORTH&#39;</p></a>
+<li class="POD_ITEM"><a name="_west_PANGO_GRAVITY_"><p>&#39;west&#39; / &#39;PANGO_GRAVITY_WEST&#39;</p></a>
+<li class="POD_ITEM"><a name="_auto_PANGO_GRAVITY_"><p>&#39;auto&#39; / &#39;PANGO_GRAVITY_AUTO&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Pango_GravityHi">enum Pango::GravityHint</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_natural_PANGO_GRAVI"><p>&#39;natural&#39; / &#39;PANGO_GRAVITY_HINT_NATURAL&#39;</p></a>
+<li class="POD_ITEM"><a name="_strong_PANGO_GRAVIT"><p>&#39;strong&#39; / &#39;PANGO_GRAVITY_HINT_STRONG&#39;</p></a>
+<li class="POD_ITEM"><a name="_line_PANGO_GRAVITY_"><p>&#39;line&#39; / &#39;PANGO_GRAVITY_HINT_LINE&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Pango.html">Pango</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2009 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Pango.html">Pango</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:05:03 2009
+</body>
+</html>
+

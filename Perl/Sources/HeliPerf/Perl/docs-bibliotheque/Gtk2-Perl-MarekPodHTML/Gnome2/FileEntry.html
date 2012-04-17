@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::FileEntry</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/FontPicker.html">Next:<br />Gnome2::FontPicker</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gnome2/enums.html">Previous:<br />Gnome2::enums</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::FileEntry</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gnome2_FileEn">widget = Gnome2::FileEntry-&gt;<b>new</b> ($history_id, $browse_dialog_title)</a>
+<li><a class="POD_NAVLINK" href="#_fentry_set_default_">$fentry-&gt;<b>set_default_path</b> ($path)</a>
+<li><a class="POD_NAVLINK" href="#boolean_fentry_get_d">boolean = $fentry-&gt;<b>get_directory_entry</b></a>
+<li><a class="POD_NAVLINK" href="#_fentry_set_director">$fentry-&gt;<b>set_directory_entry</b> ($directory_entry)</a>
+<li><a class="POD_NAVLINK" href="#_fentry_set_filename">$fentry-&gt;<b>set_filename</b> ($filename)</a>
+<li><a class="POD_NAVLINK" href="#string_fentry_get_fu">string = $fentry-&gt;<b>get_full_path</b> ($file_must_exist)</a>
+<li><a class="POD_NAVLINK" href="#widget_fentry_gnome_">widget = $fentry-&gt;<b>gnome_entry</b></a>
+<li><a class="POD_NAVLINK" href="#widget_fentry_gtk_en">widget = $fentry-&gt;<b>gtk_entry</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_fentry_get_m">boolean = $fentry-&gt;<b>get_modal</b></a>
+<li><a class="POD_NAVLINK" href="#_fentry_set_modal_is">$fentry-&gt;<b>set_modal</b> ($is_modal)</a>
+<li><a class="POD_NAVLINK" href="#_fentry_set_title_br">$fentry-&gt;<b>set_title</b> ($browse_dialog_title)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_FileChoose">enum Gtk2::FileChooserAction</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::FileEntry
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Box
+                           +----Gtk2::VBox
+                                +----Gnome2::FileEntry
+</pre>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+  Gtk2::Editable
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gnome2_FileEn">widget = Gnome2::FileEntry-&gt;<b>new</b> ($history_id, $browse_dialog_title)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_history_id_string_"><p>$history_id (string)</p></a>
+<li class="POD_ITEM"><a name="_browse_dialog_title"><p>$browse_dialog_title (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_fentry_set_default_">$fentry-&gt;<b>set_default_path</b> ($path)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_path_string_"><p>$path (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_fentry_get_d">boolean = $fentry-&gt;<b>get_directory_entry</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_fentry_set_director">$fentry-&gt;<b>set_directory_entry</b> ($directory_entry)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_directory_entry_boo"><p>$directory_entry (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_fentry_set_filename">$fentry-&gt;<b>set_filename</b> ($filename)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_filename_string_"><p>$filename (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="string_fentry_get_fu">string = $fentry-&gt;<b>get_full_path</b> ($file_must_exist)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_file_must_exist_boo"><p>$file_must_exist (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_fentry_gnome_">widget = $fentry-&gt;<b>gnome_entry</b></a></h3>
+<h3 class="POD_HEAD2"><a name="widget_fentry_gtk_en">widget = $fentry-&gt;<b>gtk_entry</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_fentry_get_m">boolean = $fentry-&gt;<b>get_modal</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_fentry_set_modal_is">$fentry-&gt;<b>set_modal</b> ($is_modal)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_is_modal_boolean_"><p>$is_modal (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_fentry_set_title_br">$fentry-&gt;<b>set_title</b> ($browse_dialog_title)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_browse_dialog_title1"><p>$browse_dialog_title (string)</p></a>
+</ul>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_browse_dialog_title2">&#39;browse-dialog-title&#39; (string : readable / writable)</a>
+<dd>
+Title for the Browse file dialog.
+<dt class="POD_ITEM"><a name="_default_path_string">&#39;default-path&#39; (string : readable / writable)</a>
+<dd>
+Default path for the Browse file window.
+<dt class="POD_ITEM"><a name="_directory_entry_boo1">&#39;directory-entry&#39; (boolean : readable / writable)</a>
+<dd>
+Whether the file entry is being used to enter directory names or complete filenames.
+<dt class="POD_ITEM"><a name="_filechooser_action_">&#39;filechooser-action&#39; (Gtk2::FileChooserAction : readable / writable)</a>
+<dd>
+The type of operation that the file selector is performing.
+<dt class="POD_ITEM"><a name="_filename_string_rea">&#39;filename&#39; (string : readable / writable)</a>
+<dd>
+Filename that should be displayed in the file entry.
+<dt class="POD_ITEM"><a name="_gnome_entry_Gnome2_">&#39;gnome-entry&#39; (Gnome2::Entry : readable)</a>
+<dd>
+GnomeEntry that the file entry uses for entering filenames.  You can use this property to get the GnomeEntry if you need to modify or query any of its parameters.
+<dt class="POD_ITEM"><a name="_gtk_entry_Gtk2_Entr">&#39;gtk-entry&#39; (Gtk2::Entry : readable)</a>
+<dd>
+GtkEntry that the file entry uses for entering filenames.  You can use this property to get the GtkEntry if you need to modify or query any of its parameters.
+<dt class="POD_ITEM"><a name="_history_id_string_r">&#39;history-id&#39; (string : readable / writable)</a>
+<dd>
+Unique identifier for the file entry.  This will be used to save the history list.
+<dt class="POD_ITEM"><a name="_modal_boolean_reada">&#39;modal&#39; (boolean : readable / writable)</a>
+<dd>
+Whether the Browse file window should be modal.
+<dt class="POD_ITEM"><a name="_use_filechooser_boo">&#39;use-filechooser&#39; (boolean : readable / writable)</a>
+<dd>
+Whether to use the new GtkFileChooser widget or the GtkFileSelection widget to select files.
+</dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="activate_Gnome2_File"><b>activate</b> (Gnome2::FileEntry)</a>
+<dt><a name="browse_clicked_Gnome"><b>browse-clicked</b> (Gnome2::FileEntry)</a>
+<dd></dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_FileChoose">enum Gtk2::FileChooserAction</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_open_GTK_FILE_CHOOS"><p>&#39;open&#39; / &#39;GTK_FILE_CHOOSER_ACTION_OPEN&#39;</p></a>
+<li class="POD_ITEM"><a name="_save_GTK_FILE_CHOOS"><p>&#39;save&#39; / &#39;GTK_FILE_CHOOSER_ACTION_SAVE&#39;</p></a>
+<li class="POD_ITEM"><a name="_select_folder_GTK_F"><p>&#39;select-folder&#39; / &#39;GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER&#39;</p></a>
+<li class="POD_ITEM"><a name="_create_folder_GTK_F"><p>&#39;create-folder&#39; / &#39;GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gnome2.html">Gnome2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Box.html">Gtk2::Box</a>, <a class="POD_LINK" href="../Gtk2/VBox.html">Gtk2::VBox</a>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gnome2.html">Gnome2</a> for a full notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:25 2009
+</body>
+</html>
+

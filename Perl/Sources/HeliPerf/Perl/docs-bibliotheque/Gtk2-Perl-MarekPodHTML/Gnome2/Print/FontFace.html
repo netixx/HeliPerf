@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::Print::FontFace</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Print/FontPreview.html">Next:<br />Gnome2::Print::FontPreview</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/Print/FontDialog.html">Previous:<br />Gnome2::Print::FontDialog</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::Print::FontFace</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#double_face_get_asce">double = $face-&gt;<b>get_ascender</b></a>
+<li><a class="POD_NAVLINK" href="#double_face_get_desc">double = $face-&gt;<b>get_descender</b></a>
+<li><a class="POD_NAVLINK" href="#uchar_face_get_famil">uchar = $face-&gt;<b>get_family_name</b></a>
+<li><a class="POD_NAVLINK" href="#fontface_Gnome2_Prin">fontface = Gnome2::Print::FontFace-&gt;<b>find</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#fontface_Gnome2_Prin1">fontface = Gnome2::Print::FontFace-&gt;<b>find_closest</b> ($name)</a>
+<li><a class="POD_NAVLINK" href="#fontface_Gnome2_Prin2">fontface = Gnome2::Print::FontFace-&gt;<b>find_closest_from_pango_description</b> ($desc)</a>
+<li><a class="POD_NAVLINK" href="#fontface_Gnome2_Prin3">fontface = Gnome2::Print::FontFace-&gt;<b>find_closest_from_pango_font</b> ($pfont)</a>
+<li><a class="POD_NAVLINK" href="#fontface_Gnome2_Prin4">fontface = Gnome2::Print::FontFace-&gt;<b>find_closest_from_weight_slant</b> ($family, $weight, $italic)</a>
+<li><a class="POD_NAVLINK" href="#fontface_Gnome2_Prin5">fontface = Gnome2::Print::FontFace-&gt;<b>find_from_family_and_style</b> ($family, $style)</a>
+<li><a class="POD_NAVLINK" href="#font_face_get_font_d">font = $face-&gt;<b>get_font_default</b> ($size)</a>
+<li><a class="POD_NAVLINK" href="#font_face_get_font_s">font = $face-&gt;<b>get_font</b> ($size, $xres, $yres)</a>
+<li><a class="POD_NAVLINK" href="#uchar_face_get_glyph">uchar = $face-&gt;<b>get_glyph_ps_name</b> ($glyph)</a>
+<li><a class="POD_NAVLINK" href="#_x_y_face_get_glyph_">($x, $y) = $face-&gt;<b>get_glyph_stdadvance</b> ($glyph)</a>
+<li><a class="POD_NAVLINK" href="#_x0_y0_x1_y1_face_ge">($x0, $y0, $x1, $y1) = $face-&gt;<b>get_glyph_stdbbox</b> ($glyph)</a>
+<li><a class="POD_NAVLINK" href="#_x_y_face_get_glyph_1">($x, $y) = $face-&gt;<b>get_glyph_stdkerning</b> ($glyph0, $glyph1)</a>
+<li><a class="POD_NAVLINK" href="#double_face_get_glyp">double = $face-&gt;<b>get_glyph_width</b> ($glyph)</a>
+<li><a class="POD_NAVLINK" href="#boolean_face_is_fixe">boolean = $face-&gt;<b>is_fixed_width</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_face_is_ital">boolean = $face-&gt;<b>is_italic</b></a>
+<li><a class="POD_NAVLINK" href="#uchar_face_get_name">uchar = $face-&gt;<b>get_name</b></a>
+<li><a class="POD_NAVLINK" href="#integer_face_get_num">integer = $face-&gt;<b>get_num_glyphs</b></a>
+<li><a class="POD_NAVLINK" href="#uchar_face_get_ps_na">uchar = $face-&gt;<b>get_ps_name</b></a>
+<li><a class="POD_NAVLINK" href="#uchar_face_get_speci">uchar = $face-&gt;<b>get_species_name</b></a>
+<li><a class="POD_NAVLINK" href="#_x0_y0_x1_y1_face_ge1">($x0, $y0, $x1, $y1) = $face-&gt;<b>get_stdbbox</b></a>
+<li><a class="POD_NAVLINK" href="#double_face_get_unde">double = $face-&gt;<b>get_underline_position</b></a>
+<li><a class="POD_NAVLINK" href="#double_face_get_unde1">double = $face-&gt;<b>get_underline_thickness</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::Print::FontFace
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gnome2::Print::FontFace
+</pre>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="double_face_get_asce">double = $face-&gt;<b>get_ascender</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_face_get_desc">double = $face-&gt;<b>get_descender</b></a></h3>
+<h3 class="POD_HEAD2"><a name="uchar_face_get_famil">uchar = $face-&gt;<b>get_family_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="fontface_Gnome2_Prin">fontface = Gnome2::Print::FontFace-&gt;<b>find</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_Glib_UChar_"><p>$name (Glib::UChar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="fontface_Gnome2_Prin1">fontface = Gnome2::Print::FontFace-&gt;<b>find_closest</b> ($name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_name_Glib_UChar_1"><p>$name (Glib::UChar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="fontface_Gnome2_Prin2">fontface = Gnome2::Print::FontFace-&gt;<b>find_closest_from_pango_description</b> ($desc)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_desc_Gtk2_Pango_Fon"><p>$desc (Gtk2::Pango::FontDescription)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="fontface_Gnome2_Prin3">fontface = Gnome2::Print::FontFace-&gt;<b>find_closest_from_pango_font</b> ($pfont)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pfont_Gtk2_Pango_Fo"><p>$pfont (Gtk2::Pango::Font)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="fontface_Gnome2_Prin4">fontface = Gnome2::Print::FontFace-&gt;<b>find_closest_from_weight_slant</b> ($family, $weight, $italic)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_family_Glib_UChar_"><p>$family (Glib::UChar)</p></a>
+<li class="POD_ITEM"><a name="_weight_integer_"><p>$weight (integer)</p></a>
+<li class="POD_ITEM"><a name="_italic_boolean_"><p>$italic (boolean)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="fontface_Gnome2_Prin5">fontface = Gnome2::Print::FontFace-&gt;<b>find_from_family_and_style</b> ($family, $style)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_family_Glib_UChar_1"><p>$family (Glib::UChar)</p></a>
+<li class="POD_ITEM"><a name="_style_Glib_UChar_"><p>$style (Glib::UChar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="font_face_get_font_d">font = $face-&gt;<b>get_font_default</b> ($size)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_size_double_"><p>$size (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="font_face_get_font_s">font = $face-&gt;<b>get_font</b> ($size, $xres, $yres)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_size_double_1"><p>$size (double)</p></a>
+<li class="POD_ITEM"><a name="_xres_double_"><p>$xres (double)</p></a>
+<li class="POD_ITEM"><a name="_yres_double_"><p>$yres (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="uchar_face_get_glyph">uchar = $face-&gt;<b>get_glyph_ps_name</b> ($glyph)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_glyph_integer_"><p>$glyph (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_x_y_face_get_glyph_">($x, $y) = $face-&gt;<b>get_glyph_stdadvance</b> ($glyph)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_glyph_integer_1"><p>$glyph (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_x0_y0_x1_y1_face_ge">($x0, $y0, $x1, $y1) = $face-&gt;<b>get_glyph_stdbbox</b> ($glyph)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_glyph_integer_2"><p>$glyph (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_x_y_face_get_glyph_1">($x, $y) = $face-&gt;<b>get_glyph_stdkerning</b> ($glyph0, $glyph1)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_glyph0_integer_"><p>$glyph0 (integer)</p></a>
+<li class="POD_ITEM"><a name="_glyph1_integer_"><p>$glyph1 (integer)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="double_face_get_glyp">double = $face-&gt;<b>get_glyph_width</b> ($glyph)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_glyph_integer_3"><p>$glyph (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="boolean_face_is_fixe">boolean = $face-&gt;<b>is_fixed_width</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_face_is_ital">boolean = $face-&gt;<b>is_italic</b></a></h3>
+<h3 class="POD_HEAD2"><a name="uchar_face_get_name">uchar = $face-&gt;<b>get_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_face_get_num">integer = $face-&gt;<b>get_num_glyphs</b></a></h3>
+<h3 class="POD_HEAD2"><a name="uchar_face_get_ps_na">uchar = $face-&gt;<b>get_ps_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="uchar_face_get_speci">uchar = $face-&gt;<b>get_species_name</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_x0_y0_x1_y1_face_ge1">($x0, $y0, $x1, $y1) = $face-&gt;<b>get_stdbbox</b></a></h3>
+<p></p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="double_face_get_unde">double = $face-&gt;<b>get_underline_position</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_face_get_unde1">double = $face-&gt;<b>get_underline_thickness</b></a></h3>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_Ascender_double_rea">&#39;Ascender&#39; (double : readable)</a>
+<dt><a name="_CapHeight_double_re">&#39;CapHeight&#39; (double : readable)</a>
+<dt><a name="_Descender_double_re">&#39;Descender&#39; (double : readable)</a>
+<dt><a name="_FamilyName_string_r">&#39;FamilyName&#39; (string : readable)</a>
+<dt><a name="_FontBBox_gpointer_r">&#39;FontBBox&#39; (gpointer : readable)</a>
+<dt><a name="_FontName_string_rea">&#39;FontName&#39; (string : readable)</a>
+<dt><a name="_FullName_string_rea">&#39;FullName&#39; (string : readable)</a>
+<dt><a name="_IsFixedPitch_boolea">&#39;IsFixedPitch&#39; (boolean : readable)</a>
+<dt><a name="_ItalicAngle_double_">&#39;ItalicAngle&#39; (double : readable)</a>
+<dt><a name="_UnderlinePosition_d">&#39;UnderlinePosition&#39; (double : readable)</a>
+<dt><a name="_UnderlineThickness_">&#39;UnderlineThickness&#39; (double : readable)</a>
+<dt><a name="_Version_string_read">&#39;Version&#39; (string : readable)</a>
+<dt><a name="_Weight_string_reada">&#39;Weight&#39; (string : readable)</a>
+<dt><a name="_XHeight_double_read">&#39;XHeight&#39; (double : readable)</a>
+<dd></dl>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../../Gnome2/Print.html">Gnome2::Print</a>, <a class="POD_LINK" href="../../Glib/Object.html">Glib::Object</a>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2004 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gnome2/Print.html">Gnome2::Print</a> for a full
+notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:55 2009
+</body>
+</html>
+

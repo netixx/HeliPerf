@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::RadioButton</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/RadioMenuItem.html">Next:<br />Gtk2::RadioMenuItem</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/RadioAction.html">Previous:<br />Gtk2::RadioAction</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::RadioButton</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#INTERFACES">INTERFACES</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_RadioBut">widget = Gtk2::RadioButton-&gt;<b>new</b> ($member_or_listref=undef, $label=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_RadioBut1">widget = Gtk2::RadioButton-&gt;<b>new_from_widget</b> ($group, $label=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_RadioBut2">widget = Gtk2::RadioButton-&gt;<b>new_with_label</b> ($member_or_listref=undef, $label=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_RadioBut3">widget = Gtk2::RadioButton-&gt;<b>new_with_label_from_widget</b> ($group, $label=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_RadioBut4">widget = Gtk2::RadioButton-&gt;<b>new_with_mnemonic</b> ($member_or_listref=undef, $label=undef)</a>
+<li><a class="POD_NAVLINK" href="#widget_Gtk2_RadioBut5">widget = Gtk2::RadioButton-&gt;<b>new_with_mnemonic_from_widget</b> ($group, $label=undef)</a>
+<li><a class="POD_NAVLINK" href="#_group_radio_button_">$group = $radio_button-&gt;<b>get_group</b></a>
+<li><a class="POD_NAVLINK" href="#_radio_button_set_gr">$radio_button-&gt;<b>set_group</b> ($member_or_listref)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::RadioButton
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  # first group
+  $foo1 = Gtk2::RadioButton-&gt;new (undef, &#39;Foo One&#39;);
+  $foo2 = Gtk2::RadioButton-&gt;new ($foo1, &#39;Foo Two&#39;);
+  $foo3 = Gtk2::RadioButton-&gt;new ($foo2, &#39;Foo Three&#39;);
+
+  # second group, using the group reference
+  $bar1 = Gtk2::RadioButton-&gt;new (undef, &#39;Bar One&#39;);
+  $group = $bar1-&gt;get_group;
+  $bar2 = Gtk2::RadioButton-&gt;new ($group, &#39;Bar Two&#39;);
+  $bar3 = Gtk2::RadioButton-&gt;new ($group, &#39;Bar Three&#39;);
+
+  # move bar3 from the bar group to the foo group.
+  $bar-&gt;set_group ($foo-&gt;get_group);
+
+  # iterate over the widgets in the group
+  $group = $foo1-&gt;get_group;
+  foreach my $r (@$group) {
+      $r-&gt;set_sensitive ($whatever);
+  }
+</pre>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+A single radio button performs the same basic function as a Gtk2::CheckButton,
+as its position in the object hierarchy reflects.  It is only when multiple
+radio buttons are grouped together that they become a different user interface
+component in their own right.
+</p>
+<p class="POD_TEXT">
+Every radio button is a member of some group of radio buttons.  When one is
+selected, all other radio buttons in the same group are deselected.  A
+Gtk2::RadioButton is one way of giving the user a choice from many options;
+Gtk2::OptionMenu and Gtk2::ComboBox (added in gtk+ 2.4) are alternatives.
+</p>
+<p class="POD_TEXT">
+Each constructor can take either a group or widget from that group where the
+group is wanted; this is an enhancement over the C API.  Nevertheless, the
+_from_widget forms are provided for completeness.
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Widget
+                 +----Gtk2::Container
+                      +----Gtk2::Bin
+                           +----Gtk2::Button
+                                +----Gtk2::ToggleButton
+                                     +----Gtk2::CheckButton
+                                          +----Gtk2::RadioButton
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="INTERFACES">INTERFACES</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object::_Unregistered::AtkImplementorIface
+  Gtk2::Buildable
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_RadioBut">widget = Gtk2::RadioButton-&gt;<b>new</b> ($member_or_listref=undef, $label=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_member_or_listref_s"><p>$member_or_listref (scalar) reference to radiobutton group or a Gtk2::RadioButton belonging to that group.</p></a>
+<li class="POD_ITEM"><a name="_label_string_"><p>$label (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Create a radio button.  If <i>$label</i> is provided, it will be interpreted
+as a mnemonic.  If <i>$member_or_listref</i> is undef, the radio button will
+be created in a new group.
+</p>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_RadioBut1">widget = Gtk2::RadioButton-&gt;<b>new_from_widget</b> ($group, $label=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_Gtk2_RadioBut"><p>$group (Gtk2::RadioButton or undef)</p></a>
+<li class="POD_ITEM"><a name="_label_string_1"><p>$label (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_RadioBut2">widget = Gtk2::RadioButton-&gt;<b>new_with_label</b> ($member_or_listref=undef, $label=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_member_or_listref_s1"><p>$member_or_listref (scalar) reference to radiobutton group or a Gtk2::RadioButton belonging to that group.</p></a>
+<li class="POD_ITEM"><a name="_label_string_2"><p>$label (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Create a radio button with a plain text label, which will not be interpreted
+as a mnemonic.
+</p>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_RadioBut3">widget = Gtk2::RadioButton-&gt;<b>new_with_label_from_widget</b> ($group, $label=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_Gtk2_RadioBut1"><p>$group (Gtk2::RadioButton or undef)</p></a>
+<li class="POD_ITEM"><a name="_label_string_3"><p>$label (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_RadioBut4">widget = Gtk2::RadioButton-&gt;<b>new_with_mnemonic</b> ($member_or_listref=undef, $label=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_member_or_listref_s2"><p>$member_or_listref (scalar) reference to radiobutton group or a Gtk2::RadioButton belonging to that group.</p></a>
+<li class="POD_ITEM"><a name="_label_string_4"><p>$label (string)</p></a>
+</ul>
+<p class="POD_TEXT">
+Create a radio button with a mnemonic; this is an alias for <code>new</code>.
+</p>
+<h3 class="POD_HEAD2"><a name="widget_Gtk2_RadioBut5">widget = Gtk2::RadioButton-&gt;<b>new_with_mnemonic_from_widget</b> ($group, $label=undef)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_group_Gtk2_RadioBut2"><p>$group (Gtk2::RadioButton or undef)</p></a>
+<li class="POD_ITEM"><a name="_label_string_5"><p>$label (string)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_group_radio_button_">$group = $radio_button-&gt;<b>get_group</b></a></h3>
+<p class="POD_TEXT">
+Return a reference to the radio group to which <i>$radio_button</i> belongs.
+The group is a reference to an array of widget references; the array is <b>not</b>
+magical, that is, it will not be updated automatically if the group changes;
+call <code>get_group</code> each time you want to use the group.
+</p>
+<h3 class="POD_HEAD2"><a name="_radio_button_set_gr">$radio_button-&gt;<b>set_group</b> ($member_or_listref)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_member_or_listref_s3"><p>$member_or_listref (scalar) reference to the group or a Gtk2::RadioButton belonging to that group.</p></a>
+</ul>
+<p class="POD_TEXT">
+Assign <i>$radio_button</i> to a new group.
+</p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_group_Gtk2_RadioBut3">&#39;group&#39; (Gtk2::RadioButton : writable / private)</a>
+<dd>
+The radio button whose group this widget belongs to.
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="group_changed_Gtk2_R"><b>group-changed</b> (Gtk2::RadioButton)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>, <a class="POD_LINK" href="../Gtk2/Widget.html">Gtk2::Widget</a>, <a class="POD_LINK" href="../Gtk2/Container.html">Gtk2::Container</a>, <a class="POD_LINK" href="../Gtk2/Bin.html">Gtk2::Bin</a>, <a class="POD_LINK" href="../Gtk2/Button.html">Gtk2::Button</a>, <a class="POD_LINK" href="../Gtk2/ToggleButton.html">Gtk2::ToggleButton</a>, <a class="POD_LINK" href="../Gtk2/CheckButton.html">Gtk2::CheckButton</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:03:20 2009
+</body>
+</html>
+

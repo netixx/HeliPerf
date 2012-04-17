@@ -1,0 +1,380 @@
+package mainWin::Controller;
+#TODO: afficher les messages d'erreur seulement ici (mettre des fonctions erreur dans chaque module)
+#TODO: fusion set_carb et calc_carb
+#TODO: changer le nom de $liste_carburant (ca ne correspond pas)
+
+=pod
+S'occupe de charger les base de données, coordonne SchemaHelico, Onglets, mainWin::widgets::ListeMatos, GrapheCentrage contient la base de données.
+Le principe : aucun des modules SchemaHelico (schéma de l'hélico), Onglets (matos équippable),
+mainWin::widgets::ListeMatos(matos équippé) ou GrapheCentrage (graphique masse fct bras) ne font explicitement référence à ce module. Stylé non ?
+
+file::Base : charge la base de donnés des items équippables sur tel hélico
+file::Helico : charge les infos concernant tel hélico
+file::Config : charge la liste des hélicos aussi que d'autre informations générales
+
+models::Categorie : classe Categorie, représente une catégorie de matériel (-> onglet)
+models::Item : clase Item, représente un matériel, accessoire (->bouton)
+models::Helico : clase Helico, représente un hélico
+
+Le fichier config.dat contient la liste des noms d'hélicos associés à leurs sous-dossiers (EC135\ par exemple)
+Le fichier EC135\helico.dat contient la liste des coordonnées constructeurs imposés + masse et bras de l'hélico
+Le fichier EC135\base.dat contient la liste des matériel équippable sur cet hélicos regroupé par catégorie
+
+Le dossier img\ contient toutes les images utilisés par le programme
+
+
+init($schemahelico, $notebook, $liststore, $area) : initialise tout
+  $schemahelico : GtkDrawingArea pris en charge par le module SchemaHelico
+  $notebook : GtkNotebook pris en charge par le module Onglets
+  $liststore : GtkListStore pris en charge par le module ListeStore
+  $area : GtkDrawingArea pris en charge par le module GrapheCentrage
+
+export_ods : exporte la liste du matériel équippé au format .ods (lance openoffice)
+get_mot_de_passe : renvoie le mot de passe admin lu  dans CONFIG_FILE
+helicos : renvoie la liste des hélicos associés à leur dossier ($helicos)
+=cut
+
+use strict;
+use utf8;
+
+use GenericWin;
+use Calcul;
+use mainWin::widgets::SchemaHelico;
+use mainWin::widgets::Onglets;
+use mainWin::widgets::ListeMatos;
+use mainWin::widgets::GrapheCentrage;
+use mainWin::widgets::Carburant;
+use mainWin::Controller::Item;
+use mainWin::Controller::Categorie;
+use file::Base  ;
+use file::Config;
+use file::Helico;
+use file::Carburant;
+#pour exporter au format ods
+use Ods;
+#pour gérer les répertoires
+use File::Spec;
+use Cwd;
+
+use constant BASE_FILE   => 'base.dat';
+use constant HELICO_FILE => 'helico.dat';
+use constant CONFIG_FILE => 'config.dat';
+use constant CARBURANT_FILE => 'carburant.dat';
+use constant DEFAULTHELI => 0;
+#nom du fichier .ods créé par export_ods
+use constant ODS_FILE => 'fichier.ods';
+use constant ODS_DIR  => File::Spec->catdir('utils','Ods');
+use constant IMG_DIR => 'img';
+use constant HELICOS_DIR => 'helicos';
+use constant CENTRAGEKO_IMG_NAME => 'centrageko.png';
+#Tableau de { nom => , dossier =>  }
+my $helicos;
+#Le mot de passe
+my $mdp;
+
+my $centrageCheck;
+my $liste_carburant;
+my $controllerTotal;
+my $controllerCarburant;
+my @carb_points;
+#Le répertoire de base
+my $base_dir;
+my $centbuf;
+my $iconebuf;
+my $item_helico;
+my $helico;
+my $curheliname;
+
+sub init {
+  my ($schemahelico, $notebook, $liststore, $area, $centbuftrans, $listehelico, $carbspinkg, $carbspinli, $carbprogress,$iconebuftrans,$curhelinametrans) = @_;
+  
+  #le répertoire de base du prog
+  $base_dir = cwd;
+  
+  #Initialisation de gauche à droite, de haut en bas.
+  #Initialise le schéma de l'hélico
+  mainWin::widgets::SchemaHelico::init ($schemahelico, File::Spec->catdir($base_dir,IMG_DIR));
+  #Initialise les onglets de matos
+  mainWin::widgets::Onglets::init ($notebook);
+  mainWin::widgets::Carburant::init($carbspinkg,$carbspinli, $carbprogress);
+  #Initialise la liste de matériel équippé (notamment la ligne totale)
+  mainWin::widgets::ListeMatos::init ($liststore);
+  #initialisation du graphe de centrage et masse
+  mainWin::widgets::GrapheCentrage::init ($area);
+ 
+  #initialisation du buffer
+  $centbuf = $centbuftrans;
+  $iconebuf = $iconebuftrans;
+  $centrageCheck = Calcul::CentrageCheck->new;
+  ($helicos, $mdp) = file::Config::load(CONFIG_FILE);
+  $curheliname = $curhelinametrans;
+  
+  ResetList::init($listehelico,$helicos);
+  
+  #si erreur (le message a déjà été affiché)
+  if (!$mdp) {
+    exit(1);
+  }
+  
+  if (scalar(@$helicos) == 0) {
+    GenericWin::erreur_msg('Aucun hélicoptère présent dans la liste');
+  }
+  else {  
+    set_helico($helicos->[0]);
+  }
+  
+}
+
+#supposant qu'on est déjà dans le bon répertoire
+sub _export_ods {
+  #fichier temporaire
+  my $file = File::Spec->catfile(File::Spec->tmpdir, ODS_FILE);
+  # my $file = File::Spec->catfile($base_dir, ODS_FILE);
+  
+  #exportation
+  if (!Ods::export(mainWin::widgets::ListeMatos::to_array, $file)) {  
+    GenericWin::erreur_msg("Impossible d'exporter au format ods : ".Ods::get_erreur); 
+    return 0;
+  };
+  
+  #lancement d'openoffice
+  my $cmd;
+  if ($^O eq 'linux') {
+    $cmd = "oocalc $file";
+  }
+  else {
+    $cmd = $file;
+  }
+  
+  if (system($cmd)) {
+    GenericWin::erreur_msg("Impossible d'ouvrir $file ($?)");
+    return 0;
+  }
+  return 1;  
+}
+
+sub export_ods {
+  my $dir = cwd;#on se place dans le bon dossier
+  if (!chdir (File::Spec->catdir($base_dir, ODS_DIR))) {
+    GenericWin::erreur_msg("Impossible de se placer dans le dossier ".ODS_DIR." : $!");
+    return 0;
+  }
+  my $ret = _export_ods();
+  #on se remet là où on était
+  chdir $dir;
+  return $ret;
+}
+
+sub set_limite_centrage_coords {
+  my $coords = shift;
+  mainWin::widgets::GrapheCentrage::set_limite_centrage_coords($coords); 
+  $centrageCheck->set_limite_centrage_coords($coords);  
+}
+
+#Choisis l'hélico et se place dans le bon répertoire
+sub set_helico {
+  #un élément de $helicos
+  $item_helico = shift;
+  my $dir = $item_helico->{dossier};
+  $dir = File::Spec->catdir($base_dir, HELICOS_DIR, $dir);
+  editeur::ImportExport::set_helidir_default($dir);
+  
+  #on se place dans le bon répertoire
+  if (!chdir ($dir)) {
+    GenericWin::erreur_msg("Impossible d'aller dans le répertoire $dir : $!");
+    #return false
+    return 0;
+  }  
+  
+  # my $helico_nom = shift;
+  $helico = file::Helico::load(HELICO_FILE, $item_helico->{nom});
+  
+  if (!$helico) {
+    #le message d'erreur est déjà pris en compte par Helico::load
+    #return false
+    return 0;
+  }
+  
+  $liste_carburant = file::Carburant::load(CARBURANT_FILE);
+
+  if (!$liste_carburant) {
+    GenericWin::erreur_msg (file::Carburant::get_erreur());
+  }
+  #set de l'icone de l'helico 
+  $iconebuf->clear();
+  $iconebuf->set_from_file(File::Spec->catfile($base_dir,IMG_DIR,$helico->get_icone()));
+  $curheliname->set_text($item_helico->{nom});
+  
+  $controllerTotal = mainWin::Controller::Item->new(Calcul::Total->new(0, 0));
+  $controllerCarburant = mainWin::Controller::Item->new(models::Item->new(0, 0, 'Carburant'));
+	@carb_points = ();
+	my $cHelico = mainWin::Controller::Item->new($helico);
+ 
+  #Construit la base de donnés des catégories à partir du fichier $base_file, liste vide si erreur
+	
+  my $base = file::Base::load(BASE_FILE) || [];
+  my @categories = map { mainWin::Controller::Categorie->new($_); }  @$base; 
+	
+  
+  #Construit le schéma de l'hélico
+  mainWin::widgets::SchemaHelico::new($helico);
+
+  #construit les onglets sur le GtkNotebook $notebook à partir du tableau des catégories chargées
+  mainWin::widgets::Onglets::new(\@categories);  
+  #Initialise la liste de matériel équippé (notamment la ligne totale)
+  mainWin::widgets::ListeMatos::new($controllerTotal);
+  
+  get_total()->add_item($helico);
+  mainWin::widgets::ListeMatos::ajoute($cHelico);
+  mainWin::widgets::ListeMatos::ajoute($controllerCarburant);	
+  set_limite_centrage_coords($helico->get_limite_centrage_coords);	
+  mainWin::widgets::Carburant::set_liste_carburant($liste_carburant);
+  mainWin::widgets::Carburant::set_carb(0);
+  update_interface();
+  return 1;
+}
+
+#mise à jour du dessin du graphe de centrage
+sub update_graphe_centrage {
+ # mainWin::widgets::GrapheCentrage::set_total(mainWin::widgets::ListeMatos::total);
+  mainWin::widgets::GrapheCentrage::update();
+}
+
+sub update_schema_helico {
+  mainWin::widgets::SchemaHelico::update;
+}
+
+sub set_is_good {
+  my $is_good = shift;
+  mainWin::widgets::GrapheCentrage::set_is_good($is_good);
+  
+  if($is_good) {
+  	$centbuf->set_text("le centrage est bon");
+   $iconebuf->set_from_file(File::Spec->catfile($base_dir,IMG_DIR,$helico->get_icone()));
+  } else {
+  	$centbuf->set_text("ATTENTION : centrage hors limites");
+  	$iconebuf->set_from_file(File::Spec->catfile($base_dir,IMG_DIR,CENTRAGEKO_IMG_NAME));
+  }
+}
+
+#appelé lorsque $total a changé (ajout ou suppression d'item)
+sub update_interface {
+  my $total = get_total();
+  set_is_good(is_good());
+
+ 
+  # my ($id, $bras) = Calcul::Carburant::first_idx_bras($liste_carburant, get_carburant->get_masse);
+
+  # my @array_item = @{$liste_carburant->get_items}[0..$id];
+  
+  my @initpoint = Calcul::Centrage::enleve_masse($total->get_bras_masse,
+                             get_carburant()->get_bras_masse);
+  
+  
+  my $func = sub {
+    my $item = shift;
+    my @arr = Calcul::Centrage::ajoute_masse(@initpoint, $item->get_bras_masse);
+    return \@arr;
+  };
+  
+  my @points = map {$func->($_)} @carb_points;
+  
+  push @points, [$total->get_bras_masse];
+  mainWin::widgets::GrapheCentrage::set_points(\@points);
+
+  $controllerTotal->update_liste_matos;
+
+  update_graphe_centrage();
+  update_schema_helico  ();
+
+}
+
+sub ajoute_matos {
+  my $controllerItem = shift;
+  get_total()->add_item($controllerItem->get_model);
+  #GenericWin::erreur_msg ($controllerItem->get_model->get_nom);
+  mainWin::widgets::ListeMatos::ajoute($controllerItem);
+  mainWin::widgets::SchemaHelico::ajoute($controllerItem);
+
+  update_interface();
+ 
+}
+
+sub enleve_matos {
+  my $controllerItem = shift;
+  get_total()->remove_item($controllerItem->get_model);
+  $controllerItem->delete_liste_matos;
+  $controllerItem->delete_schema;
+
+  update_interface();
+}
+
+sub set_carb_max {
+  my $total = get_total();
+  $total->remove_item(get_carburant());
+  
+  my $item = Calcul::Carburant::max_carburant($centrageCheck, $liste_carburant, $total->get_bras, $total->get_masse) ;
+  my $carbmax = $item->get_masse;
+  my $ratio = $carbmax / $liste_carburant->maxmasse;
+  
+
+  get_carburant()->set_bras_masse($item->get_bras_masse);
+  $total->add_item($item);
+  
+  $controllerCarburant->update_liste_matos;
+  # update_interface();
+  mainWin::widgets::Carburant::set_carb($carbmax) ; 
+	
+	set_carb($carbmax);
+}
+
+sub set_carb{
+  my $masse = shift;
+  my ($id, $bras) = Calcul::Carburant::first_idx_bras($liste_carburant, $masse);
+  @carb_points = @{$liste_carburant->get_items}[0..$id];
+  my $total = get_total();
+  $total->remove_item(get_carburant());
+  get_carburant()->set_bras_masse($bras, $masse);
+  $controllerCarburant->update_liste_matos;
+  $total->add_item(get_carburant());
+  update_interface();
+  # mainWin::widgets::Carburant::afficher_carburant($masse/$liste_carburant->maxmasse) ; 
+}
+sub get_total {
+  return $controllerTotal->get_model;
+}
+
+sub update_total {
+	my ($item, $bras,$bras_l, $masse) = @_;
+	my $total = get_total;
+	$total->remove_item($item);
+	$item->set_bras_masse($bras, $masse);
+	$item->set_bras_l($bras_l);
+	$total->add_item($item);
+	update_interface();
+}
+
+sub get_carburant {
+  return $controllerCarburant->get_model;
+}
+
+sub is_good {
+  return $centrageCheck->is_good(get_total()->get_bras_masse);
+}
+
+
+
+sub get_mot_de_passe {
+  return $mdp;
+}
+
+sub get_helicos {
+  return $helicos;
+}
+
+sub raz {
+  set_helico($item_helico) if (GenericWin::ouinon("Voulez-vous remettre à zéro tout les items équipés sur la machine ?","Attention, cette opération est irreversible."));
+}
+
+
+1;

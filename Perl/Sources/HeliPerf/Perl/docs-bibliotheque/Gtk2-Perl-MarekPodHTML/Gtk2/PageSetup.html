@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::PageSetup</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Paned.html">Next:<br />Gtk2::Paned</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/OptionMenu.html">Previous:<br />Gtk2::OptionMenu</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::PageSetup</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#pagesetup_Gtk2_PageS">pagesetup = Gtk2::PageSetup-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#pagesetup_Gtk2_PageS1">pagesetup = Gtk2::PageSetup-&gt;<b>new_from_file</b> ($file_name)</a>
+<li><a class="POD_NAVLINK" href="#pagesetup_Gtk2_PageS2">pagesetup = Gtk2::PageSetup-&gt;<b>new_from_key_file</b> ($key_file, $group_name)</a>
+<li><a class="POD_NAVLINK" href="#double_setup_get_bot">double = $setup-&gt;<b>get_bottom_margin</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#_setup_set_bottom_ma">$setup-&gt;<b>set_bottom_margin</b> ($margin, $unit)</a>
+<li><a class="POD_NAVLINK" href="#double_setup_get_lef">double = $setup-&gt;<b>get_left_margin</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#_setup_set_left_marg">$setup-&gt;<b>set_left_margin</b> ($margin, $unit)</a>
+<li><a class="POD_NAVLINK" href="#pageorientation_setu">pageorientation = $setup-&gt;<b>get_orientation</b></a>
+<li><a class="POD_NAVLINK" href="#_setup_set_orientati">$setup-&gt;<b>set_orientation</b> ($orientation)</a>
+<li><a class="POD_NAVLINK" href="#double_setup_get_pag">double = $setup-&gt;<b>get_page_height</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#double_setup_get_pag1">double = $setup-&gt;<b>get_page_width</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#double_setup_get_pap">double = $setup-&gt;<b>get_paper_height</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#_setup_set_paper_siz">$setup-&gt;<b>set_paper_size_and_default_margins</b> ($size)</a>
+<li><a class="POD_NAVLINK" href="#papersize_setup_get_">papersize = $setup-&gt;<b>get_paper_size</b></a>
+<li><a class="POD_NAVLINK" href="#_setup_set_paper_siz1">$setup-&gt;<b>set_paper_size</b> ($size)</a>
+<li><a class="POD_NAVLINK" href="#double_setup_get_pap1">double = $setup-&gt;<b>get_paper_width</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#double_setup_get_rig">double = $setup-&gt;<b>get_right_margin</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#_setup_set_right_mar">$setup-&gt;<b>set_right_margin</b> ($margin, $unit)</a>
+<li><a class="POD_NAVLINK" href="#_setup_to_file_file_">$setup-&gt;<b>to_file</b> ($file_name)</a>
+<li><a class="POD_NAVLINK" href="#_setup_to_key_file_k">$setup-&gt;<b>to_key_file</b> ($key_file, $group_name)</a>
+<li><a class="POD_NAVLINK" href="#double_setup_get_top">double = $setup-&gt;<b>get_top_margin</b> ($unit)</a>
+<li><a class="POD_NAVLINK" href="#_setup_set_top_margi">$setup-&gt;<b>set_top_margin</b> ($margin, $unit)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_PageOrient">enum Gtk2::PageOrientation</a>
+<li><a class="POD_NAVLINK" href="#enum_Gtk2_Unit">enum Gtk2::Unit</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::PageSetup
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Gtk2::PageSetup
+</pre>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="pagesetup_Gtk2_PageS">pagesetup = Gtk2::PageSetup-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="pagesetup_Gtk2_PageS1">pagesetup = Gtk2::PageSetup-&gt;<b>new_from_file</b> ($file_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_file_name_localized"><p>$file_name (localized file name)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="pagesetup_Gtk2_PageS2">pagesetup = Gtk2::PageSetup-&gt;<b>new_from_key_file</b> ($key_file, $group_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_file_Glib_KeyFi"><p>$key_file (Glib::KeyFile)</p></a>
+<li class="POD_ITEM"><a name="_group_name_string_o"><p>$group_name (string or undef)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="double_setup_get_bot">double = $setup-&gt;<b>get_bottom_margin</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_setup_set_bottom_ma">$setup-&gt;<b>set_bottom_margin</b> ($margin, $unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_margin_double_"><p>$margin (double)</p></a>
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_1"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_setup_get_lef">double = $setup-&gt;<b>get_left_margin</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_2"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_setup_set_left_marg">$setup-&gt;<b>set_left_margin</b> ($margin, $unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_margin_double_1"><p>$margin (double)</p></a>
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_3"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="pageorientation_setu">pageorientation = $setup-&gt;<b>get_orientation</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_setup_set_orientati">$setup-&gt;<b>set_orientation</b> ($orientation)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_orientation_Gtk2_Pa"><p>$orientation (Gtk2::PageOrientation)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_setup_get_pag">double = $setup-&gt;<b>get_page_height</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_4"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_setup_get_pag1">double = $setup-&gt;<b>get_page_width</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_5"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_setup_get_pap">double = $setup-&gt;<b>get_paper_height</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_6"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_setup_set_paper_siz">$setup-&gt;<b>set_paper_size_and_default_margins</b> ($size)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_size_Gtk2_PaperSize"><p>$size (Gtk2::PaperSize)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="papersize_setup_get_">papersize = $setup-&gt;<b>get_paper_size</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_setup_set_paper_siz1">$setup-&gt;<b>set_paper_size</b> ($size)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_size_Gtk2_PaperSize1"><p>$size (Gtk2::PaperSize)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_setup_get_pap1">double = $setup-&gt;<b>get_paper_width</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_7"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_setup_get_rig">double = $setup-&gt;<b>get_right_margin</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_8"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_setup_set_right_mar">$setup-&gt;<b>set_right_margin</b> ($margin, $unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_margin_double_2"><p>$margin (double)</p></a>
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_9"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_setup_to_file_file_">$setup-&gt;<b>to_file</b> ($file_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_file_name_localized1"><p>$file_name (localized file name)</p></a>
+</ul>
+<p></p>
+<p></p>
+<p class="POD_TEXT">
+May croak with a <a class="POD_LINK" href="../Glib/Error.html">Glib::Error</a> in $@ on failure.
+</p>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="_setup_to_key_file_k">$setup-&gt;<b>to_key_file</b> ($key_file, $group_name)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_key_file_Glib_KeyFi1"><p>$key_file (Glib::KeyFile)</p></a>
+<li class="POD_ITEM"><a name="_group_name_string_o1"><p>$group_name (string or undef)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gtk+ 2.12
+</p>
+<h3 class="POD_HEAD2"><a name="double_setup_get_top">double = $setup-&gt;<b>get_top_margin</b> ($unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_10"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_setup_set_top_margi">$setup-&gt;<b>set_top_margin</b> ($margin, $unit)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_margin_double_3"><p>$margin (double)</p></a>
+<li class="POD_ITEM"><a name="_unit_Gtk2_Unit_11"><p>$unit (Gtk2::Unit)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_PageOrient">enum Gtk2::PageOrientation</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_portrait_GTK_PAGE_O"><p>&#39;portrait&#39; / &#39;GTK_PAGE_ORIENTATION_PORTRAIT&#39;</p></a>
+<li class="POD_ITEM"><a name="_landscape_GTK_PAGE_"><p>&#39;landscape&#39; / &#39;GTK_PAGE_ORIENTATION_LANDSCAPE&#39;</p></a>
+<li class="POD_ITEM"><a name="_reverse_portrait_GT"><p>&#39;reverse-portrait&#39; / &#39;GTK_PAGE_ORIENTATION_REVERSE_PORTRAIT&#39;</p></a>
+<li class="POD_ITEM"><a name="_reverse_landscape_G"><p>&#39;reverse-landscape&#39; / &#39;GTK_PAGE_ORIENTATION_REVERSE_LANDSCAPE&#39;</p></a>
+</ul>
+<p></p>
+<h3 class="POD_HEAD2"><a name="enum_Gtk2_Unit">enum Gtk2::Unit</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_pixel_GTK_UNIT_PIXE"><p>&#39;pixel&#39; / &#39;GTK_UNIT_PIXEL&#39;</p></a>
+<li class="POD_ITEM"><a name="_points_GTK_UNIT_POI"><p>&#39;points&#39; / &#39;GTK_UNIT_POINTS&#39;</p></a>
+<li class="POD_ITEM"><a name="_inch_GTK_UNIT_INCH_"><p>&#39;inch&#39; / &#39;GTK_UNIT_INCH&#39;</p></a>
+<li class="POD_ITEM"><a name="_mm_GTK_UNIT_MM_"><p>&#39;mm&#39; / &#39;GTK_UNIT_MM&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:02:58 2009
+</body>
+</html>
+

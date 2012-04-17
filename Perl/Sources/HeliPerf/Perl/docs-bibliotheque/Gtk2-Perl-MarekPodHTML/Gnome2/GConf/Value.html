@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gnome2::GConf::Value</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/GConf/version.html">Next:<br />Gnome2::GConf::version</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../../Gnome2/GConf/Schema.html">Previous:<br />Gnome2::GConf::Schema</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gnome2::GConf::Value</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#SYNOPSIS">SYNOPSIS</a>
+<li><a class="POD_NAVLINK" href="#DESCRIPTION">DESCRIPTION</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#integer_value_a_comp">integer = $value_a-&gt;<b>compare</b> ($value_b)</a>
+<li><a class="POD_NAVLINK" href="#string_value_to_stri">string = $value-&gt;<b>to_string</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO1">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gnome2::GConf::Value -  Opaque datatype for generic values
+</p>
+<h2 class="POD_HEAD1"><a name="SYNOPSIS">SYNOPSIS</a></h2>
+<pre class="POD_VERBATIM">
+  $client = Gnome2::GConf::Client-&gt;get_default;
+  $client-&gt;set($config_key,
+      {
+        type  =&gt; &#39;string&#39;,
+	value =&gt; &#39;Hello, World&#39;,
+      });
+  print &quot;The Meaning of Life.&quot; if ($client-&gt;get($another_key)-&gt;{value} == 42);
+</pre>
+<h2 class="POD_HEAD1"><a name="DESCRIPTION">DESCRIPTION</a></h2>
+<p class="POD_TEXT">
+<code>GConfValue</code> is a dynamic type similar to <code>GValue</code>,  and represents a value
+that can be obtained from or stored in the configuration database; it contains
+the value bound to a key, and its type.
+</p>
+<p class="POD_TEXT">
+In perl, it&#39;s an hashref containing these keys:
+</p>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="type"><b>type</b></a>
+<dd>
+The type of the data.  Fundamental types are &#39;string&#39;, &#39;int&#39;, &#39;float&#39; and
+&#39;bool&#39;.  Lists are handled by passing an arrayref as the payload of the <code>value</code>
+key:
+<pre class="POD_VERBATIM">
+	$client-&gt;set($key, { type =&gt; &#39;string&#39;, value =&gt; &#39;some string&#39; });
+	$client-&gt;set($key, { type =&gt; &#39;float&#39;,  value =&gt; 0.5           });
+	$client-&gt;set($key, { type =&gt; &#39;bool&#39;,   value =&gt; FALSE         });
+	$client-&gt;set($key, { type =&gt; &#39;int&#39;,    value =&gt; [0..15]       });
+</pre>
+<p class="POD_TEXT">
+Pairs are handled by using the special type &#39;pair&#39;, and passing, in place
+of the <code>value</code> key, the <code>car</code> and the <code>cdr</code> keys, each containing an hashref
+representing a GConfValue:
+</p>
+<pre class="POD_VERBATIM">
+	$client-&gt;set($key, {
+			type =&gt; &#39;pair&#39;,
+			car  =&gt; { type =&gt; &#39;string&#39;, value =&gt; &#39;some string&#39; },
+			cdr  =&gt; { type =&gt; &#39;int&#39;,    value =&gt; 42            },
+		});
+</pre>
+<p class="POD_TEXT">
+This is needed since pairs might have different types; lists, instead, are of
+the same type.
+</p>
+<dt class="POD_ITEM"><a name="value"><b>value</b></a>
+<dd>
+The payload, containing the value of type <code>type</code>.  It is used only for
+fundamental types (scalars or lists).
+<dt class="POD_ITEM"><a name="car_cdr"><b>car</b>, <b>cdr</b></a>
+<dd>
+Special keys, that must be used only when working with the &#39;pair&#39; type.
+</dl>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../../Gnome2/GConf.html">Gnome2::GConf</a>(3pm), <a class="POD_LINK" href="../../Gnome2/GConf/Entry.html">Gnome2::GConf::Entry</a>(3pm), <a class="POD_LINK" href="../../Gnome2/GConf/Schema.html">Gnome2::GConf::Schema</a>(3pm),
+<a class="POD_LINK" href="../../Gnome2/GConf/ChangeSet.html">Gnome2::GConf::ChangeSet</a>(3pm).
+</p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="integer_value_a_comp">integer = $value_a-&gt;<b>compare</b> ($value_b)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_value_b_value_"><p>$value_b (value)</p></a>
+</ul>
+<p class="POD_TEXT">
+Since: gconf 2.13
+</p>
+<h3 class="POD_HEAD2"><a name="string_value_to_stri">string = $value-&gt;<b>to_string</b></a></h3>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO1">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../../Gnome2/GConf.html">Gnome2::GConf</a>
+</p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2006 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../../Gnome2/GConf.html">Gnome2::GConf</a> for a full
+notice.
+</p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:58:33 2009
+</body>
+</html>
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GladeEditor</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Glade User Interface Designer Reference Manual">
+<link rel="up" href="dockables.html" title="Part III. Dockable Glade UI Widgets">
+<link rel="prev" href="dockables.html" title="Part III. Dockable Glade UI Widgets">
+<link rel="next" href="GladeEditorProperty.html" title="GladeEditorProperty">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="dockables.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="dockables.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Glade User Interface Designer Reference Manual</th>
+<td><a accesskey="n" href="GladeEditorProperty.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#gladeui-glade-editor.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#gladeui-glade-editor.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#gladeui-glade-editor.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#gladeui-glade-editor.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+                   | 
+                  <a href="#gladeui-glade-editor.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="gladeui-glade-editor"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gladeui-glade-editor.top_of_page"></a>GladeEditor</span></h2>
+<p>GladeEditor — A Widget to edit a <a class="link" href="GladeWidget.html" title="GladeWidget"><span class="type">GladeWidget</span></a>.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="gladeui-glade-editor.synopsis"></a><h2>Synopsis</h2>
+<a name="GladeEditor"></a><pre class="synopsis">#define             <a class="link" href="gladeui-glade-editor.html#GLADE-EDITOR-TABLE:CAPS" title="GLADE_EDITOR_TABLE()">GLADE_EDITOR_TABLE</a>                  (obj)
+#define             <a class="link" href="gladeui-glade-editor.html#GLADE-IS-EDITOR-TABLE:CAPS" title="GLADE_IS_EDITOR_TABLE()">GLADE_IS_EDITOR_TABLE</a>               (obj)
+struct              <a class="link" href="gladeui-glade-editor.html#GladeEditorTable" title="struct GladeEditorTable">GladeEditorTable</a>;
+struct              <a class="link" href="gladeui-glade-editor.html#GladeEditor-struct" title="struct GladeEditor">GladeEditor</a>;
+<a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="returnvalue">GladeEditor</span></a> *       <a class="link" href="gladeui-glade-editor.html#glade-editor-new" title="glade_editor_new ()">glade_editor_new</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gladeui-glade-editor.html#glade-editor-load-widget" title="glade_editor_load_widget ()">glade_editor_load_widget</a>            (<em class="parameter"><code><a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="type">GladeEditor</span></a> *editor</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GladeWidget.html" title="GladeWidget"><span class="type">GladeWidget</span></a> *widget</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gladeui-glade-editor.html#glade-editor-query-dialog" title="glade_editor_query_dialog ()">glade_editor_query_dialog</a>           (<em class="parameter"><code><a class="link" href="GladeWidget.html" title="GladeWidget"><span class="type">GladeWidget</span></a> *widget</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gladeui-glade-editor.html#glade-editor-show-info" title="glade_editor_show_info ()">glade_editor_show_info</a>              (<em class="parameter"><code><a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="type">GladeEditor</span></a> *editor</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gladeui-glade-editor.html#glade-editor-hide-info" title="glade_editor_hide_info ()">glade_editor_hide_info</a>              (<em class="parameter"><code><a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="type">GladeEditor</span></a> *editor</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gladeui-glade-editor.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----<a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned">GInitiallyUnowned</a>
+         +----<a href="http://library.gnome.org/devel/gtk/GtkWidget.html">GtkWidget</a>
+               +----<a href="http://library.gnome.org/devel/gtk/GtkContainer.html">GtkContainer</a>
+                     +----<a href="http://library.gnome.org/devel/gtk/GtkBox.html">GtkBox</a>
+                           +----<a href="http://library.gnome.org/devel/gtk/GtkVBox.html">GtkVBox</a>
+                                 +----GladeEditor
+</pre>
+</div>
+<div class="refsect1">
+<a name="gladeui-glade-editor.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GladeEditor implements
+ AtkImplementorIface,  <a href="http://library.gnome.org/devel/gtk/GtkBuildable.html">GtkBuildable</a> and  <a href="http://library.gnome.org/devel/gtk/gtk3-Orientable.html#GtkOrientable">GtkOrientable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="gladeui-glade-editor.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="gladeui-glade-editor.html#GladeEditor--show-info" title='The "show-info" property'>show-info</a>"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read
+  "<a class="link" href="gladeui-glade-editor.html#GladeEditor--widget" title='The "widget" property'>widget</a>"                   <a class="link" href="GladeWidget.html" title="GladeWidget"><span class="type">GladeWidget</span></a>*          : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="gladeui-glade-editor.description"></a><h2>Description</h2>
+<p>
+This is the Glade Notebook containing all the controls needed to configure a <a class="link" href="GladeWidget.html" title="GladeWidget"><span class="type">GladeWidget</span></a>.
+</p>
+</div>
+<div class="refsect1">
+<a name="gladeui-glade-editor.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GLADE-EDITOR-TABLE:CAPS"></a><h3>GLADE_EDITOR_TABLE()</h3>
+<pre class="programlisting">#define GLADE_EDITOR_TABLE(obj)		    (G_TYPE_CHECK_INSTANCE_CAST ((obj), GLADE_TYPE_EDITOR_TABLE, GladeEditorTable))
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GLADE-IS-EDITOR-TABLE:CAPS"></a><h3>GLADE_IS_EDITOR_TABLE()</h3>
+<pre class="programlisting">#define GLADE_IS_EDITOR_TABLE(obj)	    (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GLADE_TYPE_EDITOR_TABLE))
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GladeEditorTable"></a><h3>struct GladeEditorTable</h3>
+<pre class="programlisting">struct GladeEditorTable {
+  GtkGrid  parent;
+
+  GladeEditorTablePrivate *priv;
+};
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GladeEditor-struct"></a><h3>struct GladeEditor</h3>
+<pre class="programlisting">struct GladeEditor;</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="glade-editor-new"></a><h3>glade_editor_new ()</h3>
+<pre class="programlisting"><a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="returnvalue">GladeEditor</span></a> *       glade_editor_new                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="type">GladeEditor</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="glade-editor-load-widget"></a><h3>glade_editor_load_widget ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                glade_editor_load_widget            (<em class="parameter"><code><a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="type">GladeEditor</span></a> *editor</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GladeWidget.html" title="GladeWidget"><span class="type">GladeWidget</span></a> *widget</code></em>);</pre>
+<p>
+Load <em class="parameter"><code>widget</code></em> into <em class="parameter"><code>editor</code></em>. If <em class="parameter"><code>widget</code></em> is <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, clear the editor.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editor</code></em> :</span></p></td>
+<td>a <a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="type">GladeEditor</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>a <a class="link" href="GladeWidget.html" title="GladeWidget"><span class="type">GladeWidget</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="glade-editor-query-dialog"></a><h3>glade_editor_query_dialog ()</h3>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            glade_editor_query_dialog           (<em class="parameter"><code><a class="link" href="GladeWidget.html" title="GladeWidget"><span class="type">GladeWidget</span></a> *widget</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="glade-editor-show-info"></a><h3>glade_editor_show_info ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                glade_editor_show_info              (<em class="parameter"><code><a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="type">GladeEditor</span></a> *editor</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="glade-editor-hide-info"></a><h3>glade_editor_hide_info ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                glade_editor_hide_info              (<em class="parameter"><code><a class="link" href="gladeui-glade-editor.html#GladeEditor"><span class="type">GladeEditor</span></a> *editor</code></em>);</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="gladeui-glade-editor.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GladeEditor--show-info"></a><h3>The <code class="literal">"show-info"</code> property</h3>
+<pre class="programlisting">  "show-info"                <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a>              : Read</pre>
+<p>Whether to show an informational button for the loaded widget.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GladeEditor--widget"></a><h3>The <code class="literal">"widget"</code> property</h3>
+<pre class="programlisting">  "widget"                   <a class="link" href="GladeWidget.html" title="GladeWidget"><span class="type">GladeWidget</span></a>*          : Read / Write</pre>
+<p>The currently loaded widget in this editor.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

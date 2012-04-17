@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>Gtk2::Adjustment</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/Alignment.html">Next:<br />Gtk2::Alignment</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../Gtk2/ActionGroup.html">Previous:<br />Gtk2::ActionGroup</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">Gtk2::Adjustment</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#HIERARCHY">HIERARCHY</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#object_Gtk2_Adjustme">object = Gtk2::Adjustment-&gt;<b>new</b> ($value, $lower, $upper, $step_increment, $page_increment, $page_size)</a>
+<li><a class="POD_NAVLINK" href="#_adjustment_changed">$adjustment-&gt;<b>changed</b></a>
+<li><a class="POD_NAVLINK" href="#_adjustment_clamp_pa">$adjustment-&gt;<b>clamp_page</b> ($lower, $upper)</a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_va">double = $adjustment-&gt;<b>value</b></a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_va1">double = $adjustment-&gt;<b>value</b> ($newval)</a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_lo">double = $adjustment-&gt;<b>lower</b></a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_lo1">double = $adjustment-&gt;<b>lower</b> ($newval)</a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_up">double = $adjustment-&gt;<b>upper</b></a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_up1">double = $adjustment-&gt;<b>upper</b> ($newval)</a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_st">double = $adjustment-&gt;<b>step_increment</b></a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_st1">double = $adjustment-&gt;<b>step_increment</b> ($newval)</a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_pa">double = $adjustment-&gt;<b>page_increment</b></a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_pa1">double = $adjustment-&gt;<b>page_increment</b> ($newval)</a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_pa2">double = $adjustment-&gt;<b>page_size</b></a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_pa3">double = $adjustment-&gt;<b>page_size</b> ($newval)</a>
+<li><a class="POD_NAVLINK" href="#_adjustment_value_ch">$adjustment-&gt;<b>value_changed</b></a>
+<li><a class="POD_NAVLINK" href="#double_adjustment_ge">double = $adjustment-&gt;<b>get_value</b></a>
+<li><a class="POD_NAVLINK" href="#_adjustment_set_valu">$adjustment-&gt;<b>set_value</b> ($value)</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#PROPERTIES">PROPERTIES</a>
+<li><a class="POD_NAVLINK" href="#SIGNALS">SIGNALS</a>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+Gtk2::Adjustment
+</p>
+<h2 class="POD_HEAD1"><a name="HIERARCHY">HIERARCHY</a></h2>
+<pre class="POD_VERBATIM">
+  Glib::Object
+  +----Glib::InitiallyUnowned
+       +----Gtk2::Object
+            +----Gtk2::Adjustment
+</pre>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="object_Gtk2_Adjustme">object = Gtk2::Adjustment-&gt;<b>new</b> ($value, $lower, $upper, $step_increment, $page_increment, $page_size)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_value_double_"><p>$value (double)</p></a>
+<li class="POD_ITEM"><a name="_lower_double_"><p>$lower (double)</p></a>
+<li class="POD_ITEM"><a name="_upper_double_"><p>$upper (double)</p></a>
+<li class="POD_ITEM"><a name="_step_increment_doub"><p>$step_increment (double)</p></a>
+<li class="POD_ITEM"><a name="_page_increment_doub"><p>$page_increment (double)</p></a>
+<li class="POD_ITEM"><a name="_page_size_double_"><p>$page_size (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_adjustment_changed">$adjustment-&gt;<b>changed</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_adjustment_clamp_pa">$adjustment-&gt;<b>clamp_page</b> ($lower, $upper)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_lower_double_1"><p>$lower (double)</p></a>
+<li class="POD_ITEM"><a name="_upper_double_1"><p>$upper (double)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="double_adjustment_va">double = $adjustment-&gt;<b>value</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_va1">double = $adjustment-&gt;<b>value</b> ($newval)</a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_lo">double = $adjustment-&gt;<b>lower</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_lo1">double = $adjustment-&gt;<b>lower</b> ($newval)</a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_up">double = $adjustment-&gt;<b>upper</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_up1">double = $adjustment-&gt;<b>upper</b> ($newval)</a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_st">double = $adjustment-&gt;<b>step_increment</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_st1">double = $adjustment-&gt;<b>step_increment</b> ($newval)</a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_pa">double = $adjustment-&gt;<b>page_increment</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_pa1">double = $adjustment-&gt;<b>page_increment</b> ($newval)</a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_pa2">double = $adjustment-&gt;<b>page_size</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_pa3">double = $adjustment-&gt;<b>page_size</b> ($newval)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_newval_double_"><p>$newval (double)</p></a>
+</ul>
+<p></p>
+<p class="POD_TEXT">
+Get or set the six fields of a Gtk2::Adjustment.
+</p>
+<p class="POD_TEXT">
+The setter functions store $newval and return the old value.  Note
+that they don&#39;t emit any signals; it&#39;s up to you to emit &quot;notify&quot;
+(because the fields are also properties) and &quot;changed&quot; or
+&quot;value-changed&quot;, when you&#39;re ready.
+</p>
+<p></p>
+<h3 class="POD_HEAD2"><a name="_adjustment_value_ch">$adjustment-&gt;<b>value_changed</b></a></h3>
+<h3 class="POD_HEAD2"><a name="double_adjustment_ge">double = $adjustment-&gt;<b>get_value</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_adjustment_set_valu">$adjustment-&gt;<b>set_value</b> ($value)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_value_double_1"><p>$value (double)</p></a>
+</ul>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="PROPERTIES">PROPERTIES</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="_lower_double_readab">&#39;lower&#39; (double : readable / writable / private)</a>
+<dd>
+The minimum value of the adjustment
+<dt class="POD_ITEM"><a name="_page_increment_doub1">&#39;page-increment&#39; (double : readable / writable / private)</a>
+<dd>
+The page increment of the adjustment
+<dt class="POD_ITEM"><a name="_page_size_double_re">&#39;page-size&#39; (double : readable / writable / private)</a>
+<dd>
+The page size of the adjustment
+<dt class="POD_ITEM"><a name="_step_increment_doub1">&#39;step-increment&#39; (double : readable / writable / private)</a>
+<dd>
+The step increment of the adjustment
+<dt class="POD_ITEM"><a name="_upper_double_readab">&#39;upper&#39; (double : readable / writable / private)</a>
+<dd>
+The maximum value of the adjustment
+<dt class="POD_ITEM"><a name="_value_double_readab">&#39;value&#39; (double : readable / writable / private)</a>
+<dd>
+The value of the adjustment
+</dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SIGNALS">SIGNALS</a></h2>
+<dl class="POD_LIST">
+<dt class="POD_ITEM"><a name="value_changed_Gtk2_A"><b>value-changed</b> (Gtk2::Adjustment)</a>
+<dt><a name="changed_Gtk2_Adjustm"><b>changed</b> (Gtk2::Adjustment)</a>
+<dd></dl>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+
+<a class="POD_LINK" href="../Gtk2.html">Gtk2</a>, <a class="POD_LINK" href="../Glib/Object.html">Glib::Object</a>, <u>Glib::InitiallyUnowned</u>, <a class="POD_LINK" href="../Gtk2/Object.html">Gtk2::Object</a>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2003-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../Gtk2.html">Gtk2</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 23:00:25 2009
+</body>
+</html>
+

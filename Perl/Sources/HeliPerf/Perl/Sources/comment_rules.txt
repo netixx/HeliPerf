@@ -1,0 +1,52 @@
+[commentaire type avant une procedure : 
+
+=pod
+description
+	->description générale de la routine
+param
+	->liste des parametres reçus par la fonction sous la forme:
+	1)Type(precision)->descritption =le premier paramètre avec son type
+	2)etc..
+return
+	->idem....
+depends
+	->dépendances de la fonction : autres fonctions que la fonction décrite appelle dans son code cf remarques
+requires
+	->fonctions qui appellent cette fonction (réciproque de depends)
+=cut
+sub ....
+]
+
+
+[commentaire type pour un "package":
+package ....;
+=pod
+description
+	->description du module
+list
+	->liste des fonctions présente dans le package 
+requires
+	->package qui appellent ce package - "all" si tous
+=cut
+]
+
+
+[commentaire type pour les objets:
+je te laisse mettre ce qu'il faut
+]
+@description
+@attributs
+@list : liste des méthodes
+@derives : classes dérivées
++ description devant chaque méthode comme les fonctions.
+
+Remarques générales :
+-Si les categories (desciption,requires...)sont vides, on les ommet
+-on nomme les fonction dans depends ou requires
+	-directement par leur nom si elle sont dans le même package
+	-par leur nom complet blabla::blabla::fonction
+-pas de depends dans le package vu qu'il y a deja les use pour ça
+-precision peut contenir des precisions sur le type mais aussi optional quand le paramêtre d'est pas requis
+-s'il n'y a qu'une fonction dans le package alors on met le commentaire devant la fonction
+- les getter et les setter commencent par get_ et set_
+

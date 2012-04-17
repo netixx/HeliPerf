@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+<meta content="text/css" http-equiv="Content-Style-Type" />
+<meta content="Marek::Pod::HTML 0.49" name="GENERATOR" />
+<link href="/doc/style.css" rel="stylesheet" type="text/css" />
+<title>GStreamer::Buffer</title>
+</head>
+<body>
+<a class="POD_NAVLINK" name="Pod_TOP_OF_PAGE"></a>
+<table width="100%">
+<tr><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/Bus.html">Next:<br />GStreamer::Bus</a></td><td align="left" width="1%"><a class="POD_NAVLINK" href="../GStreamer/Bin.html">Previous:<br />GStreamer::Bin</a></td><td width="90%">&nbsp;</td><td align="right" width="1%"><a class="POD_NAVLILNK" href="../index.html">[Gtk2-Perl&nbsp;-&nbsp;Table&nbsp;of&nbsp;Contents]</a></td><td align="right" width="1%"><a class="POD_NAVLINK" href="../idx.html">[Gtk2-Perl&nbsp;-&nbsp;Index]</a></td></tr>
+</table>
+<h1 class="POD_TITLE">GStreamer::Buffer</h1>
+<hr />
+<ul>
+<li><a class="POD_NAVLINK" href="#NAME">NAME</a>
+<li><a class="POD_NAVLINK" href="#METHODS">METHODS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#GstBuffer_GStreamer_">GstBuffer = GStreamer::Buffer-&gt;<b>new</b></a>
+<li><a class="POD_NAVLINK" href="#caps_or_undef_buffer">caps or undef = $buffer-&gt;<b>get_caps</b></a>
+<li><a class="POD_NAVLINK" href="#_buffer_set_caps_cap">$buffer-&gt;<b>set_caps</b> ($caps)</a>
+<li><a class="POD_NAVLINK" href="#GstBuffer_parent_cre">GstBuffer = $parent-&gt;<b>create_sub</b> ($offset, $size)</a>
+<li><a class="POD_NAVLINK" href="#scalar_buffer_data">scalar = $buffer-&gt;<b>data</b></a>
+<li><a class="POD_NAVLINK" href="#_buf_set_data_data_">$buf-&gt;<b>set_data</b> ($data)</a>
+<li><a class="POD_NAVLINK" href="#unsigned_integer_buf">unsigned integer = $buffer-&gt;<b>duration</b></a>
+<li><a class="POD_NAVLINK" href="#bufferflag_buffer_fl">bufferflag = $buffer-&gt;<b>flags</b></a>
+<li><a class="POD_NAVLINK" href="#boolean_buf1_is_span">boolean = $buf1-&gt;<b>is_span_fast</b> ($buf2)</a>
+<li><a class="POD_NAVLINK" href="#GstBuffer_buf1_join_">GstBuffer = $buf1-&gt;<b>join</b> ($buf2)</a>
+<li><a class="POD_NAVLINK" href="#GstBuffer_buf1_merge">GstBuffer = $buf1-&gt;<b>merge</b> ($buf2)</a>
+<li><a class="POD_NAVLINK" href="#uint64_buffer_offset">uint64 = $buffer-&gt;<b>offset</b></a>
+<li><a class="POD_NAVLINK" href="#uint64_buffer_offset1">uint64 = $buffer-&gt;<b>offset_end</b></a>
+<li><a class="POD_NAVLINK" href="#integer_buffer_size">integer = $buffer-&gt;<b>size</b></a>
+<li><a class="POD_NAVLINK" href="#GstBuffer_buf1_span_">GstBuffer = $buf1-&gt;<b>span</b> ($offset, $buf2, $len)</a>
+<li><a class="POD_NAVLINK" href="#_dest_stamp_src_">$dest-&gt;<b>stamp</b> ($src)</a>
+<li><a class="POD_NAVLINK" href="#unsigned_integer_buf1">unsigned integer = $buffer-&gt;<b>timestamp</b></a>
+</ul>
+<li><a class="POD_NAVLINK" href="#ENUMS_AND_FLAGS">ENUMS AND FLAGS</a>
+<ul>
+<li><a class="POD_NAVLINK" href="#flags_GStreamer_Buff">flags GStreamer::BufferFlag</a>
+</ul>
+<li><a class="POD_NAVLINK" href="#SEE_ALSO">SEE ALSO</a>
+<li><a class="POD_NAVLINK" href="#COPYRIGHT">COPYRIGHT</a>
+</ul>
+<hr />
+<h2 class="POD_HEAD1"><a name="NAME">NAME</a></h2>
+<p class="POD_TEXT">
+GStreamer::Buffer
+</p>
+<h2 class="POD_HEAD1"><a name="METHODS">METHODS</a></h2>
+<h3 class="POD_HEAD2"><a name="GstBuffer_GStreamer_">GstBuffer = GStreamer::Buffer-&gt;<b>new</b></a></h3>
+<h3 class="POD_HEAD2"><a name="caps_or_undef_buffer">caps or undef = $buffer-&gt;<b>get_caps</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_buffer_set_caps_cap">$buffer-&gt;<b>set_caps</b> ($caps)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_caps_GStreamer_Caps"><p>$caps (GStreamer::Caps)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="GstBuffer_parent_cre">GstBuffer = $parent-&gt;<b>create_sub</b> ($offset, $size)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_offset_integer_"><p>$offset (integer)</p></a>
+<li class="POD_ITEM"><a name="_size_integer_"><p>$size (integer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="scalar_buffer_data">scalar = $buffer-&gt;<b>data</b></a></h3>
+<h3 class="POD_HEAD2"><a name="_buf_set_data_data_">$buf-&gt;<b>set_data</b> ($data)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_data_scalar_"><p>$data (scalar)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="unsigned_integer_buf">unsigned integer = $buffer-&gt;<b>duration</b></a></h3>
+<h3 class="POD_HEAD2"><a name="bufferflag_buffer_fl">bufferflag = $buffer-&gt;<b>flags</b></a></h3>
+<h3 class="POD_HEAD2"><a name="boolean_buf1_is_span">boolean = $buf1-&gt;<b>is_span_fast</b> ($buf2)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_buf2_GstBuffer_"><p>$buf2 (GstBuffer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="GstBuffer_buf1_join_">GstBuffer = $buf1-&gt;<b>join</b> ($buf2)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_buf2_GstBuffer_1"><p>$buf2 (GstBuffer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="GstBuffer_buf1_merge">GstBuffer = $buf1-&gt;<b>merge</b> ($buf2)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_buf2_GstBuffer_2"><p>$buf2 (GstBuffer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="uint64_buffer_offset">uint64 = $buffer-&gt;<b>offset</b></a></h3>
+<h3 class="POD_HEAD2"><a name="uint64_buffer_offset1">uint64 = $buffer-&gt;<b>offset_end</b></a></h3>
+<h3 class="POD_HEAD2"><a name="integer_buffer_size">integer = $buffer-&gt;<b>size</b></a></h3>
+<h3 class="POD_HEAD2"><a name="GstBuffer_buf1_span_">GstBuffer = $buf1-&gt;<b>span</b> ($offset, $buf2, $len)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_offset_unsigned_"><p>$offset (unsigned)</p></a>
+<li class="POD_ITEM"><a name="_buf2_GstBuffer_3"><p>$buf2 (GstBuffer)</p></a>
+<li class="POD_ITEM"><a name="_len_unsigned_"><p>$len (unsigned)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="_dest_stamp_src_">$dest-&gt;<b>stamp</b> ($src)</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_src_GstBuffer_"><p>$src (GstBuffer)</p></a>
+</ul>
+<h3 class="POD_HEAD2"><a name="unsigned_integer_buf1">unsigned integer = $buffer-&gt;<b>timestamp</b></a></h3>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="ENUMS_AND_FLAGS">ENUMS AND FLAGS</a></h2>
+<h3 class="POD_HEAD2"><a name="flags_GStreamer_Buff">flags GStreamer::BufferFlag</a></h3>
+<ul class="POD_LIST">
+<li class="POD_ITEM"><a name="_readonly_GST_BUFFER"><p>&#39;readonly&#39; / &#39;GST_BUFFER_FLAG_READONLY&#39;</p></a>
+<li class="POD_ITEM"><a name="_preroll_GST_BUFFER_"><p>&#39;preroll&#39; / &#39;GST_BUFFER_FLAG_PREROLL&#39;</p></a>
+<li class="POD_ITEM"><a name="_discont_GST_BUFFER_"><p>&#39;discont&#39; / &#39;GST_BUFFER_FLAG_DISCONT&#39;</p></a>
+<li class="POD_ITEM"><a name="_in_caps_GST_BUFFER_"><p>&#39;in-caps&#39; / &#39;GST_BUFFER_FLAG_IN_CAPS&#39;</p></a>
+<li class="POD_ITEM"><a name="_gap_GST_BUFFER_FLAG"><p>&#39;gap&#39; / &#39;GST_BUFFER_FLAG_GAP&#39;</p></a>
+<li class="POD_ITEM"><a name="_delta_unit_GST_BUFF"><p>&#39;delta-unit&#39; / &#39;GST_BUFFER_FLAG_DELTA_UNIT&#39;</p></a>
+<li class="POD_ITEM"><a name="_last_GST_BUFFER_FLA"><p>&#39;last&#39; / &#39;GST_BUFFER_FLAG_LAST&#39;</p></a>
+</ul>
+<p></p>
+<p></p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="SEE_ALSO">SEE ALSO</a></h2>
+<p class="POD_TEXT">
+<a class="POD_LINK" href="../GStreamer.html">GStreamer</a>
+</p>
+<p></p>
+<h2 class="POD_HEAD1"><a name="COPYRIGHT">COPYRIGHT</a></h2>
+<p class="POD_TEXT">
+Copyright (C) 2005-2008 by the gtk2-perl team.
+</p>
+<p class="POD_TEXT">
+This software is licensed under the LGPL.  See <a class="POD_LINK" href="../GStreamer.html">GStreamer</a> for a full notice.
+</p>
+<p></p>
+<p></p>
+<hr />
+<a class="POD_NAVLINK" href="#Pod_TOP_OF_PAGE">[Top]</a>
+Generated by Marek::Pod::HTML 0.49 on Wed Dec 16 22:59:47 2009
+</body>
+</html>
+
