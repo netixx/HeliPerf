@@ -15,7 +15,7 @@ use constant PAGE_CONFIG_BASE	=> 5;
 my $listetypeheli;
 my $combo;
 my $entry;
-my $asswin;
+my $oAssWin;
 my $confirm_page;
 my $nom_page;
 my $resume_page;
@@ -30,26 +30,26 @@ my $oCentrage;
 sub assist {
 	$listetypeheli = ManageList::construct_type();#construction de la liste des types d'hélico
 	administration::ajouterWin::AjouterAssistPage::init($listetypeheli);
-	$asswin = Gtk2::Assistant->new();
+	$oAssWin = Gtk2::Assistant->new();
 	#definitiaons des callback fermeture, destruction et annuler
-	$asswin->signal_connect(close => \&do_close);
-	$asswin->signal_connect(destroy => \&do_close);
-	$asswin->signal_connect(cancel => \&do_close);
-	$asswin->signal_connect(prepare => \&prepare_next);
+	$oAssWin->signal_connect(close => \&do_close);
+	$oAssWin->signal_connect(destroy => \&do_close);
+	$oAssWin->signal_connect(cancel => \&do_close);
+	$oAssWin->signal_connect(prepare => \&prepare_next);
 
 	#ajout de l'icone de la fenetre
 	my $pathimg = File::Spec->catfile(main::get_base_dir(),'img','insigne_fag_transparence.png');
-	$asswin->set_icon_from_file($pathimg);
+	$oAssWin->set_icon_from_file($pathimg);
 	#fenetre modale
-	$asswin->set_modal(1);
+	$oAssWin->set_modal(1);
 
-	$asswin->set_title("Ajouter un hélicoptère");#titre
+	$oAssWin->set_title("Ajouter un hélicoptère");#titre
 	#premiere page d'introduction
 	my $intro_page = administration::ajouterWin::AjouterAssistPage::intro_page();
-	$asswin->append_page($intro_page);
-	$asswin->set_page_title($intro_page,"Ajouter un hélicoptère");
-	$asswin->set_page_type($intro_page,'intro');
-	$asswin->set_page_complete($intro_page,1);
+	$oAssWin->append_page($intro_page);
+	$oAssWin->set_page_title($intro_page,"Ajouter un hélicoptère");
+	$oAssWin->set_page_type($intro_page,'intro');
+	$oAssWin->set_page_complete($intro_page,1);
 
 	#deuxième page choix du type et du nom
 	my @tab = administration::ajouterWin::AjouterAssistPage::nom_page();
@@ -57,10 +57,10 @@ sub assist {
 	$entry = $tab[2];#recuperation de l'entrée texte
 	$combo = $tab[1];#recuperation du combobox
 
-	$asswin->append_page($nom_page);
-	$asswin->set_page_title($nom_page,"Type et numéro de l'hélicoptère");
-	$asswin->set_page_type($nom_page,'content');
-	$asswin->set_page_complete($nom_page, 0);
+	$oAssWin->append_page($nom_page);
+	$oAssWin->set_page_title($nom_page,"Type et numéro de l'hélicoptère");
+	$oAssWin->set_page_type($nom_page,'content');
+	$oAssWin->set_page_complete($nom_page, 0);
 
 	#Troisième page saisie de la masse et du centrage
 	my @tab_centrage = administration::ajouterWin::AjouterAssistPage::masse_et_centrage();
@@ -68,47 +68,48 @@ sub assist {
 	$oMasse = $tab_centrage[2];#recuperation de l'entrée texte
 	$oCentrage = $tab[1];#recuperation du combobox
 
-	$asswin->append_page($masse_centrage_page);
-	$asswin->set_page_title($masse_centrage_page,"Masse et centrage");
-	$asswin->set_page_type($masse_centrage_page,'content');
-	$asswin->set_page_complete($masse_centrage_page, 0);
+	$oAssWin->append_page($masse_centrage_page);
+	$oAssWin->set_page_title($masse_centrage_page,"Masse et centrage");
+	$oAssWin->set_page_type($masse_centrage_page,'content');
+	$oAssWin->set_page_complete($masse_centrage_page, 0);
 
 	#4ieme page-> étition de la base de donnée
 	$oEditBddTemplate = administration::ajouterWin::AjouterAssistPage::adaptation_bdd_template($combo->get_active_iter());
-	$asswin->append_page($oEditBddTemplate);
-	$asswin->set_page_title($oEditBddTemplate,"Édition de la base de donnée");
-	$asswin->set_page_type($oEditBddTemplate,'content');
-	$asswin->set_page_complete($oEditBddTemplate, 0);
+	$oAssWin->append_page($oEditBddTemplate);
+	$oAssWin->set_page_title($oEditBddTemplate,"Édition de la base de donnée");
+	$oAssWin->set_page_type($oEditBddTemplate,'content');
+	$oAssWin->set_page_complete($oEditBddTemplate, 0);
 
 	#5ieme page -> choix des equipement présents en pesée
 	$oPresentPesee = administration::ajouterWin::AjouterAssistPage::choix_present_pesee();
-	$asswin->append_page($oPresentPesee);
-	$asswin->set_page_title($oPresentPesee,"Choix des équipement présents en pesée");
-	$asswin->set_page_type($oPresentPesee,'content');
-	$asswin->set_page_complete($oPresentPesee, 0);
+	$oAssWin->append_page($oPresentPesee);
+	$oAssWin->set_page_title($oPresentPesee,"Choix des équipement présents en pesée");
+	$oAssWin->set_page_type($oPresentPesee,'content');
+	$oAssWin->set_page_complete($oPresentPesee, 0);
 
 	#6ieme page -> choix de la configuration de base
 	$oConfigBase = administration::ajouterWin::AjouterAssistPage::choix_config_base();
-	$asswin->append_page($oConfigBase);
-	$asswin->set_page_title($oConfigBase,"Choix de la configuration de base");
-	$asswin->set_page_type($oConfigBase,'content');
-	$asswin->set_page_complete($oConfigBase, 0);
+	$oAssWin->append_page($oConfigBase);
+	$oAssWin->set_page_title($oConfigBase,"Choix de la configuration de base");
+	$oAssWin->set_page_type($oConfigBase,'content');
+	$oAssWin->set_page_complete($oConfigBase, 0);
 
 	#page de confirmation
 	$confirm_page = administration::ajouterWin::AjouterAssistPage::confirm_page();
-	$asswin->append_page($confirm_page);
-	$asswin->set_page_title($confirm_page,"Confirmation");
-	$asswin->set_page_type($confirm_page,'confirm');#
-	$asswin->set_page_complete($confirm_page, 1);
+	$oAssWin->append_page($confirm_page);
+	$oAssWin->set_page_title($confirm_page,"Confirmation");
+	$oAssWin->set_page_type($confirm_page,'confirm');#
+	$oAssWin->set_page_complete($confirm_page, 1);
 
 	#page de résumé
 	$resume_page = administration::ajouterWin::AjouterAssistPage::resume_page();
-	$asswin->append_page($resume_page);
-	$asswin->set_page_title($resume_page,"Résumé");
-	$asswin->set_page_type($resume_page,'summary');#resumé des actions effectuées
-	$asswin->set_page_complete($resume_page, 0);
+	$oAssWin->append_page($resume_page);
+	$oAssWin->set_page_title($resume_page,"Résumé");
+	$oAssWin->set_page_type($resume_page,'summary');#resumé des actions effectuées
+	$oAssWin->set_page_complete($resume_page, 0);
 
-	$asswin->show_all();
+	administration::ajouterWin::AjouterAssistPage::init_assistant($oAssWin);
+	$oAssWin->show_all();
 }
 
 #marche
@@ -155,14 +156,14 @@ sub import_assist_prepare {
 my ($helitype,$heliname);
 #fonction pas appelée au bon moment
 sub confirm_fill {
-	if ($asswin->get_page_complete($nom_page)) {#si la page nom est dument remplie
+	if ($oAssWin->get_page_complete($nom_page)) {#si la page nom est dument remplie
 	$heliname = $text;
 	$helitype = get_active_label();
 	if (defined($helitype) && $heliname ne '') {
 		$confirm_page->set_text("\tType l'hélicoptère : $helitype\n\tNom de l'hélicoptère : $heliname\n");
-		$asswin->set_page_complete($confirm_page,1);
+		$oAssWin->set_page_complete($confirm_page,1);
 		resume_fill();
-		$asswin->signal_connect(apply	 => \&create_heli);
+		$oAssWin->signal_connect(apply	 => \&create_heli);
 		return 1;
 	} else {
 		$confirm_page->set_text("Erreur lors de la création");
@@ -176,7 +177,7 @@ sub confirm_fill {
 #rempli la page de resumé
 sub resume_fill {
 	my $heli = get_type_and_heli();
-	#$asswin->signal_connect(apply	 => \&do_close);
+	#$oAssWin->signal_connect(apply	 => \&do_close);
 	$resume_page->set_text("\tL'hélicoptère $heli->{nom}, de type $heli->{type} à été ajouté.\n Veuillez redemarrer l'application pour que les changements prennent effet.\n");
 }
 
@@ -227,7 +228,7 @@ sub gestion_write_combobox {
 	valid_entry();
 	return 1;
 	} else {
-	$asswin->set_page_complete($nom_page,0);
+	$oAssWin->set_page_complete($nom_page,0);
 	return 0;#aucun id actif
 	}
 	gestion_display_combobox();###########test#################
@@ -260,7 +261,7 @@ sub valid_nombre {
 }
 
 sub get_type_and_heli {
-	if ($asswin->get_page_complete($confirm_page)) {
+	if ($oAssWin->get_page_complete($confirm_page)) {
 		return {type => $helitype, nom => $heliname};
 	}
 }
@@ -268,7 +269,7 @@ sub get_type_and_heli {
 my $once = 0;
 #TODO: remplir l'erreur + trouver mieux que once
 sub create_heli {
-	if (!$asswin->get_page_complete($resume_page) && $once == 0) {
+	if (!$oAssWin->get_page_complete($resume_page) && $once == 0) {
 			my $base_dir = main::get_base_dir();
 			my $heli = get_type_and_heli();
 			my $heli_type_dos = Config::KeyFileManage::get_dossier_by_type($heli->{type});
@@ -290,9 +291,9 @@ sub create_heli {
 		if(import_assist($heli)) {
 			$heli->{type} = $typeheli;#on remet le vrai type
 			Config::KeyFileManage::add_helico($heli);
-			$asswin->set_page_complete($resume_page,1);
+			$oAssWin->set_page_complete($resume_page,1);
 			$once = 1;
-			$asswin->signal_connect(apply => \&do_close);
+			$oAssWin->signal_connect(apply => \&do_close);
 			return next_page();
 		} else {
 			warn "erreur\n";
@@ -316,7 +317,7 @@ sub do_close {
 }
 
 sub next_page {
-	$asswin->set_current_page($asswin->get_current_page()+1);
+	$oAssWin->set_current_page($oAssWin->get_current_page()+1);
 }
 
 sub prepare_next {
@@ -340,6 +341,6 @@ sub desactiver_page_courante {
 }
 
 sub gestion_activation_page_courante {
-	$asswin->set_page_complete($asswin->get_nth_page($asswin->get_current_page()), shift);
+	$oAssWin->set_page_complete($oAssWin->get_nth_page($oAssWin->get_current_page()), shift);
 }
 1;

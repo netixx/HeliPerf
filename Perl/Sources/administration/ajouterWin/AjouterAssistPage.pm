@@ -5,12 +5,15 @@ use Data::Dumper;
 
 use utf8;
 
-my $listetypeheli;
-my $oTreeViews;
+my $oListeTypeHeli;
 my $oTreeView;
-
+my $oAssWin;
 sub init {
-	$listetypeheli = shift;
+	$oListeTypeHeli = shift;
+}
+
+sub init_assistant {
+	$oAssWin = shift;
 }
 =pod
 @description
@@ -50,7 +53,7 @@ sub nom_page {
 	my $labtype = Gtk2::Label->new("Type de l'hélicoptère");
 	my $labnum = Gtk2::Label->new("Numéro de l'hélicoptère");
 	#combobox -> menu déroulant
-	my $combo = Gtk2::ComboBox->new_with_model($listetypeheli);
+	my $combo = Gtk2::ComboBox->new_with_model($oListeTypeHeli);
 	my $renderer = Gtk2::CellRendererText->new();
 	$combo->pack_start($renderer,0);
 	$combo->add_attribute($renderer,'text',ManageList::COL_LABEL);
@@ -116,7 +119,7 @@ sub adaptation_bdd_template {
 	if (!$oIterModele) {
 		return Gtk2::TreeView->new();
 	}
-		my $sModele = $listetypeheli->get($oIterModele, 1);
+		my $sModele = $oListeTypeHeli->get($oIterModele, 1);
 		$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
 	print Dumper($sModele);
 	#le super treeview d'Ambroise ici
@@ -149,6 +152,5 @@ sub resume_page {
 	my $lab = Gtk2::Label->new();
 	return $lab;
 }
-
 
 1;
