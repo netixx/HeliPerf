@@ -3,11 +3,11 @@ package administration::widgets::ListeOptionnels;
 new->($categories, $profils)
 ->get_categories_profils() renvoie ($categories, $profils)
 ->ajoute_groupe($notebook)
-->ajoute_item($item)
+->ajoute_item($notebook)
 
-->get_listecentrage 
-->get_listepresentpesee 
--> get_listeconfigbase 
+->get_listecentrage
+->get_listepresentpesee
+-> get_listeconfigbase
 renvoient des notebook
 
 _TREESTORES [ {treestore=>, nom => } , ..]
@@ -40,7 +40,7 @@ use constant COL_CONFIG_BASE => 11;
 
 #A accorder avec ci-dessus (dans le même ordre)
 use constant LISTE_COL_TYPES  => ('Glib::String', 'Glib::Int', 'Glib::Int',
-    	'Glib::Int', 'Glib::String', 'Glib::Boolean', 'Glib::Int', 'Glib::Boolean', 
+    	'Glib::Int', 'Glib::String', 'Glib::Boolean', 'Glib::Int', 'Glib::Boolean',
 	'Glib::Boolean', 'Glib::Int', 'Glib::Boolean', 'Glib::Boolean');
 
 use constant GRAS_NORMAL => 400;
@@ -114,7 +114,7 @@ sub new {
 	$this->{_BASE_ITEMS} = \@base_items;
 	$this->{_TREESTORES} = \@treestores;
 	return bless($this, $class);
-  
+
 }
 
 sub get_listecentrage {
@@ -148,12 +148,12 @@ sub get_liste {
 
 		my $entry = ['ligne', 'GTK_TARGET_SAME_WIDGET', 0];
 		$treeview->enable_model_drag_source( 'button1-mask', ['move', 'default'], $entry);
-		$treeview->enable_model_drag_dest(['default'],  $entry );	
-	
+		$treeview->enable_model_drag_dest(['default'],  $entry );
+
 		#cet iter est celui qui est couramment dragué. On l'initialise avec une valeur au pif
 		#pour pouvoir faire $drag_iter->set($niter) dans _drag_get
 		my $drag_iter = $treestore->get_iter_first;
-		
+
 		$treeview->signal_connect("drag_data_get", \&_drag_get, $drag_iter);
 		$treeview->signal_connect("drag_data_received", \&_drag_received, [$drag_iter, $this->{_BASE_ITEMS}]);
 		$treeview->signal_connect("drag_data_delete", \&_drag_delete, $drag_iter);
@@ -165,8 +165,8 @@ sub get_liste {
 		$scrolledwindow->add($treeview);
 		# On affiche les barres de défilement si nécessaire
 		$scrolledwindow->set_policy ('automatic', 'automatic');
-    
-	
+
+
 		$notebook->append_page ($scrolledwindow, $cat->{nom});
 
 		$scrolledwindow->show_all();
@@ -230,7 +230,7 @@ sub _create_treestore {
 		else {
 			$treestore->set($mainiter, COL_EST_ITEM, Glib::TRUE, COL_GRAS, GRAS_NORMAL);
 		}
-		
+
 	}
 
 	return $treestore;
@@ -242,14 +242,14 @@ sub get_categories_profils {
 	my $this = shift;
 	my @base = ();
 	my @base_items = ();
-	
+
 	# la première page est la config de base : on s'en tape
 	foreach my $cat (@$this->{_TREESTORES}) {
 		my $nom = $cat->{nom};
 		my $treestore = $cat->{treestore};
-		
+
 		my @tab_item = ();
-		
+
 		for (my $mainiter = $treestore->get_iter_first; $mainiter; $mainiter = $treestore->iter_next($mainiter)) {
 			my $mainitem = models::MainItem->new(
 				$treestore->get($mainiter, COL_BRAS, COL_MASSE, COL_NOM, COL_BRAS_L,
@@ -289,7 +289,7 @@ sub get_categories_profils {
 
 
 ##################################
-# 
+#
 # Callbacks
 #
 #
@@ -305,7 +305,7 @@ sub _drag_received {
 	my ($path, $position) = $treeview->get_dest_row_at_pos($x, $y);
 	my $treestore = $treeview->get_model;
 	my $niter;
-	
+
 	if ($position) {
 		my $iter  = $treestore->get_iter($path);
 		my $depth = $path->get_depth();
@@ -315,13 +315,13 @@ sub _drag_received {
 		if ($depth == 2 && $is_from_main_item){
 			$context->finish(Glib::FALSE, Glib::FALSE, $etime);
 			return;
-		}			
+		}
 
 		if ($position eq 'before') {
-			$niter = $treestore->insert_before(undef, $iter);				
+			$niter = $treestore->insert_before(undef, $iter);
 		}
 		elsif ($position eq 'after') {
-			$niter = $treestore->insert_after(undef, $iter);				
+			$niter = $treestore->insert_after(undef, $iter);
 		}
 		else {
 			#into-
@@ -329,7 +329,7 @@ sub _drag_received {
 			if($position eq 'into-or-before') {
 				if ($depth == 2) {
 					if (_is_drop_accepted($treeview, $drag_iter, $base_items)) {
-						$niter = $treestore->insert_before(undef, $iter);				
+						$niter = $treestore->insert_before(undef, $iter);
 					}
 					else {
 						$context->finish(Glib::FALSE, Glib::FALSE, $etime);
@@ -337,12 +337,12 @@ sub _drag_received {
 					}
 				}
 				elsif ($is_from_main_item || !$is_to_main_item) {
-					$niter = $treestore->insert_before(undef, $iter);				
+					$niter = $treestore->insert_before(undef, $iter);
 				}
 				else {
 					if (_is_drop_accepted($treeview, $drag_iter)) {
 						_add_iter($treestore, $iter, $drag_iter, $base_items);
-						$niter = $treestore->insert_before($iter, undef);				
+						$niter = $treestore->insert_before($iter, undef);
 					}
 					else {
 						$context->finish(Glib::FALSE, Glib::FALSE, $etime);
@@ -353,7 +353,7 @@ sub _drag_received {
 			else {#if ($position eq 'into-or-after') {
 				if ($depth == 2) {
 					if (_is_drop_accepted($treeview, $drag_iter, $base_items)) {
-						$niter = $treestore->insert_after(undef, $iter);				
+						$niter = $treestore->insert_after(undef, $iter);
 					}
 					else {
 						$context->finish(Glib::FALSE, Glib::FALSE, $etime);
@@ -361,12 +361,12 @@ sub _drag_received {
 					}
 				}
 				elsif ($is_from_main_item || !$is_to_main_item) {
-					$niter = $treestore->insert_after(undef, $iter);				
+					$niter = $treestore->insert_after(undef, $iter);
 				}
 				else {
 					if (_is_drop_accepted($treeview, $drag_iter, $base_items)) {
 						_add_iter($treestore, $iter, $drag_iter);
-						$niter = $treestore->insert_after($iter, undef);				
+						$niter = $treestore->insert_after($iter, undef);
 					}
 					else {
 						$context->finish(Glib::FALSE, Glib::FALSE, $etime);
@@ -397,7 +397,7 @@ sub _drag_received {
 				##foreach my $profil (@$liste_profils) {
 					##$str .= $profil->get_nom.", ";
 				##}
-				#my $dialog = Gtk2::MessageDialog->new (undef, 'modal', 'question', 'yes-no', 
+				#my $dialog = Gtk2::MessageDialog->new (undef, 'modal', 'question', 'yes-no',
 					#'Cet optionnel ne sera plus lié aux profils suivants : '.$str.'. Êtes-vous sûr de vouloir le déplacer ?');
 #
 				#if ($dialog->run() eq 'yes') {
@@ -440,7 +440,7 @@ sub _is_drop_accepted {
 	#foreach my $profil (@$liste_profils) {
 		#$str .= $profil->get_nom.", ";
 	#}
-	my $dialog = Gtk2::MessageDialog->new (undef, 'modal', 'question', 'yes-no', 
+	my $dialog = Gtk2::MessageDialog->new (undef, 'modal', 'question', 'yes-no',
 		'Cet optionnel ne sera plus lié aux profils suivants : '.$str.'. Êtes-vous sûr de vouloir le déplacer ?');
 	my $ret = $dialog->run();
 	$dialog->destroy();
@@ -493,7 +493,7 @@ sub _key_press {
 
 		if (scalar(@$liste_profils)) {
 			my $str = join ( ', ', map { $_->get_nom } @$liste_profils );
-			my $dialog = Gtk2::MessageDialog->new (undef, 'modal', 'question', 'yes-no', 
+			my $dialog = Gtk2::MessageDialog->new (undef, 'modal', 'question', 'yes-no',
 				'Cet optionnel est lié aux profils suivants : '.$str.'. Êtes-vous sûr de vouloir le supprimer ?');
 
 			if ($dialog->run() eq 'yes') {
@@ -571,7 +571,7 @@ sub _new_renderer {
 	$cellrendrer->signal_connect('edited',  $func);
 	#je sais pas trop ce que ça fait tiens
 	$cellrendrer->set(weight_set => Glib::TRUE);
-	
+
 	return $cellrendrer;
 }
 
@@ -590,7 +590,7 @@ sub _new_renderer_toggle {
 
 
 ###########
-# autres 
+# autres
 ##########"
 =pod
 @param $notebook
@@ -646,7 +646,7 @@ sub _copy_node {
 	}
 
 	$treestore->set($to, @arg);
-	
+
 	for (my $iter=$treestore->iter_children($from); $iter; $iter = $treestore->iter_next($iter)) {
 		my $toiter = $treestore->append($to);
 		_copy_node($treestore, $iter, $toiter);
@@ -661,7 +661,7 @@ sub _add_iter {
 	my ($bras, $masse) = calcul::Centrage::ajoute_masse($dest_bras  , $dest_masse, $from_bras , $from_masse);
 	my ($bras_l) =  calcul::Centrage::ajoute_masse($dest_bras_l, $dest_masse, $from_bras_l, $from_masse);
 
-	$treestore->set($dest_iter, COL_BRAS, $bras, COL_MASSE, $masse, COL_BRAS_L, $bras_l);	
+	$treestore->set($dest_iter, COL_BRAS, $bras, COL_MASSE, $masse, COL_BRAS_L, $bras_l);
 }
 
 
@@ -672,7 +672,7 @@ sub _remove_iter {
 	my ($bras, $masse) = calcul::Centrage::enleve_masse($dest_bras  , $dest_masse, $from_bras , $from_masse);
 	my ($bras_l) = calcul::Centrage::enleve_masse($dest_bras_l, $dest_masse, $from_bras_l, $from_masse);
 
-	$treestore->set($dest_iter, COL_BRAS, $bras, COL_MASSE, $masse, COL_BRAS_L, $bras_l);	
+	$treestore->set($dest_iter, COL_BRAS, $bras, COL_MASSE, $masse, COL_BRAS_L, $bras_l);
 }
 
 1;

@@ -5,12 +5,14 @@ use utf8;
 use File::Spec;
 use IO::Uncompress::Unzip qw(unzip $UnzipError);
 
-use Data::Dumper;
-use administration::ajouterWin::AjouterAssistPage;
 
 use constant PAGE_EDIT_BDD		=> 3;
 use constant PAGE_PRESENT_PESEE	=> 4;
 use constant PAGE_CONFIG_BASE	=> 5;
+
+use Data::Dumper;
+use administration::ajouterWin::AjouterAssistPage;
+
 
 my $listetypeheli;
 my $combo;
@@ -21,9 +23,6 @@ my $nom_page;
 my $resume_page;
 my $text;
 my $import = 0;
-my $oEditBddTemplate;
-my $oConfigBase;
-my $oPresentPesee;
 my $oMasse;
 my $oCentrage;
 
@@ -74,25 +73,25 @@ sub assist {
 	$oAssWin->set_page_complete($masse_centrage_page, 0);
 
 	#4ieme page-> étition de la base de donnée
-	$oEditBddTemplate = Gtk2::NoteBook->new();
+	my $oEditBddTemplate = administration::ajouterWin::AjouterAssistPage::layout_adaptation_bdd_template();
 	$oAssWin->append_page($oEditBddTemplate);
 	$oAssWin->set_page_title($oEditBddTemplate,"Édition de la base de donnée");
 	$oAssWin->set_page_type($oEditBddTemplate,'content');
-	$oAssWin->set_page_complete($oEditBddTemplate, 0);
+	$oAssWin->set_page_complete($oEditBddTemplate, 1);
 
 	#5ieme page -> choix des equipement présents en pesée
-	$oPresentPesee = Gtk2::NoteBook->new();
+	my $oPresentPesee = administration::ajouterWin::AjouterAssistPage::layout_choix_present_pesee();
 	$oAssWin->append_page($oPresentPesee);
 	$oAssWin->set_page_title($oPresentPesee,"Choix des équipement présents en pesée");
 	$oAssWin->set_page_type($oPresentPesee,'content');
-	$oAssWin->set_page_complete($oPresentPesee, 0);
+	$oAssWin->set_page_complete($oPresentPesee, 1);
 
 	#6ieme page -> choix de la configuration de base
-	$oConfigBase = Gtk2::NoteBook->new();
+	my $oConfigBase = administration::ajouterWin::AjouterAssistPage::layout_choix_config_base();
 	$oAssWin->append_page($oConfigBase);
 	$oAssWin->set_page_title($oConfigBase,"Choix de la configuration de base");
 	$oAssWin->set_page_type($oConfigBase,'content');
-	$oAssWin->set_page_complete($oConfigBase, 0);
+	$oAssWin->set_page_complete($oConfigBase, 1);
 
 	#page de confirmation
 	$confirm_page = administration::ajouterWin::AjouterAssistPage::confirm_page();
@@ -324,13 +323,13 @@ sub next_page {
 sub prepare_next {
 	my $oAssWin = shift;
 	my $nPage = $oAssWin->get_current_page();
-	print $nPage."\n";
 	if ($nPage == PAGE_EDIT_BDD) {
-		$oEditBddTemplate = administration::ajouterWin::AjouterAssistPage::adaptation_bdd_template($combo->get_active_iter());
+		administration::ajouterWin::AjouterAssistPage::adaptation_bdd_template($combo->get_active_iter());
+		$oAssWin->resize(800, 600);
 	} elsif ($nPage == PAGE_PRESENT_PESEE) {
-		$oConfigBase = administration::ajouterWin::AjouterAssistPage::choix_present_pesee();
+		administration::ajouterWin::AjouterAssistPage::choix_present_pesee();
 	} elsif ($nPage == PAGE_CONFIG_BASE) {
-		$oPresentPesee = administration::ajouterWin::AjouterAssistPage::choix_config_base();
+		administration::ajouterWin::AjouterAssistPage::choix_config_base();
 	}
 }
 
