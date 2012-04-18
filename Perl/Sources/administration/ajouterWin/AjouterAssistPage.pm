@@ -216,7 +216,7 @@ sub get_current_notebook {
 	return @NoteBooks[$oAssWin->get_current_page()];
 }
 
-sub ajouter_group_prox {
+sub ajouter_groupe_prox {
 	administration::widgets::ListeOptionnels::ajoute_groupe(get_current_notebook());
 }
 
