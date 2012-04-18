@@ -138,21 +138,28 @@ sub layout_adaptation_bdd_template {
 	$vbox->pack_start($hBoxBouton, 0, 0, 1);
 	return ($vbox);
 }
-
+my $CurrentModele = "";
 sub adaptation_bdd_template {
 	#on récupère le modèle de l'hélico précedement choisi ici
 	my $oIterModele = shift;
 	my $sModele = $oListeTypeHeli->get($oIterModele, 1);
 	$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
+	my $new = 0;
+	if ($sModele ne $CurrentModele) {
+		$CurrentModele = $sModele;
+		$new = 1;
+	}
 	# le super treeview d'Ambroise ici
 	if (!chdir(main::get_base_dir()."/helicos/$sModele/")) {
 		die(main::get_base_dir());
 	}
-	my $categories = file::Editeur::load(EDITEUR_FILE) || [];
-    my $profils = file::Profils::load(PROFILS_FILE) || [];
-
-	$oTreeView = administration::widgets::ListeOptionnels->new($categories, $profils);
-#	my $oTreeView = Gtk2::TreeView->new();
+	#print $NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_EDIT_BDD]->get_n_pages()."\n";
+	#print $new."\n";
+	if ($NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_EDIT_BDD]->get_n_pages() <= 0 || $new) {
+		my $categories = file::Editeur::load(EDITEUR_FILE) || [];
+		my $profils = file::Profils::load(PROFILS_FILE) || [];
+		$oTreeView = administration::widgets::ListeOptionnels->new($categories, $profils);
+	}
 	$oTreeView->get_listecentrage(get_current_notebook());
 }
 
