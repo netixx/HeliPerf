@@ -14,6 +14,7 @@ Charge la base de données de matos, construit un tableau de catégories d'item
 renvoie undef si erreur
 =cut
 #use constant COL_ID     => 0;
+#à accorder avec item_to_tab
 use constant COL_NOM         => 0;
 use constant COL_MASSE       => 1;
 use constant COL_BRAS        => 2;
