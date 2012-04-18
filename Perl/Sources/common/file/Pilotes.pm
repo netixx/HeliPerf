@@ -5,10 +5,7 @@ use strict;
 
 use LoadDat;
 
-use models::Categorie;
-use models::Item;
-use models::MainItem;
-use calcul::Id;
+use models::Pilote;
 
 =pod
 Charge la base de données de matos, construit un tableau de catégories d'item
@@ -17,6 +14,10 @@ renvoie undef si erreur
 use constant COL_TRIGRAMME   => 0;
 use constant COL_FONCTION    => 1;
 use constant COL_MASSE       => 2;
+sub _pilote_to_array {
+	my $pilote = shift;
+	return [ $pilote->get_trigramme, $pilote->get_fonction, $pilote->get_masse ];
+}
 
 
 sub load {
@@ -31,18 +32,19 @@ sub load {
 	
 	my @base_categories = ();
 
-	#foreach my $obj (@$base) {
-	{
-		my $obj = $base->[0];
-		my @tab_pilotes = ();
+	my $obj = $base->[0];
+	my @tab_pilotes = ();
 
-		foreach my $ligne (@{$obj->{contenu}}) {
-			push @tab_pilotes, { TRIGRAMME => $ligne[COL_TRIGRAMME],
-				FONCTION => $ligne[COL_FONCTION],
-				MASSE => $ligne[COL_MASSE] };
-
-		}
-		return \@tab_pilotes;
-		
+	foreach my $ligne (@{$obj->{contenu}}) {
+		push @tab_pilotes, models::Pilote->new($ligne[COL_MASSE], 0, $ligne[COL_TRIGRAMME], $ligne[COL_FONCTION]);
 	}
+
+	return \@tab_pilotes;
+}
+
+sub save {
+	my ($file, $pilotes) = @_;
+	my @tab = [ { titre => 'pilotes', contenu => map { _pilote_to_array($_) } $pilotes } ];
+	LoadDat::save($file, \@tab);
+	
 }
