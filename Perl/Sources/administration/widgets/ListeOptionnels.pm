@@ -595,7 +595,7 @@ sub _new_renderer_toggle {
 =pod
 @param $notebook
 =cut
-sub get_current_treeview {
+sub _get_current_treeview {
 	my $notebook = shift;
 	return $notebook->get_nth_page($notebook->get_current_page)->child;
 }
