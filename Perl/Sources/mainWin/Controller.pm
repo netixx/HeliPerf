@@ -53,6 +53,8 @@ use file::Config;
 use file::Helico;
 use file::Carburant;
 use file::Profils;
+
+use common::Arborescence;
 #pour exporter au format ods
 use Ods;
 #pour gérer les répertoires
@@ -183,7 +185,8 @@ sub set_helico {
 	my $heli_dos = $item_helico->{nom};
 	my $type_heli = $item_helico->{type};
 	my $type_heli_dos = Config::KeyFileManage::get_dossier_by_type($type_heli);
-	my $dir = File::Spec->catdir($base_dir, HELICOS_DIR, $type_heli_dos,$heli_dos);
+#	my $dir = File::Spec->catdir($base_dir, HELICOS_DIR, $type_heli_dos,$heli_dos);
+	my $dir = Arborescence::get_helico_dir($type_heli_dos, $heli_dos);
 	administration::Controller::set_helidir_current($dir,$base_dir);
 
 	#on se place dans le bon répertoire
