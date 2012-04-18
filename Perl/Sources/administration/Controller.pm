@@ -9,6 +9,7 @@ use administration::ajouterWin::AjouterAssist;
 use administration::exportWin::Export;
 use administration::importWin::Import;
 use administration::profilWin::Controller;
+use administration::modifierWin::Controller;
 use IO::Compress::Zip qw(zip $ZipError);
 
 use Data::Dumper;

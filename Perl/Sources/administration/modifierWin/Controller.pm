@@ -5,5 +5,7 @@ use utf8;
 
 
 sub init {
-	
+
 }
+
+1;

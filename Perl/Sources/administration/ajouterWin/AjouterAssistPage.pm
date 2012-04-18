@@ -5,10 +5,12 @@ use Data::Dumper;
 
 use utf8;
 
-my $rlistetypeheli;
+my $listetypeheli;
+my $oTreeViews;
+my $oTreeView;
 
 sub init {
-	$rlistetypeheli = shift;
+	$listetypeheli = shift;
 }
 =pod
 @description
@@ -48,7 +50,7 @@ sub nom_page {
 	my $labtype = Gtk2::Label->new("Type de l'hélicoptère");
 	my $labnum = Gtk2::Label->new("Numéro de l'hélicoptère");
 	#combobox -> menu déroulant
-	my $combo = Gtk2::ComboBox->new_with_model($$rlistetypeheli);
+	my $combo = Gtk2::ComboBox->new_with_model($listetypeheli);
 	my $renderer = Gtk2::CellRendererText->new();
 	$combo->pack_start($renderer,0);
 	$combo->add_attribute($renderer,'text',ManageList::COL_LABEL);
@@ -76,12 +78,49 @@ sub nom_page {
 	return ($vbox,$combo,$entry);
 }
 
+sub masse_et_centrage {
+	#labels
+	my $oLabTitre = Gtk2::Label->new("<big>Entrez la masse et le centrage de l'hélicoptère.</big>\nReportez ici les valeurs de la fiche de pesée");
+	$oLabTitre->set_use_markup(1);
+	$oLabTitre->set_justify('center');
+	my $oLabMasse = Gtk2::Label->new(" Masse de l'hélicoptère (en kg)   ");
+	my $oLabCentrage = Gtk2::Label->new(" Centrage (en mm)   ");
+	#Entrée pour la masse
+	my $oMasse = Gtk2::SpinButton->new(Gtk2::Adjustment->new(0, 0, 9999, 1, 0, 0), 1, 1);
+	$oMasse->signal_connect('value-changed' => \&administration::ajouterWin::AjouterAssist::valid_nombre);
+	#Entrée pour le centrage
+	my $oCentrage = Gtk2::SpinButton->new(Gtk2::Adjustment->new(0, 0, 9999, 1, 0, 0), 1, 1);
+	$oCentrage->signal_connect('value-changed' => \&administration::ajouterWin::AjouterAssist::valid_entry);
+	#création des boites
+	my $vbox = Gtk2::VBox->new(0,3);
+	my $hbox = Gtk2::HBox->new(0,3);
+	my $vbox1 = Gtk2::VBox->new(0,1);
+	my $vbox2 = Gtk2::VBox->new(0,1);
+	#on met les objets dans les boites
+	$vbox1->pack_start($oLabMasse,1,0,0);
+	$vbox1->pack_start($oMasse,1,0,0);
+
+	$vbox2->pack_start($oLabCentrage,1,0,0);
+	$vbox2->pack_start($oCentrage,1,0,0);
+
+	$hbox->pack_start($vbox1,0,0,2);
+	$hbox->pack_start($vbox2,0,0,2);
+	$vbox->pack_start($oLabTitre,1,0,1);
+	$vbox->pack_start($hbox,1,0,1);
+	return ($vbox,$oMasse,$oCentrage);
+}
 
 sub adaptation_bdd_template {
 	#on récupère le modèle de l'hélico précedement choisi ici
-	my $sModele = shift;
-	#die($sModele."\n");
+	my $oIterModele = shift;
+	if (!$oIterModele) {
+		return Gtk2::TreeView->new();
+	}
+		my $sModele = $listetypeheli->get($oIterModele, 1);
+		$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
+	print Dumper($sModele);
 	#le super treeview d'Ambroise ici
+	$oTreeView = administration::widget::ListeOptionnels->new();
 	my $oTreeView = Gtk2::TreeView->new();
 	return $oTreeView;
 }
