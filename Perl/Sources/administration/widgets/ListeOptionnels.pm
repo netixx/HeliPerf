@@ -118,19 +118,23 @@ sub new {
 }
 
 sub get_listecentrage {
-	return shift->get_liste(COL_NOM, COL_MASSE, COL_BRAS, COL_IMG);
+	my ($this, $notebook) = @_;
+	return $this->get_liste($notebook, COL_NOM, COL_MASSE, COL_BRAS, COL_IMG);
 }
 sub get_listepresentpesee {
-	return shift->get_liste(COL_NOM, COL_MASSE, COL_PRESENT_PESEE);
+	my ($this, $notebook) = @_;
+	return $this->get_liste($notebook, COL_NOM, COL_MASSE, COL_PRESENT_PESEE);
 }
 sub get_listeconfigbase {
-	return shift->get_liste(COL_NOM, COL_MASSE, COL_CONFIG_BASE, COL_DRAGABLE);
+	my ($this, $notebook) = @_;
+	return $this->get_liste($notebook, COL_NOM, COL_MASSE, COL_CONFIG_BASE, COL_DRAGABLE);
 }
 
 sub get_liste {
 	my $this = shift;
+#	my $notebook = Gtk2::Notebook->new;
+	my $notebook = shift;
 	my @listecols = @_;
-	my $notebook = Gtk2::Notebook->new;
 
 	######################################################
 	#
