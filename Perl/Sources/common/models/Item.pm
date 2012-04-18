@@ -16,16 +16,21 @@ use base qw(models::BaseItem);
 
 
 sub new {
-	my ($class, $bras, $masse, $nom, $bras_l, $img, $est_present_pesee, $dragable, $id) = @_;
+	my ($class, $bras, $masse, $nom, $bras_l, $img, $est_present_pesee, $dragable, $id, $est_config_base) = @_;
 	my $this = models::BaseItem->new($bras, $masse);
 	$this->{_ID} = $id;
 	$this->{_NOM} = $nom;
 	$this->{_IMG} = $img;
 	$this->{_BRAS_L} = $bras_l;
 	$this->{_PRESENT_PESEE} = $est_present_pesee;
+	$this->{_CONFIG_BASE} = $est_config_base;
 	$this->{_DRAGABLE} = $dragable;
 		#_NOM => $nom,_BRAS_L => $bras_l, _IMG => $img};
 	return bless ($this, $class);
+}
+
+sub is_config_base {
+	return shift->{_CONFIG_BASE};
 }
 
 sub set_id {

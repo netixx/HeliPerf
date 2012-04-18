@@ -1,7 +1,9 @@
 package administration::ajouterWin::AjouterAssistPage;
 
+use administration::widgets::ListeOptionnels;
 use strict;
 use Data::Dumper;
+use constants::File;
 
 use utf8;
 
@@ -87,8 +89,7 @@ sub masse_et_centrage {
 	$oLabTitre->set_use_markup(1);
 	$oLabTitre->set_justify('center');
 	my $oLabMasse = Gtk2::Label->new(" Masse de l'hélicoptère (en kg)   ");
-	my $oLabCentrage = Gtk2::Label->new(" Centrage (en mm)   ");
-	#Entrée pour la masse
+	my $oLabCentrage = Gtk2::Label->new(" Centrage (en mm)   "); #Entrée pour la masse
 	my $oMasse = Gtk2::SpinButton->new(Gtk2::Adjustment->new(0, 0, 9999, 1, 0, 0), 1, 1);
 	$oMasse->signal_connect('value-changed' => \&administration::ajouterWin::AjouterAssist::valid_nombre);
 	#Entrée pour le centrage
@@ -115,29 +116,36 @@ sub masse_et_centrage {
 
 sub adaptation_bdd_template {
 	#on récupère le modèle de l'hélico précedement choisi ici
-	my $oIterModele = shift;
-	if (!$oIterModele) {
-		return Gtk2::TreeView->new();
+#	my $oIterModele = shift;
+#	if (!$oIterModele) {
+#		return Gtk2::TreeView->new();
+#	}
+#		my $sModele = $oListeTypeHeli->get($oIterModele, 1);
+#		$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
+#	print Dumper($sModele);
+	# le super treeview d'Ambroise ici
+	if (!chdir(main::get_base_dir()."/helicos/EC135/")) {
+		die(main::get_base_dir());
 	}
-		my $sModele = $oListeTypeHeli->get($oIterModele, 1);
-		$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
-	print Dumper($sModele);
-	#le super treeview d'Ambroise ici
-	$oTreeView = administration::widget::ListeOptionnels->new();
-	my $oTreeView = Gtk2::TreeView->new();
-	return $oTreeView;
+
+	my $categories = file::Editeur::load(EDITEUR_FILE) || [];
+        my $profils = file::Profils::load(PROFILS_FILE) || [];
+
+	 $oTreeView = administration::widgets::ListeOptionnels->new($categories, $profils);
+#	my $oTreeView = Gtk2::TreeView->new();
+	return $oTreeView->get_listecentrage;
 }
 
 sub choix_present_pesee {
 	#le super treeview d'Ambroise ici
-	my $oTreeView = Gtk2::TreeView->new();
-	return $oTreeView;
+#	my $oTreeView = Gtk2::TreeView->new();
+	return $oTreeView->get_listepresentpesee;
 }
 
 sub choix_config_base {
 	#le super treeview d'Ambroise ici
-	my $oTreeView = Gtk2::TreeView->new();
-	return $oTreeView;
+#	my $oTreeView = Gtk2::TreeView->new();
+	return $oTreeView->get_listeconfigbase;
 }
 
 #page de confirmation

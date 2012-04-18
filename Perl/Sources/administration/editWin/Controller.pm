@@ -8,9 +8,9 @@ use file::Editeur;
 
 
 use constants::File;
-#use constant EDITEUR_FILE	=> 'editeur.dat';
-#use constant PROFILS_FILE => 'profils.dat';
-#use constant HELICO_FILE => 'helico.dat';
+use constant EDITEUR_FILE	=> 'editeur.dat';
+use constant PROFILS_FILE => 'profils.dat';
+use constant HELICO_FILE => 'helico.dat';
 
 my $win_name;
 
