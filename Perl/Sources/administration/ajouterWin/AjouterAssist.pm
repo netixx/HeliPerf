@@ -74,21 +74,21 @@ sub assist {
 	$oAssWin->set_page_complete($masse_centrage_page, 0);
 
 	#4ieme page-> étition de la base de donnée
-	$oEditBddTemplate = administration::ajouterWin::AjouterAssistPage::adaptation_bdd_template($combo->get_active_iter());
+	$oEditBddTemplate = Gtk2::NoteBook->new();
 	$oAssWin->append_page($oEditBddTemplate);
 	$oAssWin->set_page_title($oEditBddTemplate,"Édition de la base de donnée");
 	$oAssWin->set_page_type($oEditBddTemplate,'content');
 	$oAssWin->set_page_complete($oEditBddTemplate, 0);
 
 	#5ieme page -> choix des equipement présents en pesée
-	$oPresentPesee = administration::ajouterWin::AjouterAssistPage::choix_present_pesee();
+	$oPresentPesee = Gtk2::NoteBook->new();
 	$oAssWin->append_page($oPresentPesee);
 	$oAssWin->set_page_title($oPresentPesee,"Choix des équipement présents en pesée");
 	$oAssWin->set_page_type($oPresentPesee,'content');
 	$oAssWin->set_page_complete($oPresentPesee, 0);
 
 	#6ieme page -> choix de la configuration de base
-	$oConfigBase = administration::ajouterWin::AjouterAssistPage::choix_config_base();
+	$oConfigBase = Gtk2::NoteBook->new();
 	$oAssWin->append_page($oConfigBase);
 	$oAssWin->set_page_title($oConfigBase,"Choix de la configuration de base");
 	$oAssWin->set_page_type($oConfigBase,'content');
@@ -247,6 +247,7 @@ sub valid_entry {
 	}
 }
 
+#verfication des nombres entrés
 sub valid_nombre {
 	my $oEntree = shift;
 	my $nEntree = $oEntree->get_value();
@@ -323,6 +324,7 @@ sub next_page {
 sub prepare_next {
 	my $oAssWin = shift;
 	my $nPage = $oAssWin->get_current_page();
+	print $nPage."\n";
 	if ($nPage == PAGE_EDIT_BDD) {
 		$oEditBddTemplate = administration::ajouterWin::AjouterAssistPage::adaptation_bdd_template($combo->get_active_iter());
 	} elsif ($nPage == PAGE_PRESENT_PESEE) {

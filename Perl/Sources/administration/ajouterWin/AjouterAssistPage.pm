@@ -116,36 +116,34 @@ sub masse_et_centrage {
 
 sub adaptation_bdd_template {
 	#on récupère le modèle de l'hélico précedement choisi ici
-#	my $oIterModele = shift;
-#	if (!$oIterModele) {
-#		return Gtk2::TreeView->new();
-#	}
-#		my $sModele = $oListeTypeHeli->get($oIterModele, 1);
-#		$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
-#	print Dumper($sModele);
+	my $oIterModele = shift;
+	if (!$oIterModele) {
+		return Gtk2::TreeView->new();
+	}
+	my $sModele = $oListeTypeHeli->get($oIterModele, 1);
+	$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
 	# le super treeview d'Ambroise ici
-	if (!chdir(main::get_base_dir()."/helicos/EC135/")) {
+	if (!chdir(main::get_base_dir()."/helicos/$sModele/")) {
 		die(main::get_base_dir());
 	}
-
 	my $categories = file::Editeur::load(EDITEUR_FILE) || [];
-        my $profils = file::Profils::load(PROFILS_FILE) || [];
+    my $profils = file::Profils::load(PROFILS_FILE) || [];
 
-	 $oTreeView = administration::widgets::ListeOptionnels->new($categories, $profils);
+	$oTreeView = administration::widgets::ListeOptionnels->new($categories, $profils);
 #	my $oTreeView = Gtk2::TreeView->new();
-	return $oTreeView->get_listecentrage;
+	return $oTreeView->get_listecentrage($oAssWin->get_nth_page($oAssWin->get_current_page()));
 }
 
 sub choix_present_pesee {
 	#le super treeview d'Ambroise ici
 #	my $oTreeView = Gtk2::TreeView->new();
-	return $oTreeView->get_listepresentpesee;
+	return $oTreeView->get_listepresentpesee($oAssWin->get_nth_page($oAssWin->get_current_page()));
 }
 
 sub choix_config_base {
 	#le super treeview d'Ambroise ici
 #	my $oTreeView = Gtk2::TreeView->new();
-	return $oTreeView->get_listeconfigbase;
+	return $oTreeView->get_listeconfigbase($oAssWin->get_nth_page($oAssWin->get_current_page()));
 }
 
 #page de confirmation
