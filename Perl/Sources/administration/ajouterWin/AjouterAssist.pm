@@ -25,10 +25,11 @@ my $text;
 my $import = 0;
 my $oMasse;
 my $oCentrage;
-
+my $oNoteBook;
 sub assist {
+	$oNoteBook = administration::ajouterWin::widgets::OngletsMatos->new();
 	$listetypeheli = ManageList::construct_type();#construction de la liste des types d'hélico
-	administration::ajouterWin::AjouterAssistPage::init($listetypeheli);
+	administration::ajouterWin::AjouterAssistPage::init($listetypeheli, $oNoteBook);
 	$oAssWin = Gtk2::Assistant->new();
 	#definitiaons des callback fermeture, destruction et annuler
 	$oAssWin->signal_connect(close => \&do_close);
@@ -324,13 +325,14 @@ sub prepare_next {
 	my $oAssWin = shift;
 	my $nPage = $oAssWin->get_current_page();
 	if ($nPage == PAGE_EDIT_BDD) {
-		administration::ajouterWin::AjouterAssistPage::adaptation_bdd_template($combo->get_active_iter());
+		administration::ajouterWin::AjouterAssistPage::chargement_type_helico($combo->get_active_iter());
 		$oAssWin->resize(800, 600);
-	} elsif ($nPage == PAGE_PRESENT_PESEE) {
-		administration::ajouterWin::AjouterAssistPage::choix_present_pesee();
-	} elsif ($nPage == PAGE_CONFIG_BASE) {
-		administration::ajouterWin::AjouterAssistPage::choix_config_base();
 	}
+	#elsif ($nPage == PAGE_PRESENT_PESEE) {
+	#	administration::ajouterWin::AjouterAssistPage::choix_present_pesee();
+	#} elsif ($nPage == PAGE_CONFIG_BASE) {
+	#	administration::ajouterWin::AjouterAssistPage::choix_config_base();
+	#}
 }
 
 sub activer_page_courante {
@@ -344,4 +346,5 @@ sub desactiver_page_courante {
 sub gestion_activation_page_courante {
 	$oAssWin->set_page_complete($oAssWin->get_nth_page($oAssWin->get_current_page()), shift);
 }
+
 1;

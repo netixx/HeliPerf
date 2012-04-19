@@ -60,3 +60,6 @@ sub get_carburant_path {
 sub get_profils_path {
 	return File::Spec->catfile(get_helico_dir(@_), PROFILS_FILE);
 }
+
+
+1;
