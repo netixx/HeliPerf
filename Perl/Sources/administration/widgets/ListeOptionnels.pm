@@ -132,8 +132,19 @@ sub get_listeconfigbase {
 
 sub get_liste {
 	my $this = shift;
-#	my $notebook = Gtk2::Notebook->new;
 	my $notebook = shift;
+
+	if ($notebook) {
+		# Suppression des onglets déjà présents s'il y en a
+		my $n = $notebook->get_n_pages;
+		for (my $j = 0; $j < $n; $j++) {
+			$notebook->remove_page(-1);
+		}
+	}
+	else {
+	 	$notebook = Gtk2::Notebook->new;
+	}
+	
 	my @listecols = @_;
 
 	######################################################
