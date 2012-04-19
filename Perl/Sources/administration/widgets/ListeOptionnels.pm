@@ -47,6 +47,7 @@ use constant GRAS_NORMAL => 400;
 use constant GRAS_MAIN   => 800;
 
 use constant INVALID_ID => -1;
+######## FONCTIONS DEPRECACTED
 
 ##########################
 #
