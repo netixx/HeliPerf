@@ -26,7 +26,7 @@ use Arborescence;
 #recupere le répertoire courant du script
 #deprecaated
 sub get_base_dir {
-    return Arborescence::get_base_dir
+    return Arborescence::get_app_dir
 }
 
 use Config::KeyFileManage;

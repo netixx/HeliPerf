@@ -88,7 +88,7 @@ sub generate_zipzip {
   my $typehelicos = Config::KeyFileManage::get_typehelicos();
   foreach my $typehelico (@$typehelicos) {
     my $typedir = File::Spec->catdir($base_dir,'helicos',$typehelico->{dossier});
-    chdir $typedir or warn "Echec du changement de dossier";
+    chdir $typedir or warn "Echec du changement de dossier $typedir";
     my $pathzip = File::Spec->catfile($base_dir,'tmp',$typehelico->{dossier}.'zip.zip');
     zip [<*.dat>] =>  $pathzip or GenericWin::erreur_msg([['erreurs','exporter_zip']]);
   }

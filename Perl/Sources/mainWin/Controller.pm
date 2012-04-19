@@ -54,7 +54,7 @@ use file::Helico;
 use file::Carburant;
 use file::Profils;
 
-use common::Arborescence;
+use Arborescence;
 #pour exporter au format ods
 use Ods;
 #pour gérer les répertoires

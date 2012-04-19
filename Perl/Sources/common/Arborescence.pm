@@ -9,7 +9,7 @@ data/pilotes.dat
 use File::Spec;
 use FindBin qw($RealBin);
 
-sub get_base_dir {
+sub get_app_dir {
 	return $RealBin;
 #	return main::get_base_dir;
 }
