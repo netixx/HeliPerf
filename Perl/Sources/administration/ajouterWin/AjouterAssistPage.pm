@@ -11,9 +11,11 @@ my $oListeTypeHeli;
 my $oTreeView;
 my $oAssWin;
 my @NoteBooks;
+my $oNoteBooks;
 
 sub init {
 	$oListeTypeHeli = shift;
+	$oNoteBooks = shift;
 }
 
 sub init_assistant {
@@ -23,7 +25,7 @@ sub init_assistant {
 @description
 	construit la premiere page
 @return
-	1)GtkLabel -> le label contenant le texte à afficher
+	1)GtkVbox -> le label contenant le texte à afficher
 =cut
 sub intro_page {
 	my $lab = Gtk2::Label->new("<big><b>\tBienvenue dans l'assistant d'ajout d'un hélicoptère</b></big>\n\tCliquez sur suivant pour continuer\n");#création du label
@@ -85,6 +87,7 @@ sub nom_page {
 	return ($vbox,$combo,$entry);
 }
 
+#page entrée de la masse et du centrage de l'hélicoptère
 sub masse_et_centrage {
 	#labels
 	my $oLabTitre = Gtk2::Label->new("<big>Entrez la masse et le centrage de l'hélicoptère.</big>\nReportez ici les valeurs de la fiche de pesée");
@@ -116,11 +119,12 @@ sub masse_et_centrage {
 	return ($vbox,$oMasse,$oCentrage);
 }
 
+#page de modification de la base de donnée
 sub layout_adaptation_bdd_template {
 	#Element utiles
 	my $oLabTitre = Gtk2::Label->new("Vérifiez et corrigez les informations fournies.");
 	$oLabTitre->set_justify('center');
-    $NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_EDIT_BDD] = Gtk2::Notebook->new();
+    my $oNote = $oNoteBooks->get_notebook_centrage();
 	#boutons
 	my $oButRegroup = Gtk2::Button->new_with_label('Ajouter un regrouppement');
 	$oButRegroup->signal_connect(clicked => \&ajouter_groupe_prox);
@@ -134,39 +138,36 @@ sub layout_adaptation_bdd_template {
 	$hBoxBouton->pack_start($oButAdd, 1, 0, 1);
 	#on met les objets dans les boites
 	$vbox->pack_start($oLabTitre, 0, 0, 1);
-	$vbox->pack_start($NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_EDIT_BDD], 1, 1, 1);
+	$vbox->pack_start($oNote, 1, 1, 1);
 	$vbox->pack_start($hBoxBouton, 0, 0, 1);
 	return ($vbox);
 }
-my $CurrentModele = "";
-sub adaptation_bdd_template {
-	#on récupère le modèle de l'hélico précedement choisi ici
-	my $oIterModele = shift;
+
+#chargement du type d'hélico
+sub chargement_type_helico {
+	my $oIter = shift;
 	my $sModele = $oListeTypeHeli->get($oIterModele, 1);
 	$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
-	my $new = 0;
-	if ($sModele ne $CurrentModele) {
-		$CurrentModele = $sModele;
-		$new = 1;
-	}
-	# le super treeview d'Ambroise ici
-	if (!chdir(main::get_base_dir()."/helicos/$sModele/")) {
-		die(main::get_base_dir());
-	}
-	#print $NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_EDIT_BDD]->get_n_pages()."\n";
-	#print $new."\n";
-	if ($NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_EDIT_BDD]->get_n_pages() <= 0 || $new) {
-		my $categories = file::Editeur::load(EDITEUR_FILE) || [];
-		my $profils = file::Profils::load(PROFILS_FILE) || [];
-		$oTreeView = administration::widgets::ListeOptionnels->new($categories, $profils);
-	}
-	$oTreeView->get_listecentrage(get_current_notebook());
+	$oNoteBooks->set_type_appareil($sModele);
 }
 
+#sub adaptation_bdd_template {
+#	#on récupère le modèle de l'hélico précedement choisi ici
+#	my $oIterModele = shift;
+#	my $sModele = $oListeTypeHeli->get($oIterModele, 1);
+#	$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
+#	# le super treeview d'Ambroise ici
+#	if (!chdir(main::get_base_dir()."/helicos/$sModele/")) {
+#		die(main::get_base_dir());
+#	}
+#
+#}
+
+#configuration du choix des éléments présents lors de la pesée
 sub layout_choix_present_pesee {
 	my $oLabTitre = Gtk2::Label->new("Cochez les éléments présents lors de la pesée de l'appareil.");
 	$oLabTitre->set_justify('center');
-    $NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_PRESENT_PESEE] = Gtk2::Notebook->new();
+	my $oNote = $oNotebooks->get_notebook_present_pesee();
 	#boites
 	my $vbox = Gtk2::VBox->new(0,3);
 	#on met les objets dans les boites
@@ -174,16 +175,17 @@ sub layout_choix_present_pesee {
 	$vbox->pack_start($NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_PRESENT_PESEE], 1, 1, 1);
 	return ($vbox);
 }
+#
+#sub choix_present_pesee {
+#	#le super treeview d'Ambroise ici
+#		#$oTreeView->get_listepresentpesee(get_current_notebook());
+#}
 
-sub choix_present_pesee {
-	#le super treeview d'Ambroise ici
-	$oTreeView->get_listepresentpesee(get_current_notebook());
-}
-
+#construction de la page de détermination de la configuration de base
 sub layout_choix_config_base {
 	my $oLabTitre = Gtk2::Label->new("Cochez les éléments qui ne sont pas enlevables de l'appareil.");
 	$oLabTitre->set_justify('center');
-    $NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_CONFIG_BASE] = Gtk2::Notebook->new();
+    my $Note = $oNoteBooks->get_notebook_configbase();
 	#boites
 	my $oLabMassePrefix = Gtk2::Label->new("Masse à vide équipée : ");
 	my $oLabMasseValue = Gtk2::Label->new("0");
@@ -195,15 +197,15 @@ sub layout_choix_config_base {
 	my $vbox = Gtk2::VBox->new(0,3);
 	#on met les objets dans les boites
 	$vbox->pack_start($oLabTitre, 0, 0, 1);
-	$vbox->pack_start($NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_CONFIG_BASE], 1, 1, 1);
+	$vbox->pack_start($Note, 1, 1, 1);
 	$vbox->pack_start($hbox, 0, 0, 1);
 	return ($vbox);
 }
 
-sub choix_config_base {
-	#le super treeview d'Ambroise ici
-	$oTreeView->get_listeconfigbase(get_current_notebook());
-}
+#
+#sub choix_config_base {
+#	#$oTreeView->get_listeconfigbase(get_current_notebook());
+#}
 
 #page de confirmation
 sub confirm_page {
@@ -219,10 +221,11 @@ sub resume_page {
 }
 
 
-sub get_current_notebook {
-	return @NoteBooks[$oAssWin->get_current_page()];
-}
+#sub get_current_notebook {
+#	return @NoteBooks[$oAssWin->get_current_page()];
+#}
 
+#méthodes proxiées
 sub ajouter_groupe_prox {
 	administration::widgets::ListeOptionnels::ajoute_groupe(get_current_notebook());
 }
