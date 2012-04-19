@@ -18,13 +18,15 @@ use Gtk2 '-init';
 use Glib;
 
 use utf8;
-use FindBin qw($RealBin);
 use File::Spec;
 use File::Path;
 
+use Arborescence;
+
 #recupere le répertoire courant du script
+#deprecaated
 sub get_base_dir {
-    return $RealBin;
+    return Arborescence::get_base_dir
 }
 
 use Config::KeyFileManage;
