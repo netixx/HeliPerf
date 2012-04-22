@@ -22,7 +22,7 @@ use models::Categorie;
 
 use strict;
 
-use constant ONGLET_CONFIGBASE_NAME => 'Configuration de base';
+#use constant ONGLET_CONFIGBASE_NAME => 'Configuration de base';
 # Numéro de colonnes des attributs dans le treestore
 use constant COL_NOM           => 0;
 use constant COL_MASSE         => 1;
@@ -204,7 +204,6 @@ sub scrolled_window {
 }
 
 
-######## FONCTIONS DEPRECACTED
 
 ##########################
 #
@@ -215,21 +214,23 @@ sub scrolled_window {
 # c'est mal foutu certes.
 #Bouton ajouter un regoupement (mainitem) cliqué
 =pod
-@param $notebook
+@param $treeview
 =cut
 sub ajoute_groupe {
 #	my $this = shift;
-	my $treeview = _get_current_treeview(shift);
+#	my $treeview = _get_current_treeview(shift);
+	my $treeview = shift;
 	my $treestore = $treeview->get_model;
 	my $iter = _append_mainitem($treestore);
 	_start_edit_path($treeview, $treestore->get_path($iter));
 }
 
 =pod
-@param $notebook
+@param $treeview
 =cut
 sub ajoute_item {
-	my $treeview = _get_current_treeview(shift);
+#	my $treeview = _get_current_treeview(shift);
+	my $treeview = shift;
 	my $treestore = $treeview->get_model;
 	my $iter = _append_item($treestore);
 	_start_edit_path($treeview, $treestore->get_path($iter));
@@ -592,13 +593,6 @@ sub _new_renderer_toggle {
 ###########
 # autres
 ##########"
-=pod
-@param $notebook
-=cut
-sub _get_current_treeview {
-	my $notebook = shift;
-	return $notebook->get_nth_page($notebook->get_current_page)->child;
-}
 
 #lancer l'édition automatique lors du click sur les boutons (cf ajoute_item)
 sub _start_edit_path {
