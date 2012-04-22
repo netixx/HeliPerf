@@ -39,9 +39,9 @@ Si $sHelico n'est pas fourni, le dossier et celui du type d'hélico
 sub get_helico_dir {
 	my ($sTypeHelico, $sHelico) = @_;
 
-	my $sDir = File::Spec->catdir(get_base_dir, HELICOS_DIR, $sTypeHelico);
+	my $sDir = File::Spec->catdir(get_app_dir, HELICOS_DIR, $sTypeHelico);
 
-	my @dir = (get_base_dir, HELICOS_DIR, $sTypeHelico);
+	my @dir = (get_app_dir, HELICOS_DIR, $sTypeHelico);
 	push @dir, $sHelico if ($sHelico);
 
 	return File::Spec->catdir(@dir);
@@ -49,6 +49,10 @@ sub get_helico_dir {
 
 sub get_helico_path {
 	return File::Spec->catfile(get_helico_dir(@_), HELICO_FILE);
+}
+
+sub get_categories_path {
+	return File::Spec->catfile(get_helico_dir(@_), EDITEUR_FILE);
 }
 
 sub get_carburant_path {
