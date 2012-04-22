@@ -10,12 +10,12 @@ use utf8;
 my $oListeTypeHeli;
 my $oTreeView;
 my $oAssWin;
-my @NoteBooks;
-my $oNoteBooks;
+my @Notebooks;
+my $oNotebooks;
 
 sub init {
 	$oListeTypeHeli = shift;
-	$oNoteBooks = shift;
+	$oNotebooks = shift;
 }
 
 sub init_assistant {
@@ -124,7 +124,7 @@ sub layout_adaptation_bdd_template {
 	#Element utiles
 	my $oLabTitre = Gtk2::Label->new("Vérifiez et corrigez les informations fournies.");
 	$oLabTitre->set_justify('center');
-    my $oNote = $oNoteBooks->get_notebook_centrage();
+    my $oNote = $oNotebooks->get_notebook_centrage();
 	#boutons
 	my $oButRegroup = Gtk2::Button->new_with_label('Ajouter un regrouppement');
 	$oButRegroup->signal_connect(clicked => \&ajouter_groupe_prox);
@@ -145,10 +145,10 @@ sub layout_adaptation_bdd_template {
 
 #chargement du type d'hélico
 sub chargement_type_helico {
-	my $oIter = shift;
+	my $oIterModele = shift;
 	my $sModele = $oListeTypeHeli->get($oIterModele, 1);
 	$sModele = Config::KeyFileManage::get_dossier_by_type($sModele);
-	$oNoteBooks->set_type_appareil($sModele);
+	$oNotebooks->set_type_appareil($sModele);
 }
 
 #sub adaptation_bdd_template {
@@ -172,7 +172,8 @@ sub layout_choix_present_pesee {
 	my $vbox = Gtk2::VBox->new(0,3);
 	#on met les objets dans les boites
 	$vbox->pack_start($oLabTitre, 0, 0, 1);
-	$vbox->pack_start($NoteBooks[administration::ajouterWin::AjouterAssist::PAGE_PRESENT_PESEE], 1, 1, 1);
+#	$vbox->pack_start($Notebooks[administration::ajouterWin::AjouterAssist::PAGE_PRESENT_PESEE], 1, 1, 1);
+	$vbox->pack_start($oNote, 1, 1, 1);
 	return ($vbox);
 }
 #
@@ -185,7 +186,7 @@ sub layout_choix_present_pesee {
 sub layout_choix_config_base {
 	my $oLabTitre = Gtk2::Label->new("Cochez les éléments qui ne sont pas enlevables de l'appareil.");
 	$oLabTitre->set_justify('center');
-    my $Note = $oNoteBooks->get_notebook_configbase();
+    my $Note = $oNotebooks->get_notebook_configbase();
 	#boites
 	my $oLabMassePrefix = Gtk2::Label->new("Masse à vide équipée : ");
 	my $oLabMasseValue = Gtk2::Label->new("0");
@@ -222,7 +223,7 @@ sub resume_page {
 
 
 #sub get_current_notebook {
-#	return @NoteBooks[$oAssWin->get_current_page()];
+#	return @Notebooks[$oAssWin->get_current_page()];
 #}
 
 #méthodes proxiées

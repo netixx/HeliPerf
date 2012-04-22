@@ -12,6 +12,7 @@ use constant PAGE_CONFIG_BASE	=> 5;
 
 use Data::Dumper;
 use administration::ajouterWin::AjouterAssistPage;
+use administration::ajouterWin::widgets::OngletsMatos;
 
 
 my $listetypeheli;
