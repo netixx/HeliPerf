@@ -9,7 +9,7 @@ data/pilotes.dat
 use File::Spec;
 use FindBin qw($RealBin);
 
-sub get_base_dir {
+sub get_app_dir {
 	return $RealBin;
 #	return main::get_base_dir;
 }
@@ -32,8 +32,6 @@ use constant HELICOS_DIR => 'helicos';
 sub get_config_path {
 }
 
-sub get_config_path {
-}
 
 =pod
 Si $sHelico n'est pas fourni, le dossier et celui du type d'hélico
@@ -60,6 +58,5 @@ sub get_carburant_path {
 sub get_profils_path {
 	return File::Spec->catfile(get_helico_dir(@_), PROFILS_FILE);
 }
-
 
 1;
