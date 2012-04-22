@@ -228,10 +228,10 @@ sub resume_page {
 
 #méthodes proxiées
 sub ajouter_groupe_prox {
-	administration::widgets::ListeOptionnels::ajoute_groupe(get_current_notebook());
+	administration::widgets::ajouterWin::OngletsMatos::ajoute_groupe(get_current_notebook());
 }
 
 sub ajouter_item_prox {
-	administration::widgets::ListeOptionnels::ajoute_item(get_current_notebook());
+	administration::widgets::ajouterWin::OngletsMatos::ajoute_item(get_current_notebook());
 }
 1;

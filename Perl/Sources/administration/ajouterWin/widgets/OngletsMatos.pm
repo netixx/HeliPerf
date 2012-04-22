@@ -3,7 +3,6 @@ package administration::ajouterWin::widgets::OngletsMatos;
 use Arborescence;
 
 sub new {
-#	calcul::Id::auto_set_categories(\@base);
 	my $class = shift;
 	my $this = { _N_CENTRAGE    => Gtk2::Notebook->new,
 	             _N_CONFIGBASE  => Gtk2::Notebook->new,
@@ -116,6 +115,28 @@ sub get_treeview_from_tab {
 sub get_label_from_tab {
 	my ($notebook, $page) = @_;
 	return $notebook->get_tab_label_text($notebook->get_nth_page($page));
+}
+
+=pod
+@param $notebook
+=cut
+sub ajoute_groupe {
+	administration::ajouterWin::ajoute_group(_get_current_treeview(@_));
+}
+
+=pod
+@param $notebook
+=cut
+sub ajoute_item {
+	administration::ajouterWin::ajoute_item(_get_current_treeview(@_));
+}
+
+=pod
+@param $notebook
+=cut
+sub _get_current_treeview {
+	my $notebook = shift;
+	return $notebook->get_nth_page($notebook->get_current_page)->child;
 }
 
 1;
