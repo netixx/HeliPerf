@@ -34,8 +34,3 @@ Siège copilote	12	2428	-586	siege_solo_front_nocolor.png	1	1
 Siège Passager Bas dans FD FLIR RH	11	3985	0	no_img.png	1	1
 Siège Passafer Bas agFD LJ	11	3180	0	no_img.png	0	1
 Banquette Troop	33	4400	0	no_img.png	1	1
-[Personnel]
-Pilote	90	2233	586	siege_solo_front_flashgreen.png	0	1
-Copilote	90	2233	-586	siege_solo_front_soberdarkblue.png	0	1
-Passager 1	90	4200	586	no_img.png	0	1
-Passager 2	90	4200	586	no_img.png	0	1

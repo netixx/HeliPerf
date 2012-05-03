@@ -1,5 +1,3 @@
-ajouter colonne config de base dans les équipements
-
 mettre l'echelle sur le graphe
 rappeler les coordonnées du point sur le graphe
 

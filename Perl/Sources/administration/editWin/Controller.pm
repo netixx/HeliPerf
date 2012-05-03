@@ -97,4 +97,17 @@ sub add_group {
 	administration::editWin::widgets::OngletsMatos::ajoute_groupe;
 }
 
+
+#fonctions a trier etc.
+#importe d'apres un dossier
+sub import_assist {
+		my $heli = shift;
+	if ( administration::importWin::Import::extraire($heli) ) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+
 1;

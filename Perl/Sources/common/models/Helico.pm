@@ -104,4 +104,10 @@ sub get_schemaoffsetpixy {
 sub get_icone {
 	return shift->{_ICONE};
 }
+
+
+sub sauvegarder {
+
+}
+
 1;

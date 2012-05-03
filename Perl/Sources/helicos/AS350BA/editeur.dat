@@ -20,16 +20,7 @@ Hache de Secours	1	1545	0	no_img.png	0	1
 Porte et Portillon	14	1942	0	no_img.png	0	1
 Batterie	17	3988	0	no_img.png	0	1
 Double Commande	2	1130	0	no_img.png	0	1
-[personnels]
-Pilotes	90	1550	360	siege_solo_front_soberdarkblue.png	0	1
-Copilote	90	1550	-360	siege_solo_front_soberblue.png	0	1
-4Passager 1	90	2540	-620	siege_solo_front_flashyellow.png	0	1
-4Passager 2	90	2540	-200	siege_solo_front_flashgreen.png	0	1
-4Passager 3	90	2540	200	siege_solo_front_sobergreen.png	0	1
-4Passager 4	90	2540	620	siege_solo_front_soberpink.png	0	1
-3Passager 1	90	2540	-540	siege_solo_front_flashyellow.png	0	1
-3Passager 2	90	2540	0	siege_solo_front_flashgreen.png	0	1
-3Passager 3	90	2540	540	siege_solo_front_flash.png	0	1
+
 [sièges]
 Banquette arrière 4 places	21	2600	0	no_img.png	0	1
 Banquette arrière	3	26	2580	siege_triple_front_nocolor.png	0	1

@@ -27,6 +27,8 @@ my $import = 0;
 my $oMasse;
 my $oCentrage;
 my $oNoteBook;
+my $oHelico;
+
 sub assist {
 	$oNoteBook = administration::ajouterWin::widgets::OngletsMatos->new();
 	$listetypeheli = ManageList::construct_type();#construction de la liste des types d'hélico
@@ -304,15 +306,7 @@ sub create_heli {
 	}
 }
 
-#importe d'apres un dossier
-sub import_assist {
-		my $heli = shift;
-	if ( administration::importWin::Import::extraire($heli) ) {
-		return 1;
-	} else {
-		return 0;
-	}
-}
+
 
 sub do_close {
 	shift->destroy();
